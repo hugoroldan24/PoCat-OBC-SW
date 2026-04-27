@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
 # Load toolchain
-set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/cmake/toolchain.cmake)
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/toolchain.cmake)
+
+# Set project root
+get_filename_component(PROJECT_ROOT "${CMAKE_CURRENT_LIST_DIR}/.." ABSOLUTE)
 
 project(pocat_moon_sw)
 set(PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src)
@@ -19,8 +22,8 @@ set(CPU_PARAMETERS
     -mfpu=fpv4-sp-d16
     -mfloat-abi=hard)
 
-set(STARTUP_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/Core/Startup/startup_stm32mp157facx.s)
-set(MCU_LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/cmake/STM32MP157FACX_RAM.ld)
+set(STARTUP_SCRIPT ${PROJECT_ROOT}/Core/Startup/startup_stm32mp157facx.s)
+set(MCU_LINKER_SCRIPT ${PROJECT_ROOT}/STM32MP157FACX_RAM.ld)
 
 set(EXECUTABLE ${CMAKE_PROJECT_NAME}.elf)
 enable_language(C ASM CXX)
@@ -34,33 +37,35 @@ set(CMAKE_CXX_STANDARD 20) # changed from 17 to 20 (radiolib is in c++20)
 # Include folders
 
 set(CUBEMX_INCLUDE_DIRECTORIES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32MP1xx_HAL_Driver/Inc
-    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32MP1xx_HAL_Driver/Inc/Legacy
-    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Device/ST/STM32MP1xx/Include
-    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Include
+    ${PROJECT_ROOT}/Drivers/STM32MP1xx_HAL_Driver/Inc
+    ${PROJECT_ROOT}/Drivers/STM32MP1xx_HAL_Driver/Inc/Legacy
+    ${PROJECT_ROOT}/Drivers/CMSIS/Device/ST/STM32MP1xx/Include
+    ${PROJECT_ROOT}/Drivers/CMSIS/Include
 )
 
 set(PROJECT_INCLUDE_DIRECTORIES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/
+    ${PROJECT_ROOT}/Core/Inc/
+    ${PROJECT_ROOT}/Application/
+    ${PROJECT_ROOT}/Application/Services/Events
+    ${PROJECT_ROOT}/Application/Services/Events/Handlers
+    ${PROJECT_ROOT}/Application/Services/Manager
+    ${PROJECT_ROOT}/Application/Subsystems
+    ${PROJECT_ROOT}/Application/Utils
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Common
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Hal
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Interrupts
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Subsystem
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Tasks
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Utils
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Utils/Radiolib
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Subsystems
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Semtech/Inc
 )
 
 set(FREERTOS_INCLUDE_DIRECTORIES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/CMSIS_RTOS
-    ${CMAKE_CURRENT_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F
+    ${PROJECT_ROOT}/Middlewares/Third_Party/FreeRTOS/include
+    ${PROJECT_ROOT}/Middlewares/Third_Party/FreeRTOS/CMSIS_RTOS
+    ${PROJECT_ROOT}/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F
 )
 
 set(RADIOLIB_INCLUDE_DIRECTORIES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/RadioLib/src
+    ${PROJECT_ROOT}/Core/Inc/RadioLib/src
 )
 	
 # Gather sources #MIRAR
@@ -69,11 +74,11 @@ set(RADIOLIB_INCLUDE_DIRECTORIES
 #)
 
 file(GLOB STM32_HAL_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32MP1xx_HAL_Driver/Src/*.c
+    ${PROJECT_ROOT}/Drivers/STM32MP1xx_HAL_Driver/Src/*.c
 )
 
 file(GLOB STM32_CMSIS_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Device/ST/STM32MP1xx/Source/*.c
+    ${PROJECT_ROOT}/Drivers/CMSIS/Device/ST/STM32MP1xx/Source/*.c
 )
 
 set(STM32CUBEMX_SOURCES
@@ -82,12 +87,13 @@ set(STM32CUBEMX_SOURCES
 )
 
 file(GLOB_RECURSE PROJECT_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Semtech/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/Utils/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/Utils/Radiolib/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/Subsystems/*.c
+    ${PROJECT_ROOT}/Core/Src/*.c
+    ${PROJECT_ROOT}/Application/Src/*.c
+    ${PROJECT_ROOT}/Application/Src/Services/Events/*.c
+    ${PROJECT_ROOT}/Application/Src/Services/Events/Handlers/*.c
+    ${PROJECT_ROOT}/Application/Src/Services/Manager/*.c
+    ${PROJECT_ROOT}/Application/Src/Subsystems/*.c
+    ${PROJECT_ROOT}/Application/Src/Utils/*.c
 )
 
 #file(GLOB_RECURSE FREERTOS_SOURCES
@@ -95,15 +101,15 @@ file(GLOB_RECURSE PROJECT_SOURCES
 #)
 
 file(GLOB FREERTOS_KERNEL_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/*.c
+    ${PROJECT_ROOT}/Middlewares/Third_Party/FreeRTOS/*.c
 )
 
 file(GLOB FREERTOS_PORT_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/*.c
+    ${PROJECT_ROOT}/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/*.c
 )
 
 file(GLOB FREERTOS_CMSIS_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Middlewares/Third_Party/FreeRTOS/CMSIS_RTOS/*.c
+    ${PROJECT_ROOT}/Middlewares/Third_Party/FreeRTOS/CMSIS_RTOS/*.c
 )
 
 set(FREERTOS_SOURCES
@@ -113,9 +119,9 @@ set(FREERTOS_SOURCES
 )
 
 file(GLOB_RECURSE RADIOLIB_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/RadioLib/src/modules/*.cpp
-    ${CMAKE_SOURCE_DIR}/Core/Inc/RadioLib/src/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/RadioLib/src/protocols/*.cpp
+    ${PROJECT_ROOT}/Core/Inc/RadioLib/src/modules/*.cpp
+    ${PROJECT_ROOT}/Core/Inc/RadioLib/src/*.cpp
+    ${PROJECT_ROOT}/Core/Inc/RadioLib/src/protocols/*.cpp
     # Add other needed source directories
 )
 
