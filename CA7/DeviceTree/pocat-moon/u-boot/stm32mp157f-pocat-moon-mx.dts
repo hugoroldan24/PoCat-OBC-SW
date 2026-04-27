@@ -302,13 +302,6 @@
 		};
 	};
 
-	m4_usart3_pins_mx: m4_usart3_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('D', 8, RSVD)>, /* USART3_TX */
-					 <STM32_PINMUX('D', 9, RSVD)>; /* USART3_RX */
-		};
-	};
-
 	rtc_pins_mx: rtc_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('I', 8, ANALOG)>; /* RTC_LSCO */
@@ -580,13 +573,6 @@
 	reset-names = "mcu_rst", "hold_boot";
 	/delete-property/ st,syscfg-holdboot;
 	/* USER CODE END m4_rproc */
-
-	m4_system_resources{
-		status = "okay";
-
-		/* USER CODE BEGIN m4_system_resources */
-		/* USER CODE END m4_system_resources */
-	};
 };
 
 &adc {
@@ -1102,15 +1088,6 @@
 		};
 	};
 	/* USER CODE END ltdc */
-};
-
-&m4_usart3 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&m4_usart3_pins_mx>;
-	status = "okay";
-
-	/* USER CODE BEGIN m4_usart3 */
-	/* USER CODE END m4_usart3 */
 };
 
 &mdma1 {

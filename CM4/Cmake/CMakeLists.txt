@@ -45,12 +45,12 @@ set(CUBEMX_INCLUDE_DIRECTORIES
 
 set(PROJECT_INCLUDE_DIRECTORIES
     ${PROJECT_ROOT}/Core/Inc/
-    ${PROJECT_ROOT}/Application/
-    ${PROJECT_ROOT}/Application/Services/Events
-    ${PROJECT_ROOT}/Application/Services/Events/Handlers
-    ${PROJECT_ROOT}/Application/Services/Manager
-    ${PROJECT_ROOT}/Application/Subsystems
-    ${PROJECT_ROOT}/Application/Utils
+    ${PROJECT_ROOT}/Application/Inc
+    ${PROJECT_ROOT}/Application/Inc/Services/Events/
+    ${PROJECT_ROOT}/Application/Inc/Services/Events/Handlers/
+    ${PROJECT_ROOT}/Application/Inc/Services/Manager/
+    ${PROJECT_ROOT}/Application/Inc/Subsystems/
+    ${PROJECT_ROOT}/Application/Inc/Utils/
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Common
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Hal
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Interrupts
@@ -73,6 +73,9 @@ set(RADIOLIB_INCLUDE_DIRECTORIES
 #    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/*.c
 #)
 
+file(GLOB STM32_SYSTEM_SOURCES
+    ${PROJECT_ROOT}/Common/System/*.c
+)
 file(GLOB STM32_HAL_SOURCES
     ${PROJECT_ROOT}/Drivers/STM32MP1xx_HAL_Driver/Src/*.c
 )
@@ -84,6 +87,7 @@ file(GLOB STM32_CMSIS_SOURCES
 set(STM32CUBEMX_SOURCES
     ${STM32_HAL_SOURCES}
     ${STM32_CMSIS_SOURCES}
+    ${STM32_SYSTEM_SOURCES}
 )
 
 file(GLOB_RECURSE PROJECT_SOURCES
@@ -106,6 +110,7 @@ file(GLOB FREERTOS_KERNEL_SOURCES
 
 file(GLOB FREERTOS_PORT_SOURCES
     ${PROJECT_ROOT}/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/*.c
+    ${PROJECT_ROOT}/Middlewares/Third_Party/FreeRTOS/portable/MemMang/*.c
 )
 
 file(GLOB FREERTOS_CMSIS_SOURCES
