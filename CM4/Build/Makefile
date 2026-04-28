@@ -513,6 +513,30 @@ c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/fre
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pocat_moon_sw.elf.dir/build.make CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.s
 .PHONY : c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.s
 
+c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.obj: c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj
+.PHONY : c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.obj
+
+# target to build an object file
+c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pocat_moon_sw.elf.dir/build.make CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj
+.PHONY : c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj
+
+c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.i: c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.i
+.PHONY : c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.i
+
+# target to preprocess a source file
+c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pocat_moon_sw.elf.dir/build.make CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.i
+.PHONY : c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.i
+
+c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.s: c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.s
+.PHONY : c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.s
+
+# target to generate assembly for a file
+c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pocat_moon_sw.elf.dir/build.make CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.s
+.PHONY : c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.s
+
 c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.obj: c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
 .PHONY : c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.obj
 
@@ -1370,6 +1394,9 @@ help:
 	@echo "... c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.obj"
 	@echo "... c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.i"
 	@echo "... c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.s"
+	@echo "... c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.obj"
+	@echo "... c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.i"
+	@echo "... c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.s"
 	@echo "... c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.obj"
 	@echo "... c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.i"
 	@echo "... c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.s"

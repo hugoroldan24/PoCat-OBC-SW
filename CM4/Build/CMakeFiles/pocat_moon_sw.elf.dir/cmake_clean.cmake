@@ -31,6 +31,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj.d"
   "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj"
   "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj.d"
+  "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj"
+  "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj.d"
   "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj"
   "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj.d"
   "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Common/System/system_stm32mp1xx.c.obj"

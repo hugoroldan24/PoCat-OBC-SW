@@ -69,6 +69,7 @@ CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Proj
  C:/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Inc/Services/Events/evt_core.h \
  C:/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Inc/Services/Events/evt_defs.h \
  C:/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Inc/Services/Events/evt_tables.h \
+ C:/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Inc/Utils/mylog.h \
  C:/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/include/semphr.h \
  C:/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/include/queue.h \
  C:/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/include/task.h

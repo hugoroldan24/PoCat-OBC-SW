@@ -660,10 +660,24 @@ CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Proj
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.s"
 	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.s
 
+CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/flags.make
+CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj: /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c
+CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj"
+	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj -MF CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj.d -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj -c /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c
+
+CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.i"
+	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c > CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.i
+
+CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.s"
+	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.s
+
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/flags.make
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj: /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj"
 	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj -MF CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj.d -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj -c /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c
 
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.i: cmake_force
@@ -677,7 +691,7 @@ CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Proj
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/flags.make
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj: /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj"
 	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj -MF CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj.d -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj -c /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c
 
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.i: cmake_force
@@ -691,7 +705,7 @@ CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Proj
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/flags.make
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj: /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj"
 	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj -MF CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj.d -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj -c /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c
 
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.i: cmake_force
@@ -705,7 +719,7 @@ CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Proj
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/flags.make
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj: /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj"
 	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj -MF CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj.d -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj -c /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c
 
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.i: cmake_force
@@ -719,7 +733,7 @@ CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Proj
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/flags.make
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj: /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj"
 	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj -MF CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj.d -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj -c /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c
 
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.i: cmake_force
@@ -733,7 +747,7 @@ CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Proj
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/flags.make
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj: /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj"
 	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj -MF CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj.d -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj -c /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c
 
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.i: cmake_force
@@ -747,7 +761,7 @@ CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Proj
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/flags.make
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj: /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj: CMakeFiles/pocat_moon_sw.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj"
 	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj -MF CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj.d -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj -c /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c
 
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.i: cmake_force
@@ -760,7 +774,7 @@ CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Proj
 
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj: CMakeFiles/pocat_moon_sw.elf.dir/flags.make
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj: /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building ASM object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building ASM object CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj"
 	"/c/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe" $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj -c /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s
 
 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.i: cmake_force
@@ -815,6 +829,7 @@ pocat_moon_sw_elf_OBJECTS = \
 "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj" \
 "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj" \
 "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj" \
+"CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj" \
 "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj" \
 "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj" \
 "CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj" \
@@ -869,6 +884,7 @@ pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Na
 pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
 pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
 pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
+pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/mylog.c.obj
 pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
 pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
 pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
@@ -879,7 +895,7 @@ pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Na
 pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
 pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/build.make
 pocat_moon_sw.elf: CMakeFiles/pocat_moon_sw.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Linking C executable pocat_moon_sw.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Linking C executable pocat_moon_sw.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pocat_moon_sw.elf.dir/link.txt --verbose=$(VERBOSE)
 	arm-none-eabi-size /c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/pocat_moon_sw.elf
 
