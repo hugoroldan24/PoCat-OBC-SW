@@ -59,7 +59,7 @@ typedef enum {
 extern TaskHandle_t obc_task_handle;
 
 //DEBUG
-SemaphoreHandle_t uart_mutex;
+SemaphoreHandle_t log_mutex;
 
 /* ================= MODULE-LEVEL VARIABLES ================= */
 static const EVT_StateHandlers_t *event_handlers;
@@ -139,7 +139,7 @@ static void setup_obc(void) {
     create_tasks();
 
     //Debug sempahore for accessing UART for logging
-    uart_mutex = xSemaphoreCreateMutex();
+    log_mutex = xSemaphoreCreateMutex();
 }
 
 static void create_tasks(void) 
