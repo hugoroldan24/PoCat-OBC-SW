@@ -1,5 +1,8 @@
 /* ================= INCLUDES ================= */
 #include "comms.h"
+#include "common.h"
+#include "evt_defs.h"
+#include "obc_manager.h"
 #include <stdio.h>
 
 /* ================= MACROS AND CONSTANTS ================= */
@@ -30,5 +33,8 @@ static void setup_comms(void)
 
 static void process_comms(void)
 {
-    printf("Processing COMMS...\n");
+    TaskNotifyValue_t value;
+    Notify_OBC_From_Task(TASK_COMMS_ID, EVT_TC_TESTING);
+    
+    waitForNotification(&value);
 }

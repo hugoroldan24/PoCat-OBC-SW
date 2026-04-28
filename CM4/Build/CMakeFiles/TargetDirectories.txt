@@ -1,0 +1,3 @@
+/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles/pocat_moon_sw.elf.dir
+/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles/edit_cache.dir
+/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Build/CMakeFiles/rebuild_cache.dir

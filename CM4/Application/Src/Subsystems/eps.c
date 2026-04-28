@@ -5,6 +5,7 @@
 
 /* ================= INCLUDES ================= */
 #include "eps.h"
+#include "common.h"
 #include <stdio.h>
 
 /* ================= MACROS AND CONSTANTS ================= */
@@ -38,6 +39,9 @@ static void setup_eps(void)
 
 static void process_eps(void)
 {
+
+    TaskNotifyValue_t value;
+    waitForNotification(&value);
 
     printf("Processing EPS...\n");
     // 1. Checks EPS notifications (DOESN'T BLOCK) to see whether to perform notification actions

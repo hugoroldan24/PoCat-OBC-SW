@@ -4,6 +4,7 @@
 
 /* ================= INCLUDES ================= */
 #include "obdh.h"
+#include "common.h"
 #include <stdio.h>
 
 /* ================= MACROS AND CONSTANTS ================= */
@@ -35,6 +36,8 @@ static void setup_obdh(void) {
 
 static void process_obdh(void) {
 
+    TaskNotifyValue_t value;
+    waitForNotification(&value);
     printf("Processing OBDH...\n");
 
     // Gestión de la flash:

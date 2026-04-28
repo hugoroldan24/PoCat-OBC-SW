@@ -19,6 +19,8 @@ static const EVT_StateHandlers_t evt_payload_handlers[] = {
 
 static const EVT_StateHandlers_t evt_telecommand_handlers[] = {
     { .on_commissioning = NULL, .on_nominal = NULL, .on_sun_safe = NULL, .on_contingency = NULL },
+    { .on_commissioning = NULL, .on_nominal = NULL, .on_sun_safe = NULL, .on_contingency = NULL },
+    { .on_commissioning = NULL, .on_nominal = testing_handler, .on_sun_safe = NULL, .on_contingency = NULL }
     // ...
 };
 

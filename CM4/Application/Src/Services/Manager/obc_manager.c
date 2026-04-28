@@ -39,11 +39,11 @@
 
 // Task priorities
 #define COMMS_PRIORITY           0u
-#define PAYLOAD_PRIORITY         2 // ?? Mirar!!
+#define PAYLOAD_PRIORITY         1 // ?? Mirar!!
 #define EPS_PRIORITY             2 // ?? 
-#define OBDH_PRIORITY            5 // ??
-#define ADCS_PRIORITY            5 // ??
-#define HEALTH_PRIORITY           5
+#define OBDH_PRIORITY            3 // ??
+#define ADCS_PRIORITY            4 // ??
+#define HEALTH_PRIORITY          5
 
 /* ================= TYPE DEFINITIONS ================= */
 
@@ -63,7 +63,7 @@ SemaphoreHandle_t uart_mutex;
 
 /* ================= MODULE-LEVEL VARIABLES ================= */
 static const EVT_StateHandlers_t *event_handlers;
-static OBC_SatelliteState_t currentState;
+static OBC_SatelliteState_t currentState = OBC_STATE_NOMINAL;
 static TaskHandle_t payload_task_handle, eps_task_handle, comms_task_handle, obdh_task_handle, adcs_task_handle, health_task_handle;
 static TaskNotifyValue_t notifyVal;
 

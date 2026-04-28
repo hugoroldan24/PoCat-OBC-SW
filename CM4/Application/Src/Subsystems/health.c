@@ -1,5 +1,7 @@
 /* ================= INCLUDES ================= */
 #include <stdio.h>
+#include "common.h"
+
 /* ================= MACROS AND CONSTANTS ================= */
 /* ================= TYPE DEFINITIONS ================= */
 /* ================= GLOBAL VARIABLES ================= */
@@ -34,4 +36,6 @@ static void setup_health(void)
 static void process_health(void)
 {
     printf("Processing HEALTH...\n");
+    TaskNotifyValue_t value;
+    waitForNotification(&value);
 }

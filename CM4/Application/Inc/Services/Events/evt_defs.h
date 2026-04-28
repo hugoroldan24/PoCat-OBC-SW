@@ -136,7 +136,7 @@ typedef struct {
 // ...
 
 /* ================= TELECOMMAND EVENTS ================= */
-#define EVT_TC 0
+#define EVT_TC_TESTING 2
 // ...
 
 /* ================= EPS EVENTS ================= */
