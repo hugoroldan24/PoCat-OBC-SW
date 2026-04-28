@@ -57,9 +57,7 @@ typedef enum {
 
 /* ================= GLOBAL VARIABLES ================= */
 extern TaskHandle_t obc_task_handle;
-
-//DEBUG
-SemaphoreHandle_t uart_mutex;
+SemaphoreHandle_t log_smph;
 
 /* ================= MODULE-LEVEL VARIABLES ================= */
 static const EVT_StateHandlers_t *event_handlers;
@@ -121,8 +119,7 @@ ReturnCode_t OBC_SubmitEvent(OBC_TaskID_t id, uint32_t val)
     if (xTaskNotify(obc_task_handle, encoded_val, eSetBits) != pdPASS)
     {
        return NOT_OK;
-    }
-       
+    }     
 
     return OK;
 }
@@ -138,8 +135,8 @@ static void setup_obc(void) {
     // 2. Create tasks
     create_tasks();
 
-    //Debug sempahore for accessing UART for logging
-    uart_mutex = xSemaphoreCreateMutex();
+    //Debug sempahore for accessingfor logging
+    log_smph = xSemaphoreCreateMutex();
 }
 
 static void create_tasks(void) 
