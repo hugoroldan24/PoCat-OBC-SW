@@ -67,6 +67,15 @@ static OBC_SatelliteState_t currentState = OBC_STATE_NOMINAL;
 static TaskHandle_t payload_task_handle, eps_task_handle, comms_task_handle, obdh_task_handle, adcs_task_handle, health_task_handle;
 static TaskNotifyValue_t notifyVal;
 
+static const EVT_Type_t obc_to_evt_map[NUM_TASKS] = {
+    [TASK_PAYLOAD_ID] = EVT_TYPE_PAYLOAD,
+    [TASK_COMMS_ID]   = EVT_TYPE_TC,
+    [TASK_EPS_ID]     = EVT_TYPE_EPS,
+    [TASK_OBDH_ID]    = EVT_TYPE_OBDH,
+    [TASK_ADCS_ID]    = EVT_TYPE_ADCS,
+    [TASK_HEALTH_ID]  = EVT_TYPE_HEALTH
+};
+
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
 
 static void create_tasks(void);
@@ -87,36 +96,36 @@ void obc_task(void *pv_parameters)
     }
 }
 
-ReturnCode_t Notify_OBC_From_Task(OBC_TaskID_t id, uint32_t val)
+ReturnCode_t OBC_SubmitEvent(OBC_TaskID_t id, uint32_t val)
 {
-    ReturnCode_t retVal = OK;
+    const EVT_Config_t *cfg = NULL;
 
-    if(id >= NUM_TASKS)
+    if (id >= NUM_TASKS)
     {
-        retVal = NOT_OK;
+       return NOT_OK;
     }
+
+    EVT_Type_t type = obc_to_evt_map[id];
+
+    cfg = EVT_GetConfig(type);
+
+    if (cfg == NULL)
+    {
+       return NOT_OK;
+    }
+
+    uint32_t encoded_val = EVT_SET_FIELD(type, EVT_MASK_TYPE, EVT_OFFSET_TYPE) |
+                           EVT_SET_FIELD(val, cfg->mask, cfg->offset);
     
-    const EVT_Config_t  *cfg;
-    
-    if(EVT_GetConfig(id, &cfg) != OK)
+
+    if (xTaskNotify(obc_task_handle, encoded_val, eSetBits) != pdPASS)
     {
-        retVal = NOT_OK;
+       return NOT_OK;
     }
+       
 
-    uint32_t encoded_val = 0u;
-
-    encoded_val = EVT_SET_FIELD(val, cfg->mask, cfg->offset);
-
-    BaseType_t ret = xTaskNotify(obc_task_handle, encoded_val, eSetBits);
-
-    if(ret != pdPASS)
-    {
-        retVal = NOT_OK;
-    }
-
-    return retVal; 
+    return OK;
 }
-
 
 /* ================= PRIVATE FUNCTION DEFINITIONS ================= */
 
@@ -207,3 +216,4 @@ static ReturnCode_t DispatchStateHandler(const EVT_StateHandlers_t *handlers, OB
     }
     return retVal;
 }
+

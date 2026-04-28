@@ -3,17 +3,50 @@
 
 #include <stdint.h>
 
+
+typedef enum {
+    /* ================= PAYLOAD EVENTS ================= */
+    EVT_PAYLOAD = 0,
+    /* ================= TELECOMMAND EVENTS ================= */
+    EVT_TC = 0,
+    EVT_TC_1 = 1,
+    EVT_TC_TESTING = 2,
+    /* ================= EPS EVENTS ================= */
+    EVT_EPS = 0,
+    /* ================= OBDH EVENTS ================= */
+    EVT_OBDH_ = 0,
+    /* ================= ADCS EVENTS ================= */
+    EVT_ADCS_ = 0,
+    /* ================= HEALTH EVENTS ================= */
+    EVT_HEALTH_ = 0,
+
+    EVT_UNDEF = 0x99
+
+} EVT_ID_t;
+
 typedef struct {
+    EVT_ID_t id;
     void (*on_commissioning)(void);
     void (*on_nominal)(void);
     void (*on_sun_safe)(void);
     void (*on_contingency)(void);
 } EVT_StateHandlers_t;
 
+typedef enum {
+    EVT_TYPE_PAYLOAD = 0,
+    EVT_TYPE_TC,
+    EVT_TYPE_EPS,
+    EVT_TYPE_OBDH,
+    EVT_TYPE_ADCS,
+    EVT_TYPE_HEALTH,
+
+    NUM_TYPES
+} EVT_Type_t;
 
 typedef uint32_t EVT_Mask_t;
 typedef uint32_t EVT_Offset_t; 
 typedef uint32_t EVT_Index_t;
+
 
 typedef struct {
     EVT_Mask_t mask;
@@ -66,7 +99,7 @@ typedef struct {
 
 #define EVT_BITS_HEALTH  (5u)
 
-#define EVT_BITS_TASK_ID (3u)
+#define EVT_BITS_TYPE    (3u)
 
 
 /* ============================================================
@@ -97,7 +130,7 @@ typedef struct {
 
 #define EVT_OFFSET_HEALTH  (EVT_OFFSET_ADCS    + EVT_BITS_ADCS)
 
-#define EVT_OFFSET_TASK_ID (EVT_OFFSET_HEALTH  + EVT_BITS_HEALTH)
+#define EVT_OFFSET_TYPE    (EVT_OFFSET_HEALTH  + EVT_BITS_HEALTH)
 
 
 /* ============================================================
@@ -122,7 +155,7 @@ typedef struct {
 
 #define EVT_MASK_HEALTH   (((uint32_t)((1u << EVT_BITS_HEALTH) - 1u))  << EVT_OFFSET_HEALTH)
 
-#define EVT_MASK_TASK_ID  (((uint32_t)((1u << EVT_BITS_TASK_ID) - 1u))    << EVT_OFFSET_TASK_ID)
+#define EVT_MASK_TYPE     (((uint32_t)((1u << EVT_BITS_TYPE) - 1u))    << EVT_OFFSET_TYPE)
 
 
 /* Generic field extraction macro */
@@ -130,26 +163,5 @@ typedef struct {
 
 #define EVT_SET_FIELD(val, mask, offset) (((val) << (offset)) & (mask))
 
-
-/* ================= PAYLOAD EVENTS ================= */
-#define EVT_PAYLOAD 0
-// ...
-
-/* ================= TELECOMMAND EVENTS ================= */
-#define EVT_TC_TESTING 2
-// ...
-
-/* ================= EPS EVENTS ================= */
-#define EVT_EPS 0
-// ...
-/* ================= OBDH EVENTS ================= */
-#define EVT_OBDH_ 0
-// ...
-/* ================= ADCS EVENTS ================= */
-// ...
-#define EVT_ADCS_ 0
-
-/* ================= HEALTH EVENTS ================= */
-#define EVT_HEALTH_ 0
 
 #endif

@@ -30,33 +30,37 @@
  */
 ReturnCode_t EVT_ResolveHandlersFromNotify(const EVT_StateHandlers_t **handlers, TaskNotifyValue_t val)
 {
-    ReturnCode_t retVal = NOT_OK;
-    const EVT_Config_t *evt_config;
-
-
     if (handlers == NULL)
     {
-        return retVal;
+        return NOT_OK;
     }
 
-    OBC_TaskID_t task_id = EVT_GET_FIELD(val, EVT_MASK_TASK_ID, EVT_OFFSET_TASK_ID);
+    EVT_Type_t type = EVT_GET_FIELD(val, EVT_MASK_TYPE, EVT_OFFSET_TYPE);
 
-    if (task_id >= NUM_TASKS)
+    if (type >= NUM_TYPES)
     {
-        return retVal;
+        return NOT_OK;
     }
 
-    retVal = EVT_GetConfig(task_id, &evt_config);
+    const EVT_Config_t *evt_config = EVT_GetConfig(type);
 
-    if(retVal == OK)
+    if(evt_config == NULL)
     {
-        return retVal;
+        return NOT_OK;
     }
 
     EVT_Index_t handlerIndex = EVT_GET_FIELD(val, evt_config->mask, evt_config->offset);
 
-    retVal = EVT_GetHandlers(evt_config, handlerIndex, handlers);
-    return retVal;
+    /* handlerIndex verification is performed in EVT_GetHandlers */
+
+    *handlers = EVT_GetHandlers(evt_config, handlerIndex);
+
+    if(*handlers == NULL)
+    {
+        return NOT_OK;
+    }
+
+    return OK;
 }
 
 

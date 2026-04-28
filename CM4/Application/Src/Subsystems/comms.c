@@ -34,7 +34,7 @@ static void setup_comms(void)
 static void process_comms(void)
 {
     TaskNotifyValue_t value;
-    Notify_OBC_From_Task(TASK_COMMS_ID, EVT_TC_TESTING);
+    OBC_SubmitEvent(TASK_COMMS_ID, EVT_TC_TESTING);
     
     waitForNotification(&value);
 }

@@ -3690,7 +3690,7 @@ Discarded input sections
  .debug_macro   0x00000000      0xa21 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .debug_macro   0x00000000      0x27b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .debug_macro   0x00000000      0x521 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
- .debug_macro   0x00000000       0xc0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .debug_macro   0x00000000       0xa0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .debug_macro   0x00000000       0x87 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .debug_macro   0x00000000       0x7e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .group         0x00000000        0xc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
@@ -3795,7 +3795,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .debug_macro   0x00000000       0x6a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .debug_macro   0x00000000      0x1df CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
- .debug_macro   0x00000000       0xc0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+ .debug_macro   0x00000000       0xa0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .debug_macro   0x00000000       0x7b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .debug_macro   0x00000000       0x2a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .debug_macro   0x00000000       0x3c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
@@ -4978,7 +4978,7 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
                 0x00000000                g_pfnVectors
                 0x00000298                        . = ALIGN (0x4)
 
-.text           0x10000000     0x57bc
+.text           0x10000000     0x57b4
                 0x10000000                        . = ALIGN (0x4)
  *(.text)
  .text          0x10000000       0xa0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
@@ -5376,482 +5376,484 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
                 0x10004730       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
                 0x10004730                testing_handler
  .text.EVT_ResolveHandlersFromNotify
-                0x10004740       0x38 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+                0x10004740       0x3a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
                 0x10004740                EVT_ResolveHandlersFromNotify
  .text.EVT_GetHandlers
-                0x10004778       0x24 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
-                0x10004778                EVT_GetHandlers
+                0x1000477a       0x1a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x1000477a                EVT_GetHandlers
  .text.EVT_GetConfig
-                0x1000479c       0x20 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
-                0x1000479c                EVT_GetConfig
+                0x10004794       0x14 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x10004794                EVT_GetConfig
  .text.DispatchStateHandler
-                0x100047bc       0x52 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
- *fill*         0x1000480e        0x2 
+                0x100047a8       0x52 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ *fill*         0x100047fa        0x2 
  .text.create_tasks
-                0x10004810       0xd0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+                0x100047fc       0xd0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .text.setup_obc
-                0x100048e0       0x20 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+                0x100048cc       0x20 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .text.process_obc
-                0x10004900       0x34 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+                0x100048ec       0x34 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .text.obc_task
-                0x10004934       0x14 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
-                0x10004934                obc_task
- .text.Notify_OBC_From_Task
-                0x10004948       0x40 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
-                0x10004948                Notify_OBC_From_Task
+                0x10004920       0x14 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+                0x10004920                obc_task
+ .text.OBC_SubmitEvent
+                0x10004934       0x4c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+                0x10004934                OBC_SubmitEvent
  .text.process_adcs
-                0x10004988       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
+                0x10004980       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
  .text.adcs_task
-                0x10004998        0x8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
-                0x10004998                adcs_task
+                0x10004990        0x8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
+                0x10004990                adcs_task
  .text.setup_comms
-                0x100049a0       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+                0x10004998       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .text.process_comms
-                0x100049b0       0x18 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+                0x100049a8       0x18 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .text.comms_task
-                0x100049c8        0xc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
-                0x100049c8                comms_task
+                0x100049c0        0xc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+                0x100049c0                comms_task
  .text.setup_eps
-                0x100049d4       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+                0x100049cc       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
  .text.process_eps
-                0x100049e4       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+                0x100049dc       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
  .text.eps_task
-                0x10004a00        0xc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
-                0x10004a00                eps_task
+                0x100049f8        0xc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+                0x100049f8                eps_task
  .text.setup_health
-                0x10004a0c       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+                0x10004a04       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
  .text.process_health
-                0x10004a1c       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+                0x10004a14       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
  .text.health_task
-                0x10004a38        0xc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
-                0x10004a38                health_task
+                0x10004a30        0xc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+                0x10004a30                health_task
  .text.setup_obdh
-                0x10004a44       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+                0x10004a3c       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
  .text.process_obdh
-                0x10004a54       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+                0x10004a4c       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
  .text.obdh_task
-                0x10004a70        0xc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
-                0x10004a70                obdh_task
+                0x10004a68        0xc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+                0x10004a68                obdh_task
  .text.process_payload
-                0x10004a7c       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
+                0x10004a74       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
  .text.payload_task
-                0x10004a8c        0x8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
-                0x10004a8c                payload_task
+                0x10004a84        0x8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
+                0x10004a84                payload_task
  .text.configureTimerForRunTimeStats
-                0x10004a94        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
-                0x10004a94                configureTimerForRunTimeStats
+                0x10004a8c        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
+                0x10004a8c                configureTimerForRunTimeStats
  .text.getRunTimeCounterValue
-                0x10004a96        0x4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
-                0x10004a96                getRunTimeCounterValue
- *fill*         0x10004a9a        0x2 
+                0x10004a8e        0x4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
+                0x10004a8e                getRunTimeCounterValue
+ *fill*         0x10004a92        0x2 
  .text.vApplicationGetIdleTaskMemory
-                0x10004a9c       0x18 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
-                0x10004a9c                vApplicationGetIdleTaskMemory
+                0x10004a94       0x18 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
+                0x10004a94                vApplicationGetIdleTaskMemory
  .text.waitForNotification
-                0x10004ab4       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
-                0x10004ab4                waitForNotification
+                0x10004aac       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
+                0x10004aac                waitForNotification
  .text.MX_DMA_Init
-                0x10004ac6       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x10004abe       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
  .text.MX_GPIO_Init
-                0x10004ad8       0x18 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x10004ad0       0x18 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
  .text.HAL_TIM_PeriodElapsedCallback
-                0x10004af0       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
-                0x10004af0                HAL_TIM_PeriodElapsedCallback
+                0x10004ae8       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x10004ae8                HAL_TIM_PeriodElapsedCallback
  .text.Error_Handler
-                0x10004b02        0x4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
-                0x10004b02                Error_Handler
- *fill*         0x10004b06        0x2 
+                0x10004afa        0x4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x10004afa                Error_Handler
+ *fill*         0x10004afe        0x2 
  .text.MX_IPCC_Init
-                0x10004b08       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x10004b00       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
  .text.SystemClock_Config
-                0x10004b24       0xf2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
-                0x10004b24                SystemClock_Config
+                0x10004b1c       0xf2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x10004b1c                SystemClock_Config
  .text.PeriphCommonClock_Config
-                0x10004c16       0x30 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
-                0x10004c16                PeriphCommonClock_Config
- *fill*         0x10004c46        0x2 
- .text.main     0x10004c48       0x80 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
-                0x10004c48                main
+                0x10004c0e       0x30 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x10004c0e                PeriphCommonClock_Config
+ *fill*         0x10004c3e        0x2 
+ .text.main     0x10004c40       0x80 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x10004c40                main
  .text.HAL_MspInit
-                0x10004cc8       0x68 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
-                0x10004cc8                HAL_MspInit
+                0x10004cc0       0x68 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
+                0x10004cc0                HAL_MspInit
  .text.HAL_IPCC_MspInit
-                0x10004d30       0x40 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
-                0x10004d30                HAL_IPCC_MspInit
+                0x10004d28       0x40 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
+                0x10004d28                HAL_IPCC_MspInit
  .text.HAL_InitTick
-                0x10004d70       0x70 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
-                0x10004d70                HAL_InitTick
+                0x10004d68       0x70 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
+                0x10004d68                HAL_InitTick
  .text.NMI_Handler
-                0x10004de0        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004de0                NMI_Handler
+                0x10004dd8        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004dd8                NMI_Handler
  .text.HardFault_Handler
-                0x10004de2        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004de2                HardFault_Handler
+                0x10004dda        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004dda                HardFault_Handler
  .text.MemManage_Handler
-                0x10004de4        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004de4                MemManage_Handler
+                0x10004ddc        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004ddc                MemManage_Handler
  .text.BusFault_Handler
-                0x10004de6        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004de6                BusFault_Handler
+                0x10004dde        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004dde                BusFault_Handler
  .text.UsageFault_Handler
-                0x10004de8        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004de8                UsageFault_Handler
+                0x10004de0        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004de0                UsageFault_Handler
  .text.DebugMon_Handler
-                0x10004dea        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004dea                DebugMon_Handler
+                0x10004de2        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004de2                DebugMon_Handler
  .text.TIM6_IRQHandler
-                0x10004dec       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004dec                TIM6_IRQHandler
+                0x10004de4       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004de4                TIM6_IRQHandler
  .text.IPCC_RX1_IRQHandler
-                0x10004e08       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004e08                IPCC_RX1_IRQHandler
+                0x10004e00       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004e00                IPCC_RX1_IRQHandler
  .text.IPCC_TX1_IRQHandler
-                0x10004e18       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004e18                IPCC_TX1_IRQHandler
+                0x10004e10       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004e10                IPCC_TX1_IRQHandler
  .text.RCC_WAKEUP_IRQHandler
-                0x10004e28        0x8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
-                0x10004e28                RCC_WAKEUP_IRQHandler
- .text._read    0x10004e30       0x20 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
-                0x10004e30                _read
- .text._write   0x10004e50       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
-                0x10004e50                _write
- .text._close   0x10004e6c        0x6 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
-                0x10004e6c                _close
- .text._fstat   0x10004e72        0xa CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
-                0x10004e72                _fstat
- .text._isatty  0x10004e7c        0x4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
-                0x10004e7c                _isatty
- .text._lseek   0x10004e80        0x4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
-                0x10004e80                _lseek
- .text._sbrk    0x10004e84       0x48 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
-                0x10004e84                _sbrk
+                0x10004e20        0x8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+                0x10004e20                RCC_WAKEUP_IRQHandler
+ .text._read    0x10004e28       0x20 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+                0x10004e28                _read
+ .text._write   0x10004e48       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+                0x10004e48                _write
+ .text._close   0x10004e64        0x6 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+                0x10004e64                _close
+ .text._fstat   0x10004e6a        0xa CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+                0x10004e6a                _fstat
+ .text._isatty  0x10004e74        0x4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+                0x10004e74                _isatty
+ .text._lseek   0x10004e78        0x4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+                0x10004e78                _lseek
+ .text._sbrk    0x10004e7c       0x48 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
+                0x10004e7c                _sbrk
  .text.Default_Handler
-                0x10004ecc        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
-                0x10004ecc                EXTI2_IRQHandler
-                0x10004ecc                TIM8_TRG_COM_IRQHandler
-                0x10004ecc                TIM8_CC_IRQHandler
-                0x10004ecc                EXTI5_IRQHandler
-                0x10004ecc                UART8_IRQHandler
-                0x10004ecc                SPI4_IRQHandler
-                0x10004ecc                EXTI13_IRQHandler
-                0x10004ecc                TIM1_CC_IRQHandler
-                0x10004ecc                DMA2_Stream5_IRQHandler
-                0x10004ecc                ETH1_WKUP_IRQHandler
-                0x10004ecc                TAMP_IRQHandler
-                0x10004ecc                DMA1_Stream5_IRQHandler
-                0x10004ecc                EXTI12_IRQHandler
-                0x10004ecc                EXTI3_IRQHandler
-                0x10004ecc                LPTIM4_IRQHandler
-                0x10004ecc                EXTI8_IRQHandler
-                0x10004ecc                LPTIM2_IRQHandler
-                0x10004ecc                DFSDM1_FLT1_IRQHandler
-                0x10004ecc                I2C3_ER_IRQHandler
-                0x10004ecc                DFSDM1_FLT2_IRQHandler
-                0x10004ecc                I2C5_EV_IRQHandler
-                0x10004ecc                MDMA_IRQHandler
-                0x10004ecc                LPTIM3_IRQHandler
-                0x10004ecc                EXTI0_IRQHandler
-                0x10004ecc                I2C2_EV_IRQHandler
-                0x10004ecc                DMA1_Stream2_IRQHandler
-                0x10004ecc                FPU_IRQHandler
-                0x10004ecc                USBH_OHCI_IRQHandler
-                0x10004ecc                FDCAN1_IT1_IRQHandler
-                0x10004ecc                LTDC_ER_IRQHandler
-                0x10004ecc                DMA2_Stream2_IRQHandler
-                0x10004ecc                IPCC_RX0_IRQHandler
-                0x10004ecc                OTG_IRQHandler
-                0x10004ecc                SPI1_IRQHandler
-                0x10004ecc                DCMI_IRQHandler
-                0x10004ecc                TIM8_UP_IRQHandler
-                0x10004ecc                DMA2_Stream3_IRQHandler
-                0x10004ecc                USBH_EHCI_IRQHandler
-                0x10004ecc                nCTIIRQ2_IRQHandler
-                0x10004ecc                HASH1_IRQHandler
-                0x10004ecc                GPU_IRQHandler
-                0x10004ecc                SAI2_IRQHandler
-                0x10004ecc                ADC1_IRQHandler
-                0x10004ecc                RESERVED148_IRQHandler
-                0x10004ecc                RTC_TIMESTAMP_IRQHandler
-                0x10004ecc                DFSDM1_FLT3_IRQHandler
-                0x10004ecc                USART6_IRQHandler
-                0x10004ecc                EXTI15_IRQHandler
-                0x10004ecc                TIM17_IRQHandler
-                0x10004ecc                USART3_IRQHandler
-                0x10004ecc                EXTI9_IRQHandler
-                0x10004ecc                LPTIM5_IRQHandler
-                0x10004ecc                UART5_IRQHandler
-                0x10004ecc                DMA2_Stream0_IRQHandler
-                0x10004ecc                TIM4_IRQHandler
-                0x10004ecc                CRYP2_IRQHandler
-                0x10004ecc                QUADSPI_IRQHandler
-                0x10004ecc                I2C1_EV_IRQHandler
-                0x10004ecc                DMA1_Stream6_IRQHandler
-                0x10004ecc                RESERVED99_IRQHandler
-                0x10004ecc                DMAMUX1_OVR_IRQHandler
-                0x10004ecc                DMA1_Stream1_IRQHandler
-                0x10004ecc                TIM16_IRQHandler
-                0x10004ecc                UART4_IRQHandler
-                0x10004ecc                TIM3_IRQHandler
-                0x10004ecc                RCC_IRQHandler
-                0x10004ecc                TIM1_TRG_COM_IRQHandler
-                0x10004ecc                nCTIIRQ1_IRQHandler
-                0x10004ecc                Default_Handler
-                0x10004ecc                CEC_IRQHandler
-                0x10004ecc                DFSDM1_FLT4_IRQHandler
-                0x10004ecc                TIM14_IRQHandler
-                0x10004ecc                I2C5_ER_IRQHandler
-                0x10004ecc                TIM13_IRQHandler
-                0x10004ecc                DMA1_Stream7_IRQHandler
-                0x10004ecc                IPCC_TX0_IRQHandler
-                0x10004ecc                SPI5_IRQHandler
-                0x10004ecc                TIM12_IRQHandler
-                0x10004ecc                TIM7_IRQHandler
-                0x10004ecc                SDMMC1_IRQHandler
-                0x10004ecc                TIM5_IRQHandler
-                0x10004ecc                DMA2_Stream7_IRQHandler
-                0x10004ecc                TIM15_IRQHandler
-                0x10004ecc                PVD_AVD_IRQHandler
-                0x10004ecc                I2C3_EV_IRQHandler
-                0x10004ecc                SDMMC3_IRQHandler
-                0x10004ecc                ETH1_IRQHandler
-                0x10004ecc                LTDC_IRQHandler
-                0x10004ecc                SAI3_IRQHandler
-                0x10004ecc                SPDIF_RX_IRQHandler
-                0x10004ecc                ADC2_IRQHandler
-                0x10004ecc                SPI2_IRQHandler
-                0x10004ecc                DFSDM1_FLT5_IRQHandler
-                0x10004ecc                DMA1_Stream0_IRQHandler
-                0x10004ecc                EXTI14_IRQHandler
-                0x10004ecc                EXTI11_IRQHandler
-                0x10004ecc                CRYP1_IRQHandler
-                0x10004ecc                RNG2_IRQHandler
-                0x10004ecc                RNG1_IRQHandler
-                0x10004ecc                HASH2_IRQHandler
-                0x10004ecc                EXTI4_IRQHandler
-                0x10004ecc                ETH1_LPI_IRQHandler
-                0x10004ecc                FDCAN2_IT1_IRQHandler
-                0x10004ecc                DSI_IRQHandler
-                0x10004ecc                TIM1_UP_IRQHandler
-                0x10004ecc                HSEM_IT2_IRQHandler
-                0x10004ecc                SPI6_IRQHandler
-                0x10004ecc                MDIOS_IRQHandler
-                0x10004ecc                I2C4_EV_IRQHandler
-                0x10004ecc                FDCAN2_IT0_IRQHandler
-                0x10004ecc                I2C6_ER_IRQHandler
-                0x10004ecc                FDCAN1_IT0_IRQHandler
-                0x10004ecc                TIM2_IRQHandler
-                0x10004ecc                EXTI7_IRQHandler
-                0x10004ecc                TIM1_BRK_IRQHandler
-                0x10004ecc                DAC_IRQHandler
-                0x10004ecc                EXTI1_IRQHandler
-                0x10004ecc                SDMMC2_IRQHandler
-                0x10004ecc                DTS_IRQHandler
-                0x10004ecc                UART7_IRQHandler
-                0x10004ecc                USART2_IRQHandler
-                0x10004ecc                I2C6_EV_IRQHandler
-                0x10004ecc                DFSDM1_FLT0_IRQHandler
-                0x10004ecc                SAI4_IRQHandler
-                0x10004ecc                I2C2_ER_IRQHandler
-                0x10004ecc                DMA2_Stream1_IRQHandler
-                0x10004ecc                TIM8_BRK_IRQHandler
-                0x10004ecc                WWDG1_IRQHandler
-                0x10004ecc                DMA2_Stream4_IRQHandler
-                0x10004ecc                USART1_IRQHandler
-                0x10004ecc                RESERVED143_IRQHandler
-                0x10004ecc                EXTI10_IRQHandler
-                0x10004ecc                SPI3_IRQHandler
-                0x10004ecc                WAKEUP_PIN_IRQHandler
-                0x10004ecc                DMA1_Stream4_IRQHandler
-                0x10004ecc                I2C1_ER_IRQHandler
-                0x10004ecc                FMC_IRQHandler
-                0x10004ecc                FDCAN_CAL_IRQHandler
-                0x10004ecc                EXTI6_IRQHandler
-                0x10004ecc                MPU_SEV_IRQHandler
-                0x10004ecc                LPTIM1_IRQHandler
-                0x10004ecc                RTC_WKUP_ALARM_IRQHandler
-                0x10004ecc                I2C4_ER_IRQHandler
-                0x10004ecc                DMA2_Stream6_IRQHandler
-                0x10004ecc                SAI1_IRQHandler
-                0x10004ecc                DMA1_Stream3_IRQHandler
-                0x10004ecc                RESERVED4_IRQHandler
- *fill*         0x10004ece        0x2 
- .text.printf   0x10004ed0       0x24 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-printf.o)
-                0x10004ed0                iprintf
-                0x10004ed0                printf
- .text._puts_r  0x10004ef4       0xaa C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-puts.o)
-                0x10004ef4                _puts_r
- *fill*         0x10004f9e        0x2 
- .text.puts     0x10004fa0       0x10 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-puts.o)
-                0x10004fa0                puts
+                0x10004ec4        0x2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
+                0x10004ec4                EXTI2_IRQHandler
+                0x10004ec4                TIM8_TRG_COM_IRQHandler
+                0x10004ec4                TIM8_CC_IRQHandler
+                0x10004ec4                EXTI5_IRQHandler
+                0x10004ec4                UART8_IRQHandler
+                0x10004ec4                SPI4_IRQHandler
+                0x10004ec4                EXTI13_IRQHandler
+                0x10004ec4                TIM1_CC_IRQHandler
+                0x10004ec4                DMA2_Stream5_IRQHandler
+                0x10004ec4                ETH1_WKUP_IRQHandler
+                0x10004ec4                TAMP_IRQHandler
+                0x10004ec4                DMA1_Stream5_IRQHandler
+                0x10004ec4                EXTI12_IRQHandler
+                0x10004ec4                EXTI3_IRQHandler
+                0x10004ec4                LPTIM4_IRQHandler
+                0x10004ec4                EXTI8_IRQHandler
+                0x10004ec4                LPTIM2_IRQHandler
+                0x10004ec4                DFSDM1_FLT1_IRQHandler
+                0x10004ec4                I2C3_ER_IRQHandler
+                0x10004ec4                DFSDM1_FLT2_IRQHandler
+                0x10004ec4                I2C5_EV_IRQHandler
+                0x10004ec4                MDMA_IRQHandler
+                0x10004ec4                LPTIM3_IRQHandler
+                0x10004ec4                EXTI0_IRQHandler
+                0x10004ec4                I2C2_EV_IRQHandler
+                0x10004ec4                DMA1_Stream2_IRQHandler
+                0x10004ec4                FPU_IRQHandler
+                0x10004ec4                USBH_OHCI_IRQHandler
+                0x10004ec4                FDCAN1_IT1_IRQHandler
+                0x10004ec4                LTDC_ER_IRQHandler
+                0x10004ec4                DMA2_Stream2_IRQHandler
+                0x10004ec4                IPCC_RX0_IRQHandler
+                0x10004ec4                OTG_IRQHandler
+                0x10004ec4                SPI1_IRQHandler
+                0x10004ec4                DCMI_IRQHandler
+                0x10004ec4                TIM8_UP_IRQHandler
+                0x10004ec4                DMA2_Stream3_IRQHandler
+                0x10004ec4                USBH_EHCI_IRQHandler
+                0x10004ec4                nCTIIRQ2_IRQHandler
+                0x10004ec4                HASH1_IRQHandler
+                0x10004ec4                GPU_IRQHandler
+                0x10004ec4                SAI2_IRQHandler
+                0x10004ec4                ADC1_IRQHandler
+                0x10004ec4                RESERVED148_IRQHandler
+                0x10004ec4                RTC_TIMESTAMP_IRQHandler
+                0x10004ec4                DFSDM1_FLT3_IRQHandler
+                0x10004ec4                USART6_IRQHandler
+                0x10004ec4                EXTI15_IRQHandler
+                0x10004ec4                TIM17_IRQHandler
+                0x10004ec4                USART3_IRQHandler
+                0x10004ec4                EXTI9_IRQHandler
+                0x10004ec4                LPTIM5_IRQHandler
+                0x10004ec4                UART5_IRQHandler
+                0x10004ec4                DMA2_Stream0_IRQHandler
+                0x10004ec4                TIM4_IRQHandler
+                0x10004ec4                CRYP2_IRQHandler
+                0x10004ec4                QUADSPI_IRQHandler
+                0x10004ec4                I2C1_EV_IRQHandler
+                0x10004ec4                DMA1_Stream6_IRQHandler
+                0x10004ec4                RESERVED99_IRQHandler
+                0x10004ec4                DMAMUX1_OVR_IRQHandler
+                0x10004ec4                DMA1_Stream1_IRQHandler
+                0x10004ec4                TIM16_IRQHandler
+                0x10004ec4                UART4_IRQHandler
+                0x10004ec4                TIM3_IRQHandler
+                0x10004ec4                RCC_IRQHandler
+                0x10004ec4                TIM1_TRG_COM_IRQHandler
+                0x10004ec4                nCTIIRQ1_IRQHandler
+                0x10004ec4                Default_Handler
+                0x10004ec4                CEC_IRQHandler
+                0x10004ec4                DFSDM1_FLT4_IRQHandler
+                0x10004ec4                TIM14_IRQHandler
+                0x10004ec4                I2C5_ER_IRQHandler
+                0x10004ec4                TIM13_IRQHandler
+                0x10004ec4                DMA1_Stream7_IRQHandler
+                0x10004ec4                IPCC_TX0_IRQHandler
+                0x10004ec4                SPI5_IRQHandler
+                0x10004ec4                TIM12_IRQHandler
+                0x10004ec4                TIM7_IRQHandler
+                0x10004ec4                SDMMC1_IRQHandler
+                0x10004ec4                TIM5_IRQHandler
+                0x10004ec4                DMA2_Stream7_IRQHandler
+                0x10004ec4                TIM15_IRQHandler
+                0x10004ec4                PVD_AVD_IRQHandler
+                0x10004ec4                I2C3_EV_IRQHandler
+                0x10004ec4                SDMMC3_IRQHandler
+                0x10004ec4                ETH1_IRQHandler
+                0x10004ec4                LTDC_IRQHandler
+                0x10004ec4                SAI3_IRQHandler
+                0x10004ec4                SPDIF_RX_IRQHandler
+                0x10004ec4                ADC2_IRQHandler
+                0x10004ec4                SPI2_IRQHandler
+                0x10004ec4                DFSDM1_FLT5_IRQHandler
+                0x10004ec4                DMA1_Stream0_IRQHandler
+                0x10004ec4                EXTI14_IRQHandler
+                0x10004ec4                EXTI11_IRQHandler
+                0x10004ec4                CRYP1_IRQHandler
+                0x10004ec4                RNG2_IRQHandler
+                0x10004ec4                RNG1_IRQHandler
+                0x10004ec4                HASH2_IRQHandler
+                0x10004ec4                EXTI4_IRQHandler
+                0x10004ec4                ETH1_LPI_IRQHandler
+                0x10004ec4                FDCAN2_IT1_IRQHandler
+                0x10004ec4                DSI_IRQHandler
+                0x10004ec4                TIM1_UP_IRQHandler
+                0x10004ec4                HSEM_IT2_IRQHandler
+                0x10004ec4                SPI6_IRQHandler
+                0x10004ec4                MDIOS_IRQHandler
+                0x10004ec4                I2C4_EV_IRQHandler
+                0x10004ec4                FDCAN2_IT0_IRQHandler
+                0x10004ec4                I2C6_ER_IRQHandler
+                0x10004ec4                FDCAN1_IT0_IRQHandler
+                0x10004ec4                TIM2_IRQHandler
+                0x10004ec4                EXTI7_IRQHandler
+                0x10004ec4                TIM1_BRK_IRQHandler
+                0x10004ec4                DAC_IRQHandler
+                0x10004ec4                EXTI1_IRQHandler
+                0x10004ec4                SDMMC2_IRQHandler
+                0x10004ec4                DTS_IRQHandler
+                0x10004ec4                UART7_IRQHandler
+                0x10004ec4                USART2_IRQHandler
+                0x10004ec4                I2C6_EV_IRQHandler
+                0x10004ec4                DFSDM1_FLT0_IRQHandler
+                0x10004ec4                SAI4_IRQHandler
+                0x10004ec4                I2C2_ER_IRQHandler
+                0x10004ec4                DMA2_Stream1_IRQHandler
+                0x10004ec4                TIM8_BRK_IRQHandler
+                0x10004ec4                WWDG1_IRQHandler
+                0x10004ec4                DMA2_Stream4_IRQHandler
+                0x10004ec4                USART1_IRQHandler
+                0x10004ec4                RESERVED143_IRQHandler
+                0x10004ec4                EXTI10_IRQHandler
+                0x10004ec4                SPI3_IRQHandler
+                0x10004ec4                WAKEUP_PIN_IRQHandler
+                0x10004ec4                DMA1_Stream4_IRQHandler
+                0x10004ec4                I2C1_ER_IRQHandler
+                0x10004ec4                FMC_IRQHandler
+                0x10004ec4                FDCAN_CAL_IRQHandler
+                0x10004ec4                EXTI6_IRQHandler
+                0x10004ec4                MPU_SEV_IRQHandler
+                0x10004ec4                LPTIM1_IRQHandler
+                0x10004ec4                RTC_WKUP_ALARM_IRQHandler
+                0x10004ec4                I2C4_ER_IRQHandler
+                0x10004ec4                DMA2_Stream6_IRQHandler
+                0x10004ec4                SAI1_IRQHandler
+                0x10004ec4                DMA1_Stream3_IRQHandler
+                0x10004ec4                RESERVED4_IRQHandler
+ *fill*         0x10004ec6        0x2 
+ .text.printf   0x10004ec8       0x24 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-printf.o)
+                0x10004ec8                iprintf
+                0x10004ec8                printf
+ .text._puts_r  0x10004eec       0xaa C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-puts.o)
+                0x10004eec                _puts_r
+ *fill*         0x10004f96        0x2 
+ .text.puts     0x10004f98       0x10 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-puts.o)
+                0x10004f98                puts
  .text.__swbuf_r
-                0x10004fb0       0x7c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-wbuf.o)
-                0x10004fb0                __swbuf_r
+                0x10004fa8       0x7c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-wbuf.o)
+                0x10004fa8                __swbuf_r
  .text.__swsetup_r
-                0x1000502c       0xac C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-wsetup.o)
-                0x1000502c                __swsetup_r
- .text.__errno  0x100050d8        0xc C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
-                0x100050d8                __errno
- .text.memcpy   0x100050e4       0x1c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
-                0x100050e4                memcpy
+                0x10005024       0xac C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-wsetup.o)
+                0x10005024                __swsetup_r
+ .text.__errno  0x100050d0        0xc C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+                0x100050d0                __errno
+ .text.memcpy   0x100050dc       0x1c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+                0x100050dc                memcpy
  .text.__sfputc_r
-                0x10005100       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf.o)
+                0x100050f8       0x2e C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x1000512e       0x24 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf.o)
-                0x1000512e                __sfputs_r
- *fill*         0x10005152        0x2 
+                0x10005126       0x24 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf.o)
+                0x10005126                __sfputs_r
+ *fill*         0x1000514a        0x2 
  .text._vfprintf_r
-                0x10005154      0x230 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf.o)
-                0x10005154                _vfprintf_r
-                0x10005154                _vfiprintf_r
+                0x1000514c      0x230 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf.o)
+                0x1000514c                _vfprintf_r
+                0x1000514c                _vfiprintf_r
  .text._printf_common
-                0x10005384       0xda C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x10005384                _printf_common
- *fill*         0x1000545e        0x2 
+                0x1000537c       0xda C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x1000537c                _printf_common
+ *fill*         0x10005456        0x2 
  .text._printf_i
-                0x10005460      0x23c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x10005460                _printf_i
+                0x10005458      0x23c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x10005458                _printf_i
  .text.__swhatbuf_r
-                0x1000569c       0x4c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-makebuf.o)
-                0x1000569c                __swhatbuf_r
+                0x10005694       0x4c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-makebuf.o)
+                0x10005694                __swhatbuf_r
  .text.__smakebuf_r
-                0x100056e8       0x78 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-makebuf.o)
-                0x100056e8                __smakebuf_r
+                0x100056e0       0x78 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-makebuf.o)
+                0x100056e0                __smakebuf_r
  .text._fstat_r
-                0x10005760       0x24 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-fstatr.o)
-                0x10005760                _fstat_r
+                0x10005758       0x24 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-fstatr.o)
+                0x10005758                _fstat_r
  .text._isatty_r
-                0x10005784       0x20 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-isattyr.o)
-                0x10005784                _isatty_r
+                0x1000577c       0x20 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-isattyr.o)
+                0x1000577c                _isatty_r
  *(.glue_7)
- .glue_7        0x100057a4        0x0 linker stubs
+ .glue_7        0x1000579c        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x100057a4        0x0 linker stubs
+ .glue_7t       0x1000579c        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x100057a4        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x1000579c        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x100057a4        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x100057a4                _init
- .init          0x100057a8        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x1000579c        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x1000579c                _init
+ .init          0x100057a0        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x100057b0        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x100057b0                _fini
- .fini          0x100057b4        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
-                0x100057bc                        . = ALIGN (0x4)
-                0x100057bc                        _etext = .
+ .fini          0x100057a8        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x100057a8                _fini
+ .fini          0x100057ac        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
+                0x100057b4                        . = ALIGN (0x4)
+                0x100057b4                        _etext = .
 
-.vfp11_veneer   0x100057bc        0x0
- .vfp11_veneer  0x100057bc        0x0 linker stubs
+.vfp11_veneer   0x100057b4        0x0
+ .vfp11_veneer  0x100057b4        0x0 linker stubs
 
-.v4_bx          0x100057bc        0x0
- .v4_bx         0x100057bc        0x0 linker stubs
+.v4_bx          0x100057b4        0x0
+ .v4_bx         0x100057b4        0x0 linker stubs
 
-.iplt           0x100057bc        0x0
- .iplt          0x100057bc        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x100057b4        0x0
+ .iplt          0x100057b4        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 .startup_copro_fw.Reset_Handler
-                0x100057bc       0x50
+                0x100057b4       0x50
  .startup_copro_fw.Reset_Handler
-                0x100057bc       0x50 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
-                0x100057bc                Reset_Handler
+                0x100057b4       0x50 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
+                0x100057b4                Reset_Handler
 
-.rodata         0x1000580c      0x268
-                0x1000580c                        . = ALIGN (0x4)
+.rodata         0x10005804      0x298
+                0x10005804                        . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.vTaskStartScheduler.str1.4
-                0x1000580c      0x134 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/tasks.c.obj
+                0x10005804      0x134 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/tasks.c.obj
                                   0x5 (size before relaxing)
  .rodata.testing_handler.str1.4
-                0x10005940        0x3 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
+                0x10005938        0x3 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
  .rodata.evt_cfg_lut
-                0x10005940       0x60 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
-                0x10005940                evt_cfg_lut
+                0x10005938       0x60 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x10005938                evt_cfg_lut
  .rodata.evt_health_handlers
-                0x100059a0       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x10005998       0x14 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
  .rodata.evt_adcs_handlers
-                0x100059b0       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x100059ac       0x14 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
  .rodata.evt_obdh_handlers
-                0x100059c0       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x100059c0       0x14 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
  .rodata.evt_eps_handlers
-                0x100059d0       0x20 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x100059d4       0x28 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
  .rodata.evt_telecommand_handlers
-                0x100059f0       0x30 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x100059fc       0x3c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
  .rodata.evt_payload_handlers
-                0x10005a20       0x20 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x10005a38       0x28 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
  .rodata.create_tasks.str1.4
-                0x10005a40       0x2b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+                0x10005a60       0x2b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .rodata.setup_obc.str1.4
-                0x10005a40       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+                0x10005a60       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .rodata.process_obc.str1.4
-                0x10005a40       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+                0x10005a60       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .rodata.obc_to_evt_map
+                0x10005a60        0x6 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .rodata.setup_comms.str1.4
-                0x10005a40       0x14 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+                0x10005a66       0x14 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .rodata.setup_eps.str1.4
-                0x10005a40       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+                0x10005a66       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
  .rodata.process_eps.str1.4
-                0x10005a40       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+                0x10005a66       0x12 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
  .rodata.setup_health.str1.4
-                0x10005a40       0x15 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+                0x10005a66       0x15 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
  .rodata.process_health.str1.4
-                0x10005a40       0x15 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+                0x10005a66       0x15 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
  .rodata.setup_obdh.str1.4
-                0x10005a40       0x13 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+                0x10005a66       0x13 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
  .rodata.process_obdh.str1.4
-                0x10005a40       0x13 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+                0x10005a66       0x13 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
  .rodata.main.str1.4
-                0x10005a40       0x40 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x10005a66       0x40 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
  .rodata._vfprintf_r.str1.1
-                0x10005a40       0x33 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf.o)
+                0x10005a66       0x33 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf.o)
                                  0x11 (size before relaxing)
  .rodata._printf_i.str1.1
-                0x10005a73       0x22 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x10005a98                        . = ALIGN (0x4)
- *fill*         0x10005a73        0x1 
+                0x10005a99       0x22 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x10005abc                        . = ALIGN (0x4)
+ *fill*         0x10005a99        0x3 
 
-.ARM.extab      0x10005a74        0x0
-                0x10005a74                        . = ALIGN (0x4)
+.ARM.extab      0x10005a9c        0x0
+                0x10005a9c                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x10005a74                        . = ALIGN (0x4)
+                0x10005a9c                        . = ALIGN (0x4)
 
-.ARM            0x10005a74        0x8
-                0x10005a74                        . = ALIGN (0x4)
-                0x10005a74                        __exidx_start = .
+.ARM            0x10005a9c        0x8
+                0x10005a9c                        . = ALIGN (0x4)
+                0x10005a9c                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x10005a74        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
-                0x10005a7c                        __exidx_end = .
-                0x10005a7c                        . = ALIGN (0x4)
+ .ARM.exidx     0x10005a9c        0x8 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
+                0x10005aa4                        __exidx_end = .
+                0x10005aa4                        . = ALIGN (0x4)
 
-.preinit_array  0x10005a7c        0x0
-                0x10005a7c                        . = ALIGN (0x4)
-                0x10005a7c                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x10005aa4        0x0
+                0x10005aa4                        . = ALIGN (0x4)
+                0x10005aa4                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x10005a7c                        PROVIDE (__preinit_array_end = .)
-                0x10005a7c                        . = ALIGN (0x4)
+                0x10005aa4                        PROVIDE (__preinit_array_end = .)
+                0x10005aa4                        . = ALIGN (0x4)
 
-.init_array     0x10005a7c        0x4
-                0x10005a7c                        . = ALIGN (0x4)
-                0x10005a7c                        PROVIDE (__init_array_start = .)
+.init_array     0x10005aa4        0x4
+                0x10005aa4                        . = ALIGN (0x4)
+                0x10005aa4                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x10005a7c        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x10005a80                        PROVIDE (__init_array_end = .)
-                0x10005a80                        . = ALIGN (0x4)
+ .init_array    0x10005aa4        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x10005aa8                        PROVIDE (__init_array_end = .)
+                0x10005aa8                        . = ALIGN (0x4)
 
-.fini_array     0x10005a80        0x4
-                0x10005a80                        . = ALIGN (0x4)
+.fini_array     0x10005aa8        0x4
+                0x10005aa8                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x10005a80        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x10005aa8        0x4 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x10005a84                        . = ALIGN (0x4)
-                0x10005a84                        __DATA_ROM = .
-                0x10005a84                        _sidata = LOADADDR (.data)
+                0x10005aac                        . = ALIGN (0x4)
+                0x10005aac                        __DATA_ROM = .
+                0x10005aac                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x10005a84        0x0
- .rel.iplt      0x10005a84        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x10005aac        0x0
+ .rel.iplt      0x10005aac        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x10020000       0x6c load address 0x10005a84
+.data           0x10020000       0x6c load address 0x10005aac
                 0x10020000                        . = ALIGN (0x4)
                 0x10020000                        _sdata = .
  *(.data)
@@ -5878,18 +5880,18 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
                 0x10020068        0x4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/port.c.obj
                 0x1002006c                        . = ALIGN (0x4)
                 0x1002006c                        _edata = .
-                0x10005af0                        __DATA_END = (__DATA_ROM + (_edata - _sdata))
+                0x10005b18                        __DATA_END = (__DATA_ROM + (_edata - _sdata))
                 0x10020000                        text_end = (ORIGIN (SRAM1_text) + LENGTH (SRAM1_text))
                 0x00000001                        ASSERT ((__DATA_END <= text_end), region SRAM1_text overflowed with text and data)
 
 .tm_clone_table
-                0x1002006c        0x0 load address 0x10005af0
+                0x1002006c        0x0 load address 0x10005b18
  .tm_clone_table
                 0x1002006c        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .tm_clone_table
                 0x1002006c        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtend.o
 
-.igot.plt       0x1002006c        0x0 load address 0x10005af0
+.igot.plt       0x1002006c        0x0 load address 0x10005b18
  .igot.plt      0x1002006c        0x0 C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 .resource_table
@@ -5899,7 +5901,7 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
                 0x1002006c                        . = ALIGN (0x4)
                 0x1002006c                        . = ALIGN (0x4)
 
-.bss            0x10020070    0x12444 load address 0x10005af8
+.bss            0x10020070    0x12444 load address 0x10005b20
                 0x10020070                        _sbss = .
                 0x10020070                        __bss_start__ = _sbss
  *(.bss)
@@ -6036,7 +6038,7 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
                 0x100324b4                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x100324b4      0x604 load address 0x10017f3c
+                0x100324b4      0x604 load address 0x10017f64
                 0x100324b8                        . = ALIGN (0x8)
  *fill*         0x100324b4        0x4 
                 [!provide]                        PROVIDE (end = .)
@@ -6225,9 +6227,9 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
  .debug_frame   0x00002b90      0x110 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/port.c.obj
  .debug_frame   0x00002ca0       0xd0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/MemMang/heap_4.c.obj
  .debug_frame   0x00002d70       0x28 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
- .debug_frame   0x00002d98       0x38 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
- .debug_frame   0x00002dd0       0x30 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
- .debug_frame   0x00002e00       0xc4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .debug_frame   0x00002d98       0x40 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+ .debug_frame   0x00002dd8       0x30 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+ .debug_frame   0x00002e08       0xbc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .debug_frame   0x00002ec4       0x44 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
  .debug_frame   0x00002f08       0x5c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .debug_frame   0x00002f64       0x5c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
@@ -6254,7 +6256,7 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
  .debug_frame   0x000037d8       0x2c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-fstatr.o)
  .debug_frame   0x00003804       0x2c C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-isattyr.o)
 
-.debug_info     0x00000000    0x1e34a
+.debug_info     0x00000000    0x1e4c1
  .debug_info    0x00000000      0xed2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj
  .debug_info    0x00000ed2     0x10b0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_cortex.c.obj
  .debug_info    0x00001f82      0x980 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_ipcc.c.obj
@@ -6270,26 +6272,26 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
  .debug_info    0x00014910      0x55e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/port.c.obj
  .debug_info    0x00014e6e      0x599 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/MemMang/heap_4.c.obj
  .debug_info    0x00015407       0xeb CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
- .debug_info    0x000154f2      0x2b3 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
- .debug_info    0x000157a5      0x315 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
- .debug_info    0x00015aba      0x834 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
- .debug_info    0x000162ee      0x135 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
- .debug_info    0x00016423      0x1fb CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
- .debug_info    0x0001661e      0x178 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
- .debug_info    0x00016796      0x178 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
- .debug_info    0x0001690e      0x178 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
- .debug_info    0x00016a86      0x12b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
- .debug_info    0x00016bb1      0x974 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
- .debug_info    0x00017525      0x13e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
- .debug_info    0x00017663     0x2272 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
- .debug_info    0x000198d5     0x1594 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
- .debug_info    0x0001ae69     0x1d15 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
- .debug_info    0x0001cb7e      0xe9a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
- .debug_info    0x0001da18      0x78d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_info    0x0001e1a5      0x175 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
- .debug_info    0x0001e31a       0x30 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
+ .debug_info    0x000154f2      0x2e6 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+ .debug_info    0x000157d8      0x362 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+ .debug_info    0x00015b3a      0x8e8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .debug_info    0x00016422      0x135 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
+ .debug_info    0x00016557      0x23e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+ .debug_info    0x00016795      0x178 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+ .debug_info    0x0001690d      0x178 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+ .debug_info    0x00016a85      0x178 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+ .debug_info    0x00016bfd      0x12b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
+ .debug_info    0x00016d28      0x974 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
+ .debug_info    0x0001769c      0x13e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
+ .debug_info    0x000177da     0x2272 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+ .debug_info    0x00019a4c     0x1594 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
+ .debug_info    0x0001afe0     0x1d15 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
+ .debug_info    0x0001ccf5      0xe9a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+ .debug_info    0x0001db8f      0x78d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_info    0x0001e31c      0x175 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
+ .debug_info    0x0001e491       0x30 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
 
-.debug_abbrev   0x00000000     0x3f29
+.debug_abbrev   0x00000000     0x3f24
  .debug_abbrev  0x00000000      0x2e2 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj
  .debug_abbrev  0x000002e2      0x3c4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_cortex.c.obj
  .debug_abbrev  0x000006a6      0x2c8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_ipcc.c.obj
@@ -6305,27 +6307,27 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
  .debug_abbrev  0x00002013      0x295 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/port.c.obj
  .debug_abbrev  0x000022a8      0x265 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/MemMang/heap_4.c.obj
  .debug_abbrev  0x0000250d       0xa6 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
- .debug_abbrev  0x000025b3      0x144 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
- .debug_abbrev  0x000026f7      0x153 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
- .debug_abbrev  0x0000284a      0x244 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
- .debug_abbrev  0x00002a8e       0xea CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
- .debug_abbrev  0x00002b78      0x137 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
- .debug_abbrev  0x00002caf       0xf9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
- .debug_abbrev  0x00002da8       0xf9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
- .debug_abbrev  0x00002ea1       0xf9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
- .debug_abbrev  0x00002f9a       0xe8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
- .debug_abbrev  0x00003082      0x1e1 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
- .debug_abbrev  0x00003263       0xa4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
- .debug_abbrev  0x00003307      0x320 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
- .debug_abbrev  0x00003627      0x1a9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
- .debug_abbrev  0x000037d0      0x266 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
- .debug_abbrev  0x00003a36      0x220 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
- .debug_abbrev  0x00003c56      0x1c3 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_abbrev  0x00003e19       0xec CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
- .debug_abbrev  0x00003f05       0x24 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
+ .debug_abbrev  0x000025b3      0x130 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+ .debug_abbrev  0x000026e3      0x152 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+ .debug_abbrev  0x00002835      0x254 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .debug_abbrev  0x00002a89       0xea CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
+ .debug_abbrev  0x00002b73      0x137 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+ .debug_abbrev  0x00002caa       0xf9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+ .debug_abbrev  0x00002da3       0xf9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+ .debug_abbrev  0x00002e9c       0xf9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+ .debug_abbrev  0x00002f95       0xe8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
+ .debug_abbrev  0x0000307d      0x1e1 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
+ .debug_abbrev  0x0000325e       0xa4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
+ .debug_abbrev  0x00003302      0x320 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+ .debug_abbrev  0x00003622      0x1a9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
+ .debug_abbrev  0x000037cb      0x266 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
+ .debug_abbrev  0x00003a31      0x220 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+ .debug_abbrev  0x00003c51      0x1c3 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_abbrev  0x00003e14       0xec CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
+ .debug_abbrev  0x00003f00       0x24 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
 
 .debug_loclists
-                0x00000000     0xad4f
+                0x00000000     0xad43
  .debug_loclists
                 0x00000000      0x172 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj
  .debug_loclists
@@ -6355,35 +6357,35 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
  .debug_loclists
                 0x0000a171      0x2bb CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/MemMang/heap_4.c.obj
  .debug_loclists
-                0x0000a42c       0xcf CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+                0x0000a42c       0xd0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
  .debug_loclists
-                0x0000a4fb       0x97 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+                0x0000a4fc       0x98 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
  .debug_loclists
-                0x0000a592      0x26c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+                0x0000a594      0x25e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
  .debug_loclists
-                0x0000a7fe       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
+                0x0000a7f2       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
  .debug_loclists
-                0x0000a827       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+                0x0000a81b       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
  .debug_loclists
-                0x0000a850       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+                0x0000a844       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
  .debug_loclists
-                0x0000a879       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+                0x0000a86d       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
  .debug_loclists
-                0x0000a8a2       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+                0x0000a896       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
  .debug_loclists
-                0x0000a8cb       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
+                0x0000a8bf       0x29 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
  .debug_loclists
-                0x0000a8f4       0x30 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
+                0x0000a8e8       0x30 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
  .debug_loclists
-                0x0000a924       0x40 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+                0x0000a918       0x40 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
  .debug_loclists
-                0x0000a964       0x74 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
+                0x0000a958       0x74 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
  .debug_loclists
-                0x0000a9d8       0x58 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
+                0x0000a9cc       0x58 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
  .debug_loclists
-                0x0000aa30      0x2cd CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+                0x0000aa24      0x2cd CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
  .debug_loclists
-                0x0000acfd       0x52 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
+                0x0000acf1       0x52 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
 
 .debug_aranges  0x00000000     0x1308
  .debug_aranges
@@ -6522,7 +6524,7 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
  .debug_rnglists
                 0x00000efc       0x19 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
 
-.debug_macro    0x00000000    0x47bf6
+.debug_macro    0x00000000    0x47bb6
  .debug_macro   0x00000000      0x1e9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj
  .debug_macro   0x000001e9      0xad8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj
  .debug_macro   0x00000cc1       0xe6 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj
@@ -6590,53 +6592,53 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
  .debug_macro   0x00044ef6      0x112 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
  .debug_macro   0x00045008       0x16 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
  .debug_macro   0x0004501e       0xa7 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
- .debug_macro   0x000450c5       0xba CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
- .debug_macro   0x0004517f       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
- .debug_macro   0x0004518f       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
- .debug_macro   0x0004519f       0xcd CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
- .debug_macro   0x0004526c       0xc0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
- .debug_macro   0x0004532c      0x3de CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
- .debug_macro   0x0004570a       0x5b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
- .debug_macro   0x00045765       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
- .debug_macro   0x00045775      0x19b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
- .debug_macro   0x00045910      0x15d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
- .debug_macro   0x00045a6d       0x16 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
- .debug_macro   0x00045a83      0x14b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
- .debug_macro   0x00045bce      0x13b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
- .debug_macro   0x00045d09      0x14b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
- .debug_macro   0x00045e54      0x2fa CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
- .debug_macro   0x0004614e      0x16d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
- .debug_macro   0x000462bb      0x17d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
- .debug_macro   0x00046438      0x31e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
- .debug_macro   0x00046756      0x12c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
- .debug_macro   0x00046882      0x1c3 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
- .debug_macro   0x00046a45      0x1b9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
- .debug_macro   0x00046bfe      0x1cd CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
- .debug_macro   0x00046dcb      0x265 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x00047030       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x00047040       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x00047050       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x00047060       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x00047070       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x0004708c       0x52 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x000470de       0x22 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x00047100       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x00047110       0x52 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x00047162       0xcf CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x00047231       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x0004724d       0x3d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x0004728a       0x35 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x000472bf      0x12c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x000473eb       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x000473fb      0x242 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x0004763d       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x0004764d      0x18a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x000477d7       0x16 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x000477ed       0xce CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_macro   0x000478bb       0xff CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
- .debug_macro   0x000479ba      0x23c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
+ .debug_macro   0x000450c5       0x9a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+ .debug_macro   0x0004515f       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+ .debug_macro   0x0004516f       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+ .debug_macro   0x0004517f       0xcd CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+ .debug_macro   0x0004524c       0xa0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+ .debug_macro   0x000452ec      0x3de CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .debug_macro   0x000456ca       0x5b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .debug_macro   0x00045725       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .debug_macro   0x00045735      0x19b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
+ .debug_macro   0x000458d0      0x15d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+ .debug_macro   0x00045a2d       0x16 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+ .debug_macro   0x00045a43      0x14b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+ .debug_macro   0x00045b8e      0x13b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+ .debug_macro   0x00045cc9      0x14b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+ .debug_macro   0x00045e14      0x2fa CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
+ .debug_macro   0x0004610e      0x16d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
+ .debug_macro   0x0004627b      0x17d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
+ .debug_macro   0x000463f8      0x31e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+ .debug_macro   0x00046716      0x12c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+ .debug_macro   0x00046842      0x1c3 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
+ .debug_macro   0x00046a05      0x1b9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
+ .debug_macro   0x00046bbe      0x1cd CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+ .debug_macro   0x00046d8b      0x265 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x00046ff0       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x00047000       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x00047010       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x00047020       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x00047030       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x0004704c       0x52 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x0004709e       0x22 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x000470c0       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x000470d0       0x52 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x00047122       0xcf CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x000471f1       0x1c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x0004720d       0x3d CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x0004724a       0x35 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x0004727f      0x12c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x000473ab       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x000473bb      0x242 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x000475fd       0x10 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x0004760d      0x18a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x00047797       0x16 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x000477ad       0xce CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_macro   0x0004787b       0xff CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
+ .debug_macro   0x0004797a      0x23c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
 
-.debug_line     0x00000000    0x190cd
+.debug_line     0x00000000    0x190b6
  .debug_line    0x00000000      0xc11 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj
  .debug_line    0x00000c11      0xb93 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_cortex.c.obj
  .debug_line    0x000017a4      0xb5a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_ipcc.c.obj
@@ -6652,60 +6654,60 @@ LOAD C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib
  .debug_line    0x0001142c      0x873 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/port.c.obj
  .debug_line    0x00011c9f      0x962 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/MemMang/heap_4.c.obj
  .debug_line    0x00012601      0x324 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
- .debug_line    0x00012925      0x41f CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
- .debug_line    0x00012d44      0x506 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
- .debug_line    0x0001324a      0xbb9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
- .debug_line    0x00013e03      0x596 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
- .debug_line    0x00014399      0x4d4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
- .debug_line    0x0001486d      0x402 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
- .debug_line    0x00014c6f      0x3a7 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
- .debug_line    0x00015016      0x404 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
- .debug_line    0x0001541a      0x8e3 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
- .debug_line    0x00015cfd      0x48f CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
- .debug_line    0x0001618c      0x4a1 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
- .debug_line    0x0001662d      0xbc0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
- .debug_line    0x000171ed      0x696 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
- .debug_line    0x00017883      0x6be CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
- .debug_line    0x00017f41      0x727 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
- .debug_line    0x00018668      0x6b1 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_line    0x00018d19      0x339 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
- .debug_line    0x00019052       0x7b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
+ .debug_line    0x00012925      0x42c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+ .debug_line    0x00012d51      0x4dc CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+ .debug_line    0x0001322d      0xbbf CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .debug_line    0x00013dec      0x596 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
+ .debug_line    0x00014382      0x4d4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+ .debug_line    0x00014856      0x402 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+ .debug_line    0x00014c58      0x3a7 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+ .debug_line    0x00014fff      0x404 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+ .debug_line    0x00015403      0x8e3 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
+ .debug_line    0x00015ce6      0x48f CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
+ .debug_line    0x00016175      0x4a1 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
+ .debug_line    0x00016616      0xbc0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+ .debug_line    0x000171d6      0x696 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
+ .debug_line    0x0001786c      0x6be CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
+ .debug_line    0x00017f2a      0x727 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+ .debug_line    0x00018651      0x6b1 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_line    0x00018d02      0x339 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
+ .debug_line    0x0001903b       0x7b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
 
-.debug_str      0x00000000   0x1d7d5c
- .debug_str     0x00000000   0x1d7d5c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj
+.debug_str      0x00000000   0x1d7dc4
+ .debug_str     0x00000000   0x1d7dc4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj
                              0x1c547e (size before relaxing)
- .debug_str     0x001d7d5c   0x1c50aa CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_cortex.c.obj
- .debug_str     0x001d7d5c   0x1c477c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_ipcc.c.obj
- .debug_str     0x001d7d5c   0x1c53f4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_pwr.c.obj
- .debug_str     0x001d7d5c   0x1c5926 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_rcc.c.obj
- .debug_str     0x001d7d5c   0x1c57b5 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_rcc_ex.c.obj
- .debug_str     0x001d7d5c   0x1c5874 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_tim.c.obj
- .debug_str     0x001d7d5c   0x1c5219 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_tim_ex.c.obj
- .debug_str     0x001d7d5c   0x1c5045 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Common/System/system_stm32mp1xx.c.obj
- .debug_str     0x001d7d5c     0xa6c0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/list.c.obj
- .debug_str     0x001d7d5c     0xc073 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/queue.c.obj
- .debug_str     0x001d7d5c     0xd71e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/tasks.c.obj
- .debug_str     0x001d7d5c     0xb3fa CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/port.c.obj
- .debug_str     0x001d7d5c     0xb002 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/MemMang/heap_4.c.obj
- .debug_str     0x001d7d5c     0x7382 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
- .debug_str     0x001d7d5c     0x4836 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
- .debug_str     0x001d7d5c     0x48ee CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
- .debug_str     0x001d7d5c   0x1ccec1 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
- .debug_str     0x001d7d5c     0xac2a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
- .debug_str     0x001d7d5c     0x798f CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
- .debug_str     0x001d7d5c     0x73e9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
- .debug_str     0x001d7d5c     0x73e9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
- .debug_str     0x001d7d5c     0x73ee CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
- .debug_str     0x001d7d5c   0x1ca661 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
- .debug_str     0x001d7d5c     0xafc7 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
- .debug_str     0x001d7d5c     0xab7b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
- .debug_str     0x001d7d5c   0x1cce5f CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
- .debug_str     0x001d7d5c   0x1c592a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
- .debug_str     0x001d7d5c   0x1c5ee8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
- .debug_str     0x001d7d5c   0x1c5384 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
- .debug_str     0x001d7d5c     0x9457 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
- .debug_str     0x001d7d5c     0x7150 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
- .debug_str     0x001d7d5c       0xb8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
+ .debug_str     0x001d7dc4   0x1c50aa CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_cortex.c.obj
+ .debug_str     0x001d7dc4   0x1c477c CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_ipcc.c.obj
+ .debug_str     0x001d7dc4   0x1c53f4 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_pwr.c.obj
+ .debug_str     0x001d7dc4   0x1c5926 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_rcc.c.obj
+ .debug_str     0x001d7dc4   0x1c57b5 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_rcc_ex.c.obj
+ .debug_str     0x001d7dc4   0x1c5874 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_tim.c.obj
+ .debug_str     0x001d7dc4   0x1c5219 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal_tim_ex.c.obj
+ .debug_str     0x001d7dc4   0x1c5045 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Common/System/system_stm32mp1xx.c.obj
+ .debug_str     0x001d7dc4     0xa6c0 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/list.c.obj
+ .debug_str     0x001d7dc4     0xc073 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/queue.c.obj
+ .debug_str     0x001d7dc4     0xd71e CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/tasks.c.obj
+ .debug_str     0x001d7dc4     0xb3fa CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_str     0x001d7dc4     0xb002 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Middlewares/Third_Party/FreeRTOS/portable/MemMang/heap_4.c.obj
+ .debug_str     0x001d7dc4     0x7382 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/Handlers/evt_comms_handlers.c.obj
+ .debug_str     0x001d7dc4     0x4835 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_core.c.obj
+ .debug_str     0x001d7dc4     0x4930 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Events/evt_tables.c.obj
+ .debug_str     0x001d7dc4   0x1ccf43 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Services/Manager/obc_manager.c.obj
+ .debug_str     0x001d7dc4     0xac2a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/adcs.c.obj
+ .debug_str     0x001d7dc4     0x7989 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/comms.c.obj
+ .debug_str     0x001d7dc4     0x73e9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/eps.c.obj
+ .debug_str     0x001d7dc4     0x73e9 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/health.c.obj
+ .debug_str     0x001d7dc4     0x73ee CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/obdh.c.obj
+ .debug_str     0x001d7dc4   0x1ca661 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Subsystems/payload.c.obj
+ .debug_str     0x001d7dc4     0xafc7 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/Utils/freertos.c.obj
+ .debug_str     0x001d7dc4     0xab7b CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Application/Src/common.c.obj
+ .debug_str     0x001d7dc4   0x1cce5f CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/main.c.obj
+ .debug_str     0x001d7dc4   0x1c592a CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_msp.c.obj
+ .debug_str     0x001d7dc4   0x1c5ee8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_hal_timebase_tim.c.obj
+ .debug_str     0x001d7dc4   0x1c5384 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/stm32mp1xx_it.c.obj
+ .debug_str     0x001d7dc4     0x9457 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/syscalls.c.obj
+ .debug_str     0x001d7dc4     0x7150 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Src/sysmem.c.obj
+ .debug_str     0x001d7dc4       0xb8 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Core/Startup/startup_stm32mp157facx.s.obj
 
 .comment        0x00000000       0x44
  .comment       0x00000000       0x44 CMakeFiles/pocat_moon_sw.elf.dir/c/Users/34684/Desktop/PAE/Nanosat/Software/Project/CM4/Drivers/STM32MP1xx_HAL_Driver/Src/stm32mp1xx_hal.c.obj

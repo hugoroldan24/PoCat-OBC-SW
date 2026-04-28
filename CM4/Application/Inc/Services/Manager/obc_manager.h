@@ -34,6 +34,6 @@ typedef enum {
  */
 void obc_task(void *pv_parameters);
 
-ReturnCode_t Notify_OBC_From_Task(OBC_TaskID_t id, uint32_t val);
+ReturnCode_t OBC_SubmitEvent(OBC_TaskID_t id, uint32_t val);
 
 #endif /* INC_OBC_H_ */
