@@ -1,0 +1,8 @@
+# Compiled and binary files
+*.obj
+*.elf
+*.map
+*.bin
+
+# YAML files
+*.yaml
