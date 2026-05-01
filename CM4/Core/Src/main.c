@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "obc_manager.h"
+#include "common.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include <stdio.h>
@@ -46,7 +47,7 @@
 IPCC_HandleTypeDef hipcc;
 
 /* USER CODE BEGIN PV */
-TaskHandle_t obc_task_handle;
+
 
 /* USER CODE END PV */
 
@@ -112,12 +113,7 @@ int main(void)
   MX_DMA_Init();
   /* USER CODE BEGIN 2 */
 
-  printf("*********************************\r\n");
-  printf(" PoCat FLIGHT SOFTWARE\r\n");
-  printf("*********************************\r\n");
-
-  xTaskCreate(obc_task, "OBC", OBC_STACK_SIZE, NULL, OBC_PRIORITY, &obc_task_handle);
-
+  (void)obc_init_task();
   vTaskStartScheduler();
   /* USER CODE END 2 */
 
