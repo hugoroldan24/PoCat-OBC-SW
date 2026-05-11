@@ -67,7 +67,7 @@
 #define EVT_OFFSET_COMMS   (EVT_OFFSET_PAYLOAD + EVT_BITS_PAYLOAD)
 
 /* CONDITION field follows TELECOMMAND */
-#define EVT_OFFSET_EPS     (EVT_OFFSET_TC      + EVT_BITS_COMMS)
+#define EVT_OFFSET_EPS     (EVT_OFFSET_COMMS      + EVT_BITS_COMMS)
 
 /* SYSTEM field follows CONDITION */
 #define EVT_OFFSET_OBDH    (EVT_OFFSET_EPS     + EVT_BITS_EPS)
@@ -90,7 +90,7 @@
 
 #define EVT_MASK_PAYLOAD  (((uint32_t)((1u << EVT_BITS_PAYLOAD) - 1u)) << EVT_OFFSET_PAYLOAD)
 
-#define EVT_MASK_COMMS    (((uint32_t)((1u << EVT_BITS_TC) - 1u))      << EVT_OFFSET_TC)
+#define EVT_MASK_COMMS    (((uint32_t)((1u << EVT_BITS_COMMS) - 1u))      << EVT_OFFSET_COMMS)
 
 #define EVT_MASK_EPS      (((uint32_t)((1u << EVT_BITS_EPS) - 1u))     << EVT_OFFSET_EPS)
 
