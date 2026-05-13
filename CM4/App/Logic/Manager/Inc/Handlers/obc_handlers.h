@@ -7,6 +7,6 @@
 #include "obc_payload_handlers.h"
 #include "obc_obdh_handlers.h"
 #include "obc_health_handlers.h"
-
+#include "obc_common_handlers.h"
 
 #endif

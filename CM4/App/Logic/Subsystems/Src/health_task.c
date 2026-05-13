@@ -7,14 +7,14 @@
 /* ================= GLOBAL VARIABLES ================= */
 /* ================= MODULE-LEVEL VARIABLES ================= */
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
-static void setup_health(void);
-static void process_health(void);
+static void health_setup(void);
+static void health_process(void);
 
 /* ================= PUBLIC FUNCTION DEFINITIONS ================= */
 
 void health_task(void *pv_parameters){
     /*TODO implementation*/
-    setup_health();
+    health_setup();
 
     // PROCESS STAGE
 
@@ -22,18 +22,18 @@ void health_task(void *pv_parameters){
 
     for (;;)
     {
-        process_health();
+        health_process();
     }
 }
 
 /* ================= PRIVATE FUNCTION DEFINITIONS ================= */
-static void setup_health(void)
+static void health_setup(void)
 {
     printf("Setting up HEALTH...\n");
     // Apply the default configuration
 }
 
-static void process_health(void)
+static void health_process(void)
 {
     printf("Processing HEALTH...\n");
     TaskNotifyValue_t value;

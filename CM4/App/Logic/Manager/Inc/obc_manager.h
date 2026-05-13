@@ -2,8 +2,18 @@
 #define INC_OBC_MANAGER_H
 
 
+#include "main.h"
 #include <stdint.h>
 #include "evt_service.h"
+
+
+/* Satellite modes */
+typedef enum {
+    OBC_STATE_NOMINAL = 0u,
+    OBC_STATE_CONTINGENCY,
+    OBC_STATE_SUN_SAFE,
+    OBC_STATE_COMMISSIONING
+} OBC_SatelliteState_t;
 
 
 typedef enum {
@@ -14,18 +24,15 @@ typedef enum {
    TASK_ADCS_ID,
    TASK_HEALTH_ID,
    OBC_NUM_TASKS
-} OBC_TaskID_t
+} OBC_TaskID_t;
 
 typedef struct {
     EVT_ID_t id;
-    void (*on_commissioning)(void);
-    void (*on_nominal)(void);
-    void (*on_sun_safe)(void);
-    void (*on_contingency)(void);
-} OBC_StateHandlers_t;
+    void (*handler)(OBC_SatelliteState_t *state);
+} OBC_Handler_t;
 
 ReturnCode_t obc_init_task();
-ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, uint32_t *val, uint32_t len)
+ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, uint32_t *val, uint32_t len);
 
 
 #endif

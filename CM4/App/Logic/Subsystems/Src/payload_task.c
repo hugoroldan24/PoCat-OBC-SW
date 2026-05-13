@@ -3,50 +3,50 @@
 #include "FreeRTOS.h"
 #include "common.h"
 #include "main.h"
-#include "payload.h"
+#include "payload_task.h"
 
 /* ================= MACROS AND CONSTANTS ================= */
 /* ================= TYPE DEFINITIONS ================= */
 /* ================= GLOBAL VARIABLES ================= */
 /* ================= MODULE-LEVEL VARIABLES ================= */
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
-static void setup_payload(void);
-static void process_payload(void);
-static void capture_temperature(void);
+static void payload_setup(void);
+static void payload_process(void);
+static void payload_capture_temperature(void);
 
 /* ================= PUBLIC FUNCTION DEFINITIONS ================= */
 void payload_task(void *pv_parameters) {
     
-    setup_payload();
+    payload_setup();
 
     for (;;) {
-        process_payload();
+        payload_process();
     }
 
 }
 
 /* ================= PRIVATE FUNCTION DEFINITIONS ================= */
-static void setup_payload(void) {
+static void payload_setup(void) {
 
     // Apply default configuration
     // ...
     
 }
 
-static void process_payload(void) {
+static void payload_process(void) {
 
     TaskNotifyValue_t value;
     wait_for_notification(&value);
 
     if (value & PAYLOAD_TEMP_CAPTURE) {
-        capture_temperature();
+        payload_capture_temperature();
     }
     // if ... (not else if!!)
 
 }
 
 
-static void capture_temperature(void) {
+static void payload_capture_temperature(void) {
 
     // /* 1. Initialize temperature sensor with current settings */
     // initSens(huart4, resolution, compressibility, info);

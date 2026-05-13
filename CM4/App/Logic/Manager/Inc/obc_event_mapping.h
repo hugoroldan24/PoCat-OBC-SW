@@ -4,6 +4,6 @@
 #include <stdint.h>
 #include "obc_manager.h"
 
-const EVT_StateHandlers_t* obc_resolve_event_handler(EVT_Decoded_t *decoded_event);
+const OBC_Handler_t *obc_resolve_event_handler(EVT_ID_t evt_id, EVT_Type_t evt_type); 
 
 #endif

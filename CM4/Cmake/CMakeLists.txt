@@ -45,12 +45,12 @@ set(CUBEMX_INCLUDE_DIRECTORIES
 
 set(PROJECT_INCLUDE_DIRECTORIES
     ${PROJECT_ROOT}/Core/Inc/
-    ${PROJECT_ROOT}/Application/Inc
-    ${PROJECT_ROOT}/Application/Inc/Services/Events/
-    ${PROJECT_ROOT}/Application/Inc/Services/Events/Handlers/
-    ${PROJECT_ROOT}/Application/Inc/Services/Manager/
-    ${PROJECT_ROOT}/Application/Inc/Subsystems/
-    ${PROJECT_ROOT}/Application/Inc/Utils/
+    ${PROJECT_ROOT}/App/
+    ${PROJECT_ROOT}/App/Services/EVT/Inc/
+    ${PROJECT_ROOT}/App/Logic/Manager/Inc/
+    ${PROJECT_ROOT}/App/Logic/Manager/Inc/Handlers/
+    ${PROJECT_ROOT}/App/Logic/Subsystems/Inc/
+    ${PROJECT_ROOT}/App/Utils/Inc
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Common
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Hal
     # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc/Interrupts
@@ -92,12 +92,12 @@ set(STM32CUBEMX_SOURCES
 
 file(GLOB_RECURSE PROJECT_SOURCES
     ${PROJECT_ROOT}/Core/Src/*.c
-    ${PROJECT_ROOT}/Application/Src/*.c
-    ${PROJECT_ROOT}/Application/Src/Services/Events/*.c
-    ${PROJECT_ROOT}/Application/Src/Services/Events/Handlers/*.c
-    ${PROJECT_ROOT}/Application/Src/Services/Manager/*.c
-    ${PROJECT_ROOT}/Application/Src/Subsystems/*.c
-    ${PROJECT_ROOT}/Application/Src/Utils/*.c
+    ${PROJECT_ROOT}/App/*.c
+    ${PROJECT_ROOT}/App/Services/EVT/Src/*.c
+    ${PROJECT_ROOT}/App/Logic/Manager/Src/*.c
+    ${PROJECT_ROOT}/App/Logic/Manager/Src/Handlers/*.c
+    ${PROJECT_ROOT}/App/Logic/Subsystems/Src/*.c
+    ${PROJECT_ROOT}/App/Utils/*.c
 )
 
 #file(GLOB_RECURSE FREERTOS_SOURCES

@@ -1,7 +1,6 @@
 /* ================= INCLUDES ================= */
-#include "comms.h"
+#include "comms_task.h"
 #include "common.h"
-#include "evt_defs.h"
 #include "obc_manager.h"
 #include <stdio.h>
 
@@ -31,9 +30,17 @@ static void setup_comms(void)
     // Apply the default configuration
 }
 
+
+
 static void process_comms(void)
 {
     TaskNotifyValue_t value;
         
-    wait_for_notification(&value);
+    //wait_for_notification(&value);
+    
+    /* Tiene acceso al LoRa */
+
+    /* Leer a través del LoRa */
+
+
 }

@@ -2,6 +2,19 @@
 // It is responsible for managing transitions between different operational modes, task scheduling, 
 // power control, and essential satellite checkups.
 
+/* LEDS */
+/*PG8: 11 ->NOMINAL
+PI5:12     -> COMMISSIONING
+ PG15:15   -> SUN SAFE
+ PF1:16 -> CONTINGENCY */
+
+
+/* EN LA DK2 */
+/*PF8: MISO: 21  */
+/*PF9: MOSI:19 */
+/*PF7: SCK: 23  */
+/*PG2: NSS 29*/ /* Usado para el testing de tareas y leds también, luego al cambiar al LoRa tenerlo en cuenta!!!*/
+
 /* ================= INCLUDES ================= */
 
 #include <stdbool.h>
@@ -10,26 +23,20 @@
 #include <stdint.h> //mirar
 #include <string.h>
 #include "obc_manager.h"
-#include "obc_event_routing.h"
+#include "obc_event_mapping.h"
 #include "FreeRTOS.h" // mirar
 #include "task.h" // mirar
 #include "main.h"
-#include "eps.h"
-#include "comms.h"
-#include "obdh.h"
-#include "payload.h"
+#include "eps_task.h"
+#include "comms_task.h"
+#include "obdh_task.h"
+#include "payload_task.h"
 #include "common.h"
-#include "adcs.h"
-#include "health.h"
-#include "evt_core.h"
-#include "evt_tables.h"
+#include "adcs_task.h"
+#include "health_task.h"
 
 
 /* ================= MACROS AND CONSTANTS ================= */
-
-
-#define OBC_NUM_SLOTS (3u)
-
 // Task stack sizes
 #define OBC_STACK_SIZE     3000
 #define COMMS_STACK_SIZE   3000 // ??
@@ -50,34 +57,6 @@
 #define HEALTH_PRIORITY    5
 
 /* ================= TYPE DEFINITIONS ================= */
-
-typedef enum{
-    SLOT_UNINITIALIZED = (0u),
-    SLOT_FILLED        = (1u),
-    SLOT_PROCESSED     = (2u)
-} OBC_SlotStatus_t;
-
-/* Satellite modes */
-typedef enum {
-    OBC_STATE_NOMINAL = 0u,
-    OBC_STATE_CONTINGENCY,
-    OBC_STATE_SUN_SAFE,
-    OBC_STATE_COMMISSIONING
-} OBC_SatelliteState_t;
-
-typedef struct{
-    uint32_t value,
-    OBC_SlotStatus_t status
-} OBC_EventSlot_t;
-
-typedef struct {
-    EVT_ID_t id;
-    void (*on_commissioning)(void);
-    void (*on_nominal)(void);
-    void (*on_sun_safe)(void);
-    void (*on_contingency)(void);
-} OBC_StateHandlers_t;
-
 /* ================= GLOBAL VARIABLES ================= */
 TaskHandle_t obc_task_handle;
 TaskHandle_t payload_task_handle;
@@ -87,14 +66,15 @@ TaskHandle_t obdh_task_handle;
 TaskHandle_t adcs_task_handle;
 TaskHandle_t health_task_handle;
 
-OBC_EventSlot_t obc_slots[OBC_NUM_SLOTS] = {0};
+OBC_SatelliteState_t obc_current_state = OBC_STATE_NOMINAL;
 
 /* ================= MODULE-LEVEL VARIABLES ================= */
-static const OBC_StateHandlers_t *event_handlers;
-static OBC_SatelliteState_t obc_current_state = OBC_STATE_NOMINAL;
+static TaskNotifyValue_t obc_event_slot;
+
+static const OBC_Handler_t *event_handlers;
 
 
-static EVT_Decoded_t decoded_events[EVT_MAX_FIELDS];
+static EVT_Decoded_t decoded_events={0};
 
 /*==============================================================================
  * FreeRTOS Static Task Control Blocks and Stacks
@@ -138,12 +118,12 @@ static StackType_t  health_task_stack[HEALTH_STACK_SIZE];
 
 
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
-static void obc_task(void *pv_parameters) 
-static ReturnCode_t create_tasks(void);
-static ReturnCode_t setup_obc(void);
-static ReturnCode_t process_obc();
-static ReturnCode_t process_slot(OBC_Slot_t *slot);
-static ReturnCode_t obc_execute_state_handler(const OBC_StateHandlers_t *handlers);
+static void obc_task(void *pv_parameters);
+static ReturnCode_t obc_create_tasks(void);
+static ReturnCode_t obc_setup(void);
+static ReturnCode_t obc_process(void);
+static ReturnCode_t obc_execute_handler(const OBC_Handler_t *handler);
+static ReturnCode_t obc_process_slot(TaskNotifyValue_t slot);
 
 // static void create_queues(void);  // TODO: implement this function
 
@@ -159,67 +139,53 @@ ReturnCode_t obc_init_task()
     return OK;
 }
 
-ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, uint32_t *val, uint32_t len)
+ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, uint32_t *val, uint32_t num_events)
 {
 
-    if ((id >= OBC_NUM_TASKS) || (val == NULL) || (len >= OBC_NUM_SLOTS))
+    if ((id >= OBC_NUM_TASKS) || (val == NULL))
     {
        return NOT_OK;
     } 
 
     EVT_Type_t type = obc_to_evt_map[id];
-    uint32_t l_slot[OBC_NUM_SLOTS];
 
-    for(uint32_t i; i < len; i++)
-    {
-        evt_encode(type, val[i], &l_slot[i]);
-    }
-
-    taskENTER_CRITICAL(); 
-    for(uint32_t i; i < len; i++)
-    {
-        slots[i].value |= l_slot[i];
-        slots[i].status = SLOT_FILLED;
-    }
-    taskEXIT_CRITICAL();
-
+    TaskNotifyValue_t notif_val = 0u;
+    (void)evt_encode(type, val, num_events, &notif_val);
     
-// THIS GAP IS DONE SO IF PREEMPTION OCCURS HERE WE CAN STILL ADD MORE EVENTS 
-
-    taskENTER_CRITICAL();
-           
-    if(slots[0].status == SLOT_FILLED)
+    if(xTaskNotify(obc_task_handle, notif_val, eSetValueWithoutOverwrite) != pdPASS)
     {
-        //No need to assert, when using eNoAction returns always pdPASS 
-        xTaskNotify(obc_task_handle, 0, eNoAction);   
-    }        
-        
-    taskEXIT_CRITICAL();
-
+        xtaskENTER_CRITICAL();
+        HAL_GPIO_WritePin(GPIOG, GPIO_PIN_2, GPIO_PIN_SET); /*Activate LED because more than one task were able to notify OBC task before he woke up*/
+        xtaskEXIT_CRITICAL();
+        return NOT_OK;
+    }
+    
     return OK;
 }
 
 /* ================= PRIVATE FUNCTION DEFINITIONS ================= */
 static void obc_task(void *pv_parameters) 
 {
-    setup_obc();
+    obc_setup();
 
     for (;;) {
-        process_obc();
+        obc_process();
     }
 }
 
-static void setup_obc(void) {
+static void obc_setup(void) {
 
     printf("Setting up OBC...\n");
     // 1. Create queues
     // create_queues();  // TODO: implement this function
 
-    create_subsystem_tasks();
+    obc_create_subsystem_tasks();
+
+    HAL_GPIO_WritePin(GPIOG, GPIO_PIN_8, GPIO_PIN_SET);
 
 }
 
-static void create_subsystem_tasks(void) 
+static ReturnCode_t obc_create_subsystem_tasks(void) 
 {
    payload_task_handle = xTaskCreateStatic(payload_task, "PAYLOAD", PAYLOAD_STACK_SIZE, NULL, PAYLOAD_PRIORITY, payload_task_stack, &payload_task_tcb);
    if (payload_task_handle == NULL) return NOT_OK;
@@ -242,95 +208,44 @@ static void create_subsystem_tasks(void)
    return OK;
 }
 
-static void process_obc() 
+static void obc_process(void)
 {
-    uint32_t l_slots[OBC_NUM_SLOTS];
-
+    
     printf("Processing OBC...\n");
 
     /* We iterate until no actions to be done are available */
    
-    wait_for_notification(NULL); 
+    wait_for_notification(&obc_event_slot); 
 
-    (void)process_all_slots(obc_slots);
+
+    (void)obc_process_slot(obc_event_slot);
 }
 
-static ReturnCode_t obc_execute_state_handler(const OBC_StateHandlers_t *handlers)
+static ReturnCode_t obc_execute_handler(const OBC_Handler_t *handler)
 {
-
-    ReturnCode_t (*state_handler)(void) = NULL;
-
-    if(handlers == NULL)
-    {
-        return NOT_OK;
-    }
-    switch (obc_current_state)
-    {
-        case OBC_STATE_NOMINAL:
-            state_handler = handlers->on_nominal;
-            break;
-
-        case OBC_STATE_CONTINGENCY:
-            state_handler = handlers->on_contingency;
-            break;
-
-        case OBC_STATE_SUN_SAFE:
-            state_handler = handlers->on_sun_safe;
-            break;
-
-        case OBC_STATE_COMMISSIONING:
-            state_handler = handlers->on_commissioning;
-            break;
-        default:
-            /* Manage undefined state */
-            return NOT_OK;
-            break;
-    }
-
-    if(state_handler == NULL)
+    if(handler->event_handler == NULL)
     {
         return NOT_OK;
     }
     
-    return state_handler();
+    return handler->event_handler(obc_current_state);
 }
 
-static ReturnCode_t process_all_slots(OBC_Slot_t *slots)
+static ReturnCode_t obc_process_slot(TaskNotifyValue_t slot)
 {
-    ReturnCode_t ret_val = OK;
-    for (uint32_t i = 0u; i < OBC_NUM_SLOTS; i++)
-    {
-        ret_val = process_slot(&slots[i]);
-        if(ret_val == NOT_OK)
-        {
-            return ret_val;
-        }
-    }
-    return OK;
-}
+   uint32_t num_events = 0u;
 
-static ReturnCode_t process_slot(OBC_Slot_t *slot)
-{
-    if (slot->status != SLOT_FILLED)
-    {
-        return NOT_OK;
-    }
+   (void)evt_decode(slot, &decoded_events, &num_events);
 
-    OBC_Event_t decoded_events[MAX_EVENTS];
-    uint32_t num_events = 0u;
-
-    (void)evt_decode(slot->value, decoded_events, &num_events);
-
-    for (uint32_t i = 0u; i < num_events; i++)
-    {
-        OBC_EventHandler_t handler = obc_resolve_event_handler(&decoded_events[j]);
+   for (uint32_t i = 0u; i < num_events; i++)
+   {
+        const OBC_Handler_t *handler = obc_resolve_event_handler(decoded_events.id[i], decoded_events.type);
         if(handler == NULL)
         {
             return NOT_OK;
         }
-        (void)obc_execute_state_handler(handler);
+        (void)obc_execute_handler(handler);
     }
 
-    slot->status = SLOT_PROCESSED;
     return OK;
 }
