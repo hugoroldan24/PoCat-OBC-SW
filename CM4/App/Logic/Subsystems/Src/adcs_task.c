@@ -9,6 +9,8 @@
 #include "task.h"
 #include "obc_manager.h"
 #include "adcs_task.h"
+#include "evt_service.h"
+
 
 /* ================= MACROS AND CONSTANTS ================= */
 #define ADCS_DETUMBLING_MODE (1 << 0)
@@ -39,6 +41,8 @@ static void adcs_setup(void) {
 }
 
 static void adcs_process(void) {
+    
+    /*
     TaskNotifyValue_t value;
     wait_for_notification(&value);
 
@@ -48,6 +52,15 @@ static void adcs_process(void) {
     if (value & ADCS_NADIR_POINTING_MODE) {
         adcs_point_to_nadir();
     }
+        */
+    EVT_ID_t evt_id[EVT_EVENTS_PER_SLOT] = {EVT_UNDEF};
+
+    evt_id[0] = EVT_ADCS_TO_NOMINAL; 
+
+    (void)obc_send_event_from_task(TASK_ADCS_ID, evt_id, 1);
+
+    vTaskDelay(pdMS_TO_TICKS(500));
+
 }
 
 

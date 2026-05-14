@@ -136,7 +136,7 @@ ReturnCode_t obc_init_task()
     return OK;
 }
 
-ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, uint32_t *val, uint32_t num_events)
+ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, EVT_ID_t *val, uint32_t num_events)
 {
 
     if ((id >= OBC_NUM_TASKS) || (val == NULL))
@@ -148,7 +148,7 @@ ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, uint32_t *val, uint32_t n
 
 
     TaskNotifyValue_t notif_val = 0u;
-    (void)evt_encode(type, val, num_events, &notif_val);
+    (void)evt_encode(type, val, num_events,&notif_val);
     
     if(xTaskNotify(obc_task_handle, notif_val, eSetValueWithoutOverwrite) != pdPASS)
     {
@@ -229,8 +229,7 @@ static ReturnCode_t obc_execute_handler(const OBC_Handler_t *handler)
         return NOT_OK;
     }
     
-    handler->action(&obc_current_state);
-    return OK;
+    return handler->action(&obc_current_state);
 }
 
 static ReturnCode_t obc_process_slot(TaskNotifyValue_t slot)

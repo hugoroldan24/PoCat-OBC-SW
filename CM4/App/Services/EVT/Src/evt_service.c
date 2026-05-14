@@ -63,7 +63,7 @@ static inline uint32_t evt_set_field(uint32_t field_val, uint32_t mask, uint32_t
 static inline uint32_t evt_get_field(uint32_t val, uint32_t mask, uint32_t offset);
 
 /* ================= PUBLIC FUNCTION DEFINITIONS ================= */
-ReturnCode_t evt_encode(EVT_Type_t type, uint32_t *val, uint32_t num_events, uint32_t *encoded_val)
+ReturnCode_t evt_encode(EVT_Type_t type, EVT_ID_t *val, uint32_t num_events, uint32_t *encoded_val)
 {
    if((type >= EVT_NUM_TYPES) || (encoded_val == NULL) || (num_events > EVT_EVENTS_PER_SLOT))
    {

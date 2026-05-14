@@ -5,6 +5,8 @@
 
 /* ================= INCLUDES ================= */
 #include "eps_task.h"
+#include "obc_manager.h"
+#include "evt_service.h"
 #include "common.h"
 #include <stdio.h>
 
@@ -40,10 +42,13 @@ static void setup_eps(void)
 static void process_eps(void)
 {
 
-    TaskNotifyValue_t value;
-    wait_for_notification(&value);
+    EVT_ID_t evt_id[EVT_EVENTS_PER_SLOT] = {EVT_UNDEF};
 
-    printf("Processing EPS...\n");
+    evt_id[0] = EVT_EPS_TO_SUN_SAFE; 
+
+    (void)obc_send_event_from_task(TASK_EPS_ID, evt_id, 1);
+
+    vTaskDelay(pdMS_TO_TICKS(500));
     // 1. Checks EPS notifications (DOESN'T BLOCK) to see whether to perform notification actions
             
     // If there are actions to be taken, process them accordingly.

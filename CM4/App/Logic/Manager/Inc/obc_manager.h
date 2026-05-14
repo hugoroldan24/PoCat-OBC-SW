@@ -7,6 +7,7 @@
 #include "evt_service.h"
 
 
+
 /* Satellite modes */
 typedef enum {
     OBC_STATE_NOMINAL = 0u,
@@ -32,7 +33,7 @@ typedef struct {
 } OBC_Handler_t;
 
 ReturnCode_t obc_init_task();
-ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, uint32_t *val, uint32_t len);
+ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, EVT_ID_t *val, uint32_t len);
 
 
 #endif

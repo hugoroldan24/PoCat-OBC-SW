@@ -1,6 +1,8 @@
 /* ================= INCLUDES ================= */
 #include <stdio.h>
 #include "common.h"
+#include "evt_service.h"
+#include "obc_manager.h"
 
 /* ================= MACROS AND CONSTANTS ================= */
 /* ================= TYPE DEFINITIONS ================= */
@@ -35,7 +37,11 @@ static void health_setup(void)
 
 static void health_process(void)
 {
-    printf("Processing HEALTH...\n");
-    TaskNotifyValue_t value;
-    wait_for_notification(&value);
+    EVT_ID_t evt_id[EVT_EVENTS_PER_SLOT] = {EVT_UNDEF};
+
+    evt_id[0] = EVT_HEALTH_TO_COMMISSIONING; 
+
+    (void)obc_send_event_from_task(TASK_HEALTH_ID, evt_id, 1);
+
+    vTaskDelay(pdMS_TO_TICKS(500));
 }

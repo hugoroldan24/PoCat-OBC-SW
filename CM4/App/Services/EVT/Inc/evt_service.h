@@ -49,6 +49,6 @@ typedef struct {
 } EVT_Decoded_t;
 
 ReturnCode_t evt_decode(TaskNotifyValue_t val, EVT_Decoded_t *decoded_events, uint32_t *num_events);
-ReturnCode_t evt_encode(EVT_Type_t type, uint32_t *val, uint32_t num_events, uint32_t *encoded_val);
+ReturnCode_t evt_encode(EVT_Type_t type, EVT_ID_t *val, uint32_t num_events, uint32_t *encoded_val);
 
 #endif

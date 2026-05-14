@@ -1,6 +1,8 @@
 #ifndef INC_COMMON_H
 #define INC_COMMON_H
 
+#include "FreeRTOS.h"
+#include "task.h"
 #include <stdint.h>
 
 #define MASK_32BIT (0xFFFFFFFFUL)
