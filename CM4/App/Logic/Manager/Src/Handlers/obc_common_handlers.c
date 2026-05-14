@@ -17,11 +17,11 @@
 /* ================= MODULE-LEVEL VARIABLES ================= */
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
 /* ================= PUBLIC FUNCTION DEFINITIONS ================= */
-void switch_state_to_nominal(OBC_SatelliteState_t *state)
+ReturnCode_t switch_state_to_nominal(OBC_SatelliteState_t *state)
 {
     if(OBC_STATE_NOMINAL == *state)
     {
-        return;
+        return NOT_OK;
     }
     else
     {
@@ -31,14 +31,14 @@ void switch_state_to_nominal(OBC_SatelliteState_t *state)
         HAL_GPIO_WritePin(LED_NOMINAL_PORT, LED_NOMINAL, GPIO_PIN_SET);
     }
     *state = OBC_STATE_NOMINAL;
-    return;
+    return OK;
 }
 
-void switch_state_to_commissioning(OBC_SatelliteState_t *state)
+ReturnCode_t switch_state_to_commissioning(OBC_SatelliteState_t *state)
 {
     if(OBC_STATE_COMMISSIONING == *state)
     {
-       return;
+       return NOT_OK;
     }
     else
     {
@@ -48,13 +48,14 @@ void switch_state_to_commissioning(OBC_SatelliteState_t *state)
        HAL_GPIO_WritePin(LED_COMMISSIONING_PORT, LED_COMMISSIONING, GPIO_PIN_SET);     
     }
    *state = OBC_STATE_COMMISSIONING;
+   return OK;
 }
 
-void switch_state_to_sun_safe(OBC_SatelliteState_t *state)
+ReturnCode_t switch_state_to_sun_safe(OBC_SatelliteState_t *state)
 {
    if(OBC_STATE_SUN_SAFE == *state)
    {
-      return;
+      return NOT_OK;
    }
    else
    {
@@ -64,13 +65,14 @@ void switch_state_to_sun_safe(OBC_SatelliteState_t *state)
        HAL_GPIO_WritePin(LED_SUN_SAFE_PORT, LED_SUN_SAFE, GPIO_PIN_SET);
    }
    *state = OBC_STATE_SUN_SAFE;
+   return OK;
 }
 
-void switch_state_to_contingency(OBC_SatelliteState_t *state)
+ReturnCode_t switch_state_to_contingency(OBC_SatelliteState_t *state)
 {
    if(OBC_STATE_SUN_SAFE == *state)
    {
-      return;
+      return NOT_OK;
    }
    else
    {
@@ -80,5 +82,6 @@ void switch_state_to_contingency(OBC_SatelliteState_t *state)
        HAL_GPIO_WritePin(LED_CONTENGENCY_PORT, LED_CONTINGENCY, GPIO_PIN_SET);
    }
    *state = OBC_STATE_CONTINGENCY;  
+   return OK;
 }
 /* ================= PRIVATE FUNCTION DEFINITIONS ================= */

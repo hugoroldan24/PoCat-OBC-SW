@@ -16,41 +16,41 @@ typedef struct{
 /* ================= MODULE-LEVEL VARIABLES ================= */
 
 static const OBC_Handler_t obc_payload_handlers[] = {
-    { .id = EVT_PAYLOAD, .handler = NULL },
-    { .id = EVT_UNDEF,   .handler = NULL },
+    { .id = EVT_PAYLOAD, .action = NULL },
+    { .id = EVT_UNDEF,   .action = NULL },
     // ...
 };
 
 static const OBC_Handler_t obc_comms_handlers[] = {
-    { .id = EVT_UNDEF,                  .handler = NULL},
-    { .id = EVT_UNDEF,                  .handler = NULL},
-    { .id = EVT_COMMS_TO_NOMINAL,       .handler = switch_state_to_nominal},
-    { .id = EVT_COMMS_TO_SUN_SAFE,      .handler = switch_state_to_sun_safe},
-    { .id = EVT_COMMS_TO_CONTINGENCY,   .handler = switch_state_to_contingency},
-    { .id = EVT_COMMS_TO_COMMISSIONING, .handler = switch_state_to_commissioning},
+    { .id = EVT_UNDEF,                  .action = NULL},
+    { .id = EVT_UNDEF,                  .action = NULL},
+    { .id = EVT_COMMS_TO_NOMINAL,       .action = switch_state_to_nominal},
+    { .id = EVT_COMMS_TO_SUN_SAFE,      .action = switch_state_to_sun_safe},
+    { .id = EVT_COMMS_TO_CONTINGENCY,   .action = switch_state_to_contingency},
+    { .id = EVT_COMMS_TO_COMMISSIONING, .action = switch_state_to_commissioning},
     // ...
 };
 
 static const OBC_Handler_t obc_eps_handlers[] = {
-    { .id = EVT_UNDEF,           .handler = NULL},
-    { .id = EVT_EPS_TO_SUN_SAFE, .handler = switch_state_to_sun_safe},
+    { .id = EVT_UNDEF,           .action = NULL},
+    { .id = EVT_EPS_TO_SUN_SAFE, .action = switch_state_to_sun_safe},
     // ...
 };
 
 static const OBC_Handler_t obc_obdh_handlers[] = {
-    { .id = EVT_UNDEF, .handler = NULL},
+    { .id = EVT_UNDEF, .action = NULL},
     // ...
 };
 
 static const OBC_Handler_t obc_adcs_handlers[] = {
-    { .id = EVT_UNDEF,           .handler = NULL},
-    { .id = EVT_ADCS_TO_NOMINAL, .handler = switch_state_to_nominal},
+    { .id = EVT_UNDEF,           .action = NULL},
+    { .id = EVT_ADCS_TO_NOMINAL, .action = switch_state_to_nominal},
     // ...
 };
 
 static const OBC_Handler_t obc_health_handlers[] = {
-    { .id = EVT_UNDEF,                   .handler = NULL},
-    { .id = EVT_HEALTH_TO_COMMISSIONING, .handler = switch_state_to_commissioning},
+    { .id = EVT_UNDEF,                   .action = NULL},
+    { .id = EVT_HEALTH_TO_COMMISSIONING, .action = switch_state_to_commissioning},
      // ...
     // ...
 };
@@ -99,6 +99,16 @@ static const EVT_Type_t obc_to_evt_map[OBC_NUM_TASKS] = {
 
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
 /* ================= PUBLIC FUNCTION DEFINITIONS ================= */
+
+EVT_Type_t obc_get_evt_type(OBC_TaskID_t id)
+{
+    if (id >= OBC_NUM_TASKS)
+    {
+        return EVT_TYPE_UNDEF;
+    }
+    return obc_to_evt_map[id];
+}
+
 const OBC_Handler_t *obc_resolve_event_handler(EVT_ID_t evt_id, EVT_Type_t evt_type) 
 {
   
@@ -113,6 +123,6 @@ const OBC_Handler_t *obc_resolve_event_handler(EVT_ID_t evt_id, EVT_Type_t evt_t
     }
 
     /* & is used because we want the direction from the struct that contains the function pointers (handlers) in the handlers table */    
-    return (&obc_event_tables[evt_type][evt_id]);
+    return &obc_event_tables[evt_type].table[evt_id];
 }
 /* ================= PRIVATE FUNCTION DEFINITIONS ================= */

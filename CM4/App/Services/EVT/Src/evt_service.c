@@ -1,10 +1,9 @@
 /* ================= INCLUDES ================= */
+#include <stddef.h>
 #include "common.h"
-
+#include "evt_service.h"
 /* ================= MACROS AND CONSTANTS ================= */
 #define EVT_NUM_TYPES (6u)
-
-#define EVT_EVENTS_PER_SLOT (3u)
 
 #define EVT_TABLE_SIZE ARRAY_SIZE(evt_decode_table)
 
@@ -50,10 +49,6 @@
 #define EVT_MASK_NUM_EVENTS (((uint32_t)((1u << EVT_BITS_NUM_EVENTS) - 1u))  << EVT_OFFSET_NUM_EVENTS)
 
 
-/* Generic field extraction macro */
-#define EVT_GET_FIELD(val, mask, offset) (((val) & (mask)) >> (offset))
-
-#define EVT_SET_FIELD(val, mask, offset) (((val) << (offset)) & (mask))
 
 /* ================= TYPE DEFINITIONS ================= */
 
@@ -64,8 +59,8 @@
 
 
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
-static inline uint32_t evt_set_field(uint32_t field_val, EVT_Mask_t mask, EVT_Offset_t offset);
-static inline uint32_t evt_get_field(uint32_t val, EVT_Mask_t mask, EVT_Offset_t offset);
+static inline uint32_t evt_set_field(uint32_t field_val, uint32_t mask, uint32_t offset);
+static inline uint32_t evt_get_field(uint32_t val, uint32_t mask, uint32_t offset);
 
 /* ================= PUBLIC FUNCTION DEFINITIONS ================= */
 ReturnCode_t evt_encode(EVT_Type_t type, uint32_t *val, uint32_t num_events, uint32_t *encoded_val)
@@ -83,7 +78,7 @@ ReturnCode_t evt_encode(EVT_Type_t type, uint32_t *val, uint32_t num_events, uin
    {    
       l_mask   = (l_mask << (EVT_BITS_DATA * i));
       l_offset = (l_offset + (EVT_BITS_DATA * i));
-      l_encoded_val |= evt_set_field(*val[i], l_mask, l_offset);           
+      l_encoded_val |= evt_set_field(val[i], l_mask, l_offset);           
    }
       
    l_encoded_val |= evt_set_field(num_events, EVT_MASK_NUM_EVENTS, EVT_OFFSET_NUM_EVENTS) | 
@@ -126,12 +121,12 @@ ReturnCode_t evt_decode(uint32_t val, EVT_Decoded_t *decoded_events, uint32_t *n
 
 
 /* ================= PRIVATE FUNCTION DEFINITIONS ================= */
-static inline uint32_t evt_set_field(uint32_t field_val, EVT_Mask_t mask, EVT_Offset_t offset)
+static inline uint32_t evt_set_field(uint32_t field_val, uint32_t mask, uint32_t offset)
 {
     return (field_val << offset) & mask;
 }
 
-static inline uint32_t evt_get_field(uint32_t val, EVT_Mask_t mask, EVT_Offset_t offset)
+static inline uint32_t evt_get_field(uint32_t val, uint32_t mask, uint32_t offset)
 {
     return (val & mask) >> offset;
 }

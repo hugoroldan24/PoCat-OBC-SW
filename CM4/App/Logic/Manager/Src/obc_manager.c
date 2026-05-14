@@ -71,9 +71,6 @@ OBC_SatelliteState_t obc_current_state = OBC_STATE_NOMINAL;
 /* ================= MODULE-LEVEL VARIABLES ================= */
 static TaskNotifyValue_t obc_event_slot;
 
-static const OBC_Handler_t *event_handlers;
-
-
 static EVT_Decoded_t decoded_events={0};
 
 /*==============================================================================
@@ -119,7 +116,7 @@ static StackType_t  health_task_stack[HEALTH_STACK_SIZE];
 
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
 static void obc_task(void *pv_parameters);
-static ReturnCode_t obc_create_tasks(void);
+static ReturnCode_t obc_create_subsystem_tasks(void);
 static ReturnCode_t obc_setup(void);
 static ReturnCode_t obc_process(void);
 static ReturnCode_t obc_execute_handler(const OBC_Handler_t *handler);
@@ -147,16 +144,17 @@ ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, uint32_t *val, uint32_t n
        return NOT_OK;
     } 
 
-    EVT_Type_t type = obc_to_evt_map[id];
+    EVT_Type_t type = obc_get_evt_type(id);
+
 
     TaskNotifyValue_t notif_val = 0u;
     (void)evt_encode(type, val, num_events, &notif_val);
     
     if(xTaskNotify(obc_task_handle, notif_val, eSetValueWithoutOverwrite) != pdPASS)
     {
-        xtaskENTER_CRITICAL();
+        taskENTER_CRITICAL();
         HAL_GPIO_WritePin(GPIOG, GPIO_PIN_2, GPIO_PIN_SET); /*Activate LED because more than one task were able to notify OBC task before he woke up*/
-        xtaskEXIT_CRITICAL();
+        taskEXIT_CRITICAL();
         return NOT_OK;
     }
     
@@ -169,20 +167,21 @@ static void obc_task(void *pv_parameters)
     obc_setup();
 
     for (;;) {
-        obc_process();
+        (void)obc_process();
     }
 }
 
-static void obc_setup(void) {
+static ReturnCode_t obc_setup(void) {
 
     printf("Setting up OBC...\n");
     // 1. Create queues
     // create_queues();  // TODO: implement this function
 
-    obc_create_subsystem_tasks();
+    (void)obc_create_subsystem_tasks();
 
     HAL_GPIO_WritePin(GPIOG, GPIO_PIN_8, GPIO_PIN_SET);
 
+    return OK;
 }
 
 static ReturnCode_t obc_create_subsystem_tasks(void) 
@@ -208,7 +207,7 @@ static ReturnCode_t obc_create_subsystem_tasks(void)
    return OK;
 }
 
-static void obc_process(void)
+static ReturnCode_t obc_process(void)
 {
     
     printf("Processing OBC...\n");
@@ -219,16 +218,19 @@ static void obc_process(void)
 
 
     (void)obc_process_slot(obc_event_slot);
+
+    return OK;
 }
 
 static ReturnCode_t obc_execute_handler(const OBC_Handler_t *handler)
 {
-    if(handler->event_handler == NULL)
+    if(handler->action == NULL)
     {
         return NOT_OK;
     }
     
-    return handler->event_handler(obc_current_state);
+    handler->action(&obc_current_state);
+    return OK;
 }
 
 static ReturnCode_t obc_process_slot(TaskNotifyValue_t slot)

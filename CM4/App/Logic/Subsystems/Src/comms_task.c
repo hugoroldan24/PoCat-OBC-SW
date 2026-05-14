@@ -36,7 +36,7 @@ static void process_comms(void)
 {
     TaskNotifyValue_t value;
         
-    //wait_for_notification(&value);
+    wait_for_notification(&value);
     
     /* Tiene acceso al LoRa */
 

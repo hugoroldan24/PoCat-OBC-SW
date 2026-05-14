@@ -39,6 +39,7 @@ typedef enum {
     EVT_TYPE_ADCS,
     EVT_TYPE_HEALTH,
 
+    EVT_TYPE_UNDEF = 0x99,
     EVT_NUM_TYPES
 } EVT_Type_t;
 
@@ -48,6 +49,6 @@ typedef struct {
 } EVT_Decoded_t;
 
 ReturnCode_t evt_decode(TaskNotifyValue_t val, EVT_Decoded_t *decoded_events, uint32_t *num_events);
-ReturnCode_t evt_encode(EVT_Type_t type, uint32_t val, uint32_t *encoded_val);
+ReturnCode_t evt_encode(EVT_Type_t type, uint32_t *val, uint32_t num_events, uint32_t *encoded_val);
 
 #endif

@@ -28,7 +28,7 @@ typedef enum {
 
 typedef struct {
     EVT_ID_t id;
-    void (*handler)(OBC_SatelliteState_t *state);
+    ReturnCode_t (*action)(OBC_SatelliteState_t *state);
 } OBC_Handler_t;
 
 ReturnCode_t obc_init_task();
