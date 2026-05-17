@@ -1,0 +1,1871 @@
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lr11xx_wifi_types_str.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../lr11xx/common/printers/lr11xx_wifi_types_str.c"
+  20              		.section	.rodata
+  21              		.align	2
+  22              	.LC0:
+  23 0000 4C523131 		.ascii	"LR11XX_WIFI_NO_CHANNEL\000"
+  23      58585F57 
+  23      4946495F 
+  23      4E4F5F43 
+  23      48414E4E 
+  24 0017 00       		.align	2
+  25              	.LC1:
+  26 0018 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_1\000"
+  26      58585F57 
+  26      4946495F 
+  26      4348414E 
+  26      4E454C5F 
+  27 002e 0000     		.align	2
+  28              	.LC2:
+  29 0030 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_2\000"
+  29      58585F57 
+  29      4946495F 
+  29      4348414E 
+  29      4E454C5F 
+  30 0046 0000     		.align	2
+  31              	.LC3:
+  32 0048 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_3\000"
+  32      58585F57 
+  32      4946495F 
+  32      4348414E 
+  32      4E454C5F 
+  33 005e 0000     		.align	2
+  34              	.LC4:
+  35 0060 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_4\000"
+  35      58585F57 
+  35      4946495F 
+  35      4348414E 
+  35      4E454C5F 
+  36 0076 0000     		.align	2
+  37              	.LC5:
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 2
+
+
+  38 0078 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_5\000"
+  38      58585F57 
+  38      4946495F 
+  38      4348414E 
+  38      4E454C5F 
+  39 008e 0000     		.align	2
+  40              	.LC6:
+  41 0090 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_6\000"
+  41      58585F57 
+  41      4946495F 
+  41      4348414E 
+  41      4E454C5F 
+  42 00a6 0000     		.align	2
+  43              	.LC7:
+  44 00a8 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_7\000"
+  44      58585F57 
+  44      4946495F 
+  44      4348414E 
+  44      4E454C5F 
+  45 00be 0000     		.align	2
+  46              	.LC8:
+  47 00c0 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_8\000"
+  47      58585F57 
+  47      4946495F 
+  47      4348414E 
+  47      4E454C5F 
+  48 00d6 0000     		.align	2
+  49              	.LC9:
+  50 00d8 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_9\000"
+  50      58585F57 
+  50      4946495F 
+  50      4348414E 
+  50      4E454C5F 
+  51 00ee 0000     		.align	2
+  52              	.LC10:
+  53 00f0 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_10\000"
+  53      58585F57 
+  53      4946495F 
+  53      4348414E 
+  53      4E454C5F 
+  54 0107 00       		.align	2
+  55              	.LC11:
+  56 0108 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_11\000"
+  56      58585F57 
+  56      4946495F 
+  56      4348414E 
+  56      4E454C5F 
+  57 011f 00       		.align	2
+  58              	.LC12:
+  59 0120 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_12\000"
+  59      58585F57 
+  59      4946495F 
+  59      4348414E 
+  59      4E454C5F 
+  60 0137 00       		.align	2
+  61              	.LC13:
+  62 0138 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_13\000"
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 3
+
+
+  62      58585F57 
+  62      4946495F 
+  62      4348414E 
+  62      4E454C5F 
+  63 014f 00       		.align	2
+  64              	.LC14:
+  65 0150 4C523131 		.ascii	"LR11XX_WIFI_CHANNEL_14\000"
+  65      58585F57 
+  65      4946495F 
+  65      4348414E 
+  65      4E454C5F 
+  66 0167 00       		.align	2
+  67              	.LC15:
+  68 0168 4C523131 		.ascii	"LR11XX_WIFI_ALL_CHANNELS\000"
+  68      58585F57 
+  68      4946495F 
+  68      414C4C5F 
+  68      4348414E 
+  69 0181 000000   		.align	2
+  70              	.LC16:
+  71 0184 556E6B6E 		.ascii	"Unknown\000"
+  71      6F776E00 
+  72              		.section	.text.lr11xx_wifi_channel_to_str,"ax",%progbits
+  73              		.align	1
+  74              		.global	lr11xx_wifi_channel_to_str
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  79              	lr11xx_wifi_channel_to_str:
+  80              	.LFB0:
+   1:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** /*!
+   2:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * @file      lr11xx_wifi_types_str.c
+   3:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *
+   4:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * @brief     Printer helper functions for LR11xx Wi-Fi types
+   5:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *
+   6:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * @copyright
+   7:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * The Clear BSD License
+   8:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   9:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *
+  10:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * Redistribution and use in source and binary forms, with or without
+  11:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  12:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * below) provided that the following conditions are met:
+  13:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *     * Redistributions of source code must retain the above copyright
+  14:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *       notice, this list of conditions and the following disclaimer.
+  15:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  16:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *       notice, this list of conditions and the following disclaimer in the
+  17:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *       documentation and/or other materials provided with the distribution.
+  18:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *     * Neither the name of the Semtech corporation nor the
+  19:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *       names of its contributors may be used to endorse or promote products
+  20:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *       derived from this software without specific prior written permission.
+  21:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  *
+  22:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  23:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  24:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  25:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  26:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  27:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 4
+
+
+  28:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  29:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  30:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  31:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  32:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  33:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  34:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****  */
+  35:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  36:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** #include "lr11xx_wifi_types_str.h"
+  37:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  38:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** const char* lr11xx_wifi_channel_to_str( const lr11xx_wifi_channel_t value )
+  39:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** {
+  81              		.loc 1 39 1
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 8
+  84              		@ frame_needed = 1, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+  86 0000 80B4     		push	{r7}
+  87              	.LCFI0:
+  88              		.cfi_def_cfa_offset 4
+  89              		.cfi_offset 7, -4
+  90 0002 83B0     		sub	sp, sp, #12
+  91              	.LCFI1:
+  92              		.cfi_def_cfa_offset 16
+  93 0004 00AF     		add	r7, sp, #0
+  94              	.LCFI2:
+  95              		.cfi_def_cfa_register 7
+  96 0006 0346     		mov	r3, r0
+  97 0008 FB71     		strb	r3, [r7, #7]
+  40:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     switch( value )
+  98              		.loc 1 40 5
+  99 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 100 000c 0F2B     		cmp	r3, #15
+ 101 000e 43D8     		bhi	.L2
+ 102 0010 01A2     		adr	r2, .L4
+ 103 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 104 0016 00BF     		.p2align 2
+ 105              	.L4:
+ 106 0018 59000000 		.word	.L19+1
+ 107 001c 5D000000 		.word	.L18+1
+ 108 0020 61000000 		.word	.L17+1
+ 109 0024 65000000 		.word	.L16+1
+ 110 0028 69000000 		.word	.L15+1
+ 111 002c 6D000000 		.word	.L14+1
+ 112 0030 71000000 		.word	.L13+1
+ 113 0034 75000000 		.word	.L12+1
+ 114 0038 79000000 		.word	.L11+1
+ 115 003c 7D000000 		.word	.L10+1
+ 116 0040 81000000 		.word	.L9+1
+ 117 0044 85000000 		.word	.L8+1
+ 118 0048 89000000 		.word	.L7+1
+ 119 004c 8D000000 		.word	.L6+1
+ 120 0050 91000000 		.word	.L5+1
+ 121 0054 95000000 		.word	.L3+1
+ 122              		.p2align 1
+ 123              	.L19:
+  41:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 5
+
+
+  42:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_NO_CHANNEL:
+  43:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  44:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_NO_CHANNEL";
+ 124              		.loc 1 44 16
+ 125 0058 134B     		ldr	r3, .L21
+ 126 005a 1EE0     		b	.L20
+ 127              	.L18:
+  45:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  46:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  47:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_1:
+  48:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  49:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_1";
+ 128              		.loc 1 49 16
+ 129 005c 134B     		ldr	r3, .L21+4
+ 130 005e 1CE0     		b	.L20
+ 131              	.L17:
+  50:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  51:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  52:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_2:
+  53:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  54:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_2";
+ 132              		.loc 1 54 16
+ 133 0060 134B     		ldr	r3, .L21+8
+ 134 0062 1AE0     		b	.L20
+ 135              	.L16:
+  55:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  56:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  57:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_3:
+  58:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  59:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_3";
+ 136              		.loc 1 59 16
+ 137 0064 134B     		ldr	r3, .L21+12
+ 138 0066 18E0     		b	.L20
+ 139              	.L15:
+  60:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  61:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  62:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_4:
+  63:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  64:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_4";
+ 140              		.loc 1 64 16
+ 141 0068 134B     		ldr	r3, .L21+16
+ 142 006a 16E0     		b	.L20
+ 143              	.L14:
+  65:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  66:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  67:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_5:
+  68:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  69:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_5";
+ 144              		.loc 1 69 16
+ 145 006c 134B     		ldr	r3, .L21+20
+ 146 006e 14E0     		b	.L20
+ 147              	.L13:
+  70:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  71:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  72:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_6:
+  73:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  74:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_6";
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 6
+
+
+ 148              		.loc 1 74 16
+ 149 0070 134B     		ldr	r3, .L21+24
+ 150 0072 12E0     		b	.L20
+ 151              	.L12:
+  75:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  76:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  77:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_7:
+  78:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  79:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_7";
+ 152              		.loc 1 79 16
+ 153 0074 134B     		ldr	r3, .L21+28
+ 154 0076 10E0     		b	.L20
+ 155              	.L11:
+  80:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  81:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  82:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_8:
+  83:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  84:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_8";
+ 156              		.loc 1 84 16
+ 157 0078 134B     		ldr	r3, .L21+32
+ 158 007a 0EE0     		b	.L20
+ 159              	.L10:
+  85:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  86:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  87:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_9:
+  88:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  89:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_9";
+ 160              		.loc 1 89 16
+ 161 007c 134B     		ldr	r3, .L21+36
+ 162 007e 0CE0     		b	.L20
+ 163              	.L9:
+  90:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  91:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  92:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_10:
+  93:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  94:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_10";
+ 164              		.loc 1 94 16
+ 165 0080 134B     		ldr	r3, .L21+40
+ 166 0082 0AE0     		b	.L20
+ 167              	.L8:
+  95:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+  96:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+  97:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_11:
+  98:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+  99:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_11";
+ 168              		.loc 1 99 16
+ 169 0084 134B     		ldr	r3, .L21+44
+ 170 0086 08E0     		b	.L20
+ 171              	.L7:
+ 100:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 101:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 102:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_12:
+ 103:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 104:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_12";
+ 172              		.loc 1 104 16
+ 173 0088 134B     		ldr	r3, .L21+48
+ 174 008a 06E0     		b	.L20
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 7
+
+
+ 175              	.L6:
+ 105:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 106:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 107:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_13:
+ 108:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 109:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_13";
+ 176              		.loc 1 109 16
+ 177 008c 134B     		ldr	r3, .L21+52
+ 178 008e 04E0     		b	.L20
+ 179              	.L5:
+ 110:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 111:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 112:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_CHANNEL_14:
+ 113:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 114:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_CHANNEL_14";
+ 180              		.loc 1 114 16
+ 181 0090 134B     		ldr	r3, .L21+56
+ 182 0092 02E0     		b	.L20
+ 183              	.L3:
+ 115:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 116:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 117:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_ALL_CHANNELS:
+ 118:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 119:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_ALL_CHANNELS";
+ 184              		.loc 1 119 16
+ 185 0094 134B     		ldr	r3, .L21+60
+ 186 0096 00E0     		b	.L20
+ 187              	.L2:
+ 120:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 121:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 122:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     default:
+ 123:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 124:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "Unknown";
+ 188              		.loc 1 124 16
+ 189 0098 134B     		ldr	r3, .L21+64
+ 190              	.L20:
+ 125:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 126:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 127:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** }
+ 191              		.loc 1 127 1
+ 192 009a 1846     		mov	r0, r3
+ 193 009c 0C37     		adds	r7, r7, #12
+ 194              	.LCFI3:
+ 195              		.cfi_def_cfa_offset 4
+ 196 009e BD46     		mov	sp, r7
+ 197              	.LCFI4:
+ 198              		.cfi_def_cfa_register 13
+ 199              		@ sp needed
+ 200 00a0 5DF8047B 		ldr	r7, [sp], #4
+ 201              	.LCFI5:
+ 202              		.cfi_restore 7
+ 203              		.cfi_def_cfa_offset 0
+ 204 00a4 7047     		bx	lr
+ 205              	.L22:
+ 206 00a6 00BF     		.align	2
+ 207              	.L21:
+ 208 00a8 00000000 		.word	.LC0
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 8
+
+
+ 209 00ac 18000000 		.word	.LC1
+ 210 00b0 30000000 		.word	.LC2
+ 211 00b4 48000000 		.word	.LC3
+ 212 00b8 60000000 		.word	.LC4
+ 213 00bc 78000000 		.word	.LC5
+ 214 00c0 90000000 		.word	.LC6
+ 215 00c4 A8000000 		.word	.LC7
+ 216 00c8 C0000000 		.word	.LC8
+ 217 00cc D8000000 		.word	.LC9
+ 218 00d0 F0000000 		.word	.LC10
+ 219 00d4 08010000 		.word	.LC11
+ 220 00d8 20010000 		.word	.LC12
+ 221 00dc 38010000 		.word	.LC13
+ 222 00e0 50010000 		.word	.LC14
+ 223 00e4 68010000 		.word	.LC15
+ 224 00e8 84010000 		.word	.LC16
+ 225              		.cfi_endproc
+ 226              	.LFE0:
+ 228              		.section	.rodata
+ 229              		.align	2
+ 230              	.LC17:
+ 231 018c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_1_MBPS\000"
+ 231      58585F57 
+ 231      4946495F 
+ 231      44415441 
+ 231      52415445 
+ 232              		.align	2
+ 233              	.LC18:
+ 234 01a8 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_2_MBPS\000"
+ 234      58585F57 
+ 234      4946495F 
+ 234      44415441 
+ 234      52415445 
+ 235              		.align	2
+ 236              	.LC19:
+ 237 01c4 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_6_MBPS\000"
+ 237      58585F57 
+ 237      4946495F 
+ 237      44415441 
+ 237      52415445 
+ 238              		.align	2
+ 239              	.LC20:
+ 240 01e0 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_9_MBPS\000"
+ 240      58585F57 
+ 240      4946495F 
+ 240      44415441 
+ 240      52415445 
+ 241              		.align	2
+ 242              	.LC21:
+ 243 01fc 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_12_MBPS\000"
+ 243      58585F57 
+ 243      4946495F 
+ 243      44415441 
+ 243      52415445 
+ 244 0219 000000   		.align	2
+ 245              	.LC22:
+ 246 021c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_18_MBPS\000"
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 9
+
+
+ 246      58585F57 
+ 246      4946495F 
+ 246      44415441 
+ 246      52415445 
+ 247 0239 000000   		.align	2
+ 248              	.LC23:
+ 249 023c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_24_MBPS\000"
+ 249      58585F57 
+ 249      4946495F 
+ 249      44415441 
+ 249      52415445 
+ 250 0259 000000   		.align	2
+ 251              	.LC24:
+ 252 025c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_36_MBPS\000"
+ 252      58585F57 
+ 252      4946495F 
+ 252      44415441 
+ 252      52415445 
+ 253 0279 000000   		.align	2
+ 254              	.LC25:
+ 255 027c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_48_MBPS\000"
+ 255      58585F57 
+ 255      4946495F 
+ 255      44415441 
+ 255      52415445 
+ 256 0299 000000   		.align	2
+ 257              	.LC26:
+ 258 029c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_54_MBPS\000"
+ 258      58585F57 
+ 258      4946495F 
+ 258      44415441 
+ 258      52415445 
+ 259 02b9 000000   		.align	2
+ 260              	.LC27:
+ 261 02bc 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_6_5_MBPS\000"
+ 261      58585F57 
+ 261      4946495F 
+ 261      44415441 
+ 261      52415445 
+ 262 02da 0000     		.align	2
+ 263              	.LC28:
+ 264 02dc 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_13_MBPS\000"
+ 264      58585F57 
+ 264      4946495F 
+ 264      44415441 
+ 264      52415445 
+ 265 02f9 000000   		.align	2
+ 266              	.LC29:
+ 267 02fc 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_19_5_MBPS\000"
+ 267      58585F57 
+ 267      4946495F 
+ 267      44415441 
+ 267      52415445 
+ 268 031b 00       		.align	2
+ 269              	.LC30:
+ 270 031c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_26_MBPS\000"
+ 270      58585F57 
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 10
+
+
+ 270      4946495F 
+ 270      44415441 
+ 270      52415445 
+ 271 0339 000000   		.align	2
+ 272              	.LC31:
+ 273 033c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_39_MBPS\000"
+ 273      58585F57 
+ 273      4946495F 
+ 273      44415441 
+ 273      52415445 
+ 274 0359 000000   		.align	2
+ 275              	.LC32:
+ 276 035c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_52_MBPS\000"
+ 276      58585F57 
+ 276      4946495F 
+ 276      44415441 
+ 276      52415445 
+ 277 0379 000000   		.align	2
+ 278              	.LC33:
+ 279 037c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_58_MBPS\000"
+ 279      58585F57 
+ 279      4946495F 
+ 279      44415441 
+ 279      52415445 
+ 280 0399 000000   		.align	2
+ 281              	.LC34:
+ 282 039c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_65_MBPS\000"
+ 282      58585F57 
+ 282      4946495F 
+ 282      44415441 
+ 282      52415445 
+ 283 03b9 000000   		.align	2
+ 284              	.LC35:
+ 285 03bc 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_7_2_MBPS\000"
+ 285      58585F57 
+ 285      4946495F 
+ 285      44415441 
+ 285      52415445 
+ 286 03da 0000     		.align	2
+ 287              	.LC36:
+ 288 03dc 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_14_4_MBPS\000"
+ 288      58585F57 
+ 288      4946495F 
+ 288      44415441 
+ 288      52415445 
+ 289 03fb 00       		.align	2
+ 290              	.LC37:
+ 291 03fc 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_21_7_MBPS\000"
+ 291      58585F57 
+ 291      4946495F 
+ 291      44415441 
+ 291      52415445 
+ 292 041b 00       		.align	2
+ 293              	.LC38:
+ 294 041c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_28_9_MBPS\000"
+ 294      58585F57 
+ 294      4946495F 
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 11
+
+
+ 294      44415441 
+ 294      52415445 
+ 295 043b 00       		.align	2
+ 296              	.LC39:
+ 297 043c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_43_3_MBPS\000"
+ 297      58585F57 
+ 297      4946495F 
+ 297      44415441 
+ 297      52415445 
+ 298 045b 00       		.align	2
+ 299              	.LC40:
+ 300 045c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_57_8_MBPS\000"
+ 300      58585F57 
+ 300      4946495F 
+ 300      44415441 
+ 300      52415445 
+ 301 047b 00       		.align	2
+ 302              	.LC41:
+ 303 047c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_65_2_MBPS\000"
+ 303      58585F57 
+ 303      4946495F 
+ 303      44415441 
+ 303      52415445 
+ 304 049b 00       		.align	2
+ 305              	.LC42:
+ 306 049c 4C523131 		.ascii	"LR11XX_WIFI_DATARATE_72_2_MBPS\000"
+ 306      58585F57 
+ 306      4946495F 
+ 306      44415441 
+ 306      52415445 
+ 307              		.section	.text.lr11xx_wifi_datarate_to_str,"ax",%progbits
+ 308              		.align	1
+ 309              		.global	lr11xx_wifi_datarate_to_str
+ 310              		.syntax unified
+ 311              		.thumb
+ 312              		.thumb_func
+ 314              	lr11xx_wifi_datarate_to_str:
+ 315              	.LFB1:
+ 128:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 129:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** const char* lr11xx_wifi_datarate_to_str( const lr11xx_wifi_datarate_t value )
+ 130:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** {
+ 316              		.loc 1 130 1
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 8
+ 319              		@ frame_needed = 1, uses_anonymous_args = 0
+ 320              		@ link register save eliminated.
+ 321 0000 80B4     		push	{r7}
+ 322              	.LCFI6:
+ 323              		.cfi_def_cfa_offset 4
+ 324              		.cfi_offset 7, -4
+ 325 0002 83B0     		sub	sp, sp, #12
+ 326              	.LCFI7:
+ 327              		.cfi_def_cfa_offset 16
+ 328 0004 00AF     		add	r7, sp, #0
+ 329              	.LCFI8:
+ 330              		.cfi_def_cfa_register 7
+ 331 0006 0346     		mov	r3, r0
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 12
+
+
+ 332 0008 FB71     		strb	r3, [r7, #7]
+ 131:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     switch( value )
+ 333              		.loc 1 131 5
+ 334 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 335 000c 013B     		subs	r3, r3, #1
+ 336 000e 192B     		cmp	r3, #25
+ 337 0010 6AD8     		bhi	.L24
+ 338 0012 01A2     		adr	r2, .L26
+ 339 0014 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 340              		.p2align 2
+ 341              	.L26:
+ 342 0018 81000000 		.word	.L51+1
+ 343 001c 85000000 		.word	.L50+1
+ 344 0020 89000000 		.word	.L49+1
+ 345 0024 8D000000 		.word	.L48+1
+ 346 0028 91000000 		.word	.L47+1
+ 347 002c 95000000 		.word	.L46+1
+ 348 0030 99000000 		.word	.L45+1
+ 349 0034 9D000000 		.word	.L44+1
+ 350 0038 A1000000 		.word	.L43+1
+ 351 003c A5000000 		.word	.L42+1
+ 352 0040 A9000000 		.word	.L41+1
+ 353 0044 AD000000 		.word	.L40+1
+ 354 0048 B1000000 		.word	.L39+1
+ 355 004c B5000000 		.word	.L38+1
+ 356 0050 B9000000 		.word	.L37+1
+ 357 0054 BD000000 		.word	.L36+1
+ 358 0058 C1000000 		.word	.L35+1
+ 359 005c C5000000 		.word	.L34+1
+ 360 0060 C9000000 		.word	.L33+1
+ 361 0064 CD000000 		.word	.L32+1
+ 362 0068 D1000000 		.word	.L31+1
+ 363 006c D5000000 		.word	.L30+1
+ 364 0070 D9000000 		.word	.L29+1
+ 365 0074 DD000000 		.word	.L28+1
+ 366 0078 E1000000 		.word	.L27+1
+ 367 007c E5000000 		.word	.L25+1
+ 368              		.p2align 1
+ 369              	.L51:
+ 132:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 133:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_1_MBPS:
+ 134:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 135:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_1_MBPS";
+ 370              		.loc 1 135 16
+ 371 0080 1D4B     		ldr	r3, .L53
+ 372 0082 32E0     		b	.L52
+ 373              	.L50:
+ 136:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 137:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 138:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_2_MBPS:
+ 139:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 140:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_2_MBPS";
+ 374              		.loc 1 140 16
+ 375 0084 1D4B     		ldr	r3, .L53+4
+ 376 0086 30E0     		b	.L52
+ 377              	.L49:
+ 141:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 13
+
+
+ 142:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 143:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_6_MBPS:
+ 144:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 145:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_6_MBPS";
+ 378              		.loc 1 145 16
+ 379 0088 1D4B     		ldr	r3, .L53+8
+ 380 008a 2EE0     		b	.L52
+ 381              	.L48:
+ 146:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 147:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 148:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_9_MBPS:
+ 149:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 150:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_9_MBPS";
+ 382              		.loc 1 150 16
+ 383 008c 1D4B     		ldr	r3, .L53+12
+ 384 008e 2CE0     		b	.L52
+ 385              	.L47:
+ 151:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 152:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 153:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_12_MBPS:
+ 154:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 155:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_12_MBPS";
+ 386              		.loc 1 155 16
+ 387 0090 1D4B     		ldr	r3, .L53+16
+ 388 0092 2AE0     		b	.L52
+ 389              	.L46:
+ 156:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 157:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 158:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_18_MBPS:
+ 159:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 160:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_18_MBPS";
+ 390              		.loc 1 160 16
+ 391 0094 1D4B     		ldr	r3, .L53+20
+ 392 0096 28E0     		b	.L52
+ 393              	.L45:
+ 161:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 162:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 163:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_24_MBPS:
+ 164:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 165:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_24_MBPS";
+ 394              		.loc 1 165 16
+ 395 0098 1D4B     		ldr	r3, .L53+24
+ 396 009a 26E0     		b	.L52
+ 397              	.L44:
+ 166:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 167:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 168:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_36_MBPS:
+ 169:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 170:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_36_MBPS";
+ 398              		.loc 1 170 16
+ 399 009c 1D4B     		ldr	r3, .L53+28
+ 400 009e 24E0     		b	.L52
+ 401              	.L43:
+ 171:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 172:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 173:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_48_MBPS:
+ 174:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 14
+
+
+ 175:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_48_MBPS";
+ 402              		.loc 1 175 16
+ 403 00a0 1D4B     		ldr	r3, .L53+32
+ 404 00a2 22E0     		b	.L52
+ 405              	.L42:
+ 176:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 177:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 178:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_54_MBPS:
+ 179:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 180:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_54_MBPS";
+ 406              		.loc 1 180 16
+ 407 00a4 1D4B     		ldr	r3, .L53+36
+ 408 00a6 20E0     		b	.L52
+ 409              	.L41:
+ 181:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 182:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 183:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_6_5_MBPS:
+ 184:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 185:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_6_5_MBPS";
+ 410              		.loc 1 185 16
+ 411 00a8 1D4B     		ldr	r3, .L53+40
+ 412 00aa 1EE0     		b	.L52
+ 413              	.L40:
+ 186:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 187:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 188:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_13_MBPS:
+ 189:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 190:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_13_MBPS";
+ 414              		.loc 1 190 16
+ 415 00ac 1D4B     		ldr	r3, .L53+44
+ 416 00ae 1CE0     		b	.L52
+ 417              	.L39:
+ 191:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 192:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 193:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_19_5_MBPS:
+ 194:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 195:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_19_5_MBPS";
+ 418              		.loc 1 195 16
+ 419 00b0 1D4B     		ldr	r3, .L53+48
+ 420 00b2 1AE0     		b	.L52
+ 421              	.L38:
+ 196:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 197:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 198:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_26_MBPS:
+ 199:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 200:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_26_MBPS";
+ 422              		.loc 1 200 16
+ 423 00b4 1D4B     		ldr	r3, .L53+52
+ 424 00b6 18E0     		b	.L52
+ 425              	.L37:
+ 201:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 202:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 203:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_39_MBPS:
+ 204:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 205:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_39_MBPS";
+ 426              		.loc 1 205 16
+ 427 00b8 1D4B     		ldr	r3, .L53+56
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 15
+
+
+ 428 00ba 16E0     		b	.L52
+ 429              	.L36:
+ 206:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 207:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 208:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_52_MBPS:
+ 209:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 210:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_52_MBPS";
+ 430              		.loc 1 210 16
+ 431 00bc 1D4B     		ldr	r3, .L53+60
+ 432 00be 14E0     		b	.L52
+ 433              	.L35:
+ 211:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 212:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 213:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_58_MBPS:
+ 214:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 215:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_58_MBPS";
+ 434              		.loc 1 215 16
+ 435 00c0 1D4B     		ldr	r3, .L53+64
+ 436 00c2 12E0     		b	.L52
+ 437              	.L34:
+ 216:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 217:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 218:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_65_MBPS:
+ 219:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 220:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_65_MBPS";
+ 438              		.loc 1 220 16
+ 439 00c4 1D4B     		ldr	r3, .L53+68
+ 440 00c6 10E0     		b	.L52
+ 441              	.L33:
+ 221:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 222:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 223:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_7_2_MBPS:
+ 224:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 225:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_7_2_MBPS";
+ 442              		.loc 1 225 16
+ 443 00c8 1D4B     		ldr	r3, .L53+72
+ 444 00ca 0EE0     		b	.L52
+ 445              	.L32:
+ 226:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 227:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 228:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_14_4_MBPS:
+ 229:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 230:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_14_4_MBPS";
+ 446              		.loc 1 230 16
+ 447 00cc 1D4B     		ldr	r3, .L53+76
+ 448 00ce 0CE0     		b	.L52
+ 449              	.L31:
+ 231:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 232:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 233:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_21_7_MBPS:
+ 234:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 235:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_21_7_MBPS";
+ 450              		.loc 1 235 16
+ 451 00d0 1D4B     		ldr	r3, .L53+80
+ 452 00d2 0AE0     		b	.L52
+ 453              	.L30:
+ 236:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 16
+
+
+ 237:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 238:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_28_9_MBPS:
+ 239:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 240:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_28_9_MBPS";
+ 454              		.loc 1 240 16
+ 455 00d4 1D4B     		ldr	r3, .L53+84
+ 456 00d6 08E0     		b	.L52
+ 457              	.L29:
+ 241:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 242:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 243:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_43_3_MBPS:
+ 244:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 245:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_43_3_MBPS";
+ 458              		.loc 1 245 16
+ 459 00d8 1D4B     		ldr	r3, .L53+88
+ 460 00da 06E0     		b	.L52
+ 461              	.L28:
+ 246:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 247:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 248:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_57_8_MBPS:
+ 249:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 250:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_57_8_MBPS";
+ 462              		.loc 1 250 16
+ 463 00dc 1D4B     		ldr	r3, .L53+92
+ 464 00de 04E0     		b	.L52
+ 465              	.L27:
+ 251:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 252:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 253:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_65_2_MBPS:
+ 254:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 255:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_65_2_MBPS";
+ 466              		.loc 1 255 16
+ 467 00e0 1D4B     		ldr	r3, .L53+96
+ 468 00e2 02E0     		b	.L52
+ 469              	.L25:
+ 256:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 257:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 258:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_DATARATE_72_2_MBPS:
+ 259:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 260:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_DATARATE_72_2_MBPS";
+ 470              		.loc 1 260 16
+ 471 00e4 1D4B     		ldr	r3, .L53+100
+ 472 00e6 00E0     		b	.L52
+ 473              	.L24:
+ 261:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 262:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 263:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     default:
+ 264:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 265:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "Unknown";
+ 474              		.loc 1 265 16
+ 475 00e8 1D4B     		ldr	r3, .L53+104
+ 476              	.L52:
+ 266:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 267:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 268:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** }
+ 477              		.loc 1 268 1
+ 478 00ea 1846     		mov	r0, r3
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 17
+
+
+ 479 00ec 0C37     		adds	r7, r7, #12
+ 480              	.LCFI9:
+ 481              		.cfi_def_cfa_offset 4
+ 482 00ee BD46     		mov	sp, r7
+ 483              	.LCFI10:
+ 484              		.cfi_def_cfa_register 13
+ 485              		@ sp needed
+ 486 00f0 5DF8047B 		ldr	r7, [sp], #4
+ 487              	.LCFI11:
+ 488              		.cfi_restore 7
+ 489              		.cfi_def_cfa_offset 0
+ 490 00f4 7047     		bx	lr
+ 491              	.L54:
+ 492 00f6 00BF     		.align	2
+ 493              	.L53:
+ 494 00f8 8C010000 		.word	.LC17
+ 495 00fc A8010000 		.word	.LC18
+ 496 0100 C4010000 		.word	.LC19
+ 497 0104 E0010000 		.word	.LC20
+ 498 0108 FC010000 		.word	.LC21
+ 499 010c 1C020000 		.word	.LC22
+ 500 0110 3C020000 		.word	.LC23
+ 501 0114 5C020000 		.word	.LC24
+ 502 0118 7C020000 		.word	.LC25
+ 503 011c 9C020000 		.word	.LC26
+ 504 0120 BC020000 		.word	.LC27
+ 505 0124 DC020000 		.word	.LC28
+ 506 0128 FC020000 		.word	.LC29
+ 507 012c 1C030000 		.word	.LC30
+ 508 0130 3C030000 		.word	.LC31
+ 509 0134 5C030000 		.word	.LC32
+ 510 0138 7C030000 		.word	.LC33
+ 511 013c 9C030000 		.word	.LC34
+ 512 0140 BC030000 		.word	.LC35
+ 513 0144 DC030000 		.word	.LC36
+ 514 0148 FC030000 		.word	.LC37
+ 515 014c 1C040000 		.word	.LC38
+ 516 0150 3C040000 		.word	.LC39
+ 517 0154 5C040000 		.word	.LC40
+ 518 0158 7C040000 		.word	.LC41
+ 519 015c 9C040000 		.word	.LC42
+ 520 0160 84010000 		.word	.LC16
+ 521              		.cfi_endproc
+ 522              	.LFE1:
+ 524              		.section	.rodata
+ 525 04bb 00       		.align	2
+ 526              	.LC43:
+ 527 04bc 4C523131 		.ascii	"LR11XX_WIFI_FRAME_TYPE_MANAGEMENT\000"
+ 527      58585F57 
+ 527      4946495F 
+ 527      4652414D 
+ 527      455F5459 
+ 528 04de 0000     		.align	2
+ 529              	.LC44:
+ 530 04e0 4C523131 		.ascii	"LR11XX_WIFI_FRAME_TYPE_CONTROL\000"
+ 530      58585F57 
+ 530      4946495F 
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 18
+
+
+ 530      4652414D 
+ 530      455F5459 
+ 531 04ff 00       		.align	2
+ 532              	.LC45:
+ 533 0500 4C523131 		.ascii	"LR11XX_WIFI_FRAME_TYPE_DATA\000"
+ 533      58585F57 
+ 533      4946495F 
+ 533      4652414D 
+ 533      455F5459 
+ 534              		.section	.text.lr11xx_wifi_frame_type_to_str,"ax",%progbits
+ 535              		.align	1
+ 536              		.global	lr11xx_wifi_frame_type_to_str
+ 537              		.syntax unified
+ 538              		.thumb
+ 539              		.thumb_func
+ 541              	lr11xx_wifi_frame_type_to_str:
+ 542              	.LFB2:
+ 269:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 270:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** const char* lr11xx_wifi_frame_type_to_str( const lr11xx_wifi_frame_type_t value )
+ 271:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** {
+ 543              		.loc 1 271 1
+ 544              		.cfi_startproc
+ 545              		@ args = 0, pretend = 0, frame = 8
+ 546              		@ frame_needed = 1, uses_anonymous_args = 0
+ 547              		@ link register save eliminated.
+ 548 0000 80B4     		push	{r7}
+ 549              	.LCFI12:
+ 550              		.cfi_def_cfa_offset 4
+ 551              		.cfi_offset 7, -4
+ 552 0002 83B0     		sub	sp, sp, #12
+ 553              	.LCFI13:
+ 554              		.cfi_def_cfa_offset 16
+ 555 0004 00AF     		add	r7, sp, #0
+ 556              	.LCFI14:
+ 557              		.cfi_def_cfa_register 7
+ 558 0006 0346     		mov	r3, r0
+ 559 0008 FB71     		strb	r3, [r7, #7]
+ 272:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     switch( value )
+ 560              		.loc 1 272 5
+ 561 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 562 000c 022B     		cmp	r3, #2
+ 563 000e 0AD0     		beq	.L56
+ 564 0010 022B     		cmp	r3, #2
+ 565 0012 0ADC     		bgt	.L57
+ 566 0014 002B     		cmp	r3, #0
+ 567 0016 02D0     		beq	.L58
+ 568 0018 012B     		cmp	r3, #1
+ 569 001a 02D0     		beq	.L59
+ 570 001c 05E0     		b	.L57
+ 571              	.L58:
+ 273:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 274:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_FRAME_TYPE_MANAGEMENT:
+ 275:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 276:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_FRAME_TYPE_MANAGEMENT";
+ 572              		.loc 1 276 16
+ 573 001e 064B     		ldr	r3, .L61
+ 574 0020 04E0     		b	.L60
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 19
+
+
+ 575              	.L59:
+ 277:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 278:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 279:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_FRAME_TYPE_CONTROL:
+ 280:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 281:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_FRAME_TYPE_CONTROL";
+ 576              		.loc 1 281 16
+ 577 0022 064B     		ldr	r3, .L61+4
+ 578 0024 02E0     		b	.L60
+ 579              	.L56:
+ 282:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 283:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 284:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_FRAME_TYPE_DATA:
+ 285:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 286:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_FRAME_TYPE_DATA";
+ 580              		.loc 1 286 16
+ 581 0026 064B     		ldr	r3, .L61+8
+ 582 0028 00E0     		b	.L60
+ 583              	.L57:
+ 287:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 288:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 289:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     default:
+ 290:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 291:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "Unknown";
+ 584              		.loc 1 291 16
+ 585 002a 064B     		ldr	r3, .L61+12
+ 586              	.L60:
+ 292:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 293:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 294:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** }
+ 587              		.loc 1 294 1
+ 588 002c 1846     		mov	r0, r3
+ 589 002e 0C37     		adds	r7, r7, #12
+ 590              	.LCFI15:
+ 591              		.cfi_def_cfa_offset 4
+ 592 0030 BD46     		mov	sp, r7
+ 593              	.LCFI16:
+ 594              		.cfi_def_cfa_register 13
+ 595              		@ sp needed
+ 596 0032 5DF8047B 		ldr	r7, [sp], #4
+ 597              	.LCFI17:
+ 598              		.cfi_restore 7
+ 599              		.cfi_def_cfa_offset 0
+ 600 0036 7047     		bx	lr
+ 601              	.L62:
+ 602              		.align	2
+ 603              	.L61:
+ 604 0038 BC040000 		.word	.LC43
+ 605 003c E0040000 		.word	.LC44
+ 606 0040 00050000 		.word	.LC45
+ 607 0044 84010000 		.word	.LC16
+ 608              		.cfi_endproc
+ 609              	.LFE2:
+ 611              		.section	.rodata
+ 612              		.align	2
+ 613              	.LC46:
+ 614 051c 4C523131 		.ascii	"LR11XX_WIFI_ORIGIN_BEACON_FIX_AP\000"
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 20
+
+
+ 614      58585F57 
+ 614      4946495F 
+ 614      4F524947 
+ 614      494E5F42 
+ 615 053d 000000   		.align	2
+ 616              	.LC47:
+ 617 0540 4C523131 		.ascii	"LR11XX_WIFI_ORIGIN_BEACON_MOBILE_AP\000"
+ 617      58585F57 
+ 617      4946495F 
+ 617      4F524947 
+ 617      494E5F42 
+ 618              		.align	2
+ 619              	.LC48:
+ 620 0564 4C523131 		.ascii	"LR11XX_WIFI_ORIGIN_UNKNOWN\000"
+ 620      58585F57 
+ 620      4946495F 
+ 620      4F524947 
+ 620      494E5F55 
+ 621              		.section	.text.lr11xx_wifi_mac_origin_to_str,"ax",%progbits
+ 622              		.align	1
+ 623              		.global	lr11xx_wifi_mac_origin_to_str
+ 624              		.syntax unified
+ 625              		.thumb
+ 626              		.thumb_func
+ 628              	lr11xx_wifi_mac_origin_to_str:
+ 629              	.LFB3:
+ 295:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 296:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** const char* lr11xx_wifi_mac_origin_to_str( const lr11xx_wifi_mac_origin_t value )
+ 297:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** {
+ 630              		.loc 1 297 1
+ 631              		.cfi_startproc
+ 632              		@ args = 0, pretend = 0, frame = 8
+ 633              		@ frame_needed = 1, uses_anonymous_args = 0
+ 634              		@ link register save eliminated.
+ 635 0000 80B4     		push	{r7}
+ 636              	.LCFI18:
+ 637              		.cfi_def_cfa_offset 4
+ 638              		.cfi_offset 7, -4
+ 639 0002 83B0     		sub	sp, sp, #12
+ 640              	.LCFI19:
+ 641              		.cfi_def_cfa_offset 16
+ 642 0004 00AF     		add	r7, sp, #0
+ 643              	.LCFI20:
+ 644              		.cfi_def_cfa_register 7
+ 645 0006 0346     		mov	r3, r0
+ 646 0008 FB71     		strb	r3, [r7, #7]
+ 298:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     switch( value )
+ 647              		.loc 1 298 5
+ 648 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 649 000c 032B     		cmp	r3, #3
+ 650 000e 0AD0     		beq	.L64
+ 651 0010 032B     		cmp	r3, #3
+ 652 0012 0ADC     		bgt	.L65
+ 653 0014 012B     		cmp	r3, #1
+ 654 0016 02D0     		beq	.L66
+ 655 0018 022B     		cmp	r3, #2
+ 656 001a 02D0     		beq	.L67
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 21
+
+
+ 657 001c 05E0     		b	.L65
+ 658              	.L66:
+ 299:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 300:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_ORIGIN_BEACON_FIX_AP:
+ 301:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 302:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_ORIGIN_BEACON_FIX_AP";
+ 659              		.loc 1 302 16
+ 660 001e 064B     		ldr	r3, .L69
+ 661 0020 04E0     		b	.L68
+ 662              	.L67:
+ 303:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 304:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 305:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_ORIGIN_BEACON_MOBILE_AP:
+ 306:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 307:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_ORIGIN_BEACON_MOBILE_AP";
+ 663              		.loc 1 307 16
+ 664 0022 064B     		ldr	r3, .L69+4
+ 665 0024 02E0     		b	.L68
+ 666              	.L64:
+ 308:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 309:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 310:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_ORIGIN_UNKNOWN:
+ 311:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 312:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_ORIGIN_UNKNOWN";
+ 667              		.loc 1 312 16
+ 668 0026 064B     		ldr	r3, .L69+8
+ 669 0028 00E0     		b	.L68
+ 670              	.L65:
+ 313:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 314:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 315:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     default:
+ 316:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 317:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "Unknown";
+ 671              		.loc 1 317 16
+ 672 002a 064B     		ldr	r3, .L69+12
+ 673              	.L68:
+ 318:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 319:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 320:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** }
+ 674              		.loc 1 320 1
+ 675 002c 1846     		mov	r0, r3
+ 676 002e 0C37     		adds	r7, r7, #12
+ 677              	.LCFI21:
+ 678              		.cfi_def_cfa_offset 4
+ 679 0030 BD46     		mov	sp, r7
+ 680              	.LCFI22:
+ 681              		.cfi_def_cfa_register 13
+ 682              		@ sp needed
+ 683 0032 5DF8047B 		ldr	r7, [sp], #4
+ 684              	.LCFI23:
+ 685              		.cfi_restore 7
+ 686              		.cfi_def_cfa_offset 0
+ 687 0036 7047     		bx	lr
+ 688              	.L70:
+ 689              		.align	2
+ 690              	.L69:
+ 691 0038 1C050000 		.word	.LC46
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 22
+
+
+ 692 003c 40050000 		.word	.LC47
+ 693 0040 64050000 		.word	.LC48
+ 694 0044 84010000 		.word	.LC16
+ 695              		.cfi_endproc
+ 696              	.LFE3:
+ 698              		.section	.rodata
+ 699 057f 00       		.align	2
+ 700              	.LC49:
+ 701 0580 4C523131 		.ascii	"LR11XX_WIFI_TYPE_SCAN_B\000"
+ 701      58585F57 
+ 701      4946495F 
+ 701      54595045 
+ 701      5F534341 
+ 702              		.align	2
+ 703              	.LC50:
+ 704 0598 4C523131 		.ascii	"LR11XX_WIFI_TYPE_SCAN_G\000"
+ 704      58585F57 
+ 704      4946495F 
+ 704      54595045 
+ 704      5F534341 
+ 705              		.align	2
+ 706              	.LC51:
+ 707 05b0 4C523131 		.ascii	"LR11XX_WIFI_TYPE_SCAN_N\000"
+ 707      58585F57 
+ 707      4946495F 
+ 707      54595045 
+ 707      5F534341 
+ 708              		.align	2
+ 709              	.LC52:
+ 710 05c8 4C523131 		.ascii	"LR11XX_WIFI_TYPE_SCAN_B_G_N\000"
+ 710      58585F57 
+ 710      4946495F 
+ 710      54595045 
+ 710      5F534341 
+ 711              		.section	.text.lr11xx_wifi_signal_type_scan_to_str,"ax",%progbits
+ 712              		.align	1
+ 713              		.global	lr11xx_wifi_signal_type_scan_to_str
+ 714              		.syntax unified
+ 715              		.thumb
+ 716              		.thumb_func
+ 718              	lr11xx_wifi_signal_type_scan_to_str:
+ 719              	.LFB4:
+ 321:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 322:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** const char* lr11xx_wifi_signal_type_scan_to_str( const lr11xx_wifi_signal_type_scan_t value )
+ 323:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** {
+ 720              		.loc 1 323 1
+ 721              		.cfi_startproc
+ 722              		@ args = 0, pretend = 0, frame = 8
+ 723              		@ frame_needed = 1, uses_anonymous_args = 0
+ 724              		@ link register save eliminated.
+ 725 0000 80B4     		push	{r7}
+ 726              	.LCFI24:
+ 727              		.cfi_def_cfa_offset 4
+ 728              		.cfi_offset 7, -4
+ 729 0002 83B0     		sub	sp, sp, #12
+ 730              	.LCFI25:
+ 731              		.cfi_def_cfa_offset 16
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 23
+
+
+ 732 0004 00AF     		add	r7, sp, #0
+ 733              	.LCFI26:
+ 734              		.cfi_def_cfa_register 7
+ 735 0006 0346     		mov	r3, r0
+ 736 0008 FB71     		strb	r3, [r7, #7]
+ 324:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     switch( value )
+ 737              		.loc 1 324 5
+ 738 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 739 000c 013B     		subs	r3, r3, #1
+ 740 000e 032B     		cmp	r3, #3
+ 741 0010 12D8     		bhi	.L72
+ 742 0012 01A2     		adr	r2, .L74
+ 743 0014 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 744              		.p2align 2
+ 745              	.L74:
+ 746 0018 29000000 		.word	.L77+1
+ 747 001c 2D000000 		.word	.L76+1
+ 748 0020 31000000 		.word	.L75+1
+ 749 0024 35000000 		.word	.L73+1
+ 750              		.p2align 1
+ 751              	.L77:
+ 325:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 326:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_TYPE_SCAN_B:
+ 327:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 328:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_TYPE_SCAN_B";
+ 752              		.loc 1 328 16
+ 753 0028 074B     		ldr	r3, .L79
+ 754 002a 06E0     		b	.L78
+ 755              	.L76:
+ 329:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 330:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 331:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_TYPE_SCAN_G:
+ 332:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 333:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_TYPE_SCAN_G";
+ 756              		.loc 1 333 16
+ 757 002c 074B     		ldr	r3, .L79+4
+ 758 002e 04E0     		b	.L78
+ 759              	.L75:
+ 334:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 335:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 336:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_TYPE_SCAN_N:
+ 337:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 338:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_TYPE_SCAN_N";
+ 760              		.loc 1 338 16
+ 761 0030 074B     		ldr	r3, .L79+8
+ 762 0032 02E0     		b	.L78
+ 763              	.L73:
+ 339:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 340:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 341:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_TYPE_SCAN_B_G_N:
+ 342:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 343:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_TYPE_SCAN_B_G_N";
+ 764              		.loc 1 343 16
+ 765 0034 074B     		ldr	r3, .L79+12
+ 766 0036 00E0     		b	.L78
+ 767              	.L72:
+ 344:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 24
+
+
+ 345:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 346:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     default:
+ 347:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 348:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "Unknown";
+ 768              		.loc 1 348 16
+ 769 0038 074B     		ldr	r3, .L79+16
+ 770              	.L78:
+ 349:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 350:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 351:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** }
+ 771              		.loc 1 351 1
+ 772 003a 1846     		mov	r0, r3
+ 773 003c 0C37     		adds	r7, r7, #12
+ 774              	.LCFI27:
+ 775              		.cfi_def_cfa_offset 4
+ 776 003e BD46     		mov	sp, r7
+ 777              	.LCFI28:
+ 778              		.cfi_def_cfa_register 13
+ 779              		@ sp needed
+ 780 0040 5DF8047B 		ldr	r7, [sp], #4
+ 781              	.LCFI29:
+ 782              		.cfi_restore 7
+ 783              		.cfi_def_cfa_offset 0
+ 784 0044 7047     		bx	lr
+ 785              	.L80:
+ 786 0046 00BF     		.align	2
+ 787              	.L79:
+ 788 0048 80050000 		.word	.LC49
+ 789 004c 98050000 		.word	.LC50
+ 790 0050 B0050000 		.word	.LC51
+ 791 0054 C8050000 		.word	.LC52
+ 792 0058 84010000 		.word	.LC16
+ 793              		.cfi_endproc
+ 794              	.LFE4:
+ 796              		.section	.rodata
+ 797              		.align	2
+ 798              	.LC53:
+ 799 05e4 4C523131 		.ascii	"LR11XX_WIFI_TYPE_RESULT_B\000"
+ 799      58585F57 
+ 799      4946495F 
+ 799      54595045 
+ 799      5F524553 
+ 800 05fe 0000     		.align	2
+ 801              	.LC54:
+ 802 0600 4C523131 		.ascii	"LR11XX_WIFI_TYPE_RESULT_G\000"
+ 802      58585F57 
+ 802      4946495F 
+ 802      54595045 
+ 802      5F524553 
+ 803 061a 0000     		.align	2
+ 804              	.LC55:
+ 805 061c 4C523131 		.ascii	"LR11XX_WIFI_TYPE_RESULT_N\000"
+ 805      58585F57 
+ 805      4946495F 
+ 805      54595045 
+ 805      5F524553 
+ 806              		.section	.text.lr11xx_wifi_signal_type_result_to_str,"ax",%progbits
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 25
+
+
+ 807              		.align	1
+ 808              		.global	lr11xx_wifi_signal_type_result_to_str
+ 809              		.syntax unified
+ 810              		.thumb
+ 811              		.thumb_func
+ 813              	lr11xx_wifi_signal_type_result_to_str:
+ 814              	.LFB5:
+ 352:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 353:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** const char* lr11xx_wifi_signal_type_result_to_str( const lr11xx_wifi_signal_type_result_t value )
+ 354:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** {
+ 815              		.loc 1 354 1
+ 816              		.cfi_startproc
+ 817              		@ args = 0, pretend = 0, frame = 8
+ 818              		@ frame_needed = 1, uses_anonymous_args = 0
+ 819              		@ link register save eliminated.
+ 820 0000 80B4     		push	{r7}
+ 821              	.LCFI30:
+ 822              		.cfi_def_cfa_offset 4
+ 823              		.cfi_offset 7, -4
+ 824 0002 83B0     		sub	sp, sp, #12
+ 825              	.LCFI31:
+ 826              		.cfi_def_cfa_offset 16
+ 827 0004 00AF     		add	r7, sp, #0
+ 828              	.LCFI32:
+ 829              		.cfi_def_cfa_register 7
+ 830 0006 0346     		mov	r3, r0
+ 831 0008 FB71     		strb	r3, [r7, #7]
+ 355:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     switch( value )
+ 832              		.loc 1 355 5
+ 833 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 834 000c 032B     		cmp	r3, #3
+ 835 000e 0AD0     		beq	.L82
+ 836 0010 032B     		cmp	r3, #3
+ 837 0012 0ADC     		bgt	.L83
+ 838 0014 012B     		cmp	r3, #1
+ 839 0016 02D0     		beq	.L84
+ 840 0018 022B     		cmp	r3, #2
+ 841 001a 02D0     		beq	.L85
+ 842 001c 05E0     		b	.L83
+ 843              	.L84:
+ 356:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 357:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_TYPE_RESULT_B:
+ 358:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 359:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_TYPE_RESULT_B";
+ 844              		.loc 1 359 16
+ 845 001e 064B     		ldr	r3, .L87
+ 846 0020 04E0     		b	.L86
+ 847              	.L85:
+ 360:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 361:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 362:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_TYPE_RESULT_G:
+ 363:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 364:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_TYPE_RESULT_G";
+ 848              		.loc 1 364 16
+ 849 0022 064B     		ldr	r3, .L87+4
+ 850 0024 02E0     		b	.L86
+ 851              	.L82:
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 26
+
+
+ 365:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 366:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 367:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_TYPE_RESULT_N:
+ 368:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 369:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_TYPE_RESULT_N";
+ 852              		.loc 1 369 16
+ 853 0026 064B     		ldr	r3, .L87+8
+ 854 0028 00E0     		b	.L86
+ 855              	.L83:
+ 370:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 371:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 372:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     default:
+ 373:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 374:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "Unknown";
+ 856              		.loc 1 374 16
+ 857 002a 064B     		ldr	r3, .L87+12
+ 858              	.L86:
+ 375:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 376:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 377:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** }
+ 859              		.loc 1 377 1
+ 860 002c 1846     		mov	r0, r3
+ 861 002e 0C37     		adds	r7, r7, #12
+ 862              	.LCFI33:
+ 863              		.cfi_def_cfa_offset 4
+ 864 0030 BD46     		mov	sp, r7
+ 865              	.LCFI34:
+ 866              		.cfi_def_cfa_register 13
+ 867              		@ sp needed
+ 868 0032 5DF8047B 		ldr	r7, [sp], #4
+ 869              	.LCFI35:
+ 870              		.cfi_restore 7
+ 871              		.cfi_def_cfa_offset 0
+ 872 0036 7047     		bx	lr
+ 873              	.L88:
+ 874              		.align	2
+ 875              	.L87:
+ 876 0038 E4050000 		.word	.LC53
+ 877 003c 00060000 		.word	.LC54
+ 878 0040 1C060000 		.word	.LC55
+ 879 0044 84010000 		.word	.LC16
+ 880              		.cfi_endproc
+ 881              	.LFE5:
+ 883              		.section	.rodata
+ 884 0636 0000     		.align	2
+ 885              	.LC56:
+ 886 0638 4C523131 		.ascii	"LR11XX_WIFI_SCAN_MODE_BEACON\000"
+ 886      58585F57 
+ 886      4946495F 
+ 886      5343414E 
+ 886      5F4D4F44 
+ 887 0655 000000   		.align	2
+ 888              	.LC57:
+ 889 0658 4C523131 		.ascii	"LR11XX_WIFI_SCAN_MODE_BEACON_AND_PKT\000"
+ 889      58585F57 
+ 889      4946495F 
+ 889      5343414E 
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 27
+
+
+ 889      5F4D4F44 
+ 890 067d 000000   		.align	2
+ 891              	.LC58:
+ 892 0680 4C523131 		.ascii	"LR11XX_WIFI_SCAN_MODE_FULL_BEACON\000"
+ 892      58585F57 
+ 892      4946495F 
+ 892      5343414E 
+ 892      5F4D4F44 
+ 893 06a2 0000     		.align	2
+ 894              	.LC59:
+ 895 06a4 4C523131 		.ascii	"LR11XX_WIFI_SCAN_MODE_UNTIL_SSID\000"
+ 895      58585F57 
+ 895      4946495F 
+ 895      5343414E 
+ 895      5F4D4F44 
+ 896              		.section	.text.lr11xx_wifi_mode_to_str,"ax",%progbits
+ 897              		.align	1
+ 898              		.global	lr11xx_wifi_mode_to_str
+ 899              		.syntax unified
+ 900              		.thumb
+ 901              		.thumb_func
+ 903              	lr11xx_wifi_mode_to_str:
+ 904              	.LFB6:
+ 378:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 379:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** const char* lr11xx_wifi_mode_to_str( const lr11xx_wifi_mode_t value )
+ 380:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** {
+ 905              		.loc 1 380 1
+ 906              		.cfi_startproc
+ 907              		@ args = 0, pretend = 0, frame = 8
+ 908              		@ frame_needed = 1, uses_anonymous_args = 0
+ 909              		@ link register save eliminated.
+ 910 0000 80B4     		push	{r7}
+ 911              	.LCFI36:
+ 912              		.cfi_def_cfa_offset 4
+ 913              		.cfi_offset 7, -4
+ 914 0002 83B0     		sub	sp, sp, #12
+ 915              	.LCFI37:
+ 916              		.cfi_def_cfa_offset 16
+ 917 0004 00AF     		add	r7, sp, #0
+ 918              	.LCFI38:
+ 919              		.cfi_def_cfa_register 7
+ 920 0006 0346     		mov	r3, r0
+ 921 0008 FB71     		strb	r3, [r7, #7]
+ 381:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     switch( value )
+ 922              		.loc 1 381 5
+ 923 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 924 000c 013B     		subs	r3, r3, #1
+ 925 000e 042B     		cmp	r3, #4
+ 926 0010 14D8     		bhi	.L90
+ 927 0012 01A2     		adr	r2, .L92
+ 928 0014 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 929              		.p2align 2
+ 930              	.L92:
+ 931 0018 2D000000 		.word	.L95+1
+ 932 001c 31000000 		.word	.L94+1
+ 933 0020 3D000000 		.word	.L90+1
+ 934 0024 35000000 		.word	.L93+1
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 28
+
+
+ 935 0028 39000000 		.word	.L91+1
+ 936              		.p2align 1
+ 937              	.L95:
+ 382:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 383:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_SCAN_MODE_BEACON:
+ 384:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 385:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_SCAN_MODE_BEACON";
+ 938              		.loc 1 385 16
+ 939 002c 074B     		ldr	r3, .L97
+ 940 002e 06E0     		b	.L96
+ 941              	.L94:
+ 386:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 387:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 388:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_SCAN_MODE_BEACON_AND_PKT:
+ 389:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 390:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_SCAN_MODE_BEACON_AND_PKT";
+ 942              		.loc 1 390 16
+ 943 0030 074B     		ldr	r3, .L97+4
+ 944 0032 04E0     		b	.L96
+ 945              	.L93:
+ 391:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 392:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 393:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_SCAN_MODE_FULL_BEACON:
+ 394:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 395:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_SCAN_MODE_FULL_BEACON";
+ 946              		.loc 1 395 16
+ 947 0034 074B     		ldr	r3, .L97+8
+ 948 0036 02E0     		b	.L96
+ 949              	.L91:
+ 396:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 397:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 398:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_SCAN_MODE_UNTIL_SSID:
+ 399:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 400:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_SCAN_MODE_UNTIL_SSID";
+ 950              		.loc 1 400 16
+ 951 0038 074B     		ldr	r3, .L97+12
+ 952 003a 00E0     		b	.L96
+ 953              	.L90:
+ 401:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 402:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 403:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     default:
+ 404:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 405:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "Unknown";
+ 954              		.loc 1 405 16
+ 955 003c 074B     		ldr	r3, .L97+16
+ 956              	.L96:
+ 406:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 407:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 408:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** }
+ 957              		.loc 1 408 1
+ 958 003e 1846     		mov	r0, r3
+ 959 0040 0C37     		adds	r7, r7, #12
+ 960              	.LCFI39:
+ 961              		.cfi_def_cfa_offset 4
+ 962 0042 BD46     		mov	sp, r7
+ 963              	.LCFI40:
+ 964              		.cfi_def_cfa_register 13
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 29
+
+
+ 965              		@ sp needed
+ 966 0044 5DF8047B 		ldr	r7, [sp], #4
+ 967              	.LCFI41:
+ 968              		.cfi_restore 7
+ 969              		.cfi_def_cfa_offset 0
+ 970 0048 7047     		bx	lr
+ 971              	.L98:
+ 972 004a 00BF     		.align	2
+ 973              	.L97:
+ 974 004c 38060000 		.word	.LC56
+ 975 0050 58060000 		.word	.LC57
+ 976 0054 80060000 		.word	.LC58
+ 977 0058 A4060000 		.word	.LC59
+ 978 005c 84010000 		.word	.LC16
+ 979              		.cfi_endproc
+ 980              	.LFE6:
+ 982              		.section	.rodata
+ 983 06c5 000000   		.align	2
+ 984              	.LC60:
+ 985 06c8 4C523131 		.ascii	"LR11XX_WIFI_RESULT_FORMAT_BASIC_COMPLETE\000"
+ 985      58585F57 
+ 985      4946495F 
+ 985      52455355 
+ 985      4C545F46 
+ 986 06f1 000000   		.align	2
+ 987              	.LC61:
+ 988 06f4 4C523131 		.ascii	"LR11XX_WIFI_RESULT_FORMAT_BASIC_MAC_TYPE_CHANNEL\000"
+ 988      58585F57 
+ 988      4946495F 
+ 988      52455355 
+ 988      4C545F46 
+ 989 0725 000000   		.align	2
+ 990              	.LC62:
+ 991 0728 4C523131 		.ascii	"LR11XX_WIFI_RESULT_FORMAT_EXTENDED_FULL\000"
+ 991      58585F57 
+ 991      4946495F 
+ 991      52455355 
+ 991      4C545F46 
+ 992              		.section	.text.lr11xx_wifi_result_format_to_str,"ax",%progbits
+ 993              		.align	1
+ 994              		.global	lr11xx_wifi_result_format_to_str
+ 995              		.syntax unified
+ 996              		.thumb
+ 997              		.thumb_func
+ 999              	lr11xx_wifi_result_format_to_str:
+ 1000              	.LFB7:
+ 409:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 410:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** const char* lr11xx_wifi_result_format_to_str( const lr11xx_wifi_result_format_t value )
+ 411:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** {
+ 1001              		.loc 1 411 1
+ 1002              		.cfi_startproc
+ 1003              		@ args = 0, pretend = 0, frame = 8
+ 1004              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1005              		@ link register save eliminated.
+ 1006 0000 80B4     		push	{r7}
+ 1007              	.LCFI42:
+ 1008              		.cfi_def_cfa_offset 4
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 30
+
+
+ 1009              		.cfi_offset 7, -4
+ 1010 0002 83B0     		sub	sp, sp, #12
+ 1011              	.LCFI43:
+ 1012              		.cfi_def_cfa_offset 16
+ 1013 0004 00AF     		add	r7, sp, #0
+ 1014              	.LCFI44:
+ 1015              		.cfi_def_cfa_register 7
+ 1016 0006 0346     		mov	r3, r0
+ 1017 0008 FB71     		strb	r3, [r7, #7]
+ 412:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     switch( value )
+ 1018              		.loc 1 412 5
+ 1019 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1020 000c 022B     		cmp	r3, #2
+ 1021 000e 0AD0     		beq	.L100
+ 1022 0010 022B     		cmp	r3, #2
+ 1023 0012 0ADC     		bgt	.L101
+ 1024 0014 002B     		cmp	r3, #0
+ 1025 0016 02D0     		beq	.L102
+ 1026 0018 012B     		cmp	r3, #1
+ 1027 001a 02D0     		beq	.L103
+ 1028 001c 05E0     		b	.L101
+ 1029              	.L102:
+ 413:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 414:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_RESULT_FORMAT_BASIC_COMPLETE:
+ 415:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 416:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_RESULT_FORMAT_BASIC_COMPLETE";
+ 1030              		.loc 1 416 16
+ 1031 001e 064B     		ldr	r3, .L105
+ 1032 0020 04E0     		b	.L104
+ 1033              	.L103:
+ 417:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 418:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 419:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_RESULT_FORMAT_BASIC_MAC_TYPE_CHANNEL:
+ 420:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 421:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_RESULT_FORMAT_BASIC_MAC_TYPE_CHANNEL";
+ 1034              		.loc 1 421 16
+ 1035 0022 064B     		ldr	r3, .L105+4
+ 1036 0024 02E0     		b	.L104
+ 1037              	.L100:
+ 422:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 423:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 424:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     case LR11XX_WIFI_RESULT_FORMAT_EXTENDED_FULL:
+ 425:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 426:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "LR11XX_WIFI_RESULT_FORMAT_EXTENDED_FULL";
+ 1038              		.loc 1 426 16
+ 1039 0026 064B     		ldr	r3, .L105+8
+ 1040 0028 00E0     		b	.L104
+ 1041              	.L101:
+ 427:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 428:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** 
+ 429:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     default:
+ 430:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     {
+ 431:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****         return ( const char* ) "Unknown";
+ 1042              		.loc 1 431 16
+ 1043 002a 064B     		ldr	r3, .L105+12
+ 1044              	.L104:
+ 432:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 31
+
+
+ 433:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c ****     }
+ 434:../../../lr11xx/common/printers/lr11xx_wifi_types_str.c **** }
+ 1045              		.loc 1 434 1
+ 1046 002c 1846     		mov	r0, r3
+ 1047 002e 0C37     		adds	r7, r7, #12
+ 1048              	.LCFI45:
+ 1049              		.cfi_def_cfa_offset 4
+ 1050 0030 BD46     		mov	sp, r7
+ 1051              	.LCFI46:
+ 1052              		.cfi_def_cfa_register 13
+ 1053              		@ sp needed
+ 1054 0032 5DF8047B 		ldr	r7, [sp], #4
+ 1055              	.LCFI47:
+ 1056              		.cfi_restore 7
+ 1057              		.cfi_def_cfa_offset 0
+ 1058 0036 7047     		bx	lr
+ 1059              	.L106:
+ 1060              		.align	2
+ 1061              	.L105:
+ 1062 0038 C8060000 		.word	.LC60
+ 1063 003c F4060000 		.word	.LC61
+ 1064 0040 28070000 		.word	.LC62
+ 1065 0044 84010000 		.word	.LC16
+ 1066              		.cfi_endproc
+ 1067              	.LFE7:
+ 1069              		.text
+ 1070              	.Letext0:
+ 1071              		.file 2 "../../../lr11xx/lr11xx_driver/src/lr11xx_wifi_types.h"
+ARM GAS  C:\msys64\tmp\cce62iVh.s 			page 32
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lr11xx_wifi_types_str.c
+C:\msys64\tmp\cce62iVh.s:21     .rodata:00000000 $d
+C:\msys64\tmp\cce62iVh.s:73     .text.lr11xx_wifi_channel_to_str:00000000 $t
+C:\msys64\tmp\cce62iVh.s:79     .text.lr11xx_wifi_channel_to_str:00000000 lr11xx_wifi_channel_to_str
+C:\msys64\tmp\cce62iVh.s:106    .text.lr11xx_wifi_channel_to_str:00000018 $d
+C:\msys64\tmp\cce62iVh.s:122    .text.lr11xx_wifi_channel_to_str:00000058 $t
+C:\msys64\tmp\cce62iVh.s:208    .text.lr11xx_wifi_channel_to_str:000000a8 $d
+C:\msys64\tmp\cce62iVh.s:308    .text.lr11xx_wifi_datarate_to_str:00000000 $t
+C:\msys64\tmp\cce62iVh.s:314    .text.lr11xx_wifi_datarate_to_str:00000000 lr11xx_wifi_datarate_to_str
+C:\msys64\tmp\cce62iVh.s:342    .text.lr11xx_wifi_datarate_to_str:00000018 $d
+C:\msys64\tmp\cce62iVh.s:368    .text.lr11xx_wifi_datarate_to_str:00000080 $t
+C:\msys64\tmp\cce62iVh.s:494    .text.lr11xx_wifi_datarate_to_str:000000f8 $d
+C:\msys64\tmp\cce62iVh.s:535    .text.lr11xx_wifi_frame_type_to_str:00000000 $t
+C:\msys64\tmp\cce62iVh.s:541    .text.lr11xx_wifi_frame_type_to_str:00000000 lr11xx_wifi_frame_type_to_str
+C:\msys64\tmp\cce62iVh.s:604    .text.lr11xx_wifi_frame_type_to_str:00000038 $d
+C:\msys64\tmp\cce62iVh.s:622    .text.lr11xx_wifi_mac_origin_to_str:00000000 $t
+C:\msys64\tmp\cce62iVh.s:628    .text.lr11xx_wifi_mac_origin_to_str:00000000 lr11xx_wifi_mac_origin_to_str
+C:\msys64\tmp\cce62iVh.s:691    .text.lr11xx_wifi_mac_origin_to_str:00000038 $d
+C:\msys64\tmp\cce62iVh.s:712    .text.lr11xx_wifi_signal_type_scan_to_str:00000000 $t
+C:\msys64\tmp\cce62iVh.s:718    .text.lr11xx_wifi_signal_type_scan_to_str:00000000 lr11xx_wifi_signal_type_scan_to_str
+C:\msys64\tmp\cce62iVh.s:746    .text.lr11xx_wifi_signal_type_scan_to_str:00000018 $d
+C:\msys64\tmp\cce62iVh.s:750    .text.lr11xx_wifi_signal_type_scan_to_str:00000028 $t
+C:\msys64\tmp\cce62iVh.s:788    .text.lr11xx_wifi_signal_type_scan_to_str:00000048 $d
+C:\msys64\tmp\cce62iVh.s:807    .text.lr11xx_wifi_signal_type_result_to_str:00000000 $t
+C:\msys64\tmp\cce62iVh.s:813    .text.lr11xx_wifi_signal_type_result_to_str:00000000 lr11xx_wifi_signal_type_result_to_str
+C:\msys64\tmp\cce62iVh.s:876    .text.lr11xx_wifi_signal_type_result_to_str:00000038 $d
+C:\msys64\tmp\cce62iVh.s:897    .text.lr11xx_wifi_mode_to_str:00000000 $t
+C:\msys64\tmp\cce62iVh.s:903    .text.lr11xx_wifi_mode_to_str:00000000 lr11xx_wifi_mode_to_str
+C:\msys64\tmp\cce62iVh.s:931    .text.lr11xx_wifi_mode_to_str:00000018 $d
+C:\msys64\tmp\cce62iVh.s:936    .text.lr11xx_wifi_mode_to_str:0000002c $t
+C:\msys64\tmp\cce62iVh.s:974    .text.lr11xx_wifi_mode_to_str:0000004c $d
+C:\msys64\tmp\cce62iVh.s:993    .text.lr11xx_wifi_result_format_to_str:00000000 $t
+C:\msys64\tmp\cce62iVh.s:999    .text.lr11xx_wifi_result_format_to_str:00000000 lr11xx_wifi_result_format_to_str
+C:\msys64\tmp\cce62iVh.s:1062   .text.lr11xx_wifi_result_format_to_str:00000038 $d
+
+NO UNDEFINED SYMBOLS

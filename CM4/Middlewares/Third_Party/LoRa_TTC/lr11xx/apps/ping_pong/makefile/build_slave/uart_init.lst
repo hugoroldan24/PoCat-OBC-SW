@@ -1,0 +1,393 @@
+ARM GAS  C:\msys64\tmp\ccq5ItRN.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"uart_init.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../common/src/uart_init.c"
+  20              		.section	.bss.inst_uart,"aw",%nobits
+  21              		.align	2
+  24              	inst_uart:
+  25 0000 00000000 		.space	4
+  26              		.section	.text.uart_init,"ax",%progbits
+  27              		.align	1
+  28              		.global	uart_init
+  29              		.syntax unified
+  30              		.thumb
+  31              		.thumb_func
+  33              	uart_init:
+  34              	.LFB135:
+   1:../../../../common/src/uart_init.c **** /*!
+   2:../../../../common/src/uart_init.c ****  * @file      uart_init.c
+   3:../../../../common/src/uart_init.c ****  *
+   4:../../../../common/src/uart_init.c ****  * @brief     UART init helper functions implementation
+   5:../../../../common/src/uart_init.c ****  *
+   6:../../../../common/src/uart_init.c ****  * The Clear BSD License
+   7:../../../../common/src/uart_init.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   8:../../../../common/src/uart_init.c ****  *
+   9:../../../../common/src/uart_init.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../../common/src/uart_init.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../../common/src/uart_init.c ****  * below) provided that the following conditions are met:
+  12:../../../../common/src/uart_init.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../../common/src/uart_init.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../../common/src/uart_init.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../../common/src/uart_init.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../../common/src/uart_init.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../../common/src/uart_init.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../../common/src/uart_init.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../../common/src/uart_init.c ****  *       derived from this software without specific prior written permission.
+  20:../../../../common/src/uart_init.c ****  *
+  21:../../../../common/src/uart_init.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../../common/src/uart_init.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../../common/src/uart_init.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../../common/src/uart_init.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../../common/src/uart_init.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  26:../../../../common/src/uart_init.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ARM GAS  C:\msys64\tmp\ccq5ItRN.s 			page 2
+
+
+  27:../../../../common/src/uart_init.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../../common/src/uart_init.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../../common/src/uart_init.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../../common/src/uart_init.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  31:../../../../common/src/uart_init.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../../common/src/uart_init.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../../common/src/uart_init.c ****  */
+  34:../../../../common/src/uart_init.c **** 
+  35:../../../../common/src/uart_init.c **** /*
+  36:../../../../common/src/uart_init.c ****  * -----------------------------------------------------------------------------
+  37:../../../../common/src/uart_init.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../../common/src/uart_init.c ****  */
+  39:../../../../common/src/uart_init.c **** #include <stddef.h>
+  40:../../../../common/src/uart_init.c **** #include <string.h>
+  41:../../../../common/src/uart_init.c **** #include <stdio.h>
+  42:../../../../common/src/uart_init.c **** #include "uart_init.h"
+  43:../../../../common/src/uart_init.c **** #include "stm32l4xx.h"
+  44:../../../../common/src/uart_init.c **** #include "smtc_hal_mcu_uart_stm32l4.h"
+  45:../../../../common/src/uart_init.c **** 
+  46:../../../../common/src/uart_init.c **** /*
+  47:../../../../common/src/uart_init.c ****  * -----------------------------------------------------------------------------
+  48:../../../../common/src/uart_init.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  49:../../../../common/src/uart_init.c ****  */
+  50:../../../../common/src/uart_init.c **** 
+  51:../../../../common/src/uart_init.c **** /*
+  52:../../../../common/src/uart_init.c ****  * -----------------------------------------------------------------------------
+  53:../../../../common/src/uart_init.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  54:../../../../common/src/uart_init.c ****  */
+  55:../../../../common/src/uart_init.c **** 
+  56:../../../../common/src/uart_init.c **** /*
+  57:../../../../common/src/uart_init.c ****  * -----------------------------------------------------------------------------
+  58:../../../../common/src/uart_init.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  59:../../../../common/src/uart_init.c ****  */
+  60:../../../../common/src/uart_init.c **** 
+  61:../../../../common/src/uart_init.c **** /*
+  62:../../../../common/src/uart_init.c ****  * -----------------------------------------------------------------------------
+  63:../../../../common/src/uart_init.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+  64:../../../../common/src/uart_init.c ****  */
+  65:../../../../common/src/uart_init.c **** 
+  66:../../../../common/src/uart_init.c **** static smtc_hal_mcu_uart_inst_t inst_uart = NULL;
+  67:../../../../common/src/uart_init.c **** 
+  68:../../../../common/src/uart_init.c **** /*
+  69:../../../../common/src/uart_init.c ****  * -----------------------------------------------------------------------------
+  70:../../../../common/src/uart_init.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+  71:../../../../common/src/uart_init.c ****  */
+  72:../../../../common/src/uart_init.c **** 
+  73:../../../../common/src/uart_init.c **** /**
+  74:../../../../common/src/uart_init.c ****  * @brief Base function to initialize UART peripheral
+  75:../../../../common/src/uart_init.c ****  *
+  76:../../../../common/src/uart_init.c ****  * @param callback_rx The callback called on RX byte reception. Can be NULL
+  77:../../../../common/src/uart_init.c ****  */
+  78:../../../../common/src/uart_init.c **** void uart_init_base( void ( *callback_rx )( uint8_t data ) );
+  79:../../../../common/src/uart_init.c **** 
+  80:../../../../common/src/uart_init.c **** /*
+  81:../../../../common/src/uart_init.c ****  * -----------------------------------------------------------------------------
+  82:../../../../common/src/uart_init.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+  83:../../../../common/src/uart_init.c ****  */
+ARM GAS  C:\msys64\tmp\ccq5ItRN.s 			page 3
+
+
+  84:../../../../common/src/uart_init.c **** 
+  85:../../../../common/src/uart_init.c **** void uart_init( void )
+  86:../../../../common/src/uart_init.c **** {
+  35              		.loc 1 86 1
+  36              		.cfi_startproc
+  37              		@ args = 0, pretend = 0, frame = 0
+  38              		@ frame_needed = 1, uses_anonymous_args = 0
+  39 0000 80B5     		push	{r7, lr}
+  40              	.LCFI0:
+  41              		.cfi_def_cfa_offset 8
+  42              		.cfi_offset 7, -8
+  43              		.cfi_offset 14, -4
+  44 0002 00AF     		add	r7, sp, #0
+  45              	.LCFI1:
+  46              		.cfi_def_cfa_register 7
+  87:../../../../common/src/uart_init.c ****     uart_init_base( NULL );
+  47              		.loc 1 87 5
+  48 0004 0020     		movs	r0, #0
+  49 0006 FFF7FEFF 		bl	uart_init_base
+  88:../../../../common/src/uart_init.c **** }
+  50              		.loc 1 88 1
+  51 000a 00BF     		nop
+  52 000c 80BD     		pop	{r7, pc}
+  53              		.cfi_endproc
+  54              	.LFE135:
+  56              		.section	.text.uart_init_with_rx_callback,"ax",%progbits
+  57              		.align	1
+  58              		.global	uart_init_with_rx_callback
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+  63              	uart_init_with_rx_callback:
+  64              	.LFB136:
+  89:../../../../common/src/uart_init.c **** 
+  90:../../../../common/src/uart_init.c **** void uart_init_with_rx_callback( void ( *callback_rx )( uint8_t data ) )
+  91:../../../../common/src/uart_init.c **** {
+  65              		.loc 1 91 1
+  66              		.cfi_startproc
+  67              		@ args = 0, pretend = 0, frame = 8
+  68              		@ frame_needed = 1, uses_anonymous_args = 0
+  69 0000 80B5     		push	{r7, lr}
+  70              	.LCFI2:
+  71              		.cfi_def_cfa_offset 8
+  72              		.cfi_offset 7, -8
+  73              		.cfi_offset 14, -4
+  74 0002 82B0     		sub	sp, sp, #8
+  75              	.LCFI3:
+  76              		.cfi_def_cfa_offset 16
+  77 0004 00AF     		add	r7, sp, #0
+  78              	.LCFI4:
+  79              		.cfi_def_cfa_register 7
+  80 0006 7860     		str	r0, [r7, #4]
+  92:../../../../common/src/uart_init.c ****     uart_init_base( callback_rx );
+  81              		.loc 1 92 5
+  82 0008 7868     		ldr	r0, [r7, #4]
+  83 000a FFF7FEFF 		bl	uart_init_base
+  93:../../../../common/src/uart_init.c **** }
+ARM GAS  C:\msys64\tmp\ccq5ItRN.s 			page 4
+
+
+  84              		.loc 1 93 1
+  85 000e 00BF     		nop
+  86 0010 0837     		adds	r7, r7, #8
+  87              	.LCFI5:
+  88              		.cfi_def_cfa_offset 8
+  89 0012 BD46     		mov	sp, r7
+  90              	.LCFI6:
+  91              		.cfi_def_cfa_register 13
+  92              		@ sp needed
+  93 0014 80BD     		pop	{r7, pc}
+  94              		.cfi_endproc
+  95              	.LFE136:
+  97              		.section	.text.vprint,"ax",%progbits
+  98              		.align	1
+  99              		.global	vprint
+ 100              		.syntax unified
+ 101              		.thumb
+ 102              		.thumb_func
+ 104              	vprint:
+ 105              	.LFB137:
+  94:../../../../common/src/uart_init.c **** 
+  95:../../../../common/src/uart_init.c **** void vprint( const char* fmt, va_list argp )
+  96:../../../../common/src/uart_init.c **** {
+ 106              		.loc 1 96 1
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 264
+ 109              		@ frame_needed = 1, uses_anonymous_args = 0
+ 110 0000 90B5     		push	{r4, r7, lr}
+ 111              	.LCFI7:
+ 112              		.cfi_def_cfa_offset 12
+ 113              		.cfi_offset 4, -12
+ 114              		.cfi_offset 7, -8
+ 115              		.cfi_offset 14, -4
+ 116 0002 C3B0     		sub	sp, sp, #268
+ 117              	.LCFI8:
+ 118              		.cfi_def_cfa_offset 280
+ 119 0004 00AF     		add	r7, sp, #0
+ 120              	.LCFI9:
+ 121              		.cfi_def_cfa_register 7
+ 122 0006 07F58473 		add	r3, r7, #264
+ 123 000a A3F58273 		sub	r3, r3, #260
+ 124 000e 1860     		str	r0, [r3]
+ 125 0010 07F58473 		add	r3, r7, #264
+ 126 0014 A3F58473 		sub	r3, r3, #264
+ 127 0018 1960     		str	r1, [r3]
+  97:../../../../common/src/uart_init.c ****     char string[255];
+  98:../../../../common/src/uart_init.c ****     if( 0 < vsprintf( string, fmt, argp ) )  // build string
+ 128              		.loc 1 98 13
+ 129 001a 07F58473 		add	r3, r7, #264
+ 130 001e A3F58472 		sub	r2, r3, #264
+ 131 0022 07F58473 		add	r3, r7, #264
+ 132 0026 A3F58273 		sub	r3, r3, #260
+ 133 002a 07F10800 		add	r0, r7, #8
+ 134 002e 1268     		ldr	r2, [r2]
+ 135 0030 1968     		ldr	r1, [r3]
+ 136 0032 FFF7FEFF 		bl	vsprintf
+ 137 0036 0346     		mov	r3, r0
+ARM GAS  C:\msys64\tmp\ccq5ItRN.s 			page 5
+
+
+ 138              		.loc 1 98 7 discriminator 1
+ 139 0038 002B     		cmp	r3, #0
+ 140 003a 0DDD     		ble	.L5
+  99:../../../../common/src/uart_init.c ****     {
+ 100:../../../../common/src/uart_init.c ****         smtc_hal_mcu_uart_send( inst_uart, ( uint8_t* ) string, strlen( string ) );
+ 141              		.loc 1 100 9
+ 142 003c 094B     		ldr	r3, .L6
+ 143 003e 1C68     		ldr	r4, [r3]
+ 144 0040 07F10803 		add	r3, r7, #8
+ 145 0044 1846     		mov	r0, r3
+ 146 0046 FFF7FEFF 		bl	strlen
+ 147 004a 0246     		mov	r2, r0
+ 148              		.loc 1 100 9 is_stmt 0 discriminator 1
+ 149 004c 07F10803 		add	r3, r7, #8
+ 150 0050 1946     		mov	r1, r3
+ 151 0052 2046     		mov	r0, r4
+ 152 0054 FFF7FEFF 		bl	smtc_hal_mcu_uart_send
+ 153              	.L5:
+ 101:../../../../common/src/uart_init.c ****     }
+ 102:../../../../common/src/uart_init.c **** }
+ 154              		.loc 1 102 1 is_stmt 1
+ 155 0058 00BF     		nop
+ 156 005a 07F58677 		add	r7, r7, #268
+ 157              	.LCFI10:
+ 158              		.cfi_def_cfa_offset 12
+ 159 005e BD46     		mov	sp, r7
+ 160              	.LCFI11:
+ 161              		.cfi_def_cfa_register 13
+ 162              		@ sp needed
+ 163 0060 90BD     		pop	{r4, r7, pc}
+ 164              	.L7:
+ 165 0062 00BF     		.align	2
+ 166              	.L6:
+ 167 0064 00000000 		.word	inst_uart
+ 168              		.cfi_endproc
+ 169              	.LFE137:
+ 171              		.section	.text.uart_init_base,"ax",%progbits
+ 172              		.align	1
+ 173              		.global	uart_init_base
+ 174              		.syntax unified
+ 175              		.thumb
+ 176              		.thumb_func
+ 178              	uart_init_base:
+ 179              	.LFB138:
+ 103:../../../../common/src/uart_init.c **** 
+ 104:../../../../common/src/uart_init.c **** /*
+ 105:../../../../common/src/uart_init.c ****  * -----------------------------------------------------------------------------
+ 106:../../../../common/src/uart_init.c ****  * --- PRIVATE FUNCTIONS DEFINITION --------------------------------------------
+ 107:../../../../common/src/uart_init.c ****  */
+ 108:../../../../common/src/uart_init.c **** 
+ 109:../../../../common/src/uart_init.c **** void uart_init_base( void ( *callback_rx )( uint8_t data ) )
+ 110:../../../../common/src/uart_init.c **** {
+ 180              		.loc 1 110 1
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 24
+ 183              		@ frame_needed = 1, uses_anonymous_args = 0
+ 184 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\msys64\tmp\ccq5ItRN.s 			page 6
+
+
+ 185              	.LCFI12:
+ 186              		.cfi_def_cfa_offset 8
+ 187              		.cfi_offset 7, -8
+ 188              		.cfi_offset 14, -4
+ 189 0002 86B0     		sub	sp, sp, #24
+ 190              	.LCFI13:
+ 191              		.cfi_def_cfa_offset 32
+ 192 0004 00AF     		add	r7, sp, #0
+ 193              	.LCFI14:
+ 194              		.cfi_def_cfa_register 7
+ 195 0006 7860     		str	r0, [r7, #4]
+ 111:../../../../common/src/uart_init.c ****     const struct smtc_hal_mcu_uart_cfg_s cfg_uart = {
+ 196              		.loc 1 111 42
+ 197 0008 094B     		ldr	r3, .L9
+ 198 000a 7B61     		str	r3, [r7, #20]
+ 112:../../../../common/src/uart_init.c ****         .usart = USART2,
+ 113:../../../../common/src/uart_init.c ****     };
+ 114:../../../../common/src/uart_init.c ****     const smtc_hal_mcu_uart_cfg_app_t uart_cfg_app = {
+ 199              		.loc 1 114 39
+ 200 000c 4FF46123 		mov	r3, #921600
+ 201 0010 FB60     		str	r3, [r7, #12]
+ 202 0012 7B68     		ldr	r3, [r7, #4]
+ 203 0014 3B61     		str	r3, [r7, #16]
+ 115:../../../../common/src/uart_init.c ****         .baudrate    = 921600,
+ 116:../../../../common/src/uart_init.c ****         .callback_rx = callback_rx,
+ 117:../../../../common/src/uart_init.c ****     };
+ 118:../../../../common/src/uart_init.c ****     smtc_hal_mcu_uart_init( ( const smtc_hal_mcu_uart_cfg_t ) &cfg_uart, &uart_cfg_app, &inst_uart 
+ 204              		.loc 1 118 5
+ 205 0016 07F10C01 		add	r1, r7, #12
+ 206 001a 07F11403 		add	r3, r7, #20
+ 207 001e 054A     		ldr	r2, .L9+4
+ 208 0020 1846     		mov	r0, r3
+ 209 0022 FFF7FEFF 		bl	smtc_hal_mcu_uart_init
+ 119:../../../../common/src/uart_init.c **** }
+ 210              		.loc 1 119 1
+ 211 0026 00BF     		nop
+ 212 0028 1837     		adds	r7, r7, #24
+ 213              	.LCFI15:
+ 214              		.cfi_def_cfa_offset 8
+ 215 002a BD46     		mov	sp, r7
+ 216              	.LCFI16:
+ 217              		.cfi_def_cfa_register 13
+ 218              		@ sp needed
+ 219 002c 80BD     		pop	{r7, pc}
+ 220              	.L10:
+ 221 002e 00BF     		.align	2
+ 222              	.L9:
+ 223 0030 00440040 		.word	1073759232
+ 224 0034 00000000 		.word	inst_uart
+ 225              		.cfi_endproc
+ 226              	.LFE138:
+ 228              		.text
+ 229              	.Letext0:
+ 230              		.file 2 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/lib/gcc/arm-none-eabi/14.2.1
+ 231              		.file 3 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/machin
+ 232              		.file 4 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/lib/gcc/arm-none-eabi/14.2.1
+ 233              		.file 5 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys/_s
+ARM GAS  C:\msys64\tmp\ccq5ItRN.s 			page 7
+
+
+ 234              		.file 6 "../../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_status.h"
+ 235              		.file 7 "../../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_uart.h"
+ 236              		.file 8 "../../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_uart_stm32l4.h"
+ 237              		.file 9 "../../../../libs/smtc-hal-mcu-stm32l4/third_party/STM32CubeL4/Drivers/CMSIS/Device/ST/STM
+ 238              		.file 10 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/strin
+ 239              		.file 11 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/stdio
+ 240              		.file 12 "<built-in>"
+ARM GAS  C:\msys64\tmp\ccq5ItRN.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 uart_init.c
+C:\msys64\tmp\ccq5ItRN.s:21     .bss.inst_uart:00000000 $d
+C:\msys64\tmp\ccq5ItRN.s:24     .bss.inst_uart:00000000 inst_uart
+C:\msys64\tmp\ccq5ItRN.s:27     .text.uart_init:00000000 $t
+C:\msys64\tmp\ccq5ItRN.s:33     .text.uart_init:00000000 uart_init
+C:\msys64\tmp\ccq5ItRN.s:178    .text.uart_init_base:00000000 uart_init_base
+C:\msys64\tmp\ccq5ItRN.s:57     .text.uart_init_with_rx_callback:00000000 $t
+C:\msys64\tmp\ccq5ItRN.s:63     .text.uart_init_with_rx_callback:00000000 uart_init_with_rx_callback
+C:\msys64\tmp\ccq5ItRN.s:98     .text.vprint:00000000 $t
+C:\msys64\tmp\ccq5ItRN.s:104    .text.vprint:00000000 vprint
+C:\msys64\tmp\ccq5ItRN.s:167    .text.vprint:00000064 $d
+C:\msys64\tmp\ccq5ItRN.s:172    .text.uart_init_base:00000000 $t
+C:\msys64\tmp\ccq5ItRN.s:223    .text.uart_init_base:00000030 $d
+
+UNDEFINED SYMBOLS
+vsprintf
+strlen
+smtc_hal_mcu_uart_send
+smtc_hal_mcu_uart_init

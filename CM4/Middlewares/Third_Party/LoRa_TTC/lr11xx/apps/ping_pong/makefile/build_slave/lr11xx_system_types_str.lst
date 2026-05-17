@@ -1,0 +1,1477 @@
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lr11xx_system_types_str.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../lr11xx/common/printers/lr11xx_system_types_str.c"
+  20              		.section	.rodata
+  21              		.align	2
+  22              	.LC0:
+  23 0000 4C523131 		.ascii	"LR11XX_SYSTEM_CHIP_MODE_SLEEP\000"
+  23      58585F53 
+  23      59535445 
+  23      4D5F4348 
+  23      49505F4D 
+  24 001e 0000     		.align	2
+  25              	.LC1:
+  26 0020 4C523131 		.ascii	"LR11XX_SYSTEM_CHIP_MODE_STBY_RC\000"
+  26      58585F53 
+  26      59535445 
+  26      4D5F4348 
+  26      49505F4D 
+  27              		.align	2
+  28              	.LC2:
+  29 0040 4C523131 		.ascii	"LR11XX_SYSTEM_CHIP_MODE_STBY_XOSC\000"
+  29      58585F53 
+  29      59535445 
+  29      4D5F4348 
+  29      49505F4D 
+  30 0062 0000     		.align	2
+  31              	.LC3:
+  32 0064 4C523131 		.ascii	"LR11XX_SYSTEM_CHIP_MODE_FS\000"
+  32      58585F53 
+  32      59535445 
+  32      4D5F4348 
+  32      49505F4D 
+  33 007f 00       		.align	2
+  34              	.LC4:
+  35 0080 4C523131 		.ascii	"LR11XX_SYSTEM_CHIP_MODE_RX\000"
+  35      58585F53 
+  35      59535445 
+  35      4D5F4348 
+  35      49505F4D 
+  36 009b 00       		.align	2
+  37              	.LC5:
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 2
+
+
+  38 009c 4C523131 		.ascii	"LR11XX_SYSTEM_CHIP_MODE_TX\000"
+  38      58585F53 
+  38      59535445 
+  38      4D5F4348 
+  38      49505F4D 
+  39 00b7 00       		.align	2
+  40              	.LC6:
+  41 00b8 4C523131 		.ascii	"LR11XX_SYSTEM_CHIP_MODE_LOC\000"
+  41      58585F53 
+  41      59535445 
+  41      4D5F4348 
+  41      49505F4D 
+  42              		.align	2
+  43              	.LC7:
+  44 00d4 556E6B6E 		.ascii	"Unknown\000"
+  44      6F776E00 
+  45              		.section	.text.lr11xx_system_chip_modes_to_str,"ax",%progbits
+  46              		.align	1
+  47              		.global	lr11xx_system_chip_modes_to_str
+  48              		.syntax unified
+  49              		.thumb
+  50              		.thumb_func
+  52              	lr11xx_system_chip_modes_to_str:
+  53              	.LFB0:
+   1:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** /*!
+   2:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * @file      lr11xx_system_types_str.c
+   3:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *
+   4:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * @brief     Printer helper functions for LR11xx system types
+   5:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *
+   6:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * @copyright
+   7:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * The Clear BSD License
+   8:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   9:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *
+  10:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * Redistribution and use in source and binary forms, with or without
+  11:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  12:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * below) provided that the following conditions are met:
+  13:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *     * Redistributions of source code must retain the above copyright
+  14:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *       notice, this list of conditions and the following disclaimer.
+  15:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  16:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *       notice, this list of conditions and the following disclaimer in the
+  17:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *       documentation and/or other materials provided with the distribution.
+  18:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *     * Neither the name of the Semtech corporation nor the
+  19:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *       names of its contributors may be used to endorse or promote products
+  20:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *       derived from this software without specific prior written permission.
+  21:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  *
+  22:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  23:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  24:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  25:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  26:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  27:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  28:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  29:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  30:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  31:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  32:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  33:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  * POSSIBILITY OF SUCH DAMAGE.
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 3
+
+
+  34:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****  */
+  35:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  36:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** #include "lr11xx_system_types_str.h"
+  37:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  38:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** const char* lr11xx_system_chip_modes_to_str( const lr11xx_system_chip_modes_t value )
+  39:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** {
+  54              		.loc 1 39 1
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 8
+  57              		@ frame_needed = 1, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  59 0000 80B4     		push	{r7}
+  60              	.LCFI0:
+  61              		.cfi_def_cfa_offset 4
+  62              		.cfi_offset 7, -4
+  63 0002 83B0     		sub	sp, sp, #12
+  64              	.LCFI1:
+  65              		.cfi_def_cfa_offset 16
+  66 0004 00AF     		add	r7, sp, #0
+  67              	.LCFI2:
+  68              		.cfi_def_cfa_register 7
+  69 0006 0346     		mov	r3, r0
+  70 0008 FB71     		strb	r3, [r7, #7]
+  40:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     switch( value )
+  71              		.loc 1 40 5
+  72 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  73 000c 062B     		cmp	r3, #6
+  74 000e 1FD8     		bhi	.L2
+  75 0010 01A2     		adr	r2, .L4
+  76 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+  77 0016 00BF     		.p2align 2
+  78              	.L4:
+  79 0018 35000000 		.word	.L10+1
+  80 001c 39000000 		.word	.L9+1
+  81 0020 3D000000 		.word	.L8+1
+  82 0024 41000000 		.word	.L7+1
+  83 0028 45000000 		.word	.L6+1
+  84 002c 49000000 		.word	.L5+1
+  85 0030 4D000000 		.word	.L3+1
+  86              		.p2align 1
+  87              	.L10:
+  41:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  42:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CHIP_MODE_SLEEP:
+  43:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  44:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CHIP_MODE_SLEEP";
+  88              		.loc 1 44 16
+  89 0034 0A4B     		ldr	r3, .L12
+  90 0036 0CE0     		b	.L11
+  91              	.L9:
+  45:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  46:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  47:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CHIP_MODE_STBY_RC:
+  48:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  49:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CHIP_MODE_STBY_RC";
+  92              		.loc 1 49 16
+  93 0038 0A4B     		ldr	r3, .L12+4
+  94 003a 0AE0     		b	.L11
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 4
+
+
+  95              	.L8:
+  50:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  51:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  52:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CHIP_MODE_STBY_XOSC:
+  53:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  54:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CHIP_MODE_STBY_XOSC";
+  96              		.loc 1 54 16
+  97 003c 0A4B     		ldr	r3, .L12+8
+  98 003e 08E0     		b	.L11
+  99              	.L7:
+  55:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  56:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  57:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CHIP_MODE_FS:
+  58:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  59:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CHIP_MODE_FS";
+ 100              		.loc 1 59 16
+ 101 0040 0A4B     		ldr	r3, .L12+12
+ 102 0042 06E0     		b	.L11
+ 103              	.L6:
+  60:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  61:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  62:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CHIP_MODE_RX:
+  63:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  64:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CHIP_MODE_RX";
+ 104              		.loc 1 64 16
+ 105 0044 0A4B     		ldr	r3, .L12+16
+ 106 0046 04E0     		b	.L11
+ 107              	.L5:
+  65:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  66:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  67:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CHIP_MODE_TX:
+  68:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  69:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CHIP_MODE_TX";
+ 108              		.loc 1 69 16
+ 109 0048 0A4B     		ldr	r3, .L12+20
+ 110 004a 02E0     		b	.L11
+ 111              	.L3:
+  70:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  71:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  72:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CHIP_MODE_LOC:
+  73:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  74:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CHIP_MODE_LOC";
+ 112              		.loc 1 74 16
+ 113 004c 0A4B     		ldr	r3, .L12+24
+ 114 004e 00E0     		b	.L11
+ 115              	.L2:
+  75:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  76:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  77:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     default:
+  78:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  79:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "Unknown";
+ 116              		.loc 1 79 16
+ 117 0050 0A4B     		ldr	r3, .L12+28
+ 118              	.L11:
+  80:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  81:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  82:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** }
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 5
+
+
+ 119              		.loc 1 82 1
+ 120 0052 1846     		mov	r0, r3
+ 121 0054 0C37     		adds	r7, r7, #12
+ 122              	.LCFI3:
+ 123              		.cfi_def_cfa_offset 4
+ 124 0056 BD46     		mov	sp, r7
+ 125              	.LCFI4:
+ 126              		.cfi_def_cfa_register 13
+ 127              		@ sp needed
+ 128 0058 5DF8047B 		ldr	r7, [sp], #4
+ 129              	.LCFI5:
+ 130              		.cfi_restore 7
+ 131              		.cfi_def_cfa_offset 0
+ 132 005c 7047     		bx	lr
+ 133              	.L13:
+ 134 005e 00BF     		.align	2
+ 135              	.L12:
+ 136 0060 00000000 		.word	.LC0
+ 137 0064 20000000 		.word	.LC1
+ 138 0068 40000000 		.word	.LC2
+ 139 006c 64000000 		.word	.LC3
+ 140 0070 80000000 		.word	.LC4
+ 141 0074 9C000000 		.word	.LC5
+ 142 0078 B8000000 		.word	.LC6
+ 143 007c D4000000 		.word	.LC7
+ 144              		.cfi_endproc
+ 145              	.LFE0:
+ 147              		.section	.rodata
+ 148              		.align	2
+ 149              	.LC8:
+ 150 00dc 4C523131 		.ascii	"LR11XX_SYSTEM_RESET_STATUS_CLEARED\000"
+ 150      58585F53 
+ 150      59535445 
+ 150      4D5F5245 
+ 150      5345545F 
+ 151 00ff 00       		.align	2
+ 152              	.LC9:
+ 153 0100 4C523131 		.ascii	"LR11XX_SYSTEM_RESET_STATUS_ANALOG\000"
+ 153      58585F53 
+ 153      59535445 
+ 153      4D5F5245 
+ 153      5345545F 
+ 154 0122 0000     		.align	2
+ 155              	.LC10:
+ 156 0124 4C523131 		.ascii	"LR11XX_SYSTEM_RESET_STATUS_EXTERNAL\000"
+ 156      58585F53 
+ 156      59535445 
+ 156      4D5F5245 
+ 156      5345545F 
+ 157              		.align	2
+ 158              	.LC11:
+ 159 0148 4C523131 		.ascii	"LR11XX_SYSTEM_RESET_STATUS_SYSTEM\000"
+ 159      58585F53 
+ 159      59535445 
+ 159      4D5F5245 
+ 159      5345545F 
+ 160 016a 0000     		.align	2
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 6
+
+
+ 161              	.LC12:
+ 162 016c 4C523131 		.ascii	"LR11XX_SYSTEM_RESET_STATUS_WATCHDOG\000"
+ 162      58585F53 
+ 162      59535445 
+ 162      4D5F5245 
+ 162      5345545F 
+ 163              		.align	2
+ 164              	.LC13:
+ 165 0190 4C523131 		.ascii	"LR11XX_SYSTEM_RESET_STATUS_IOCD_RESTART\000"
+ 165      58585F53 
+ 165      59535445 
+ 165      4D5F5245 
+ 165      5345545F 
+ 166              		.align	2
+ 167              	.LC14:
+ 168 01b8 4C523131 		.ascii	"LR11XX_SYSTEM_RESET_STATUS_RTC_RESTART\000"
+ 168      58585F53 
+ 168      59535445 
+ 168      4D5F5245 
+ 168      5345545F 
+ 169              		.section	.text.lr11xx_system_reset_status_to_str,"ax",%progbits
+ 170              		.align	1
+ 171              		.global	lr11xx_system_reset_status_to_str
+ 172              		.syntax unified
+ 173              		.thumb
+ 174              		.thumb_func
+ 176              	lr11xx_system_reset_status_to_str:
+ 177              	.LFB1:
+  83:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  84:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** const char* lr11xx_system_reset_status_to_str( const lr11xx_system_reset_status_t value )
+  85:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** {
+ 178              		.loc 1 85 1
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 8
+ 181              		@ frame_needed = 1, uses_anonymous_args = 0
+ 182              		@ link register save eliminated.
+ 183 0000 80B4     		push	{r7}
+ 184              	.LCFI6:
+ 185              		.cfi_def_cfa_offset 4
+ 186              		.cfi_offset 7, -4
+ 187 0002 83B0     		sub	sp, sp, #12
+ 188              	.LCFI7:
+ 189              		.cfi_def_cfa_offset 16
+ 190 0004 00AF     		add	r7, sp, #0
+ 191              	.LCFI8:
+ 192              		.cfi_def_cfa_register 7
+ 193 0006 0346     		mov	r3, r0
+ 194 0008 FB71     		strb	r3, [r7, #7]
+  86:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     switch( value )
+ 195              		.loc 1 86 5
+ 196 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 197 000c 062B     		cmp	r3, #6
+ 198 000e 1FD8     		bhi	.L15
+ 199 0010 01A2     		adr	r2, .L17
+ 200 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 201 0016 00BF     		.p2align 2
+ 202              	.L17:
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 7
+
+
+ 203 0018 35000000 		.word	.L23+1
+ 204 001c 39000000 		.word	.L22+1
+ 205 0020 3D000000 		.word	.L21+1
+ 206 0024 41000000 		.word	.L20+1
+ 207 0028 45000000 		.word	.L19+1
+ 208 002c 49000000 		.word	.L18+1
+ 209 0030 4D000000 		.word	.L16+1
+ 210              		.p2align 1
+ 211              	.L23:
+  87:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  88:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_RESET_STATUS_CLEARED:
+  89:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  90:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_RESET_STATUS_CLEARED";
+ 212              		.loc 1 90 16
+ 213 0034 0A4B     		ldr	r3, .L25
+ 214 0036 0CE0     		b	.L24
+ 215              	.L22:
+  91:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  92:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  93:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_RESET_STATUS_ANALOG:
+  94:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+  95:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_RESET_STATUS_ANALOG";
+ 216              		.loc 1 95 16
+ 217 0038 0A4B     		ldr	r3, .L25+4
+ 218 003a 0AE0     		b	.L24
+ 219              	.L21:
+  96:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+  97:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+  98:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_RESET_STATUS_EXTERNAL:
+  99:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 100:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_RESET_STATUS_EXTERNAL";
+ 220              		.loc 1 100 16
+ 221 003c 0A4B     		ldr	r3, .L25+8
+ 222 003e 08E0     		b	.L24
+ 223              	.L20:
+ 101:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 102:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 103:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_RESET_STATUS_SYSTEM:
+ 104:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 105:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_RESET_STATUS_SYSTEM";
+ 224              		.loc 1 105 16
+ 225 0040 0A4B     		ldr	r3, .L25+12
+ 226 0042 06E0     		b	.L24
+ 227              	.L19:
+ 106:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 107:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 108:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_RESET_STATUS_WATCHDOG:
+ 109:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 110:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_RESET_STATUS_WATCHDOG";
+ 228              		.loc 1 110 16
+ 229 0044 0A4B     		ldr	r3, .L25+16
+ 230 0046 04E0     		b	.L24
+ 231              	.L18:
+ 111:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 112:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 113:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_RESET_STATUS_IOCD_RESTART:
+ 114:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 8
+
+
+ 115:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_RESET_STATUS_IOCD_RESTART";
+ 232              		.loc 1 115 16
+ 233 0048 0A4B     		ldr	r3, .L25+20
+ 234 004a 02E0     		b	.L24
+ 235              	.L16:
+ 116:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 117:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 118:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_RESET_STATUS_RTC_RESTART:
+ 119:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 120:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_RESET_STATUS_RTC_RESTART";
+ 236              		.loc 1 120 16
+ 237 004c 0A4B     		ldr	r3, .L25+24
+ 238 004e 00E0     		b	.L24
+ 239              	.L15:
+ 121:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 122:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 123:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     default:
+ 124:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 125:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "Unknown";
+ 240              		.loc 1 125 16
+ 241 0050 0A4B     		ldr	r3, .L25+28
+ 242              	.L24:
+ 126:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 127:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 128:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** }
+ 243              		.loc 1 128 1
+ 244 0052 1846     		mov	r0, r3
+ 245 0054 0C37     		adds	r7, r7, #12
+ 246              	.LCFI9:
+ 247              		.cfi_def_cfa_offset 4
+ 248 0056 BD46     		mov	sp, r7
+ 249              	.LCFI10:
+ 250              		.cfi_def_cfa_register 13
+ 251              		@ sp needed
+ 252 0058 5DF8047B 		ldr	r7, [sp], #4
+ 253              	.LCFI11:
+ 254              		.cfi_restore 7
+ 255              		.cfi_def_cfa_offset 0
+ 256 005c 7047     		bx	lr
+ 257              	.L26:
+ 258 005e 00BF     		.align	2
+ 259              	.L25:
+ 260 0060 DC000000 		.word	.LC8
+ 261 0064 00010000 		.word	.LC9
+ 262 0068 24010000 		.word	.LC10
+ 263 006c 48010000 		.word	.LC11
+ 264 0070 6C010000 		.word	.LC12
+ 265 0074 90010000 		.word	.LC13
+ 266 0078 B8010000 		.word	.LC14
+ 267 007c D4000000 		.word	.LC7
+ 268              		.cfi_endproc
+ 269              	.LFE1:
+ 271              		.section	.rodata
+ 272 01df 00       		.align	2
+ 273              	.LC15:
+ 274 01e0 4C523131 		.ascii	"LR11XX_SYSTEM_CMD_STATUS_FAIL\000"
+ 274      58585F53 
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 9
+
+
+ 274      59535445 
+ 274      4D5F434D 
+ 274      445F5354 
+ 275 01fe 0000     		.align	2
+ 276              	.LC16:
+ 277 0200 4C523131 		.ascii	"LR11XX_SYSTEM_CMD_STATUS_PERR\000"
+ 277      58585F53 
+ 277      59535445 
+ 277      4D5F434D 
+ 277      445F5354 
+ 278 021e 0000     		.align	2
+ 279              	.LC17:
+ 280 0220 4C523131 		.ascii	"LR11XX_SYSTEM_CMD_STATUS_OK\000"
+ 280      58585F53 
+ 280      59535445 
+ 280      4D5F434D 
+ 280      445F5354 
+ 281              		.align	2
+ 282              	.LC18:
+ 283 023c 4C523131 		.ascii	"LR11XX_SYSTEM_CMD_STATUS_DATA\000"
+ 283      58585F53 
+ 283      59535445 
+ 283      4D5F434D 
+ 283      445F5354 
+ 284              		.section	.text.lr11xx_system_command_status_to_str,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	lr11xx_system_command_status_to_str
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 291              	lr11xx_system_command_status_to_str:
+ 292              	.LFB2:
+ 129:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 130:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** const char* lr11xx_system_command_status_to_str( const lr11xx_system_command_status_t value )
+ 131:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** {
+ 293              		.loc 1 131 1
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 8
+ 296              		@ frame_needed = 1, uses_anonymous_args = 0
+ 297              		@ link register save eliminated.
+ 298 0000 80B4     		push	{r7}
+ 299              	.LCFI12:
+ 300              		.cfi_def_cfa_offset 4
+ 301              		.cfi_offset 7, -4
+ 302 0002 83B0     		sub	sp, sp, #12
+ 303              	.LCFI13:
+ 304              		.cfi_def_cfa_offset 16
+ 305 0004 00AF     		add	r7, sp, #0
+ 306              	.LCFI14:
+ 307              		.cfi_def_cfa_register 7
+ 308 0006 0346     		mov	r3, r0
+ 309 0008 FB71     		strb	r3, [r7, #7]
+ 132:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     switch( value )
+ 310              		.loc 1 132 5
+ 311 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 312 000c 032B     		cmp	r3, #3
+ 313 000e 13D8     		bhi	.L28
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 10
+
+
+ 314 0010 01A2     		adr	r2, .L30
+ 315 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 316 0016 00BF     		.p2align 2
+ 317              	.L30:
+ 318 0018 29000000 		.word	.L33+1
+ 319 001c 2D000000 		.word	.L32+1
+ 320 0020 31000000 		.word	.L31+1
+ 321 0024 35000000 		.word	.L29+1
+ 322              		.p2align 1
+ 323              	.L33:
+ 133:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 134:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CMD_STATUS_FAIL:
+ 135:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 136:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CMD_STATUS_FAIL";
+ 324              		.loc 1 136 16
+ 325 0028 074B     		ldr	r3, .L35
+ 326 002a 06E0     		b	.L34
+ 327              	.L32:
+ 137:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 138:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 139:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CMD_STATUS_PERR:
+ 140:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 141:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CMD_STATUS_PERR";
+ 328              		.loc 1 141 16
+ 329 002c 074B     		ldr	r3, .L35+4
+ 330 002e 04E0     		b	.L34
+ 331              	.L31:
+ 142:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 143:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 144:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CMD_STATUS_OK:
+ 145:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 146:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CMD_STATUS_OK";
+ 332              		.loc 1 146 16
+ 333 0030 074B     		ldr	r3, .L35+8
+ 334 0032 02E0     		b	.L34
+ 335              	.L29:
+ 147:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 148:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 149:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_CMD_STATUS_DATA:
+ 150:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 151:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_CMD_STATUS_DATA";
+ 336              		.loc 1 151 16
+ 337 0034 074B     		ldr	r3, .L35+12
+ 338 0036 00E0     		b	.L34
+ 339              	.L28:
+ 152:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 153:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 154:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     default:
+ 155:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 156:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "Unknown";
+ 340              		.loc 1 156 16
+ 341 0038 074B     		ldr	r3, .L35+16
+ 342              	.L34:
+ 157:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 158:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 159:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** }
+ 343              		.loc 1 159 1
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 11
+
+
+ 344 003a 1846     		mov	r0, r3
+ 345 003c 0C37     		adds	r7, r7, #12
+ 346              	.LCFI15:
+ 347              		.cfi_def_cfa_offset 4
+ 348 003e BD46     		mov	sp, r7
+ 349              	.LCFI16:
+ 350              		.cfi_def_cfa_register 13
+ 351              		@ sp needed
+ 352 0040 5DF8047B 		ldr	r7, [sp], #4
+ 353              	.LCFI17:
+ 354              		.cfi_restore 7
+ 355              		.cfi_def_cfa_offset 0
+ 356 0044 7047     		bx	lr
+ 357              	.L36:
+ 358 0046 00BF     		.align	2
+ 359              	.L35:
+ 360 0048 E0010000 		.word	.LC15
+ 361 004c 00020000 		.word	.LC16
+ 362 0050 20020000 		.word	.LC17
+ 363 0054 3C020000 		.word	.LC18
+ 364 0058 D4000000 		.word	.LC7
+ 365              		.cfi_endproc
+ 366              	.LFE2:
+ 368              		.section	.rodata
+ 369 025a 0000     		.align	2
+ 370              	.LC19:
+ 371 025c 4C523131 		.ascii	"LR11XX_SYSTEM_LFCLK_RC\000"
+ 371      58585F53 
+ 371      59535445 
+ 371      4D5F4C46 
+ 371      434C4B5F 
+ 372 0273 00       		.align	2
+ 373              	.LC20:
+ 374 0274 4C523131 		.ascii	"LR11XX_SYSTEM_LFCLK_XTAL\000"
+ 374      58585F53 
+ 374      59535445 
+ 374      4D5F4C46 
+ 374      434C4B5F 
+ 375 028d 000000   		.align	2
+ 376              	.LC21:
+ 377 0290 4C523131 		.ascii	"LR11XX_SYSTEM_LFCLK_EXT\000"
+ 377      58585F53 
+ 377      59535445 
+ 377      4D5F4C46 
+ 377      434C4B5F 
+ 378              		.section	.text.lr11xx_system_lfclk_cfg_to_str,"ax",%progbits
+ 379              		.align	1
+ 380              		.global	lr11xx_system_lfclk_cfg_to_str
+ 381              		.syntax unified
+ 382              		.thumb
+ 383              		.thumb_func
+ 385              	lr11xx_system_lfclk_cfg_to_str:
+ 386              	.LFB3:
+ 160:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 161:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** const char* lr11xx_system_lfclk_cfg_to_str( const lr11xx_system_lfclk_cfg_t value )
+ 162:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** {
+ 387              		.loc 1 162 1
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 12
+
+
+ 388              		.cfi_startproc
+ 389              		@ args = 0, pretend = 0, frame = 8
+ 390              		@ frame_needed = 1, uses_anonymous_args = 0
+ 391              		@ link register save eliminated.
+ 392 0000 80B4     		push	{r7}
+ 393              	.LCFI18:
+ 394              		.cfi_def_cfa_offset 4
+ 395              		.cfi_offset 7, -4
+ 396 0002 83B0     		sub	sp, sp, #12
+ 397              	.LCFI19:
+ 398              		.cfi_def_cfa_offset 16
+ 399 0004 00AF     		add	r7, sp, #0
+ 400              	.LCFI20:
+ 401              		.cfi_def_cfa_register 7
+ 402 0006 0346     		mov	r3, r0
+ 403 0008 FB71     		strb	r3, [r7, #7]
+ 163:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     switch( value )
+ 404              		.loc 1 163 5
+ 405 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 406 000c 022B     		cmp	r3, #2
+ 407 000e 0AD0     		beq	.L38
+ 408 0010 022B     		cmp	r3, #2
+ 409 0012 0ADC     		bgt	.L39
+ 410 0014 002B     		cmp	r3, #0
+ 411 0016 02D0     		beq	.L40
+ 412 0018 012B     		cmp	r3, #1
+ 413 001a 02D0     		beq	.L41
+ 414 001c 05E0     		b	.L39
+ 415              	.L40:
+ 164:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 165:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_LFCLK_RC:
+ 166:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 167:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_LFCLK_RC";
+ 416              		.loc 1 167 16
+ 417 001e 064B     		ldr	r3, .L43
+ 418 0020 04E0     		b	.L42
+ 419              	.L41:
+ 168:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 169:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 170:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_LFCLK_XTAL:
+ 171:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 172:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_LFCLK_XTAL";
+ 420              		.loc 1 172 16
+ 421 0022 064B     		ldr	r3, .L43+4
+ 422 0024 02E0     		b	.L42
+ 423              	.L38:
+ 173:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 174:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 175:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_LFCLK_EXT:
+ 176:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 177:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_LFCLK_EXT";
+ 424              		.loc 1 177 16
+ 425 0026 064B     		ldr	r3, .L43+8
+ 426 0028 00E0     		b	.L42
+ 427              	.L39:
+ 178:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 179:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 13
+
+
+ 180:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     default:
+ 181:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 182:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "Unknown";
+ 428              		.loc 1 182 16
+ 429 002a 064B     		ldr	r3, .L43+12
+ 430              	.L42:
+ 183:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 184:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 185:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** }
+ 431              		.loc 1 185 1
+ 432 002c 1846     		mov	r0, r3
+ 433 002e 0C37     		adds	r7, r7, #12
+ 434              	.LCFI21:
+ 435              		.cfi_def_cfa_offset 4
+ 436 0030 BD46     		mov	sp, r7
+ 437              	.LCFI22:
+ 438              		.cfi_def_cfa_register 13
+ 439              		@ sp needed
+ 440 0032 5DF8047B 		ldr	r7, [sp], #4
+ 441              	.LCFI23:
+ 442              		.cfi_restore 7
+ 443              		.cfi_def_cfa_offset 0
+ 444 0036 7047     		bx	lr
+ 445              	.L44:
+ 446              		.align	2
+ 447              	.L43:
+ 448 0038 5C020000 		.word	.LC19
+ 449 003c 74020000 		.word	.LC20
+ 450 0040 90020000 		.word	.LC21
+ 451 0044 D4000000 		.word	.LC7
+ 452              		.cfi_endproc
+ 453              	.LFE3:
+ 455              		.section	.rodata
+ 456              		.align	2
+ 457              	.LC22:
+ 458 02a8 4C523131 		.ascii	"LR11XX_SYSTEM_REG_MODE_LDO\000"
+ 458      58585F53 
+ 458      59535445 
+ 458      4D5F5245 
+ 458      475F4D4F 
+ 459 02c3 00       		.align	2
+ 460              	.LC23:
+ 461 02c4 4C523131 		.ascii	"LR11XX_SYSTEM_REG_MODE_DCDC\000"
+ 461      58585F53 
+ 461      59535445 
+ 461      4D5F5245 
+ 461      475F4D4F 
+ 462              		.section	.text.lr11xx_system_reg_mode_to_str,"ax",%progbits
+ 463              		.align	1
+ 464              		.global	lr11xx_system_reg_mode_to_str
+ 465              		.syntax unified
+ 466              		.thumb
+ 467              		.thumb_func
+ 469              	lr11xx_system_reg_mode_to_str:
+ 470              	.LFB4:
+ 186:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 187:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** const char* lr11xx_system_reg_mode_to_str( const lr11xx_system_reg_mode_t value )
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 14
+
+
+ 188:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** {
+ 471              		.loc 1 188 1
+ 472              		.cfi_startproc
+ 473              		@ args = 0, pretend = 0, frame = 8
+ 474              		@ frame_needed = 1, uses_anonymous_args = 0
+ 475              		@ link register save eliminated.
+ 476 0000 80B4     		push	{r7}
+ 477              	.LCFI24:
+ 478              		.cfi_def_cfa_offset 4
+ 479              		.cfi_offset 7, -4
+ 480 0002 83B0     		sub	sp, sp, #12
+ 481              	.LCFI25:
+ 482              		.cfi_def_cfa_offset 16
+ 483 0004 00AF     		add	r7, sp, #0
+ 484              	.LCFI26:
+ 485              		.cfi_def_cfa_register 7
+ 486 0006 0346     		mov	r3, r0
+ 487 0008 FB71     		strb	r3, [r7, #7]
+ 189:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     switch( value )
+ 488              		.loc 1 189 5
+ 489 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 490 000c 002B     		cmp	r3, #0
+ 491 000e 02D0     		beq	.L46
+ 492 0010 012B     		cmp	r3, #1
+ 493 0012 02D0     		beq	.L47
+ 494 0014 03E0     		b	.L50
+ 495              	.L46:
+ 190:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 191:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_REG_MODE_LDO:
+ 192:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 193:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_REG_MODE_LDO";
+ 496              		.loc 1 193 16
+ 497 0016 054B     		ldr	r3, .L51
+ 498 0018 02E0     		b	.L49
+ 499              	.L47:
+ 194:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 195:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 196:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_REG_MODE_DCDC:
+ 197:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 198:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_REG_MODE_DCDC";
+ 500              		.loc 1 198 16
+ 501 001a 054B     		ldr	r3, .L51+4
+ 502 001c 00E0     		b	.L49
+ 503              	.L50:
+ 199:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 200:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 201:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     default:
+ 202:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 203:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "Unknown";
+ 504              		.loc 1 203 16
+ 505 001e 054B     		ldr	r3, .L51+8
+ 506              	.L49:
+ 204:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 205:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 206:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** }
+ 507              		.loc 1 206 1
+ 508 0020 1846     		mov	r0, r3
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 15
+
+
+ 509 0022 0C37     		adds	r7, r7, #12
+ 510              	.LCFI27:
+ 511              		.cfi_def_cfa_offset 4
+ 512 0024 BD46     		mov	sp, r7
+ 513              	.LCFI28:
+ 514              		.cfi_def_cfa_register 13
+ 515              		@ sp needed
+ 516 0026 5DF8047B 		ldr	r7, [sp], #4
+ 517              	.LCFI29:
+ 518              		.cfi_restore 7
+ 519              		.cfi_def_cfa_offset 0
+ 520 002a 7047     		bx	lr
+ 521              	.L52:
+ 522              		.align	2
+ 523              	.L51:
+ 524 002c A8020000 		.word	.LC22
+ 525 0030 C4020000 		.word	.LC23
+ 526 0034 D4000000 		.word	.LC7
+ 527              		.cfi_endproc
+ 528              	.LFE4:
+ 530              		.section	.rodata
+ 531              		.align	2
+ 532              	.LC24:
+ 533 02e0 4C523131 		.ascii	"LR11XX_SYSTEM_INFOPAGE_0\000"
+ 533      58585F53 
+ 533      59535445 
+ 533      4D5F494E 
+ 533      464F5041 
+ 534 02f9 000000   		.align	2
+ 535              	.LC25:
+ 536 02fc 4C523131 		.ascii	"LR11XX_SYSTEM_INFOPAGE_1\000"
+ 536      58585F53 
+ 536      59535445 
+ 536      4D5F494E 
+ 536      464F5041 
+ 537              		.section	.text.lr11xx_system_infopage_id_to_str,"ax",%progbits
+ 538              		.align	1
+ 539              		.global	lr11xx_system_infopage_id_to_str
+ 540              		.syntax unified
+ 541              		.thumb
+ 542              		.thumb_func
+ 544              	lr11xx_system_infopage_id_to_str:
+ 545              	.LFB5:
+ 207:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 208:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** const char* lr11xx_system_infopage_id_to_str( const lr11xx_system_infopage_id_t value )
+ 209:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** {
+ 546              		.loc 1 209 1
+ 547              		.cfi_startproc
+ 548              		@ args = 0, pretend = 0, frame = 8
+ 549              		@ frame_needed = 1, uses_anonymous_args = 0
+ 550              		@ link register save eliminated.
+ 551 0000 80B4     		push	{r7}
+ 552              	.LCFI30:
+ 553              		.cfi_def_cfa_offset 4
+ 554              		.cfi_offset 7, -4
+ 555 0002 83B0     		sub	sp, sp, #12
+ 556              	.LCFI31:
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 16
+
+
+ 557              		.cfi_def_cfa_offset 16
+ 558 0004 00AF     		add	r7, sp, #0
+ 559              	.LCFI32:
+ 560              		.cfi_def_cfa_register 7
+ 561 0006 0346     		mov	r3, r0
+ 562 0008 FB71     		strb	r3, [r7, #7]
+ 210:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     switch( value )
+ 563              		.loc 1 210 5
+ 564 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 565 000c 002B     		cmp	r3, #0
+ 566 000e 02D0     		beq	.L54
+ 567 0010 012B     		cmp	r3, #1
+ 568 0012 02D0     		beq	.L55
+ 569 0014 03E0     		b	.L58
+ 570              	.L54:
+ 211:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 212:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_INFOPAGE_0:
+ 213:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 214:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_INFOPAGE_0";
+ 571              		.loc 1 214 16
+ 572 0016 054B     		ldr	r3, .L59
+ 573 0018 02E0     		b	.L57
+ 574              	.L55:
+ 215:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 216:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 217:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_INFOPAGE_1:
+ 218:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 219:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_INFOPAGE_1";
+ 575              		.loc 1 219 16
+ 576 001a 054B     		ldr	r3, .L59+4
+ 577 001c 00E0     		b	.L57
+ 578              	.L58:
+ 220:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 221:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 222:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     default:
+ 223:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 224:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "Unknown";
+ 579              		.loc 1 224 16
+ 580 001e 054B     		ldr	r3, .L59+8
+ 581              	.L57:
+ 225:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 226:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 227:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** }
+ 582              		.loc 1 227 1
+ 583 0020 1846     		mov	r0, r3
+ 584 0022 0C37     		adds	r7, r7, #12
+ 585              	.LCFI33:
+ 586              		.cfi_def_cfa_offset 4
+ 587 0024 BD46     		mov	sp, r7
+ 588              	.LCFI34:
+ 589              		.cfi_def_cfa_register 13
+ 590              		@ sp needed
+ 591 0026 5DF8047B 		ldr	r7, [sp], #4
+ 592              	.LCFI35:
+ 593              		.cfi_restore 7
+ 594              		.cfi_def_cfa_offset 0
+ 595 002a 7047     		bx	lr
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 17
+
+
+ 596              	.L60:
+ 597              		.align	2
+ 598              	.L59:
+ 599 002c E0020000 		.word	.LC24
+ 600 0030 FC020000 		.word	.LC25
+ 601 0034 D4000000 		.word	.LC7
+ 602              		.cfi_endproc
+ 603              	.LFE5:
+ 605              		.section	.rodata
+ 606 0315 000000   		.align	2
+ 607              	.LC26:
+ 608 0318 4C523131 		.ascii	"LR11XX_SYSTEM_STANDBY_CFG_RC\000"
+ 608      58585F53 
+ 608      59535445 
+ 608      4D5F5354 
+ 608      414E4442 
+ 609 0335 000000   		.align	2
+ 610              	.LC27:
+ 611 0338 4C523131 		.ascii	"LR11XX_SYSTEM_STANDBY_CFG_XOSC\000"
+ 611      58585F53 
+ 611      59535445 
+ 611      4D5F5354 
+ 611      414E4442 
+ 612              		.section	.text.lr11xx_system_standby_cfg_to_str,"ax",%progbits
+ 613              		.align	1
+ 614              		.global	lr11xx_system_standby_cfg_to_str
+ 615              		.syntax unified
+ 616              		.thumb
+ 617              		.thumb_func
+ 619              	lr11xx_system_standby_cfg_to_str:
+ 620              	.LFB6:
+ 228:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 229:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** const char* lr11xx_system_standby_cfg_to_str( const lr11xx_system_standby_cfg_t value )
+ 230:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** {
+ 621              		.loc 1 230 1
+ 622              		.cfi_startproc
+ 623              		@ args = 0, pretend = 0, frame = 8
+ 624              		@ frame_needed = 1, uses_anonymous_args = 0
+ 625              		@ link register save eliminated.
+ 626 0000 80B4     		push	{r7}
+ 627              	.LCFI36:
+ 628              		.cfi_def_cfa_offset 4
+ 629              		.cfi_offset 7, -4
+ 630 0002 83B0     		sub	sp, sp, #12
+ 631              	.LCFI37:
+ 632              		.cfi_def_cfa_offset 16
+ 633 0004 00AF     		add	r7, sp, #0
+ 634              	.LCFI38:
+ 635              		.cfi_def_cfa_register 7
+ 636 0006 0346     		mov	r3, r0
+ 637 0008 FB71     		strb	r3, [r7, #7]
+ 231:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     switch( value )
+ 638              		.loc 1 231 5
+ 639 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 640 000c 002B     		cmp	r3, #0
+ 641 000e 02D0     		beq	.L62
+ 642 0010 012B     		cmp	r3, #1
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 18
+
+
+ 643 0012 02D0     		beq	.L63
+ 644 0014 03E0     		b	.L66
+ 645              	.L62:
+ 232:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 233:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_STANDBY_CFG_RC:
+ 234:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 235:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_STANDBY_CFG_RC";
+ 646              		.loc 1 235 16
+ 647 0016 054B     		ldr	r3, .L67
+ 648 0018 02E0     		b	.L65
+ 649              	.L63:
+ 236:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 237:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 238:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_STANDBY_CFG_XOSC:
+ 239:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 240:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_STANDBY_CFG_XOSC";
+ 650              		.loc 1 240 16
+ 651 001a 054B     		ldr	r3, .L67+4
+ 652 001c 00E0     		b	.L65
+ 653              	.L66:
+ 241:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 242:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 243:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     default:
+ 244:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 245:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "Unknown";
+ 654              		.loc 1 245 16
+ 655 001e 054B     		ldr	r3, .L67+8
+ 656              	.L65:
+ 246:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 247:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 248:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** }
+ 657              		.loc 1 248 1
+ 658 0020 1846     		mov	r0, r3
+ 659 0022 0C37     		adds	r7, r7, #12
+ 660              	.LCFI39:
+ 661              		.cfi_def_cfa_offset 4
+ 662 0024 BD46     		mov	sp, r7
+ 663              	.LCFI40:
+ 664              		.cfi_def_cfa_register 13
+ 665              		@ sp needed
+ 666 0026 5DF8047B 		ldr	r7, [sp], #4
+ 667              	.LCFI41:
+ 668              		.cfi_restore 7
+ 669              		.cfi_def_cfa_offset 0
+ 670 002a 7047     		bx	lr
+ 671              	.L68:
+ 672              		.align	2
+ 673              	.L67:
+ 674 002c 18030000 		.word	.LC26
+ 675 0030 38030000 		.word	.LC27
+ 676 0034 D4000000 		.word	.LC7
+ 677              		.cfi_endproc
+ 678              	.LFE6:
+ 680              		.section	.rodata
+ 681 0357 00       		.align	2
+ 682              	.LC28:
+ 683 0358 4C523131 		.ascii	"LR11XX_SYSTEM_TCXO_CTRL_1_6V\000"
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 19
+
+
+ 683      58585F53 
+ 683      59535445 
+ 683      4D5F5443 
+ 683      584F5F43 
+ 684 0375 000000   		.align	2
+ 685              	.LC29:
+ 686 0378 4C523131 		.ascii	"LR11XX_SYSTEM_TCXO_CTRL_1_7V\000"
+ 686      58585F53 
+ 686      59535445 
+ 686      4D5F5443 
+ 686      584F5F43 
+ 687 0395 000000   		.align	2
+ 688              	.LC30:
+ 689 0398 4C523131 		.ascii	"LR11XX_SYSTEM_TCXO_CTRL_1_8V\000"
+ 689      58585F53 
+ 689      59535445 
+ 689      4D5F5443 
+ 689      584F5F43 
+ 690 03b5 000000   		.align	2
+ 691              	.LC31:
+ 692 03b8 4C523131 		.ascii	"LR11XX_SYSTEM_TCXO_CTRL_2_2V\000"
+ 692      58585F53 
+ 692      59535445 
+ 692      4D5F5443 
+ 692      584F5F43 
+ 693 03d5 000000   		.align	2
+ 694              	.LC32:
+ 695 03d8 4C523131 		.ascii	"LR11XX_SYSTEM_TCXO_CTRL_2_4V\000"
+ 695      58585F53 
+ 695      59535445 
+ 695      4D5F5443 
+ 695      584F5F43 
+ 696 03f5 000000   		.align	2
+ 697              	.LC33:
+ 698 03f8 4C523131 		.ascii	"LR11XX_SYSTEM_TCXO_CTRL_2_7V\000"
+ 698      58585F53 
+ 698      59535445 
+ 698      4D5F5443 
+ 698      584F5F43 
+ 699 0415 000000   		.align	2
+ 700              	.LC34:
+ 701 0418 4C523131 		.ascii	"LR11XX_SYSTEM_TCXO_CTRL_3_0V\000"
+ 701      58585F53 
+ 701      59535445 
+ 701      4D5F5443 
+ 701      584F5F43 
+ 702 0435 000000   		.align	2
+ 703              	.LC35:
+ 704 0438 4C523131 		.ascii	"LR11XX_SYSTEM_TCXO_CTRL_3_3V\000"
+ 704      58585F53 
+ 704      59535445 
+ 704      4D5F5443 
+ 704      584F5F43 
+ 705              		.section	.text.lr11xx_system_tcxo_supply_voltage_to_str,"ax",%progbits
+ 706              		.align	1
+ 707              		.global	lr11xx_system_tcxo_supply_voltage_to_str
+ 708              		.syntax unified
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 20
+
+
+ 709              		.thumb
+ 710              		.thumb_func
+ 712              	lr11xx_system_tcxo_supply_voltage_to_str:
+ 713              	.LFB7:
+ 249:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 250:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** const char* lr11xx_system_tcxo_supply_voltage_to_str( const lr11xx_system_tcxo_supply_voltage_t val
+ 251:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** {
+ 714              		.loc 1 251 1
+ 715              		.cfi_startproc
+ 716              		@ args = 0, pretend = 0, frame = 8
+ 717              		@ frame_needed = 1, uses_anonymous_args = 0
+ 718              		@ link register save eliminated.
+ 719 0000 80B4     		push	{r7}
+ 720              	.LCFI42:
+ 721              		.cfi_def_cfa_offset 4
+ 722              		.cfi_offset 7, -4
+ 723 0002 83B0     		sub	sp, sp, #12
+ 724              	.LCFI43:
+ 725              		.cfi_def_cfa_offset 16
+ 726 0004 00AF     		add	r7, sp, #0
+ 727              	.LCFI44:
+ 728              		.cfi_def_cfa_register 7
+ 729 0006 0346     		mov	r3, r0
+ 730 0008 FB71     		strb	r3, [r7, #7]
+ 252:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     switch( value )
+ 731              		.loc 1 252 5
+ 732 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 733 000c 072B     		cmp	r3, #7
+ 734 000e 23D8     		bhi	.L70
+ 735 0010 01A2     		adr	r2, .L72
+ 736 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 737 0016 00BF     		.p2align 2
+ 738              	.L72:
+ 739 0018 39000000 		.word	.L79+1
+ 740 001c 3D000000 		.word	.L78+1
+ 741 0020 41000000 		.word	.L77+1
+ 742 0024 45000000 		.word	.L76+1
+ 743 0028 49000000 		.word	.L75+1
+ 744 002c 4D000000 		.word	.L74+1
+ 745 0030 51000000 		.word	.L73+1
+ 746 0034 55000000 		.word	.L71+1
+ 747              		.p2align 1
+ 748              	.L79:
+ 253:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 254:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_TCXO_CTRL_1_6V:
+ 255:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 256:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_TCXO_CTRL_1_6V";
+ 749              		.loc 1 256 16
+ 750 0038 0B4B     		ldr	r3, .L81
+ 751 003a 0EE0     		b	.L80
+ 752              	.L78:
+ 257:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 258:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 259:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_TCXO_CTRL_1_7V:
+ 260:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 261:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_TCXO_CTRL_1_7V";
+ 753              		.loc 1 261 16
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 21
+
+
+ 754 003c 0B4B     		ldr	r3, .L81+4
+ 755 003e 0CE0     		b	.L80
+ 756              	.L77:
+ 262:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 263:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 264:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_TCXO_CTRL_1_8V:
+ 265:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 266:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_TCXO_CTRL_1_8V";
+ 757              		.loc 1 266 16
+ 758 0040 0B4B     		ldr	r3, .L81+8
+ 759 0042 0AE0     		b	.L80
+ 760              	.L76:
+ 267:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 268:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 269:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_TCXO_CTRL_2_2V:
+ 270:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 271:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_TCXO_CTRL_2_2V";
+ 761              		.loc 1 271 16
+ 762 0044 0B4B     		ldr	r3, .L81+12
+ 763 0046 08E0     		b	.L80
+ 764              	.L75:
+ 272:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 273:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 274:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_TCXO_CTRL_2_4V:
+ 275:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 276:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_TCXO_CTRL_2_4V";
+ 765              		.loc 1 276 16
+ 766 0048 0B4B     		ldr	r3, .L81+16
+ 767 004a 06E0     		b	.L80
+ 768              	.L74:
+ 277:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 278:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 279:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_TCXO_CTRL_2_7V:
+ 280:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 281:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_TCXO_CTRL_2_7V";
+ 769              		.loc 1 281 16
+ 770 004c 0B4B     		ldr	r3, .L81+20
+ 771 004e 04E0     		b	.L80
+ 772              	.L73:
+ 282:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 283:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 284:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_TCXO_CTRL_3_0V:
+ 285:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 286:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_TCXO_CTRL_3_0V";
+ 773              		.loc 1 286 16
+ 774 0050 0B4B     		ldr	r3, .L81+24
+ 775 0052 02E0     		b	.L80
+ 776              	.L71:
+ 287:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 288:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 289:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_TCXO_CTRL_3_3V:
+ 290:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 291:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_TCXO_CTRL_3_3V";
+ 777              		.loc 1 291 16
+ 778 0054 0B4B     		ldr	r3, .L81+28
+ 779 0056 00E0     		b	.L80
+ 780              	.L70:
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 22
+
+
+ 292:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 293:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 294:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     default:
+ 295:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 296:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "Unknown";
+ 781              		.loc 1 296 16
+ 782 0058 0B4B     		ldr	r3, .L81+32
+ 783              	.L80:
+ 297:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 298:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 299:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** }
+ 784              		.loc 1 299 1
+ 785 005a 1846     		mov	r0, r3
+ 786 005c 0C37     		adds	r7, r7, #12
+ 787              	.LCFI45:
+ 788              		.cfi_def_cfa_offset 4
+ 789 005e BD46     		mov	sp, r7
+ 790              	.LCFI46:
+ 791              		.cfi_def_cfa_register 13
+ 792              		@ sp needed
+ 793 0060 5DF8047B 		ldr	r7, [sp], #4
+ 794              	.LCFI47:
+ 795              		.cfi_restore 7
+ 796              		.cfi_def_cfa_offset 0
+ 797 0064 7047     		bx	lr
+ 798              	.L82:
+ 799 0066 00BF     		.align	2
+ 800              	.L81:
+ 801 0068 58030000 		.word	.LC28
+ 802 006c 78030000 		.word	.LC29
+ 803 0070 98030000 		.word	.LC30
+ 804 0074 B8030000 		.word	.LC31
+ 805 0078 D8030000 		.word	.LC32
+ 806 007c F8030000 		.word	.LC33
+ 807 0080 18040000 		.word	.LC34
+ 808 0084 38040000 		.word	.LC35
+ 809 0088 D4000000 		.word	.LC7
+ 810              		.cfi_endproc
+ 811              	.LFE7:
+ 813              		.section	.rodata
+ 814 0455 000000   		.align	2
+ 815              	.LC36:
+ 816 0458 4C523131 		.ascii	"LR11XX_SYSTEM_VERSION_TYPE_LR1110\000"
+ 816      58585F53 
+ 816      59535445 
+ 816      4D5F5645 
+ 816      5253494F 
+ 817 047a 0000     		.align	2
+ 818              	.LC37:
+ 819 047c 4C523131 		.ascii	"LR11XX_SYSTEM_VERSION_TYPE_LR1120\000"
+ 819      58585F53 
+ 819      59535445 
+ 819      4D5F5645 
+ 819      5253494F 
+ 820 049e 0000     		.align	2
+ 821              	.LC38:
+ 822 04a0 4C523131 		.ascii	"LR11XX_SYSTEM_VERSION_TYPE_LR1121\000"
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 23
+
+
+ 822      58585F53 
+ 822      59535445 
+ 822      4D5F5645 
+ 822      5253494F 
+ 823              		.section	.text.lr11xx_system_version_type_to_str,"ax",%progbits
+ 824              		.align	1
+ 825              		.global	lr11xx_system_version_type_to_str
+ 826              		.syntax unified
+ 827              		.thumb
+ 828              		.thumb_func
+ 830              	lr11xx_system_version_type_to_str:
+ 831              	.LFB8:
+ 300:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 301:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** const char* lr11xx_system_version_type_to_str( const lr11xx_system_version_type_t value )
+ 302:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** {
+ 832              		.loc 1 302 1
+ 833              		.cfi_startproc
+ 834              		@ args = 0, pretend = 0, frame = 8
+ 835              		@ frame_needed = 1, uses_anonymous_args = 0
+ 836              		@ link register save eliminated.
+ 837 0000 80B4     		push	{r7}
+ 838              	.LCFI48:
+ 839              		.cfi_def_cfa_offset 4
+ 840              		.cfi_offset 7, -4
+ 841 0002 83B0     		sub	sp, sp, #12
+ 842              	.LCFI49:
+ 843              		.cfi_def_cfa_offset 16
+ 844 0004 00AF     		add	r7, sp, #0
+ 845              	.LCFI50:
+ 846              		.cfi_def_cfa_register 7
+ 847 0006 0346     		mov	r3, r0
+ 848 0008 FB71     		strb	r3, [r7, #7]
+ 303:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     switch( value )
+ 849              		.loc 1 303 5
+ 850 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 851 000c 032B     		cmp	r3, #3
+ 852 000e 0AD0     		beq	.L84
+ 853 0010 032B     		cmp	r3, #3
+ 854 0012 0ADC     		bgt	.L85
+ 855 0014 012B     		cmp	r3, #1
+ 856 0016 02D0     		beq	.L86
+ 857 0018 022B     		cmp	r3, #2
+ 858 001a 02D0     		beq	.L87
+ 859 001c 05E0     		b	.L85
+ 860              	.L86:
+ 304:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 305:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_VERSION_TYPE_LR1110:
+ 306:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 307:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_VERSION_TYPE_LR1110";
+ 861              		.loc 1 307 16
+ 862 001e 064B     		ldr	r3, .L89
+ 863 0020 04E0     		b	.L88
+ 864              	.L87:
+ 308:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 309:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 310:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_VERSION_TYPE_LR1120:
+ 311:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 24
+
+
+ 312:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_VERSION_TYPE_LR1120";
+ 865              		.loc 1 312 16
+ 866 0022 064B     		ldr	r3, .L89+4
+ 867 0024 02E0     		b	.L88
+ 868              	.L84:
+ 313:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 314:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 315:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     case LR11XX_SYSTEM_VERSION_TYPE_LR1121:
+ 316:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 317:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "LR11XX_SYSTEM_VERSION_TYPE_LR1121";
+ 869              		.loc 1 317 16
+ 870 0026 064B     		ldr	r3, .L89+8
+ 871 0028 00E0     		b	.L88
+ 872              	.L85:
+ 318:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 319:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** 
+ 320:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     default:
+ 321:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     {
+ 322:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****         return ( const char* ) "Unknown";
+ 873              		.loc 1 322 16
+ 874 002a 064B     		ldr	r3, .L89+12
+ 875              	.L88:
+ 323:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 324:../../../../lr11xx/common/printers/lr11xx_system_types_str.c ****     }
+ 325:../../../../lr11xx/common/printers/lr11xx_system_types_str.c **** }
+ 876              		.loc 1 325 1
+ 877 002c 1846     		mov	r0, r3
+ 878 002e 0C37     		adds	r7, r7, #12
+ 879              	.LCFI51:
+ 880              		.cfi_def_cfa_offset 4
+ 881 0030 BD46     		mov	sp, r7
+ 882              	.LCFI52:
+ 883              		.cfi_def_cfa_register 13
+ 884              		@ sp needed
+ 885 0032 5DF8047B 		ldr	r7, [sp], #4
+ 886              	.LCFI53:
+ 887              		.cfi_restore 7
+ 888              		.cfi_def_cfa_offset 0
+ 889 0036 7047     		bx	lr
+ 890              	.L90:
+ 891              		.align	2
+ 892              	.L89:
+ 893 0038 58040000 		.word	.LC36
+ 894 003c 7C040000 		.word	.LC37
+ 895 0040 A0040000 		.word	.LC38
+ 896 0044 D4000000 		.word	.LC7
+ 897              		.cfi_endproc
+ 898              	.LFE8:
+ 900              		.text
+ 901              	.Letext0:
+ 902              		.file 2 "../../../../lr11xx/lr11xx_driver/src/lr11xx_system_types.h"
+ARM GAS  C:\msys64\tmp\ccq18fV8.s 			page 25
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lr11xx_system_types_str.c
+C:\msys64\tmp\ccq18fV8.s:21     .rodata:00000000 $d
+C:\msys64\tmp\ccq18fV8.s:46     .text.lr11xx_system_chip_modes_to_str:00000000 $t
+C:\msys64\tmp\ccq18fV8.s:52     .text.lr11xx_system_chip_modes_to_str:00000000 lr11xx_system_chip_modes_to_str
+C:\msys64\tmp\ccq18fV8.s:79     .text.lr11xx_system_chip_modes_to_str:00000018 $d
+C:\msys64\tmp\ccq18fV8.s:86     .text.lr11xx_system_chip_modes_to_str:00000034 $t
+C:\msys64\tmp\ccq18fV8.s:136    .text.lr11xx_system_chip_modes_to_str:00000060 $d
+C:\msys64\tmp\ccq18fV8.s:170    .text.lr11xx_system_reset_status_to_str:00000000 $t
+C:\msys64\tmp\ccq18fV8.s:176    .text.lr11xx_system_reset_status_to_str:00000000 lr11xx_system_reset_status_to_str
+C:\msys64\tmp\ccq18fV8.s:203    .text.lr11xx_system_reset_status_to_str:00000018 $d
+C:\msys64\tmp\ccq18fV8.s:210    .text.lr11xx_system_reset_status_to_str:00000034 $t
+C:\msys64\tmp\ccq18fV8.s:260    .text.lr11xx_system_reset_status_to_str:00000060 $d
+C:\msys64\tmp\ccq18fV8.s:285    .text.lr11xx_system_command_status_to_str:00000000 $t
+C:\msys64\tmp\ccq18fV8.s:291    .text.lr11xx_system_command_status_to_str:00000000 lr11xx_system_command_status_to_str
+C:\msys64\tmp\ccq18fV8.s:318    .text.lr11xx_system_command_status_to_str:00000018 $d
+C:\msys64\tmp\ccq18fV8.s:322    .text.lr11xx_system_command_status_to_str:00000028 $t
+C:\msys64\tmp\ccq18fV8.s:360    .text.lr11xx_system_command_status_to_str:00000048 $d
+C:\msys64\tmp\ccq18fV8.s:379    .text.lr11xx_system_lfclk_cfg_to_str:00000000 $t
+C:\msys64\tmp\ccq18fV8.s:385    .text.lr11xx_system_lfclk_cfg_to_str:00000000 lr11xx_system_lfclk_cfg_to_str
+C:\msys64\tmp\ccq18fV8.s:448    .text.lr11xx_system_lfclk_cfg_to_str:00000038 $d
+C:\msys64\tmp\ccq18fV8.s:463    .text.lr11xx_system_reg_mode_to_str:00000000 $t
+C:\msys64\tmp\ccq18fV8.s:469    .text.lr11xx_system_reg_mode_to_str:00000000 lr11xx_system_reg_mode_to_str
+C:\msys64\tmp\ccq18fV8.s:524    .text.lr11xx_system_reg_mode_to_str:0000002c $d
+C:\msys64\tmp\ccq18fV8.s:538    .text.lr11xx_system_infopage_id_to_str:00000000 $t
+C:\msys64\tmp\ccq18fV8.s:544    .text.lr11xx_system_infopage_id_to_str:00000000 lr11xx_system_infopage_id_to_str
+C:\msys64\tmp\ccq18fV8.s:599    .text.lr11xx_system_infopage_id_to_str:0000002c $d
+C:\msys64\tmp\ccq18fV8.s:613    .text.lr11xx_system_standby_cfg_to_str:00000000 $t
+C:\msys64\tmp\ccq18fV8.s:619    .text.lr11xx_system_standby_cfg_to_str:00000000 lr11xx_system_standby_cfg_to_str
+C:\msys64\tmp\ccq18fV8.s:674    .text.lr11xx_system_standby_cfg_to_str:0000002c $d
+C:\msys64\tmp\ccq18fV8.s:706    .text.lr11xx_system_tcxo_supply_voltage_to_str:00000000 $t
+C:\msys64\tmp\ccq18fV8.s:712    .text.lr11xx_system_tcxo_supply_voltage_to_str:00000000 lr11xx_system_tcxo_supply_voltage_to_str
+C:\msys64\tmp\ccq18fV8.s:739    .text.lr11xx_system_tcxo_supply_voltage_to_str:00000018 $d
+C:\msys64\tmp\ccq18fV8.s:747    .text.lr11xx_system_tcxo_supply_voltage_to_str:00000038 $t
+C:\msys64\tmp\ccq18fV8.s:801    .text.lr11xx_system_tcxo_supply_voltage_to_str:00000068 $d
+C:\msys64\tmp\ccq18fV8.s:824    .text.lr11xx_system_version_type_to_str:00000000 $t
+C:\msys64\tmp\ccq18fV8.s:830    .text.lr11xx_system_version_type_to_str:00000000 lr11xx_system_version_type_to_str
+C:\msys64\tmp\ccq18fV8.s:893    .text.lr11xx_system_version_type_to_str:00000038 $d
+
+NO UNDEFINED SYMBOLS

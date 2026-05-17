@@ -304,9 +304,16 @@
 
 	m4_spi5_pins_mx: m4_spi5_mx-0 {
 		pins {
-			pinmux = <STM32_PINMUX('F', 8, RSVD)>, /* SPI5_MISO */
-					 <STM32_PINMUX('F', 9, RSVD)>, /* SPI5_MOSI */
-					 <STM32_PINMUX('H', 6, RSVD)>; /* SPI5_SCK */
+			pinmux = <STM32_PINMUX('F', 7, RSVD)>, /* SPI5_SCK */
+					 <STM32_PINMUX('F', 8, RSVD)>, /* SPI5_MISO */
+					 <STM32_PINMUX('F', 9, RSVD)>; /* SPI5_MOSI */
+		};
+	};
+
+	m4_uart7_pins_mx: m4_uart7_mx-0 {
+		pins {
+			pinmux = <STM32_PINMUX('E', 7, RSVD)>, /* UART7_RX */
+					 <STM32_PINMUX('E', 8, RSVD)>; /* UART7_TX */
 		};
 	};
 
@@ -319,42 +326,6 @@
 	rtc_sleep_pins_mx: rtc_sleep_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('I', 8, ANALOG)>; /* RTC_LSCO */
-		};
-	};
-
-	sai2a_pins_mx: sai2a_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('E', 0, AF10)>, /* SAI2_MCLK_A */
-					 <STM32_PINMUX('I', 5, AF10)>, /* SAI2_SCK_A */
-					 <STM32_PINMUX('I', 6, AF10)>, /* SAI2_SD_A */
-					 <STM32_PINMUX('I', 7, AF10)>; /* SAI2_FS_A */
-			bias-disable;
-			drive-push-pull;
-			slew-rate = <0>;
-		};
-	};
-
-	sai2a_sleep_pins_mx: sai2a_sleep_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('E', 0, ANALOG)>, /* SAI2_MCLK_A */
-					 <STM32_PINMUX('I', 5, ANALOG)>, /* SAI2_SCK_A */
-					 <STM32_PINMUX('I', 6, ANALOG)>, /* SAI2_SD_A */
-					 <STM32_PINMUX('I', 7, ANALOG)>; /* SAI2_FS_A */
-		};
-	};
-
-	sai2b_pins_mx: sai2b_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('F', 11, AF10)>; /* SAI2_SD_B */
-			bias-disable;
-			drive-push-pull;
-			slew-rate = <0>;
-		};
-	};
-
-	sai2b_sleep_pins_mx: sai2b_sleep_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('F', 11, ANALOG)>; /* SAI2_SD_B */
 		};
 	};
 
@@ -1114,6 +1085,15 @@
 	/* USER CODE END m4_spi5 */
 };
 
+&m4_uart7 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&m4_uart7_pins_mx>;
+	status = "okay";
+
+	/* USER CODE BEGIN m4_uart7 */
+	/* USER CODE END m4_uart7 */
+};
+
 &mdma1 {
 	status = "okay";
 
@@ -1155,60 +1135,6 @@
 	clocks = <&scmi_clk CK_SCMI_RTCAPB>, <&scmi_clk CK_SCMI_RTC>;
 	st,lsco = <RTC_OUT2_RMP>;
 	/* USER CODE END rtc */
-};
-
-&sai2 {
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&sai2a_pins_mx>, <&sai2b_pins_mx>;
-	pinctrl-1 = <&sai2a_sleep_pins_mx>, <&sai2b_sleep_pins_mx>;
-	status = "okay";
-
-	/* USER CODE BEGIN sai2 */
-	clocks = <&rcc SAI2>, <&rcc PLL3_Q>, <&rcc PLL3_R>;
-	clock-names = "pclk", "x8k", "x11k";
-	/* USER CODE END sai2 */
-
-	sai2a:audio-controller@4400b004{
-		status = "okay";
-
-		/* USER CODE BEGIN sai2a */
-		#clock-cells = <0>;
-		dma-names = "tx";
-
-		sai2a_port:port{
-
-			sai2a_endpoint:endpoint{
-				remote-endpoint = <&cs42l51_tx_endpoint>;
-				dai-format = "i2s";
-				mclk-fs = <256>;
-				dai-tdm-slot-num = <2>;
-				dai-tdm-slot-width = <32>;
-			};
-		};
-		/* USER CODE END sai2a */
-	};
-
-	sai2b:audio-controller@4400b024{
-		status = "okay";
-
-		/* USER CODE BEGIN sai2b */
-		dma-names = "rx";
-		st,sync = <&sai2a 2>;
-		clocks = <&rcc SAI2_K>, <&sai2a>;
-		clock-names = "sai_ck", "MCLK";
-
-		sai2b_port:port{
-
-			sai2b_endpoint:endpoint{
-				remote-endpoint = <&cs42l51_rx_endpoint>;
-				dai-format = "i2s";
-				mclk-fs = <256>;
-				dai-tdm-slot-num = <2>;
-				dai-tdm-slot-width = <32>;
-			};
-		};
-		/* USER CODE END sai2b */
-	};
 };
 
 &sdmmc1 {

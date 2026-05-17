@@ -5,8 +5,20 @@
 #include "main.h"
 #include <stdint.h>
 #include "evt_service.h"
+#include "logging.h"
 
+#define COMMS_PERIOD_MS    2500 // ??
+#define ADCS_PERIOD_MS     2000 // ??
+#define HEALTH_PERIOD_MS   3500 // ??
+#define EPS_PERIOD_MS      4000 // ??
 
+extern TaskHandle_t obc_task_handle;
+extern TaskHandle_t payload_task_handle;
+extern TaskHandle_t eps_task_handle;
+extern TaskHandle_t comms_task_handle;
+extern TaskHandle_t obdh_task_handle;
+extern TaskHandle_t adcs_task_handle;
+extern TaskHandle_t health_task_handle;
 
 /* Satellite modes */
 typedef enum {

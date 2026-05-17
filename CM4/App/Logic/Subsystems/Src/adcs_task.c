@@ -4,6 +4,7 @@
 // alignment with targets, and consistent communication.
 
 /* ================= INCLUDES ================= */
+#include <stdio.h>
 #include <stdint.h>
 #include "FreeRTOS.h"
 #include "task.h"
@@ -19,6 +20,9 @@
 /* ================= TYPE DEFINITIONS ================= */
 /* ================= GLOBAL VARIABLES ================= */
 /* ================= MODULE-LEVEL VARIABLES ================= */
+static TickType_t xLastWakeTime;
+static TickType_t xPeriod;
+
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
 static void adcs_setup(void);
 static void adcs_process(void);
@@ -38,6 +42,9 @@ void adcs_task(void *pv_parameters) {
 /* ================= PRIVATE FUNCTION DEFINITIONS ================= */
 static void adcs_setup(void) {
     // Apply the default configuration
+    printf("Setting up ADCS...\n");
+    xPeriod = pdMS_TO_TICKS(ADCS_PERIOD_MS);
+    xLastWakeTime = xTaskGetTickCount();
 }
 
 static void adcs_process(void) {
@@ -53,13 +60,16 @@ static void adcs_process(void) {
         adcs_point_to_nadir();
     }
         */
+
+    TaskNotifyValue_t value;
+    wait_for_notification(&value);
     EVT_ID_t evt_id[EVT_EVENTS_PER_SLOT] = {EVT_UNDEF};
 
     evt_id[0] = EVT_ADCS_TO_NOMINAL; 
 
     (void)obc_send_event_from_task(TASK_ADCS_ID, evt_id, 1);
 
-    vTaskDelay(pdMS_TO_TICKS(500));
+   // vTaskDelayUntil(&xLastWakeTime, xPeriod);
 
 }
 

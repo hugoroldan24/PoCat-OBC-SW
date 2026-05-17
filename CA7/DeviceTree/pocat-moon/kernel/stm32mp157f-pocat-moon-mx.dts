@@ -310,6 +310,13 @@
 		};
 	};
 
+	m4_uart7_pins_mx: m4_uart7_mx-0 {
+		pins {
+			pinmux = <STM32_PINMUX('E', 7, RSVD)>, /* UART7_RX */
+					 <STM32_PINMUX('E', 8, RSVD)>; /* UART7_TX */
+		};
+	};
+
 	rtc_pins_mx: rtc_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('I', 8, ANALOG)>; /* RTC_LSCO */
@@ -1076,6 +1083,15 @@
 
 	/* USER CODE BEGIN m4_spi5 */
 	/* USER CODE END m4_spi5 */
+};
+
+&m4_uart7 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&m4_uart7_pins_mx>;
+	status = "okay";
+
+	/* USER CODE BEGIN m4_uart7 */
+	/* USER CODE END m4_uart7 */
 };
 
 &mdma1 {

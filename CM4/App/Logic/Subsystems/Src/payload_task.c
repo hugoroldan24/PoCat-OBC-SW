@@ -30,6 +30,7 @@ static void payload_setup(void) {
 
     // Apply default configuration
     // ...
+    printf("Setting up PAYLOAD...\n");
     
 }
 
@@ -54,7 +55,6 @@ static void payload_capture_temperature(void) {
     // /* 2. Take the temperature into ‘info’ buffer */
     // getTemperature(huart4, info);
 
-    printf("Capturing temperature...\n");
 
 }
 

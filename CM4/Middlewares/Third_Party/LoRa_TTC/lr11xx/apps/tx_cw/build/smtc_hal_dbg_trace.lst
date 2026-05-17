@@ -1,0 +1,186 @@
+ARM GAS  C:\msys64\tmp\ccgORbAU.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"smtc_hal_dbg_trace.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../common/src/smtc_hal_dbg_trace.c"
+  20              		.section	.text.hal_mcu_trace_print,"ax",%progbits
+  21              		.align	1
+  22              		.global	hal_mcu_trace_print
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	hal_mcu_trace_print:
+  28              	.LFB3:
+   1:../../../common/src/smtc_hal_dbg_trace.c **** /*!
+   2:../../../common/src/smtc_hal_dbg_trace.c ****  * @file      smtc_hal_dbg_trace.c
+   3:../../../common/src/smtc_hal_dbg_trace.c ****  *
+   4:../../../common/src/smtc_hal_dbg_trace.c ****  * @brief     Board specific package debug log API implementation
+   5:../../../common/src/smtc_hal_dbg_trace.c ****  *
+   6:../../../common/src/smtc_hal_dbg_trace.c ****  * The Clear BSD License
+   7:../../../common/src/smtc_hal_dbg_trace.c ****  * Copyright Semtech Corporation 2022. All rights reserved.
+   8:../../../common/src/smtc_hal_dbg_trace.c ****  *
+   9:../../../common/src/smtc_hal_dbg_trace.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../common/src/smtc_hal_dbg_trace.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../common/src/smtc_hal_dbg_trace.c ****  * below) provided that the following conditions are met:
+  12:../../../common/src/smtc_hal_dbg_trace.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../common/src/smtc_hal_dbg_trace.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../common/src/smtc_hal_dbg_trace.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../common/src/smtc_hal_dbg_trace.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../common/src/smtc_hal_dbg_trace.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../common/src/smtc_hal_dbg_trace.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../common/src/smtc_hal_dbg_trace.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../common/src/smtc_hal_dbg_trace.c ****  *       derived from this software without specific prior written permission.
+  20:../../../common/src/smtc_hal_dbg_trace.c ****  *
+  21:../../../common/src/smtc_hal_dbg_trace.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../common/src/smtc_hal_dbg_trace.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../common/src/smtc_hal_dbg_trace.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../common/src/smtc_hal_dbg_trace.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../common/src/smtc_hal_dbg_trace.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  26:../../../common/src/smtc_hal_dbg_trace.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../common/src/smtc_hal_dbg_trace.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../common/src/smtc_hal_dbg_trace.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../common/src/smtc_hal_dbg_trace.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../common/src/smtc_hal_dbg_trace.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARM GAS  C:\msys64\tmp\ccgORbAU.s 			page 2
+
+
+  31:../../../common/src/smtc_hal_dbg_trace.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../common/src/smtc_hal_dbg_trace.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../common/src/smtc_hal_dbg_trace.c ****  */
+  34:../../../common/src/smtc_hal_dbg_trace.c **** 
+  35:../../../common/src/smtc_hal_dbg_trace.c **** /*
+  36:../../../common/src/smtc_hal_dbg_trace.c ****  * -----------------------------------------------------------------------------
+  37:../../../common/src/smtc_hal_dbg_trace.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../common/src/smtc_hal_dbg_trace.c ****  */
+  39:../../../common/src/smtc_hal_dbg_trace.c **** 
+  40:../../../common/src/smtc_hal_dbg_trace.c **** #include <stdarg.h>
+  41:../../../common/src/smtc_hal_dbg_trace.c **** #include <string.h>
+  42:../../../common/src/smtc_hal_dbg_trace.c **** #include <stdio.h>
+  43:../../../common/src/smtc_hal_dbg_trace.c **** 
+  44:../../../common/src/smtc_hal_dbg_trace.c **** #include "uart_init.h"
+  45:../../../common/src/smtc_hal_dbg_trace.c **** 
+  46:../../../common/src/smtc_hal_dbg_trace.c **** /*
+  47:../../../common/src/smtc_hal_dbg_trace.c ****  * -----------------------------------------------------------------------------
+  48:../../../common/src/smtc_hal_dbg_trace.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  49:../../../common/src/smtc_hal_dbg_trace.c ****  */
+  50:../../../common/src/smtc_hal_dbg_trace.c **** 
+  51:../../../common/src/smtc_hal_dbg_trace.c **** /*
+  52:../../../common/src/smtc_hal_dbg_trace.c ****  * -----------------------------------------------------------------------------
+  53:../../../common/src/smtc_hal_dbg_trace.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  54:../../../common/src/smtc_hal_dbg_trace.c ****  */
+  55:../../../common/src/smtc_hal_dbg_trace.c **** 
+  56:../../../common/src/smtc_hal_dbg_trace.c **** /*
+  57:../../../common/src/smtc_hal_dbg_trace.c ****  * -----------------------------------------------------------------------------
+  58:../../../common/src/smtc_hal_dbg_trace.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  59:../../../common/src/smtc_hal_dbg_trace.c ****  */
+  60:../../../common/src/smtc_hal_dbg_trace.c **** 
+  61:../../../common/src/smtc_hal_dbg_trace.c **** /*
+  62:../../../common/src/smtc_hal_dbg_trace.c ****  * -----------------------------------------------------------------------------
+  63:../../../common/src/smtc_hal_dbg_trace.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+  64:../../../common/src/smtc_hal_dbg_trace.c ****  */
+  65:../../../common/src/smtc_hal_dbg_trace.c **** 
+  66:../../../common/src/smtc_hal_dbg_trace.c **** /*
+  67:../../../common/src/smtc_hal_dbg_trace.c ****  * -----------------------------------------------------------------------------
+  68:../../../common/src/smtc_hal_dbg_trace.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+  69:../../../common/src/smtc_hal_dbg_trace.c ****  */
+  70:../../../common/src/smtc_hal_dbg_trace.c **** 
+  71:../../../common/src/smtc_hal_dbg_trace.c **** /*
+  72:../../../common/src/smtc_hal_dbg_trace.c ****  * -----------------------------------------------------------------------------
+  73:../../../common/src/smtc_hal_dbg_trace.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+  74:../../../common/src/smtc_hal_dbg_trace.c ****  */
+  75:../../../common/src/smtc_hal_dbg_trace.c **** 
+  76:../../../common/src/smtc_hal_dbg_trace.c **** void hal_mcu_trace_print( const char* fmt, ... )
+  77:../../../common/src/smtc_hal_dbg_trace.c **** {
+  29              		.loc 1 77 1
+  30              		.cfi_startproc
+  31              		@ args = 4, pretend = 16, frame = 8
+  32              		@ frame_needed = 1, uses_anonymous_args = 1
+  33 0000 0FB4     		push	{r0, r1, r2, r3}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 0, -16
+  37              		.cfi_offset 1, -12
+  38              		.cfi_offset 2, -8
+ARM GAS  C:\msys64\tmp\ccgORbAU.s 			page 3
+
+
+  39              		.cfi_offset 3, -4
+  40 0002 80B5     		push	{r7, lr}
+  41              	.LCFI1:
+  42              		.cfi_def_cfa_offset 24
+  43              		.cfi_offset 7, -24
+  44              		.cfi_offset 14, -20
+  45 0004 82B0     		sub	sp, sp, #8
+  46              	.LCFI2:
+  47              		.cfi_def_cfa_offset 32
+  48 0006 00AF     		add	r7, sp, #0
+  49              	.LCFI3:
+  50              		.cfi_def_cfa_register 7
+  78:../../../common/src/smtc_hal_dbg_trace.c ****     va_list argp;
+  79:../../../common/src/smtc_hal_dbg_trace.c ****     va_start( argp, fmt );
+  51              		.loc 1 79 5
+  52 0008 07F11403 		add	r3, r7, #20
+  53 000c 7B60     		str	r3, [r7, #4]
+  80:../../../common/src/smtc_hal_dbg_trace.c ****     vprint( fmt, argp );
+  54              		.loc 1 80 5
+  55 000e 7968     		ldr	r1, [r7, #4]
+  56 0010 3869     		ldr	r0, [r7, #16]
+  57 0012 FFF7FEFF 		bl	vprint
+  81:../../../common/src/smtc_hal_dbg_trace.c ****     va_end( argp );
+  82:../../../common/src/smtc_hal_dbg_trace.c **** }
+  58              		.loc 1 82 1
+  59 0016 00BF     		nop
+  60 0018 0837     		adds	r7, r7, #8
+  61              	.LCFI4:
+  62              		.cfi_def_cfa_offset 24
+  63 001a BD46     		mov	sp, r7
+  64              	.LCFI5:
+  65              		.cfi_def_cfa_register 13
+  66              		@ sp needed
+  67 001c BDE88040 		pop	{r7, lr}
+  68              	.LCFI6:
+  69              		.cfi_restore 14
+  70              		.cfi_restore 7
+  71              		.cfi_def_cfa_offset 16
+  72 0020 04B0     		add	sp, sp, #16
+  73              	.LCFI7:
+  74              		.cfi_restore 3
+  75              		.cfi_restore 2
+  76              		.cfi_restore 1
+  77              		.cfi_restore 0
+  78              		.cfi_def_cfa_offset 0
+  79 0022 7047     		bx	lr
+  80              		.cfi_endproc
+  81              	.LFE3:
+  83              		.text
+  84              	.Letext0:
+  85              		.file 2 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/lib/gcc/arm-none-eabi/14.
+  86              		.file 3 "<built-in>"
+  87              		.file 4 "../../../common/inc/uart_init.h"
+ARM GAS  C:\msys64\tmp\ccgORbAU.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 smtc_hal_dbg_trace.c
+C:\msys64\tmp\ccgORbAU.s:21     .text.hal_mcu_trace_print:00000000 $t
+C:\msys64\tmp\ccgORbAU.s:27     .text.hal_mcu_trace_print:00000000 hal_mcu_trace_print
+
+UNDEFINED SYMBOLS
+vprint

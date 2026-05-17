@@ -1,0 +1,1799 @@
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"Rx_proximity.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Rx_proximity.c"
+  20              		.section	.rodata.gfsk_sync_word,"a"
+  21              		.align	2
+  24              	gfsk_sync_word:
+  25 0000 01234567 		.ascii	"\001#Eg\211\253\315\357"
+  25      89ABCDEF 
+  26              		.section	.text.lr11xx_system_get_irq_status,"ax",%progbits
+  27              		.align	1
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  32              	lr11xx_system_get_irq_status:
+  33              	.LFB240:
+  34              		.file 2 "../../../lr11xx/lr11xx_driver/src/lr11xx_system.h"
+   1:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*!
+   2:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @file      lr11xx_system.h
+   3:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+   4:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @brief     System driver definition for LR11XX
+   5:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+   6:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * The Clear BSD License
+   7:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * Copyright Semtech Corporation 2021. All rights reserved.
+   8:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+   9:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * below) provided that the following conditions are met:
+  12:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *       derived from this software without specific prior written permission.
+  20:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+  21:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 2
+
+
+  26:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  31:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+  34:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  35:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** #ifndef LR11XX_SYSTEM_H
+  36:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** #define LR11XX_SYSTEM_H
+  37:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  38:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** #ifdef __cplusplus
+  39:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** extern "C" {
+  40:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** #endif
+  41:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  42:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*
+  43:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * -----------------------------------------------------------------------------
+  44:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * --- DEPENDENCIES ------------------------------------------------------------
+  45:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+  46:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  47:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** #include "lr11xx_system_types.h"
+  48:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** #include "lr11xx_types.h"
+  49:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  50:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*
+  51:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * -----------------------------------------------------------------------------
+  52:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * --- PUBLIC MACROS -----------------------------------------------------------
+  53:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+  54:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  55:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*
+  56:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * -----------------------------------------------------------------------------
+  57:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * --- PUBLIC CONSTANTS --------------------------------------------------------
+  58:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+  59:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  60:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*!
+  61:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @brief Frequency step in MHz used to compute the image calibration parameter
+  62:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+  63:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @see lr11xx_system_calibrate_image_in_mhz
+  64:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+  65:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** #define LR11XX_SYSTEM_IMAGE_CALIBRATION_STEP_IN_MHZ 4
+  66:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  67:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*
+  68:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * -----------------------------------------------------------------------------
+  69:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * --- PUBLIC TYPES ------------------------------------------------------------
+  70:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+  71:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  72:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*
+  73:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * -----------------------------------------------------------------------------
+  74:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * --- PUBLIC FUNCTIONS PROTOTYPES ---------------------------------------------
+  75:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+  76:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  77:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*!
+  78:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @brief Reset the radio
+  79:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+  80:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [in] context Chip implementation context
+  81:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+  82:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @returns Operation status
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 3
+
+
+  83:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+  84:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** lr11xx_status_t lr11xx_system_reset( const void* context );
+  85:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  86:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /**
+  87:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @brief Wake the radio up from sleep mode.
+  88:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+  89:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [in]  context Chip implementation context.
+  90:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+  91:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @returns Operation status
+  92:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+  93:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** lr11xx_status_t lr11xx_system_wakeup( const void* context );
+  94:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+  95:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /**
+  96:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @brief Abort a blocking command.
+  97:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+  98:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [in]  context Chip implementation context.
+  99:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+ 100:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @returns Operation status
+ 101:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+ 102:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** lr11xx_status_t lr11xx_system_abort_blocking_cmd( const void* context );
+ 103:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+ 104:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*!
+ 105:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @brief Return stat1, stat2, and irq_status
+ 106:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+ 107:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [in] context Chip implementation context
+ 108:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [out] stat1      Pointer to a variable for holding stat1. Can be NULL.
+ 109:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [out] stat2      Pointer to a variable for holding stat2. Can be NULL.
+ 110:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [out] irq_status Pointer to a variable for holding irq_status. Can be NULL.
+ 111:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+ 112:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @returns Operation status
+ 113:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+ 114:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @remark To simplify system integration, this function does not actually execute the GetStatus co
+ 115:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * require bidirectional SPI communication. It obtains the stat1, stat2, and irq_status values by p
+ 116:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * SPI read (which is required to send null/NOP bytes on the MOSI line). This is possible since the
+ 117:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * values automatically whenever a read that does not directly follow a response-carrying command i
+ 118:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * Unlike with the GetStatus command, however, the reset status information is NOT cleared by this 
+ 119:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @ref lr11xx_system_clear_reset_status_info may be used for this purpose when necessary.
+ 120:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+ 121:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** lr11xx_status_t lr11xx_system_get_status( const void* context, lr11xx_system_stat1_t* stat1,
+ 122:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****                                           lr11xx_system_stat2_t* stat2, lr11xx_system_irq_mask_t* i
+ 123:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+ 124:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*!
+ 125:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @brief Clear the reset status information stored in stat2
+ 126:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+ 127:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [in] context Chip implementation context
+ 128:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+ 129:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @returns Operation status
+ 130:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+ 131:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** lr11xx_status_t lr11xx_system_clear_reset_status_info( const void* context );
+ 132:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** 
+ 133:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** /*!
+ 134:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @brief Return irq_status
+ 135:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+ 136:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [in] context Chip implementation context
+ 137:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @param [out] irq_status irq_status status variable
+ 138:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  *
+ 139:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  * @returns Operation status
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 4
+
+
+ 140:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****  */
+ 141:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** static inline lr11xx_status_t lr11xx_system_get_irq_status( const void* context, lr11xx_system_irq_
+ 142:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** {
+  35              		.loc 2 142 1
+  36              		.cfi_startproc
+  37              		@ args = 0, pretend = 0, frame = 8
+  38              		@ frame_needed = 1, uses_anonymous_args = 0
+  39 0000 80B5     		push	{r7, lr}
+  40              	.LCFI0:
+  41              		.cfi_def_cfa_offset 8
+  42              		.cfi_offset 7, -8
+  43              		.cfi_offset 14, -4
+  44 0002 82B0     		sub	sp, sp, #8
+  45              	.LCFI1:
+  46              		.cfi_def_cfa_offset 16
+  47 0004 00AF     		add	r7, sp, #0
+  48              	.LCFI2:
+  49              		.cfi_def_cfa_register 7
+  50 0006 7860     		str	r0, [r7, #4]
+  51 0008 3960     		str	r1, [r7]
+ 143:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h ****     return lr11xx_system_get_status( context, 0, 0, irq_status );
+  52              		.loc 2 143 12
+  53 000a 3B68     		ldr	r3, [r7]
+  54 000c 0022     		movs	r2, #0
+  55 000e 0021     		movs	r1, #0
+  56 0010 7868     		ldr	r0, [r7, #4]
+  57 0012 FFF7FEFF 		bl	lr11xx_system_get_status
+  58 0016 0346     		mov	r3, r0
+ 144:../../../lr11xx/lr11xx_driver/src/lr11xx_system.h **** }
+  59              		.loc 2 144 1
+  60 0018 1846     		mov	r0, r3
+  61 001a 0837     		adds	r7, r7, #8
+  62              	.LCFI3:
+  63              		.cfi_def_cfa_offset 8
+  64 001c BD46     		mov	sp, r7
+  65              	.LCFI4:
+  66              		.cfi_def_cfa_register 13
+  67              		@ sp needed
+  68 001e 80BD     		pop	{r7, pc}
+  69              		.cfi_endproc
+  70              	.LFE240:
+  72              		.section	.bss.context,"aw",%nobits
+  73              		.align	2
+  76              	context:
+  77 0000 00000000 		.space	4
+  78              		.section	.bss.reassembly_raw_storage,"aw",%nobits
+  79              		.align	2
+  82              	reassembly_raw_storage:
+  83 0000 00000000 		.space	2048
+  83      00000000 
+  83      00000000 
+  83      00000000 
+  83      00000000 
+  84              		.section	.data.reassembly_buffer,"aw"
+  85              		.align	2
+  88              	reassembly_buffer:
+  89 0000 00000000 		.word	reassembly_raw_storage
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 5
+
+
+  90 0004 00000000 		.word	0
+  91              		.section	.rodata
+  92              		.align	2
+  93              	.LC0:
+  94 0000 1B5B303B 		.ascii	"\033[0;32m\000"
+  94      33326D00 
+  95              		.align	2
+  96              	.LC1:
+  97 0008 494E464F 		.ascii	"INFO: \000"
+  97      3A2000
+  98 000f 00       		.align	2
+  99              	.LC2:
+ 100 0010 3D3D3D3D 		.ascii	"===== LR11xx RX PROXIMITY-1 PACKETS EXAMPLE =====\012"
+ 100      3D204C52 
+ 100      31317878 
+ 100      20525820 
+ 100      50524F58 
+ 101 0042 00       		.ascii	"\000"
+ 102 0043 00       		.align	2
+ 103              	.LC3:
+ 104 0044 1B5B306D 		.ascii	"\033[0m\000"
+ 104      00
+ 105              		.section	.text.main,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	main
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 112              	main:
+ 113              	.LFB241:
+   1:Rx_proximity.c **** 
+   2:Rx_proximity.c **** #include <stdio.h>
+   3:Rx_proximity.c **** #include <string.h>
+   4:Rx_proximity.c **** #include <stdlib.h>
+   5:Rx_proximity.c **** #include <stdint.h>
+   6:Rx_proximity.c **** 
+   7:Rx_proximity.c **** 
+   8:Rx_proximity.c **** #include "apps_common.h"
+   9:Rx_proximity.c **** #include "apps_utilities.h"
+  10:Rx_proximity.c **** #include "lr11xx_radio.h"
+  11:Rx_proximity.c **** #include "lr11xx_system.h"
+  12:Rx_proximity.c **** #include "smtc_hal_dbg_trace.h"
+  13:Rx_proximity.c **** #include "uart_init.h"
+  14:Rx_proximity.c **** 
+  15:Rx_proximity.c **** 
+  16:Rx_proximity.c **** #include "protocol_definitions.h"   // SDUFrame
+  17:Rx_proximity.c **** #include "frame_sublayer.h"         // deserialize_sdu_frame(), check_sdu_frame()
+  18:Rx_proximity.c **** #include "io_sublayer.h"
+  19:Rx_proximity.c **** 
+  20:Rx_proximity.c **** 
+  21:Rx_proximity.c **** static lr11xx_hal_context_t* context;
+  22:Rx_proximity.c **** static void receive_and_process(lr11xx_hal_context_t *context);
+  23:Rx_proximity.c **** static void free_sdu_frame(SDUFrame* frame);
+  24:Rx_proximity.c **** 
+  25:Rx_proximity.c **** // Buffer estático para reensamblado
+  26:Rx_proximity.c **** //static SerializedData reassembly_buffer = {0};
+  27:Rx_proximity.c **** // Buffer real de almacenamiento (2KB suficiente para reensamblar varios paquetes grandes)
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 6
+
+
+  28:Rx_proximity.c **** static uint8_t reassembly_raw_storage[2048];
+  29:Rx_proximity.c **** 
+  30:Rx_proximity.c **** // Estructura SerializedData apuntando al buffer real
+  31:Rx_proximity.c **** static SerializedData reassembly_buffer = { 
+  32:Rx_proximity.c ****     .data = reassembly_raw_storage, 
+  33:Rx_proximity.c ****     .length = 0 
+  34:Rx_proximity.c **** };
+  35:Rx_proximity.c **** 
+  36:Rx_proximity.c **** int main(void)
+  37:Rx_proximity.c **** {
+ 114              		.loc 1 37 1
+ 115              		.cfi_startproc
+ 116              		@ args = 0, pretend = 0, frame = 0
+ 117              		@ frame_needed = 1, uses_anonymous_args = 0
+ 118 0000 80B5     		push	{r7, lr}
+ 119              	.LCFI5:
+ 120              		.cfi_def_cfa_offset 8
+ 121              		.cfi_offset 7, -8
+ 122              		.cfi_offset 14, -4
+ 123 0002 00AF     		add	r7, sp, #0
+ 124              	.LCFI6:
+ 125              		.cfi_def_cfa_register 7
+  38:Rx_proximity.c ****     smtc_hal_mcu_init();
+ 126              		.loc 1 38 5
+ 127 0004 FFF7FEFF 		bl	smtc_hal_mcu_init
+  39:Rx_proximity.c ****     apps_common_shield_init();
+ 128              		.loc 1 39 5
+ 129 0008 FFF7FEFF 		bl	apps_common_shield_init
+  40:Rx_proximity.c ****     uart_init();
+ 130              		.loc 1 40 5
+ 131 000c FFF7FEFF 		bl	uart_init
+  41:Rx_proximity.c **** 
+  42:Rx_proximity.c **** 
+  43:Rx_proximity.c ****     HAL_DBG_TRACE_INFO("===== LR11xx RX PROXIMITY-1 PACKETS EXAMPLE =====\n");
+ 132              		.loc 1 43 5
+ 133 0010 1548     		ldr	r0, .L5
+ 134 0012 FFF7FEFF 		bl	hal_mcu_trace_print
+ 135              		.loc 1 43 5 is_stmt 0 discriminator 1
+ 136 0016 1548     		ldr	r0, .L5+4
+ 137 0018 FFF7FEFF 		bl	hal_mcu_trace_print
+ 138              		.loc 1 43 5 discriminator 2
+ 139 001c 1448     		ldr	r0, .L5+8
+ 140 001e FFF7FEFF 		bl	hal_mcu_trace_print
+ 141              		.loc 1 43 5 discriminator 3
+ 142 0022 1448     		ldr	r0, .L5+12
+ 143 0024 FFF7FEFF 		bl	hal_mcu_trace_print
+  44:Rx_proximity.c ****     apps_common_print_sdk_driver_version();
+ 144              		.loc 1 44 5 is_stmt 1
+ 145 0028 FFF7FEFF 		bl	apps_common_print_sdk_driver_version
+  45:Rx_proximity.c **** 
+  46:Rx_proximity.c **** 
+  47:Rx_proximity.c ****     context = apps_common_lr11xx_get_context();
+ 146              		.loc 1 47 15
+ 147 002c FFF7FEFF 		bl	apps_common_lr11xx_get_context
+ 148 0030 0346     		mov	r3, r0
+ 149              		.loc 1 47 13 discriminator 1
+ 150 0032 114A     		ldr	r2, .L5+16
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 7
+
+
+ 151 0034 1360     		str	r3, [r2]
+  48:Rx_proximity.c ****     apps_common_lr11xx_system_init((void*) context);
+ 152              		.loc 1 48 5
+ 153 0036 104B     		ldr	r3, .L5+16
+ 154 0038 1B68     		ldr	r3, [r3]
+ 155 003a 1846     		mov	r0, r3
+ 156 003c FFF7FEFF 		bl	apps_common_lr11xx_system_init
+  49:Rx_proximity.c ****     apps_common_lr11xx_fetch_and_print_version((void*) context);
+ 157              		.loc 1 49 5
+ 158 0040 0D4B     		ldr	r3, .L5+16
+ 159 0042 1B68     		ldr	r3, [r3]
+ 160 0044 1846     		mov	r0, r3
+ 161 0046 FFF7FEFF 		bl	apps_common_lr11xx_fetch_and_print_version
+  50:Rx_proximity.c ****     apps_common_lr11xx_radio_init((void*) context);
+ 162              		.loc 1 50 5
+ 163 004a 0B4B     		ldr	r3, .L5+16
+ 164 004c 1B68     		ldr	r3, [r3]
+ 165 004e 1846     		mov	r0, r3
+ 166 0050 FFF7FEFF 		bl	apps_common_lr11xx_radio_init
+ 167              	.L4:
+  51:Rx_proximity.c **** 
+  52:Rx_proximity.c **** 
+  53:Rx_proximity.c ****     while (1)
+  54:Rx_proximity.c ****     {
+  55:Rx_proximity.c ****         receive_and_process(context);
+ 168              		.loc 1 55 9
+ 169 0054 084B     		ldr	r3, .L5+16
+ 170 0056 1B68     		ldr	r3, [r3]
+ 171 0058 1846     		mov	r0, r3
+ 172 005a FFF7FEFF 		bl	receive_and_process
+  56:Rx_proximity.c ****         LL_mDelay(10);  // Delay mínimo para volver a RX rápidamente
+ 173              		.loc 1 56 9 discriminator 1
+ 174 005e 0A20     		movs	r0, #10
+ 175 0060 FFF7FEFF 		bl	LL_mDelay
+  55:Rx_proximity.c ****         LL_mDelay(10);  // Delay mínimo para volver a RX rápidamente
+ 176              		.loc 1 55 9
+ 177 0064 00BF     		nop
+ 178 0066 F5E7     		b	.L4
+ 179              	.L6:
+ 180              		.align	2
+ 181              	.L5:
+ 182 0068 00000000 		.word	.LC0
+ 183 006c 08000000 		.word	.LC1
+ 184 0070 10000000 		.word	.LC2
+ 185 0074 44000000 		.word	.LC3
+ 186 0078 00000000 		.word	context
+ 187              		.cfi_endproc
+ 188              	.LFE241:
+ 190              		.section	.rodata
+ 191 0049 000000   		.align	2
+ 192              	.LC4:
+ 193 004c 1B5B303B 		.ascii	"\033[0;31m\000"
+ 193      33316D00 
+ 194              		.align	2
+ 195              	.LC5:
+ 196 0054 4552524F 		.ascii	"ERROR: \000"
+ 196      523A2000 
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 8
+
+
+ 197              		.align	2
+ 198              	.LC6:
+ 199 005c 52785F70 		.ascii	"Rx_proximity.c\000"
+ 199      726F7869 
+ 199      6D697479 
+ 199      2E6300
+ 200 006b 00       		.align	2
+ 201              	.LC7:
+ 202 006c 496E2025 		.ascii	"In %s - %s (line %d): %s\012\000"
+ 202      73202D20 
+ 202      25732028 
+ 202      6C696E65 
+ 202      20256429 
+ 203 0086 0000     		.align	2
+ 204              	.LC8:
+ 205 0088 4C523131 		.ascii	"LR11XX_STATUS_ERROR\000"
+ 205      58585F53 
+ 205      54415455 
+ 205      535F4552 
+ 205      524F5200 
+ 206              		.align	2
+ 207              	.LC9:
+ 208 009c 5261773A 		.ascii	"Raw: \000"
+ 208      2000
+ 209 00a2 0000     		.align	2
+ 210              	.LC10:
+ 211 00a4 25303258 		.ascii	"%02X \000"
+ 211      2000
+ 212 00aa 0000     		.align	2
+ 213              	.LC11:
+ 214 00ac 0A00     		.ascii	"\012\000"
+ 215 00ae 0000     		.align	2
+ 216              	.LC12:
+ 217 00b0 20205479 		.ascii	"  Type: Unfragmented\012\000"
+ 217      70653A20 
+ 217      556E6672 
+ 217      61676D65 
+ 217      6E746564 
+ 218 00c6 0000     		.align	2
+ 219              	.LC13:
+ 220 00c8 46524147 		.ascii	"FRAG FSN=%d Seg=%d PID=%d | \000"
+ 220      2046534E 
+ 220      3D256420 
+ 220      5365673D 
+ 220      25642050 
+ 221 00e5 000000   		.align	2
+ 222              	.LC14:
+ 223 00e8 1B5B303B 		.ascii	"\033[0;33m\000"
+ 223      33336D00 
+ 224              		.align	2
+ 225              	.LC15:
+ 226 00f0 5741524E 		.ascii	"WARN: \000"
+ 226      3A2000
+ 227 00f7 00       		.align	2
+ 228              	.LC16:
+ 229 00f8 556E6B6E 		.ascii	"Unknown frame type.\012\000"
+ 229      6F776E20 
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 9
+
+
+ 229      6672616D 
+ 229      65207479 
+ 229      70652E0A 
+ 230 010d 000000   		.align	2
+ 231              	.LC17:
+ 232 0110 4672616D 		.ascii	"Frame header:\000"
+ 232      65206865 
+ 232      61646572 
+ 232      3A00
+ 233 011e 0000     		.align	2
+ 234              	.LC18:
+ 235 0120 20205665 		.ascii	"  Version: %d\012\000"
+ 235      7273696F 
+ 235      6E3A2025 
+ 235      640A00
+ 236 012f 00       		.align	2
+ 237              	.LC19:
+ 238 0130 2020516F 		.ascii	"  QoS: %d\012\000"
+ 238      533A2025 
+ 238      640A00
+ 239 013b 00       		.align	2
+ 240              	.LC20:
+ 241 013c 20205044 		.ascii	"  PDU_ID: %d\012\000"
+ 241      555F4944 
+ 241      3A202564 
+ 241      0A00
+ 242 014a 0000     		.align	2
+ 243              	.LC21:
+ 244 014c 20204446 		.ascii	"  DFC_ID: %d\012\000"
+ 244      435F4944 
+ 244      3A202564 
+ 244      0A00
+ 245 015a 0000     		.align	2
+ 246              	.LC22:
+ 247 015c 2020506F 		.ascii	"  PortID: %d\012\000"
+ 247      72744944 
+ 247      3A202564 
+ 247      0A00
+ 248 016a 0000     		.align	2
+ 249              	.LC23:
+ 250 016c 20205344 		.ascii	"  SD_ID: %d\012\000"
+ 250      5F49443A 
+ 250      2025640A 
+ 250      00
+ 251 0179 000000   		.align	2
+ 252              	.LC24:
+ 253 017c 20205043 		.ascii	"  PC_ID: %d\012\000"
+ 253      5F49443A 
+ 253      2025640A 
+ 253      00
+ 254 0189 000000   		.align	2
+ 255              	.LC25:
+ 256 018c 20205343 		.ascii	"  SC_ID: 0x%04X\012\000"
+ 256      5F49443A 
+ 256      20307825 
+ 256      3034580A 
+ 256      00
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 10
+
+
+ 257 019d 000000   		.align	2
+ 258              	.LC26:
+ 259 01a0 20204653 		.ascii	"  FSN: %d\012\000"
+ 259      4E3A2025 
+ 259      640A00
+ 260 01ab 00       		.align	2
+ 261              	.LC27:
+ 262 01ac 20205344 		.ascii	"  SDU length: %d bytes\012\000"
+ 262      55206C65 
+ 262      6E677468 
+ 262      3A202564 
+ 262      20627974 
+ 263              		.align	2
+ 264              	.LC28:
+ 265 01c4 46726167 		.ascii	"Fragment added to reassembly buffer (total: %d byte"
+ 265      6D656E74 
+ 265      20616464 
+ 265      65642074 
+ 265      6F207265 
+ 266 01f7 73290A00 		.ascii	"s)\012\000"
+ 267 01fb 00       		.align	2
+ 268              	.LC29:
+ 269 01fc 57616974 		.ascii	"Waiting for more segments...\012\000"
+ 269      696E6720 
+ 269      666F7220 
+ 269      6D6F7265 
+ 269      20736567 
+ 270 021a 0000     		.align	2
+ 271              	.LC30:
+ 272 021c 3D3D3D20 		.ascii	"=== REASSEMBLY COMPLETE ===\012\000"
+ 272      52454153 
+ 272      53454D42 
+ 272      4C592043 
+ 272      4F4D504C 
+ 273 0239 000000   		.align	2
+ 274              	.LC31:
+ 275 023c 546F7461 		.ascii	"Total payload size: %d bytes\012\000"
+ 275      6C207061 
+ 275      796C6F61 
+ 275      64207369 
+ 275      7A653A20 
+ 276 025a 0000     		.align	2
+ 277              	.LC32:
+ 278 025c 436F6D70 		.ascii	"Complete payload (ASCII):\012\000"
+ 278      6C657465 
+ 278      20706179 
+ 278      6C6F6164 
+ 278      20284153 
+ 279 0277 00       		.align	2
+ 280              	.LC33:
+ 281 0278 256300   		.ascii	"%c\000"
+ 282 027b 00       		.align	2
+ 283              	.LC34:
+ 284 027c 2E00     		.ascii	".\000"
+ 285 027e 0000     		.align	2
+ 286              	.LC35:
+ 287 0280 0A0A00   		.ascii	"\012\012\000"
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 11
+
+
+ 288 0283 00       		.align	2
+ 289              	.LC36:
+ 290 0284 5061796C 		.ascii	"Payload (ASCII):\012\000"
+ 290      6F616420 
+ 290      28415343 
+ 290      4949293A 
+ 290      0A00
+ 291 0296 0000     		.align	2
+ 292              	.LC37:
+ 293 0298 52656365 		.ascii	"Received frame is invalid or corrupted.\012\000"
+ 293      69766564 
+ 293      20667261 
+ 293      6D652069 
+ 293      7320696E 
+ 294 02c1 000000   		.align	2
+ 295              	.LC38:
+ 296 02c4 52582074 		.ascii	"RX timeout: no packet received.\012\000"
+ 296      696D656F 
+ 296      75743A20 
+ 296      6E6F2070 
+ 296      61636B65 
+ 297              		.section	.text.receive_and_process,"ax",%progbits
+ 298              		.align	1
+ 299              		.syntax unified
+ 300              		.thumb
+ 301              		.thumb_func
+ 303              	receive_and_process:
+ 304              	.LFB242:
+  57:Rx_proximity.c ****     }
+  58:Rx_proximity.c **** 
+  59:Rx_proximity.c **** 
+  60:Rx_proximity.c ****     return 0;
+  61:Rx_proximity.c **** }
+  62:Rx_proximity.c **** 
+  63:Rx_proximity.c **** 
+  64:Rx_proximity.c **** static void receive_and_process(lr11xx_hal_context_t *context)
+  65:Rx_proximity.c **** {
+ 305              		.loc 1 65 1
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 328
+ 308              		@ frame_needed = 1, uses_anonymous_args = 0
+ 309 0000 80B5     		push	{r7, lr}
+ 310              	.LCFI7:
+ 311              		.cfi_def_cfa_offset 8
+ 312              		.cfi_offset 7, -8
+ 313              		.cfi_offset 14, -4
+ 314 0002 D4B0     		sub	sp, sp, #336
+ 315              	.LCFI8:
+ 316              		.cfi_def_cfa_offset 344
+ 317 0004 02AF     		add	r7, sp, #8
+ 318              	.LCFI9:
+ 319              		.cfi_def_cfa 7, 336
+ 320 0006 07F5A473 		add	r3, r7, #328
+ 321 000a A3F5A273 		sub	r3, r3, #324
+ 322 000e 1860     		str	r0, [r3]
+  66:Rx_proximity.c ****     uint8_t rx_buffer[255];
+  67:Rx_proximity.c ****     uint8_t rx_size = 0;
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 12
+
+
+ 323              		.loc 1 67 13
+ 324 0010 07F5A473 		add	r3, r7, #328
+ 325 0014 A3F22113 		subw	r3, r3, #289
+ 326 0018 0022     		movs	r2, #0
+ 327 001a 1A70     		strb	r2, [r3]
+  68:Rx_proximity.c **** 
+  69:Rx_proximity.c **** 
+  70:Rx_proximity.c ****     apps_common_lr11xx_handle_pre_rx();
+ 328              		.loc 1 70 5
+ 329 001c FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_rx
+ 330              	.LBB2:
+  71:Rx_proximity.c ****     ASSERT_LR11XX_RC(lr11xx_radio_set_rx(context, 10000));  // RX con timeout 10s (suficiente para 
+ 331              		.loc 1 71 5
+ 332 0020 07F5A473 		add	r3, r7, #328
+ 333 0024 A3F5A273 		sub	r3, r3, #324
+ 334 0028 42F21071 		movw	r1, #10000
+ 335 002c 1868     		ldr	r0, [r3]
+ 336 002e FFF7FEFF 		bl	lr11xx_radio_set_rx
+ 337 0032 0346     		mov	r3, r0
+ 338 0034 87F83331 		strb	r3, [r7, #307]
+ 339              		.loc 1 71 5 is_stmt 0 discriminator 1
+ 340 0038 97F83331 		ldrb	r3, [r7, #307]	@ zero_extendqisi2
+ 341 003c 002B     		cmp	r3, #0
+ 342 003e 14D0     		beq	.L10
+ 343 0040 97F83331 		ldrb	r3, [r7, #307]	@ zero_extendqisi2
+ 344 0044 032B     		cmp	r3, #3
+ 345 0046 10D1     		bne	.L10
+ 346              		.loc 1 71 5 discriminator 2
+ 347 0048 8A48     		ldr	r0, .L33
+ 348 004a FFF7FEFF 		bl	hal_mcu_trace_print
+ 349              		.loc 1 71 5 discriminator 1
+ 350 004e 8A48     		ldr	r0, .L33+4
+ 351 0050 FFF7FEFF 		bl	hal_mcu_trace_print
+ 352              		.loc 1 71 5 discriminator 2
+ 353 0054 894B     		ldr	r3, .L33+8
+ 354 0056 0093     		str	r3, [sp]
+ 355 0058 4723     		movs	r3, #71
+ 356 005a 894A     		ldr	r2, .L33+12
+ 357 005c 8949     		ldr	r1, .L33+16
+ 358 005e 8A48     		ldr	r0, .L33+20
+ 359 0060 FFF7FEFF 		bl	hal_mcu_trace_print
+ 360              		.loc 1 71 5 discriminator 3
+ 361 0064 8948     		ldr	r0, .L33+24
+ 362 0066 FFF7FEFF 		bl	hal_mcu_trace_print
+ 363              	.L10:
+ 364              	.LBE2:
+ 365              	.LBB3:
+  72:Rx_proximity.c **** 
+  73:Rx_proximity.c **** 
+  74:Rx_proximity.c ****     // HAL_DBG_TRACE_INFO("Waiting for incoming LoRa packet...\n");  // Comentado para no saturar U
+  75:Rx_proximity.c **** 
+  76:Rx_proximity.c **** 
+  77:Rx_proximity.c ****     // Wait for IRQ (RX done or timeout)
+  78:Rx_proximity.c ****     lr11xx_system_irq_mask_t irq_mask;
+  79:Rx_proximity.c ****     do {
+  80:Rx_proximity.c ****         ASSERT_LR11XX_RC(lr11xx_system_get_irq_status(context, &irq_mask));
+ 366              		.loc 1 80 9 is_stmt 1
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 13
+
+
+ 367 006a 07F12002 		add	r2, r7, #32
+ 368 006e 07F5A473 		add	r3, r7, #328
+ 369 0072 A3F5A273 		sub	r3, r3, #324
+ 370 0076 1146     		mov	r1, r2
+ 371 0078 1868     		ldr	r0, [r3]
+ 372 007a FFF7FEFF 		bl	lr11xx_system_get_irq_status
+ 373 007e 0346     		mov	r3, r0
+ 374 0080 87F83231 		strb	r3, [r7, #306]
+ 375              		.loc 1 80 9 is_stmt 0 discriminator 1
+ 376 0084 97F83231 		ldrb	r3, [r7, #306]	@ zero_extendqisi2
+ 377 0088 002B     		cmp	r3, #0
+ 378 008a 14D0     		beq	.L9
+ 379 008c 97F83231 		ldrb	r3, [r7, #306]	@ zero_extendqisi2
+ 380 0090 032B     		cmp	r3, #3
+ 381 0092 10D1     		bne	.L9
+ 382              		.loc 1 80 9 discriminator 2
+ 383 0094 7748     		ldr	r0, .L33
+ 384 0096 FFF7FEFF 		bl	hal_mcu_trace_print
+ 385              		.loc 1 80 9 discriminator 1
+ 386 009a 7748     		ldr	r0, .L33+4
+ 387 009c FFF7FEFF 		bl	hal_mcu_trace_print
+ 388              		.loc 1 80 9 discriminator 2
+ 389 00a0 764B     		ldr	r3, .L33+8
+ 390 00a2 0093     		str	r3, [sp]
+ 391 00a4 5023     		movs	r3, #80
+ 392 00a6 764A     		ldr	r2, .L33+12
+ 393 00a8 7649     		ldr	r1, .L33+16
+ 394 00aa 7748     		ldr	r0, .L33+20
+ 395 00ac FFF7FEFF 		bl	hal_mcu_trace_print
+ 396              		.loc 1 80 9 discriminator 3
+ 397 00b0 7648     		ldr	r0, .L33+24
+ 398 00b2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 399              	.L9:
+ 400              	.LBE3:
+  81:Rx_proximity.c ****     } while ((irq_mask & (LR11XX_SYSTEM_IRQ_RX_DONE | LR11XX_SYSTEM_IRQ_TIMEOUT)) == 0);
+ 401              		.loc 1 81 24 is_stmt 1
+ 402 00b6 07F5A473 		add	r3, r7, #328
+ 403 00ba A3F59473 		sub	r3, r3, #296
+ 404 00be 1B68     		ldr	r3, [r3]
+ 405 00c0 03F48163 		and	r3, r3, #1032
+ 406              		.loc 1 81 83
+ 407 00c4 002B     		cmp	r3, #0
+ 408 00c6 D0D0     		beq	.L10
+ 409              	.LBB4:
+  82:Rx_proximity.c **** 
+  83:Rx_proximity.c ****     ASSERT_LR11XX_RC(lr11xx_system_clear_irq_status(context, LR11XX_SYSTEM_IRQ_ALL_MASK));
+ 410              		.loc 1 83 5
+ 411 00c8 07F5A473 		add	r3, r7, #328
+ 412 00cc A3F5A273 		sub	r3, r3, #324
+ 413 00d0 6F49     		ldr	r1, .L33+28
+ 414 00d2 1868     		ldr	r0, [r3]
+ 415 00d4 FFF7FEFF 		bl	lr11xx_system_clear_irq_status
+ 416 00d8 0346     		mov	r3, r0
+ 417 00da 87F83131 		strb	r3, [r7, #305]
+ 418              		.loc 1 83 5 is_stmt 0 discriminator 1
+ 419 00de 97F83131 		ldrb	r3, [r7, #305]	@ zero_extendqisi2
+ 420 00e2 002B     		cmp	r3, #0
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 14
+
+
+ 421 00e4 14D0     		beq	.L11
+ 422 00e6 97F83131 		ldrb	r3, [r7, #305]	@ zero_extendqisi2
+ 423 00ea 032B     		cmp	r3, #3
+ 424 00ec 10D1     		bne	.L11
+ 425              		.loc 1 83 5 discriminator 2
+ 426 00ee 6148     		ldr	r0, .L33
+ 427 00f0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 428              		.loc 1 83 5 discriminator 1
+ 429 00f4 6048     		ldr	r0, .L33+4
+ 430 00f6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 431              		.loc 1 83 5 discriminator 2
+ 432 00fa 604B     		ldr	r3, .L33+8
+ 433 00fc 0093     		str	r3, [sp]
+ 434 00fe 5323     		movs	r3, #83
+ 435 0100 5F4A     		ldr	r2, .L33+12
+ 436 0102 6049     		ldr	r1, .L33+16
+ 437 0104 6048     		ldr	r0, .L33+20
+ 438 0106 FFF7FEFF 		bl	hal_mcu_trace_print
+ 439              		.loc 1 83 5 discriminator 3
+ 440 010a 6048     		ldr	r0, .L33+24
+ 441 010c FFF7FEFF 		bl	hal_mcu_trace_print
+ 442              	.L11:
+ 443              	.LBE4:
+  84:Rx_proximity.c **** 
+  85:Rx_proximity.c ****     if (irq_mask & LR11XX_SYSTEM_IRQ_RX_DONE)
+ 444              		.loc 1 85 18 is_stmt 1
+ 445 0110 07F5A473 		add	r3, r7, #328
+ 446 0114 A3F59473 		sub	r3, r3, #296
+ 447 0118 1B68     		ldr	r3, [r3]
+ 448 011a 03F00803 		and	r3, r3, #8
+ 449              		.loc 1 85 8
+ 450 011e 002B     		cmp	r3, #0
+ 451 0120 00F04582 		beq	.L12
+ 452              	.LBB5:
+  86:Rx_proximity.c ****     {
+  87:Rx_proximity.c ****         apps_common_lr11xx_handle_post_rx();
+ 453              		.loc 1 87 9
+ 454 0124 FFF7FEFF 		bl	apps_common_lr11xx_handle_post_rx
+  88:Rx_proximity.c ****         apps_common_lr11xx_receive(context, rx_buffer, sizeof(rx_buffer), &rx_size);
+ 455              		.loc 1 88 9
+ 456 0128 07F12703 		add	r3, r7, #39
+ 457 012c 07F12801 		add	r1, r7, #40
+ 458 0130 07F5A472 		add	r2, r7, #328
+ 459 0134 A2F5A270 		sub	r0, r2, #324
+ 460 0138 FF22     		movs	r2, #255
+ 461 013a 0068     		ldr	r0, [r0]
+ 462 013c FFF7FEFF 		bl	apps_common_lr11xx_receive
+  89:Rx_proximity.c **** 
+  90:Rx_proximity.c **** 
+  91:Rx_proximity.c **** 
+  92:Rx_proximity.c ****         HAL_DBG_TRACE_PRINTF("Raw: ");
+ 463              		.loc 1 92 9
+ 464 0140 5448     		ldr	r0, .L33+32
+ 465 0142 FFF7FEFF 		bl	hal_mcu_trace_print
+ 466              	.LBB6:
+  93:Rx_proximity.c ****         for (int i = 0; i < rx_size; i++) {
+ 467              		.loc 1 93 18
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 15
+
+
+ 468 0146 0023     		movs	r3, #0
+ 469 0148 C7F84431 		str	r3, [r7, #324]
+ 470              		.loc 1 93 9
+ 471 014c 10E0     		b	.L13
+ 472              	.L14:
+  94:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("%02X ", rx_buffer[i]);
+ 473              		.loc 1 94 13
+ 474 014e 07F5A473 		add	r3, r7, #328
+ 475 0152 A3F59072 		sub	r2, r3, #288
+ 476 0156 D7F84431 		ldr	r3, [r7, #324]
+ 477 015a 1344     		add	r3, r3, r2
+ 478 015c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 479 015e 1946     		mov	r1, r3
+ 480 0160 4D48     		ldr	r0, .L33+36
+ 481 0162 FFF7FEFF 		bl	hal_mcu_trace_print
+  93:Rx_proximity.c ****         for (int i = 0; i < rx_size; i++) {
+ 482              		.loc 1 93 39 discriminator 3
+ 483 0166 D7F84431 		ldr	r3, [r7, #324]
+ 484 016a 0133     		adds	r3, r3, #1
+ 485 016c C7F84431 		str	r3, [r7, #324]
+ 486              	.L13:
+  93:Rx_proximity.c ****         for (int i = 0; i < rx_size; i++) {
+ 487              		.loc 1 93 27 discriminator 1
+ 488 0170 07F5A473 		add	r3, r7, #328
+ 489 0174 A3F22113 		subw	r3, r3, #289
+ 490 0178 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 491 017a 1A46     		mov	r2, r3
+ 492 017c D7F84431 		ldr	r3, [r7, #324]
+ 493 0180 9342     		cmp	r3, r2
+ 494 0182 E4DB     		blt	.L14
+ 495              	.LBE6:
+  95:Rx_proximity.c ****         }
+  96:Rx_proximity.c ****         HAL_DBG_TRACE_PRINTF("\n");
+ 496              		.loc 1 96 9
+ 497 0184 4548     		ldr	r0, .L33+40
+ 498 0186 FFF7FEFF 		bl	hal_mcu_trace_print
+  97:Rx_proximity.c **** 
+  98:Rx_proximity.c **** 
+  99:Rx_proximity.c ****         /* ========= DESERIALIZAR FRAME ========= */
+ 100:Rx_proximity.c ****         SDUFrame frame = deserialize_sdu_frame(rx_buffer);
+ 499              		.loc 1 100 26
+ 500 018a 07F5A473 		add	r3, r7, #328
+ 501 018e A3F59E73 		sub	r3, r3, #316
+ 502 0192 07F12802 		add	r2, r7, #40
+ 503 0196 1146     		mov	r1, r2
+ 504 0198 1846     		mov	r0, r3
+ 505 019a FFF7FEFF 		bl	deserialize_sdu_frame
+ 101:Rx_proximity.c **** 
+ 102:Rx_proximity.c **** 
+ 103:Rx_proximity.c ****         if (check_sdu_frame(&frame))
+ 506              		.loc 1 103 13
+ 507 019e 07F10C03 		add	r3, r7, #12
+ 508 01a2 1846     		mov	r0, r3
+ 509 01a4 FFF7FEFF 		bl	check_sdu_frame
+ 510 01a8 0346     		mov	r3, r0
+ 511              		.loc 1 103 12 discriminator 1
+ 512 01aa 002B     		cmp	r3, #0
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 16
+
+
+ 513 01ac 00F0F281 		beq	.L15
+ 514              	.LBB7:
+ 104:Rx_proximity.c ****         {
+ 105:Rx_proximity.c ****             PDUHeader* hdr = NULL;
+ 515              		.loc 1 105 24
+ 516 01b0 0023     		movs	r3, #0
+ 517 01b2 C7F84031 		str	r3, [r7, #320]
+ 106:Rx_proximity.c ****             uint8_t* payload = NULL;
+ 518              		.loc 1 106 22
+ 519 01b6 0023     		movs	r3, #0
+ 520 01b8 C7F83C31 		str	r3, [r7, #316]
+ 107:Rx_proximity.c ****             uint16_t length = 0;
+ 521              		.loc 1 107 22
+ 522 01bc 0023     		movs	r3, #0
+ 523 01be A7F82E31 		strh	r3, [r7, #302]	@ movhi
+ 108:Rx_proximity.c **** 
+ 109:Rx_proximity.c **** 
+ 110:Rx_proximity.c ****             /* Determinar tipo */
+ 111:Rx_proximity.c ****             if (frame.type == FRAME_UNFRAGMENTED)
+ 524              		.loc 1 111 22
+ 525 01c2 07F5A473 		add	r3, r7, #328
+ 526 01c6 A3F59E73 		sub	r3, r3, #316
+ 527 01ca 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 528              		.loc 1 111 16
+ 529 01cc 002B     		cmp	r3, #0
+ 530 01ce 18D1     		bne	.L16
+ 112:Rx_proximity.c ****             {
+ 113:Rx_proximity.c ****                 hdr = &frame.data.unfragmented.header;
+ 531              		.loc 1 113 21
+ 532 01d0 07F10C03 		add	r3, r7, #12
+ 533 01d4 0433     		adds	r3, r3, #4
+ 534 01d6 C7F84031 		str	r3, [r7, #320]
+ 114:Rx_proximity.c ****                 payload = frame.data.unfragmented.sdu;
+ 535              		.loc 1 114 25
+ 536 01da 07F5A473 		add	r3, r7, #328
+ 537 01de A3F59E73 		sub	r3, r3, #316
+ 538 01e2 DB68     		ldr	r3, [r3, #12]
+ 539 01e4 C7F83C31 		str	r3, [r7, #316]
+ 115:Rx_proximity.c ****                 HAL_DBG_TRACE_INFO("  Type: Unfragmented\n");
+ 540              		.loc 1 115 17
+ 541 01e8 2D48     		ldr	r0, .L33+44
+ 542 01ea FFF7FEFF 		bl	hal_mcu_trace_print
+ 543              		.loc 1 115 17 is_stmt 0 discriminator 1
+ 544 01ee 2D48     		ldr	r0, .L33+48
+ 545 01f0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 546              		.loc 1 115 17 discriminator 2
+ 547 01f4 2C48     		ldr	r0, .L33+52
+ 548 01f6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 549              		.loc 1 115 17 discriminator 3
+ 550 01fa 2448     		ldr	r0, .L33+24
+ 551 01fc FFF7FEFF 		bl	hal_mcu_trace_print
+ 552 0200 5CE0     		b	.L17
+ 553              	.L16:
+ 116:Rx_proximity.c ****             }
+ 117:Rx_proximity.c ****             else if (frame.type == FRAME_FRAGMENTED)
+ 554              		.loc 1 117 27 is_stmt 1
+ 555 0202 07F5A473 		add	r3, r7, #328
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 17
+
+
+ 556 0206 A3F59E73 		sub	r3, r3, #316
+ 557 020a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 558              		.loc 1 117 21
+ 559 020c 012B     		cmp	r3, #1
+ 560 020e 24D1     		bne	.L18
+ 118:Rx_proximity.c ****             {
+ 119:Rx_proximity.c ****                 hdr = &frame.data.fragmented.pdu_header;
+ 561              		.loc 1 119 21
+ 562 0210 07F10C03 		add	r3, r7, #12
+ 563 0214 0433     		adds	r3, r3, #4
+ 564 0216 C7F84031 		str	r3, [r7, #320]
+ 120:Rx_proximity.c ****                 payload = frame.data.fragmented.sdu;
+ 565              		.loc 1 120 25
+ 566 021a 07F5A473 		add	r3, r7, #328
+ 567 021e A3F59E73 		sub	r3, r3, #316
+ 568 0222 DB68     		ldr	r3, [r3, #12]
+ 569 0224 C7F83C31 		str	r3, [r7, #316]
+ 121:Rx_proximity.c ****                 HAL_DBG_TRACE_PRINTF("FRAG FSN=%d Seg=%d PID=%d | ", 
+ 570              		.loc 1 121 17
+ 571 0228 D7F84031 		ldr	r3, [r7, #320]
+ 572 022c 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 573 022e 1946     		mov	r1, r3
+ 574 0230 07F5A473 		add	r3, r7, #328
+ 575 0234 A3F59E73 		sub	r3, r3, #316
+ 576 0238 5B7A     		ldrb	r3, [r3, #9]
+ 577 023a C3F30103 		ubfx	r3, r3, #0, #2
+ 578 023e DBB2     		uxtb	r3, r3
+ 579 0240 1A46     		mov	r2, r3
+ 580 0242 07F5A473 		add	r3, r7, #328
+ 581 0246 A3F59E73 		sub	r3, r3, #316
+ 582 024a 5B7A     		ldrb	r3, [r3, #9]
+ 583 024c C3F38503 		ubfx	r3, r3, #2, #6
+ 584 0250 DBB2     		uxtb	r3, r3
+ 585 0252 1648     		ldr	r0, .L33+56
+ 586 0254 FFF7FEFF 		bl	hal_mcu_trace_print
+ 587 0258 30E0     		b	.L17
+ 588              	.L18:
+ 122:Rx_proximity.c ****                     hdr->FSN, 
+ 123:Rx_proximity.c ****                     frame.data.fragmented.seg_header.SegFlag,
+ 124:Rx_proximity.c ****                     frame.data.fragmented.seg_header.PseudoPacketID);
+ 125:Rx_proximity.c ****             }
+ 126:Rx_proximity.c ****             else
+ 127:Rx_proximity.c ****             {
+ 128:Rx_proximity.c ****                 HAL_DBG_TRACE_WARNING("Unknown frame type.\n");
+ 589              		.loc 1 128 17
+ 590 025a 1548     		ldr	r0, .L33+60
+ 591 025c FFF7FEFF 		bl	hal_mcu_trace_print
+ 592              		.loc 1 128 17 is_stmt 0 discriminator 1
+ 593 0260 1448     		ldr	r0, .L33+64
+ 594 0262 FFF7FEFF 		bl	hal_mcu_trace_print
+ 595              		.loc 1 128 17 discriminator 2
+ 596 0266 1448     		ldr	r0, .L33+68
+ 597 0268 FFF7FEFF 		bl	hal_mcu_trace_print
+ 598              		.loc 1 128 17 discriminator 3
+ 599 026c 0748     		ldr	r0, .L33+24
+ 600 026e FFF7FEFF 		bl	hal_mcu_trace_print
+ 601 0272 A8E1     		b	.L7
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 18
+
+
+ 602              	.L34:
+ 603              		.align	2
+ 604              	.L33:
+ 605 0274 4C000000 		.word	.LC4
+ 606 0278 54000000 		.word	.LC5
+ 607 027c 88000000 		.word	.LC8
+ 608 0280 00000000 		.word	__func__.0
+ 609 0284 5C000000 		.word	.LC6
+ 610 0288 6C000000 		.word	.LC7
+ 611 028c 44000000 		.word	.LC3
+ 612 0290 FCCFFF0B 		.word	201314300
+ 613 0294 9C000000 		.word	.LC9
+ 614 0298 A4000000 		.word	.LC10
+ 615 029c AC000000 		.word	.LC11
+ 616 02a0 00000000 		.word	.LC0
+ 617 02a4 08000000 		.word	.LC1
+ 618 02a8 B0000000 		.word	.LC12
+ 619 02ac C8000000 		.word	.LC13
+ 620 02b0 E8000000 		.word	.LC14
+ 621 02b4 F0000000 		.word	.LC15
+ 622 02b8 F8000000 		.word	.LC16
+ 623              	.L17:
+ 129:Rx_proximity.c ****                
+ 130:Rx_proximity.c ****                 return;
+ 131:Rx_proximity.c ****             }
+ 132:Rx_proximity.c **** 
+ 133:Rx_proximity.c **** 
+ 134:Rx_proximity.c ****             /* Longitud real del SDU */
+ 135:Rx_proximity.c ****             length = ((uint16_t)hdr->data_length_high << 8) | hdr->data_length_low;
+ 624              		.loc 1 135 36 is_stmt 1
+ 625 02bc D7F84031 		ldr	r3, [r7, #320]
+ 626 02c0 9B78     		ldrb	r3, [r3, #2]
+ 627 02c2 C3F34213 		ubfx	r3, r3, #5, #3
+ 628 02c6 DBB2     		uxtb	r3, r3
+ 629              		.loc 1 135 61
+ 630 02c8 1BB2     		sxth	r3, r3
+ 631 02ca 1B02     		lsls	r3, r3, #8
+ 632 02cc 1AB2     		sxth	r2, r3
+ 633              		.loc 1 135 66
+ 634 02ce D7F84031 		ldr	r3, [r7, #320]
+ 635 02d2 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 636 02d4 1BB2     		sxth	r3, r3
+ 637              		.loc 1 135 61
+ 638 02d6 1343     		orrs	r3, r3, r2
+ 639 02d8 1BB2     		sxth	r3, r3
+ 640              		.loc 1 135 20
+ 641 02da A7F82E31 		strh	r3, [r7, #302]	@ movhi
+ 136:Rx_proximity.c **** 
+ 137:Rx_proximity.c **** 
+ 138:Rx_proximity.c ****             /* ========= IMPRIMIR HEADER ========= */
+ 139:Rx_proximity.c ****             HAL_DBG_TRACE_INFO("Frame header:");
+ 642              		.loc 1 139 13
+ 643 02de BC48     		ldr	r0, .L35
+ 644 02e0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 645              		.loc 1 139 13 is_stmt 0 discriminator 1
+ 646 02e4 BB48     		ldr	r0, .L35+4
+ 647 02e6 FFF7FEFF 		bl	hal_mcu_trace_print
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 19
+
+
+ 648              		.loc 1 139 13 discriminator 2
+ 649 02ea BB48     		ldr	r0, .L35+8
+ 650 02ec FFF7FEFF 		bl	hal_mcu_trace_print
+ 651              		.loc 1 139 13 discriminator 3
+ 652 02f0 BA48     		ldr	r0, .L35+12
+ 653 02f2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 140:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  Version: %d\n", hdr->VersionNum);
+ 654              		.loc 1 140 13 is_stmt 1
+ 655 02f6 D7F84031 		ldr	r3, [r7, #320]
+ 656 02fa 1B78     		ldrb	r3, [r3]
+ 657 02fc C3F30103 		ubfx	r3, r3, #0, #2
+ 658 0300 DBB2     		uxtb	r3, r3
+ 659 0302 1946     		mov	r1, r3
+ 660 0304 B648     		ldr	r0, .L35+16
+ 661 0306 FFF7FEFF 		bl	hal_mcu_trace_print
+ 141:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  QoS: %d\n", hdr->QoS);
+ 662              		.loc 1 141 13
+ 663 030a D7F84031 		ldr	r3, [r7, #320]
+ 664 030e 1B78     		ldrb	r3, [r3]
+ 665 0310 C3F38003 		ubfx	r3, r3, #2, #1
+ 666 0314 DBB2     		uxtb	r3, r3
+ 667 0316 1946     		mov	r1, r3
+ 668 0318 B248     		ldr	r0, .L35+20
+ 669 031a FFF7FEFF 		bl	hal_mcu_trace_print
+ 142:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  PDU_ID: %d\n", hdr->PDU_ID);
+ 670              		.loc 1 142 13
+ 671 031e D7F84031 		ldr	r3, [r7, #320]
+ 672 0322 1B78     		ldrb	r3, [r3]
+ 673 0324 C3F3C003 		ubfx	r3, r3, #3, #1
+ 674 0328 DBB2     		uxtb	r3, r3
+ 675 032a 1946     		mov	r1, r3
+ 676 032c AE48     		ldr	r0, .L35+24
+ 677 032e FFF7FEFF 		bl	hal_mcu_trace_print
+ 143:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  DFC_ID: %d\n", hdr->DFC_ID);
+ 678              		.loc 1 143 13
+ 679 0332 D7F84031 		ldr	r3, [r7, #320]
+ 680 0336 1B78     		ldrb	r3, [r3]
+ 681 0338 C3F30113 		ubfx	r3, r3, #4, #2
+ 682 033c DBB2     		uxtb	r3, r3
+ 683 033e 1946     		mov	r1, r3
+ 684 0340 AA48     		ldr	r0, .L35+28
+ 685 0342 FFF7FEFF 		bl	hal_mcu_trace_print
+ 144:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  PortID: %d\n", hdr->PortID);
+ 686              		.loc 1 144 13
+ 687 0346 D7F84031 		ldr	r3, [r7, #320]
+ 688 034a 9B78     		ldrb	r3, [r3, #2]
+ 689 034c C3F34203 		ubfx	r3, r3, #1, #3
+ 690 0350 DBB2     		uxtb	r3, r3
+ 691 0352 1946     		mov	r1, r3
+ 692 0354 A648     		ldr	r0, .L35+32
+ 693 0356 FFF7FEFF 		bl	hal_mcu_trace_print
+ 145:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  SD_ID: %d\n", hdr->SD_ID);
+ 694              		.loc 1 145 13
+ 695 035a D7F84031 		ldr	r3, [r7, #320]
+ 696 035e 9B78     		ldrb	r3, [r3, #2]
+ 697 0360 C3F30013 		ubfx	r3, r3, #4, #1
+ 698 0364 DBB2     		uxtb	r3, r3
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 20
+
+
+ 699 0366 1946     		mov	r1, r3
+ 700 0368 A248     		ldr	r0, .L35+36
+ 701 036a FFF7FEFF 		bl	hal_mcu_trace_print
+ 146:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  PC_ID: %d\n", hdr->PC_ID);
+ 702              		.loc 1 146 13
+ 703 036e D7F84031 		ldr	r3, [r7, #320]
+ 704 0372 9B78     		ldrb	r3, [r3, #2]
+ 705 0374 C3F30003 		ubfx	r3, r3, #0, #1
+ 706 0378 DBB2     		uxtb	r3, r3
+ 707 037a 1946     		mov	r1, r3
+ 708 037c 9E48     		ldr	r0, .L35+40
+ 709 037e FFF7FEFF 		bl	hal_mcu_trace_print
+ 147:Rx_proximity.c **** 
+ 148:Rx_proximity.c **** 
+ 149:Rx_proximity.c ****             uint16_t scid = ((uint16_t)hdr->SC_ID_part1 << 8) | hdr->SC_ID_part2;
+ 710              		.loc 1 149 43
+ 711 0382 D7F84031 		ldr	r3, [r7, #320]
+ 712 0386 1B78     		ldrb	r3, [r3]
+ 713 0388 C3F38113 		ubfx	r3, r3, #6, #2
+ 714 038c DBB2     		uxtb	r3, r3
+ 715              		.loc 1 149 63
+ 716 038e 1BB2     		sxth	r3, r3
+ 717 0390 1B02     		lsls	r3, r3, #8
+ 718 0392 1AB2     		sxth	r2, r3
+ 719              		.loc 1 149 68
+ 720 0394 D7F84031 		ldr	r3, [r7, #320]
+ 721 0398 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 722 039a 1BB2     		sxth	r3, r3
+ 723              		.loc 1 149 63
+ 724 039c 1343     		orrs	r3, r3, r2
+ 725 039e 1BB2     		sxth	r3, r3
+ 726              		.loc 1 149 22
+ 727 03a0 A7F82C31 		strh	r3, [r7, #300]	@ movhi
+ 150:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  SC_ID: 0x%04X\n", scid);
+ 728              		.loc 1 150 13
+ 729 03a4 B7F82C31 		ldrh	r3, [r7, #300]
+ 730 03a8 1946     		mov	r1, r3
+ 731 03aa 9448     		ldr	r0, .L35+44
+ 732 03ac FFF7FEFF 		bl	hal_mcu_trace_print
+ 151:Rx_proximity.c **** 
+ 152:Rx_proximity.c **** 
+ 153:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  FSN: %d\n", hdr->FSN);
+ 733              		.loc 1 153 13
+ 734 03b0 D7F84031 		ldr	r3, [r7, #320]
+ 735 03b4 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 736 03b6 1946     		mov	r1, r3
+ 737 03b8 9148     		ldr	r0, .L35+48
+ 738 03ba FFF7FEFF 		bl	hal_mcu_trace_print
+ 154:Rx_proximity.c ****             HAL_DBG_TRACE_PRINTF("  SDU length: %d bytes\n", length);
+ 739              		.loc 1 154 13
+ 740 03be B7F82E31 		ldrh	r3, [r7, #302]
+ 741 03c2 1946     		mov	r1, r3
+ 742 03c4 8F48     		ldr	r0, .L35+52
+ 743 03c6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 155:Rx_proximity.c **** 
+ 156:Rx_proximity.c **** 
+ 157:Rx_proximity.c ****             /* ========= REENSAMBLADO DE FRAGMENTOS ========= */
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 21
+
+
+ 158:Rx_proximity.c ****             if (frame.type == FRAME_FRAGMENTED)
+ 744              		.loc 1 158 22
+ 745 03ca 07F5A473 		add	r3, r7, #328
+ 746 03ce A3F59E73 		sub	r3, r3, #316
+ 747 03d2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 748              		.loc 1 158 16
+ 749 03d4 012B     		cmp	r3, #1
+ 750 03d6 40F09780 		bne	.L20
+ 159:Rx_proximity.c ****             {
+ 160:Rx_proximity.c ****                 // Serializar fragmento actual al buffer de reensamblado
+ 161:Rx_proximity.c ****                 serialize_to_obc(frame, &reassembly_buffer);
+ 751              		.loc 1 161 17
+ 752 03da 07F5A473 		add	r3, r7, #328
+ 753 03de A3F59E73 		sub	r3, r3, #316
+ 754 03e2 894A     		ldr	r2, .L35+56
+ 755 03e4 0192     		str	r2, [sp, #4]
+ 756 03e6 1A69     		ldr	r2, [r3, #16]
+ 757 03e8 0092     		str	r2, [sp]
+ 758 03ea 0FCB     		ldm	r3, {r0, r1, r2, r3}
+ 759 03ec FFF7FEFF 		bl	serialize_to_obc
+ 162:Rx_proximity.c ****                 
+ 163:Rx_proximity.c ****                 HAL_DBG_TRACE_INFO("Fragment added to reassembly buffer (total: %d bytes)\n", 
+ 760              		.loc 1 163 17
+ 761 03f0 7748     		ldr	r0, .L35
+ 762 03f2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 763              		.loc 1 163 17 is_stmt 0 discriminator 1
+ 764 03f6 7748     		ldr	r0, .L35+4
+ 765 03f8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 766              		.loc 1 163 17 discriminator 2
+ 767 03fc 824B     		ldr	r3, .L35+56
+ 768 03fe 5B68     		ldr	r3, [r3, #4]
+ 769 0400 1946     		mov	r1, r3
+ 770 0402 8248     		ldr	r0, .L35+60
+ 771 0404 FFF7FEFF 		bl	hal_mcu_trace_print
+ 772              		.loc 1 163 17 discriminator 3
+ 773 0408 7448     		ldr	r0, .L35+12
+ 774 040a FFF7FEFF 		bl	hal_mcu_trace_print
+ 164:Rx_proximity.c ****                                    (int)reassembly_buffer.length);
+ 165:Rx_proximity.c ****                 
+ 166:Rx_proximity.c ****                 // Verificar si necesitamos más segmentos
+ 167:Rx_proximity.c ****                 if (need_more_seg(frame))
+ 775              		.loc 1 167 21 is_stmt 1
+ 776 040e 07F5A473 		add	r3, r7, #328
+ 777 0412 A3F59E73 		sub	r3, r3, #316
+ 778 0416 1A69     		ldr	r2, [r3, #16]
+ 779 0418 0092     		str	r2, [sp]
+ 780 041a 0FCB     		ldm	r3, {r0, r1, r2, r3}
+ 781 041c FFF7FEFF 		bl	need_more_seg
+ 782 0420 0346     		mov	r3, r0
+ 783              		.loc 1 167 20 discriminator 1
+ 784 0422 002B     		cmp	r3, #0
+ 785 0424 11D0     		beq	.L21
+ 168:Rx_proximity.c ****                 {
+ 169:Rx_proximity.c ****                     HAL_DBG_TRACE_INFO("Waiting for more segments...\n");
+ 786              		.loc 1 169 21
+ 787 0426 6A48     		ldr	r0, .L35
+ 788 0428 FFF7FEFF 		bl	hal_mcu_trace_print
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 22
+
+
+ 789              		.loc 1 169 21 is_stmt 0 discriminator 1
+ 790 042c 6948     		ldr	r0, .L35+4
+ 791 042e FFF7FEFF 		bl	hal_mcu_trace_print
+ 792              		.loc 1 169 21 discriminator 2
+ 793 0432 7748     		ldr	r0, .L35+64
+ 794 0434 FFF7FEFF 		bl	hal_mcu_trace_print
+ 795              		.loc 1 169 21 discriminator 3
+ 796 0438 6848     		ldr	r0, .L35+12
+ 797 043a FFF7FEFF 		bl	hal_mcu_trace_print
+ 170:Rx_proximity.c ****                     free_sdu_frame(&frame);
+ 798              		.loc 1 170 21 is_stmt 1
+ 799 043e 07F10C03 		add	r3, r7, #12
+ 800 0442 1846     		mov	r0, r3
+ 801 0444 FFF7FEFF 		bl	free_sdu_frame
+ 802 0448 9EE0     		b	.L22
+ 803              	.L21:
+ 171:Rx_proximity.c ****                     // NO hacer return - continuar en RX en el mismo ciclo del while(1)
+ 172:Rx_proximity.c ****                 }
+ 173:Rx_proximity.c ****                 else
+ 174:Rx_proximity.c ****                 {
+ 175:Rx_proximity.c ****                     HAL_DBG_TRACE_INFO("=== REASSEMBLY COMPLETE ===\n");
+ 804              		.loc 1 175 21
+ 805 044a 6148     		ldr	r0, .L35
+ 806 044c FFF7FEFF 		bl	hal_mcu_trace_print
+ 807              		.loc 1 175 21 is_stmt 0 discriminator 1
+ 808 0450 6048     		ldr	r0, .L35+4
+ 809 0452 FFF7FEFF 		bl	hal_mcu_trace_print
+ 810              		.loc 1 175 21 discriminator 2
+ 811 0456 6F48     		ldr	r0, .L35+68
+ 812 0458 FFF7FEFF 		bl	hal_mcu_trace_print
+ 813              		.loc 1 175 21 discriminator 3
+ 814 045c 5F48     		ldr	r0, .L35+12
+ 815 045e FFF7FEFF 		bl	hal_mcu_trace_print
+ 176:Rx_proximity.c ****                     HAL_DBG_TRACE_INFO("Total payload size: %d bytes\n", (int)reassembly_buffer.len
+ 816              		.loc 1 176 21 is_stmt 1
+ 817 0462 5B48     		ldr	r0, .L35
+ 818 0464 FFF7FEFF 		bl	hal_mcu_trace_print
+ 819              		.loc 1 176 21 is_stmt 0 discriminator 1
+ 820 0468 5A48     		ldr	r0, .L35+4
+ 821 046a FFF7FEFF 		bl	hal_mcu_trace_print
+ 822              		.loc 1 176 21 discriminator 2
+ 823 046e 664B     		ldr	r3, .L35+56
+ 824 0470 5B68     		ldr	r3, [r3, #4]
+ 825 0472 1946     		mov	r1, r3
+ 826 0474 6848     		ldr	r0, .L35+72
+ 827 0476 FFF7FEFF 		bl	hal_mcu_trace_print
+ 828              		.loc 1 176 21 discriminator 3
+ 829 047a 5848     		ldr	r0, .L35+12
+ 830 047c FFF7FEFF 		bl	hal_mcu_trace_print
+ 177:Rx_proximity.c ****                     
+ 178:Rx_proximity.c ****                     // Imprimir payload completo reensamblado
+ 179:Rx_proximity.c ****                     HAL_DBG_TRACE_INFO("Complete payload (ASCII):\n");
+ 831              		.loc 1 179 21 is_stmt 1
+ 832 0480 5348     		ldr	r0, .L35
+ 833 0482 FFF7FEFF 		bl	hal_mcu_trace_print
+ 834              		.loc 1 179 21 is_stmt 0 discriminator 1
+ 835 0486 5348     		ldr	r0, .L35+4
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 23
+
+
+ 836 0488 FFF7FEFF 		bl	hal_mcu_trace_print
+ 837              		.loc 1 179 21 discriminator 2
+ 838 048c 6348     		ldr	r0, .L35+76
+ 839 048e FFF7FEFF 		bl	hal_mcu_trace_print
+ 840              		.loc 1 179 21 discriminator 3
+ 841 0492 5248     		ldr	r0, .L35+12
+ 842 0494 FFF7FEFF 		bl	hal_mcu_trace_print
+ 843              	.LBB8:
+ 180:Rx_proximity.c ****                     for (size_t i = 0; i < reassembly_buffer.length; i++)
+ 844              		.loc 1 180 33 is_stmt 1
+ 845 0498 0023     		movs	r3, #0
+ 846 049a C7F83831 		str	r3, [r7, #312]
+ 847              		.loc 1 180 21
+ 848 049e 1EE0     		b	.L23
+ 849              	.L26:
+ 850              	.LBB9:
+ 181:Rx_proximity.c ****                     {
+ 182:Rx_proximity.c ****                         char c = reassembly_buffer.data[i];
+ 851              		.loc 1 182 51
+ 852 04a0 594B     		ldr	r3, .L35+56
+ 853 04a2 1A68     		ldr	r2, [r3]
+ 854              		.loc 1 182 56
+ 855 04a4 D7F83831 		ldr	r3, [r7, #312]
+ 856 04a8 1344     		add	r3, r3, r2
+ 857              		.loc 1 182 30
+ 858 04aa 1B78     		ldrb	r3, [r3]
+ 859 04ac 87F82A31 		strb	r3, [r7, #298]
+ 183:Rx_proximity.c ****                         if (c >= 32 && c <= 126) // Caracteres imprimibles
+ 860              		.loc 1 183 28
+ 861 04b0 97F82A31 		ldrb	r3, [r7, #298]	@ zero_extendqisi2
+ 862 04b4 1F2B     		cmp	r3, #31
+ 863 04b6 0AD9     		bls	.L24
+ 864              		.loc 1 183 37 discriminator 1
+ 865 04b8 97F82A31 		ldrb	r3, [r7, #298]	@ zero_extendqisi2
+ 866 04bc 7E2B     		cmp	r3, #126
+ 867 04be 06D8     		bhi	.L24
+ 184:Rx_proximity.c ****                             HAL_DBG_TRACE_PRINTF("%c", c);
+ 868              		.loc 1 184 29
+ 869 04c0 97F82A31 		ldrb	r3, [r7, #298]	@ zero_extendqisi2
+ 870 04c4 1946     		mov	r1, r3
+ 871 04c6 5648     		ldr	r0, .L35+80
+ 872 04c8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 873 04cc 02E0     		b	.L25
+ 874              	.L24:
+ 185:Rx_proximity.c ****                         else
+ 186:Rx_proximity.c ****                             HAL_DBG_TRACE_PRINTF(".");
+ 875              		.loc 1 186 29
+ 876 04ce 5548     		ldr	r0, .L35+84
+ 877 04d0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 878              	.L25:
+ 879              	.LBE9:
+ 180:Rx_proximity.c ****                     {
+ 880              		.loc 1 180 71 discriminator 2
+ 881 04d4 D7F83831 		ldr	r3, [r7, #312]
+ 882 04d8 0133     		adds	r3, r3, #1
+ 883 04da C7F83831 		str	r3, [r7, #312]
+ 884              	.L23:
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 24
+
+
+ 180:Rx_proximity.c ****                     {
+ 885              		.loc 1 180 61 discriminator 1
+ 886 04de 4A4B     		ldr	r3, .L35+56
+ 887 04e0 5B68     		ldr	r3, [r3, #4]
+ 180:Rx_proximity.c ****                     {
+ 888              		.loc 1 180 42 discriminator 1
+ 889 04e2 D7F83821 		ldr	r2, [r7, #312]
+ 890 04e6 9A42     		cmp	r2, r3
+ 891 04e8 DAD3     		bcc	.L26
+ 892              	.LBE8:
+ 187:Rx_proximity.c ****                     }
+ 188:Rx_proximity.c ****                     HAL_DBG_TRACE_PRINTF("\n\n");
+ 893              		.loc 1 188 21
+ 894 04ea 4F48     		ldr	r0, .L35+88
+ 895 04ec FFF7FEFF 		bl	hal_mcu_trace_print
+ 189:Rx_proximity.c ****                     
+ 190:Rx_proximity.c ****                     // Limpiar buffer de reensamblado
+ 191:Rx_proximity.c ****                     //
+ 192:Rx_proximity.c ****                      memset(reassembly_buffer.data, 0, sizeof(reassembly_raw_storage));
+ 896              		.loc 1 192 46
+ 897 04f0 454B     		ldr	r3, .L35+56
+ 898 04f2 1B68     		ldr	r3, [r3]
+ 899              		.loc 1 192 22
+ 900 04f4 4FF40062 		mov	r2, #2048
+ 901 04f8 0021     		movs	r1, #0
+ 902 04fa 1846     		mov	r0, r3
+ 903 04fc FFF7FEFF 		bl	memset
+ 193:Rx_proximity.c ****                      //memset(reassembly_buffer.data, 0, sizeof(reassembly_buffer.data));
+ 194:Rx_proximity.c ****                     reassembly_buffer.length = 0;
+ 904              		.loc 1 194 46
+ 905 0500 414B     		ldr	r3, .L35+56
+ 906 0502 0022     		movs	r2, #0
+ 907 0504 5A60     		str	r2, [r3, #4]
+ 908 0506 3FE0     		b	.L22
+ 909              	.L20:
+ 195:Rx_proximity.c ****                 }
+ 196:Rx_proximity.c ****             }
+ 197:Rx_proximity.c ****             else
+ 198:Rx_proximity.c ****             {
+ 199:Rx_proximity.c ****                 /* ========= PAYLOAD UNFRAGMENTED ========= */
+ 200:Rx_proximity.c ****                 if (payload != NULL && length > 0)
+ 910              		.loc 1 200 20
+ 911 0508 D7F83C31 		ldr	r3, [r7, #316]
+ 912 050c 002B     		cmp	r3, #0
+ 913 050e 3BD0     		beq	.L22
+ 914              		.loc 1 200 37 discriminator 1
+ 915 0510 B7F82E31 		ldrh	r3, [r7, #302]
+ 916 0514 002B     		cmp	r3, #0
+ 917 0516 37D0     		beq	.L22
+ 201:Rx_proximity.c ****                 {
+ 202:Rx_proximity.c ****                     HAL_DBG_TRACE_INFO("Payload (ASCII):\n");
+ 918              		.loc 1 202 21
+ 919 0518 2D48     		ldr	r0, .L35
+ 920 051a FFF7FEFF 		bl	hal_mcu_trace_print
+ 921              		.loc 1 202 21 is_stmt 0 discriminator 1
+ 922 051e 2D48     		ldr	r0, .L35+4
+ 923 0520 FFF7FEFF 		bl	hal_mcu_trace_print
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 25
+
+
+ 924              		.loc 1 202 21 discriminator 2
+ 925 0524 4148     		ldr	r0, .L35+92
+ 926 0526 FFF7FEFF 		bl	hal_mcu_trace_print
+ 927              		.loc 1 202 21 discriminator 3
+ 928 052a 2C48     		ldr	r0, .L35+12
+ 929 052c FFF7FEFF 		bl	hal_mcu_trace_print
+ 930              	.LBB10:
+ 203:Rx_proximity.c ****                     for (int j = 0; j < length; j++)
+ 931              		.loc 1 203 30 is_stmt 1
+ 932 0530 0023     		movs	r3, #0
+ 933 0532 C7F83431 		str	r3, [r7, #308]
+ 934              		.loc 1 203 21
+ 935 0536 1EE0     		b	.L27
+ 936              	.L30:
+ 937              	.LBB11:
+ 204:Rx_proximity.c ****                     {
+ 205:Rx_proximity.c ****                         char c = payload[j];
+ 938              		.loc 1 205 41
+ 939 0538 D7F83431 		ldr	r3, [r7, #308]
+ 940 053c D7F83C21 		ldr	r2, [r7, #316]
+ 941 0540 1344     		add	r3, r3, r2
+ 942              		.loc 1 205 30
+ 943 0542 1B78     		ldrb	r3, [r3]
+ 944 0544 87F82B31 		strb	r3, [r7, #299]
+ 206:Rx_proximity.c ****                         if (c >= 32 && c <= 126)
+ 945              		.loc 1 206 28
+ 946 0548 97F82B31 		ldrb	r3, [r7, #299]	@ zero_extendqisi2
+ 947 054c 1F2B     		cmp	r3, #31
+ 948 054e 0AD9     		bls	.L28
+ 949              		.loc 1 206 37 discriminator 1
+ 950 0550 97F82B31 		ldrb	r3, [r7, #299]	@ zero_extendqisi2
+ 951 0554 7E2B     		cmp	r3, #126
+ 952 0556 06D8     		bhi	.L28
+ 207:Rx_proximity.c ****                             HAL_DBG_TRACE_PRINTF("%c", c);
+ 953              		.loc 1 207 29
+ 954 0558 97F82B31 		ldrb	r3, [r7, #299]	@ zero_extendqisi2
+ 955 055c 1946     		mov	r1, r3
+ 956 055e 3048     		ldr	r0, .L35+80
+ 957 0560 FFF7FEFF 		bl	hal_mcu_trace_print
+ 958 0564 02E0     		b	.L29
+ 959              	.L28:
+ 208:Rx_proximity.c ****                         else
+ 209:Rx_proximity.c ****                             HAL_DBG_TRACE_PRINTF(".");
+ 960              		.loc 1 209 29
+ 961 0566 2F48     		ldr	r0, .L35+84
+ 962 0568 FFF7FEFF 		bl	hal_mcu_trace_print
+ 963              	.L29:
+ 964              	.LBE11:
+ 203:Rx_proximity.c ****                     {
+ 965              		.loc 1 203 50 discriminator 2
+ 966 056c D7F83431 		ldr	r3, [r7, #308]
+ 967 0570 0133     		adds	r3, r3, #1
+ 968 0572 C7F83431 		str	r3, [r7, #308]
+ 969              	.L27:
+ 203:Rx_proximity.c ****                     {
+ 970              		.loc 1 203 39 discriminator 1
+ 971 0576 B7F82E31 		ldrh	r3, [r7, #302]
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 26
+
+
+ 972 057a D7F83421 		ldr	r2, [r7, #308]
+ 973 057e 9A42     		cmp	r2, r3
+ 974 0580 DADB     		blt	.L30
+ 975              	.LBE10:
+ 210:Rx_proximity.c ****                     }
+ 211:Rx_proximity.c ****                     HAL_DBG_TRACE_PRINTF("\n");
+ 976              		.loc 1 211 21
+ 977 0582 2B48     		ldr	r0, .L35+96
+ 978 0584 FFF7FEFF 		bl	hal_mcu_trace_print
+ 979              	.L22:
+ 212:Rx_proximity.c ****                 }
+ 213:Rx_proximity.c ****             }
+ 214:Rx_proximity.c ****             
+ 215:Rx_proximity.c ****             free_sdu_frame(&frame);
+ 980              		.loc 1 215 13
+ 981 0588 07F10C03 		add	r3, r7, #12
+ 982 058c 1846     		mov	r0, r3
+ 983 058e FFF7FEFF 		bl	free_sdu_frame
+ 984              	.LBE7:
+ 985 0592 18E0     		b	.L7
+ 986              	.L15:
+ 216:Rx_proximity.c ****         }
+ 217:Rx_proximity.c ****         else
+ 218:Rx_proximity.c ****         {
+ 219:Rx_proximity.c ****             HAL_DBG_TRACE_WARNING("Received frame is invalid or corrupted.\n");
+ 987              		.loc 1 219 13
+ 988 0594 2748     		ldr	r0, .L35+100
+ 989 0596 FFF7FEFF 		bl	hal_mcu_trace_print
+ 990              		.loc 1 219 13 is_stmt 0 discriminator 1
+ 991 059a 2748     		ldr	r0, .L35+104
+ 992 059c FFF7FEFF 		bl	hal_mcu_trace_print
+ 993              		.loc 1 219 13 discriminator 2
+ 994 05a0 2648     		ldr	r0, .L35+108
+ 995 05a2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 996              		.loc 1 219 13 discriminator 3
+ 997 05a6 0D48     		ldr	r0, .L35+12
+ 998 05a8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 999 05ac 0BE0     		b	.L7
+ 1000              	.L12:
+ 1001              	.LBE5:
+ 220:Rx_proximity.c ****         }
+ 221:Rx_proximity.c ****     }
+ 222:Rx_proximity.c ****     else
+ 223:Rx_proximity.c ****     {
+ 224:Rx_proximity.c ****         HAL_DBG_TRACE_INFO("RX timeout: no packet received.\n");
+ 1002              		.loc 1 224 9 is_stmt 1
+ 1003 05ae 0848     		ldr	r0, .L35
+ 1004 05b0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1005              		.loc 1 224 9 is_stmt 0 discriminator 1
+ 1006 05b4 0748     		ldr	r0, .L35+4
+ 1007 05b6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1008              		.loc 1 224 9 discriminator 2
+ 1009 05ba 2148     		ldr	r0, .L35+112
+ 1010 05bc FFF7FEFF 		bl	hal_mcu_trace_print
+ 1011              		.loc 1 224 9 discriminator 3
+ 1012 05c0 0648     		ldr	r0, .L35+12
+ 1013 05c2 FFF7FEFF 		bl	hal_mcu_trace_print
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 27
+
+
+ 1014              	.L7:
+ 225:Rx_proximity.c ****     }
+ 226:Rx_proximity.c **** }
+ 1015              		.loc 1 226 1 is_stmt 1
+ 1016 05c6 07F5A477 		add	r7, r7, #328
+ 1017              	.LCFI10:
+ 1018              		.cfi_def_cfa_offset 8
+ 1019 05ca BD46     		mov	sp, r7
+ 1020              	.LCFI11:
+ 1021              		.cfi_def_cfa_register 13
+ 1022              		@ sp needed
+ 1023 05cc 80BD     		pop	{r7, pc}
+ 1024              	.L36:
+ 1025 05ce 00BF     		.align	2
+ 1026              	.L35:
+ 1027 05d0 00000000 		.word	.LC0
+ 1028 05d4 08000000 		.word	.LC1
+ 1029 05d8 10010000 		.word	.LC17
+ 1030 05dc 44000000 		.word	.LC3
+ 1031 05e0 20010000 		.word	.LC18
+ 1032 05e4 30010000 		.word	.LC19
+ 1033 05e8 3C010000 		.word	.LC20
+ 1034 05ec 4C010000 		.word	.LC21
+ 1035 05f0 5C010000 		.word	.LC22
+ 1036 05f4 6C010000 		.word	.LC23
+ 1037 05f8 7C010000 		.word	.LC24
+ 1038 05fc 8C010000 		.word	.LC25
+ 1039 0600 A0010000 		.word	.LC26
+ 1040 0604 AC010000 		.word	.LC27
+ 1041 0608 00000000 		.word	reassembly_buffer
+ 1042 060c C4010000 		.word	.LC28
+ 1043 0610 FC010000 		.word	.LC29
+ 1044 0614 1C020000 		.word	.LC30
+ 1045 0618 3C020000 		.word	.LC31
+ 1046 061c 5C020000 		.word	.LC32
+ 1047 0620 78020000 		.word	.LC33
+ 1048 0624 7C020000 		.word	.LC34
+ 1049 0628 80020000 		.word	.LC35
+ 1050 062c 84020000 		.word	.LC36
+ 1051 0630 AC000000 		.word	.LC11
+ 1052 0634 E8000000 		.word	.LC14
+ 1053 0638 F0000000 		.word	.LC15
+ 1054 063c 98020000 		.word	.LC37
+ 1055 0640 C4020000 		.word	.LC38
+ 1056              		.cfi_endproc
+ 1057              	.LFE242:
+ 1059              		.section	.text.free_sdu_frame,"ax",%progbits
+ 1060              		.align	1
+ 1061              		.syntax unified
+ 1062              		.thumb
+ 1063              		.thumb_func
+ 1065              	free_sdu_frame:
+ 1066              	.LFB243:
+ 227:Rx_proximity.c **** 
+ 228:Rx_proximity.c **** static void free_sdu_frame(SDUFrame* frame)
+ 229:Rx_proximity.c **** {
+ 1067              		.loc 1 229 1
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 28
+
+
+ 1068              		.cfi_startproc
+ 1069              		@ args = 0, pretend = 0, frame = 8
+ 1070              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1071 0000 80B5     		push	{r7, lr}
+ 1072              	.LCFI12:
+ 1073              		.cfi_def_cfa_offset 8
+ 1074              		.cfi_offset 7, -8
+ 1075              		.cfi_offset 14, -4
+ 1076 0002 82B0     		sub	sp, sp, #8
+ 1077              	.LCFI13:
+ 1078              		.cfi_def_cfa_offset 16
+ 1079 0004 00AF     		add	r7, sp, #0
+ 1080              	.LCFI14:
+ 1081              		.cfi_def_cfa_register 7
+ 1082 0006 7860     		str	r0, [r7, #4]
+ 230:Rx_proximity.c ****     if (frame->type == FRAME_UNFRAGMENTED)
+ 1083              		.loc 1 230 14
+ 1084 0008 7B68     		ldr	r3, [r7, #4]
+ 1085 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1086              		.loc 1 230 8
+ 1087 000c 002B     		cmp	r3, #0
+ 1088 000e 09D1     		bne	.L38
+ 231:Rx_proximity.c ****     {
+ 232:Rx_proximity.c ****         if (frame->data.unfragmented.sdu)
+ 1089              		.loc 1 232 37
+ 1090 0010 7B68     		ldr	r3, [r7, #4]
+ 1091 0012 DB68     		ldr	r3, [r3, #12]
+ 1092              		.loc 1 232 12
+ 1093 0014 002B     		cmp	r3, #0
+ 1094 0016 12D0     		beq	.L40
+ 233:Rx_proximity.c ****             free(frame->data.unfragmented.sdu);
+ 1095              		.loc 1 233 42
+ 1096 0018 7B68     		ldr	r3, [r7, #4]
+ 1097 001a DB68     		ldr	r3, [r3, #12]
+ 1098              		.loc 1 233 13
+ 1099 001c 1846     		mov	r0, r3
+ 1100 001e FFF7FEFF 		bl	free
+ 234:Rx_proximity.c ****     }
+ 235:Rx_proximity.c ****     else if (frame->type == FRAME_FRAGMENTED)
+ 236:Rx_proximity.c ****     {
+ 237:Rx_proximity.c ****         if (frame->data.fragmented.sdu)
+ 238:Rx_proximity.c ****             free(frame->data.fragmented.sdu);
+ 239:Rx_proximity.c ****     }
+ 240:Rx_proximity.c **** }
+ 1101              		.loc 1 240 1
+ 1102 0022 0CE0     		b	.L40
+ 1103              	.L38:
+ 235:Rx_proximity.c ****     {
+ 1104              		.loc 1 235 19
+ 1105 0024 7B68     		ldr	r3, [r7, #4]
+ 1106 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 235:Rx_proximity.c ****     {
+ 1107              		.loc 1 235 13
+ 1108 0028 012B     		cmp	r3, #1
+ 1109 002a 08D1     		bne	.L40
+ 237:Rx_proximity.c ****             free(frame->data.fragmented.sdu);
+ 1110              		.loc 1 237 35
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 29
+
+
+ 1111 002c 7B68     		ldr	r3, [r7, #4]
+ 1112 002e DB68     		ldr	r3, [r3, #12]
+ 237:Rx_proximity.c ****             free(frame->data.fragmented.sdu);
+ 1113              		.loc 1 237 12
+ 1114 0030 002B     		cmp	r3, #0
+ 1115 0032 04D0     		beq	.L40
+ 238:Rx_proximity.c ****     }
+ 1116              		.loc 1 238 40
+ 1117 0034 7B68     		ldr	r3, [r7, #4]
+ 1118 0036 DB68     		ldr	r3, [r3, #12]
+ 238:Rx_proximity.c ****     }
+ 1119              		.loc 1 238 13
+ 1120 0038 1846     		mov	r0, r3
+ 1121 003a FFF7FEFF 		bl	free
+ 1122              	.L40:
+ 1123              		.loc 1 240 1
+ 1124 003e 00BF     		nop
+ 1125 0040 0837     		adds	r7, r7, #8
+ 1126              	.LCFI15:
+ 1127              		.cfi_def_cfa_offset 8
+ 1128 0042 BD46     		mov	sp, r7
+ 1129              	.LCFI16:
+ 1130              		.cfi_def_cfa_register 13
+ 1131              		@ sp needed
+ 1132 0044 80BD     		pop	{r7, pc}
+ 1133              		.cfi_endproc
+ 1134              	.LFE243:
+ 1136              		.section	.rodata.__func__.0,"a"
+ 1137              		.align	2
+ 1140              	__func__.0:
+ 1141 0000 72656365 		.ascii	"receive_and_process\000"
+ 1141      6976655F 
+ 1141      616E645F 
+ 1141      70726F63 
+ 1141      65737300 
+ 1142              		.text
+ 1143              	.Letext0:
+ 1144              		.file 3 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/machin
+ 1145              		.file 4 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/lib/gcc/arm-none-eabi/14.2.1
+ 1146              		.file 5 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys/_s
+ 1147              		.file 6 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_status.h"
+ 1148              		.file 7 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_spi.h"
+ 1149              		.file 8 "../../../libs/smtc-hal-mcu-stm32l4/third_party/STM32CubeL4/Drivers/CMSIS/Device/ST/STM32L
+ 1150              		.file 9 "../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_spi_stm32l4.h"
+ 1151              		.file 10 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_gpio.h"
+ 1152              		.file 11 "../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_gpio_stm32l4.h"
+ 1153              		.file 12 "../../../lr11xx/common/lr11xx_hal_context.h"
+ 1154              		.file 13 "../../../lr11xx/lr11xx_driver/src/lr11xx_system_types.h"
+ 1155              		.file 14 "../../../lr11xx/lr11xx_driver/src/lr11xx_types.h"
+ 1156              		.file 15 "pae_libs/protocol_definitions.h"
+ 1157              		.file 16 "../../../lr11xx/common/apps_configuration.h"
+ 1158              		.file 17 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/strin
+ 1159              		.file 18 "pae_libs/io_sublayer.h"
+ 1160              		.file 19 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/stdli
+ 1161              		.file 20 "pae_libs/frame_sublayer.h"
+ 1162              		.file 21 "../../../lr11xx/common/apps_common.h"
+ 1163              		.file 22 "../../../lr11xx/lr11xx_driver/src/lr11xx_radio.h"
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 30
+
+
+ 1164              		.file 23 "../../../libs/smtc-hal-mcu-stm32l4/third_party/STM32CubeL4/Drivers/STM32L4xx_HAL_Driver/
+ 1165              		.file 24 "../../../common/inc/smtc_hal_dbg_trace.h"
+ 1166              		.file 25 "../../../common/inc/uart_init.h"
+ 1167              		.file 26 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu.h"
+ARM GAS  C:\msys64\tmp\ccwUT0Ti.s 			page 31
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Rx_proximity.c
+C:\msys64\tmp\ccwUT0Ti.s:21     .rodata.gfsk_sync_word:00000000 $d
+C:\msys64\tmp\ccwUT0Ti.s:24     .rodata.gfsk_sync_word:00000000 gfsk_sync_word
+C:\msys64\tmp\ccwUT0Ti.s:27     .text.lr11xx_system_get_irq_status:00000000 $t
+C:\msys64\tmp\ccwUT0Ti.s:32     .text.lr11xx_system_get_irq_status:00000000 lr11xx_system_get_irq_status
+C:\msys64\tmp\ccwUT0Ti.s:73     .bss.context:00000000 $d
+C:\msys64\tmp\ccwUT0Ti.s:76     .bss.context:00000000 context
+C:\msys64\tmp\ccwUT0Ti.s:79     .bss.reassembly_raw_storage:00000000 $d
+C:\msys64\tmp\ccwUT0Ti.s:82     .bss.reassembly_raw_storage:00000000 reassembly_raw_storage
+C:\msys64\tmp\ccwUT0Ti.s:85     .data.reassembly_buffer:00000000 $d
+C:\msys64\tmp\ccwUT0Ti.s:88     .data.reassembly_buffer:00000000 reassembly_buffer
+C:\msys64\tmp\ccwUT0Ti.s:92     .rodata:00000000 $d
+C:\msys64\tmp\ccwUT0Ti.s:106    .text.main:00000000 $t
+C:\msys64\tmp\ccwUT0Ti.s:112    .text.main:00000000 main
+C:\msys64\tmp\ccwUT0Ti.s:303    .text.receive_and_process:00000000 receive_and_process
+C:\msys64\tmp\ccwUT0Ti.s:182    .text.main:00000068 $d
+C:\msys64\tmp\ccwUT0Ti.s:298    .text.receive_and_process:00000000 $t
+C:\msys64\tmp\ccwUT0Ti.s:605    .text.receive_and_process:00000274 $d
+C:\msys64\tmp\ccwUT0Ti.s:1140   .rodata.__func__.0:00000000 __func__.0
+C:\msys64\tmp\ccwUT0Ti.s:625    .text.receive_and_process:000002bc $t
+C:\msys64\tmp\ccwUT0Ti.s:1065   .text.free_sdu_frame:00000000 free_sdu_frame
+C:\msys64\tmp\ccwUT0Ti.s:1027   .text.receive_and_process:000005d0 $d
+C:\msys64\tmp\ccwUT0Ti.s:1060   .text.free_sdu_frame:00000000 $t
+C:\msys64\tmp\ccwUT0Ti.s:1137   .rodata.__func__.0:00000000 $d
+
+UNDEFINED SYMBOLS
+lr11xx_system_get_status
+smtc_hal_mcu_init
+apps_common_shield_init
+uart_init
+hal_mcu_trace_print
+apps_common_print_sdk_driver_version
+apps_common_lr11xx_get_context
+apps_common_lr11xx_system_init
+apps_common_lr11xx_fetch_and_print_version
+apps_common_lr11xx_radio_init
+LL_mDelay
+apps_common_lr11xx_handle_pre_rx
+lr11xx_radio_set_rx
+lr11xx_system_clear_irq_status
+apps_common_lr11xx_handle_post_rx
+apps_common_lr11xx_receive
+deserialize_sdu_frame
+check_sdu_frame
+serialize_to_obc
+need_more_seg
+memset
+free

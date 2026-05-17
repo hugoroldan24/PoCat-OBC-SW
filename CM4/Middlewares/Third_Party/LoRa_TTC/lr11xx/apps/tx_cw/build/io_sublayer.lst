@@ -1,0 +1,2700 @@
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"io_sublayer.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "pae_libs/io_sublayer.c"
+  20              		.section	.bss.pseudo_packet_counter,"aw",%nobits
+  23              	pseudo_packet_counter:
+  24 0000 00       		.space	1
+  25              		.section	.text.need_fragmentation,"ax",%progbits
+  26              		.align	1
+  27              		.global	need_fragmentation
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  32              	need_fragmentation:
+  33              	.LFB3:
+   1:pae_libs/io_sublayer.c **** #include "io_sublayer.h"
+   2:pae_libs/io_sublayer.c **** #include "protocol_definitions.h"
+   3:pae_libs/io_sublayer.c **** #include <string.h>
+   4:pae_libs/io_sublayer.c **** #include <stdio.h>
+   5:pae_libs/io_sublayer.c **** // #include <stdlib.h> // Removed
+   6:pae_libs/io_sublayer.c **** 
+   7:pae_libs/io_sublayer.c **** // Define the maximum fragmented SDU size
+   8:pae_libs/io_sublayer.c **** #define NUM_MAX_FRAGMENTS_SDU 1024
+   9:pae_libs/io_sublayer.c **** // #define MAX_BITSEQUENCE_SIZE 8192 // Defined in protocol_definitions.h
+  10:pae_libs/io_sublayer.c **** 
+  11:pae_libs/io_sublayer.c **** // Static counter for pseudo packet ID generation (0-63)
+  12:pae_libs/io_sublayer.c **** static uint8_t pseudo_packet_counter = 0;
+  13:pae_libs/io_sublayer.c **** 
+  14:pae_libs/io_sublayer.c **** // Check if the SDU is too large to be unsegmented
+  15:pae_libs/io_sublayer.c **** bool need_fragmentation(uint8_t *OBC_data, size_t OBC_data_size) {
+  34              		.loc 1 15 66
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 8
+  37              		@ frame_needed = 1, uses_anonymous_args = 0
+  38              		@ link register save eliminated.
+  39 0000 80B4     		push	{r7}
+  40              	.LCFI0:
+  41              		.cfi_def_cfa_offset 4
+  42              		.cfi_offset 7, -4
+  43 0002 83B0     		sub	sp, sp, #12
+  44              	.LCFI1:
+  45              		.cfi_def_cfa_offset 16
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 2
+
+
+  46 0004 00AF     		add	r7, sp, #0
+  47              	.LCFI2:
+  48              		.cfi_def_cfa_register 7
+  49 0006 7860     		str	r0, [r7, #4]
+  50 0008 3960     		str	r1, [r7]
+  16:pae_libs/io_sublayer.c ****     return (OBC_data_size > MAX_FRAGMENTED_SDU_SIZE);
+  51              		.loc 1 16 27
+  52 000a 3B68     		ldr	r3, [r7]
+  53 000c F92B     		cmp	r3, #249
+  54 000e 8CBF     		ite	hi
+  55 0010 0123     		movhi	r3, #1
+  56 0012 0023     		movls	r3, #0
+  57 0014 DBB2     		uxtb	r3, r3
+  17:pae_libs/io_sublayer.c **** }
+  58              		.loc 1 17 1
+  59 0016 1846     		mov	r0, r3
+  60 0018 0C37     		adds	r7, r7, #12
+  61              	.LCFI3:
+  62              		.cfi_def_cfa_offset 4
+  63 001a BD46     		mov	sp, r7
+  64              	.LCFI4:
+  65              		.cfi_def_cfa_register 13
+  66              		@ sp needed
+  67 001c 5DF8047B 		ldr	r7, [sp], #4
+  68              	.LCFI5:
+  69              		.cfi_restore 7
+  70              		.cfi_def_cfa_offset 0
+  71 0020 7047     		bx	lr
+  72              		.cfi_endproc
+  73              	.LFE3:
+  75              		.section	.text.create_pdu_header,"ax",%progbits
+  76              		.align	1
+  77              		.global	create_pdu_header
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  82              	create_pdu_header:
+  83              	.LFB4:
+  18:pae_libs/io_sublayer.c **** // Create a new PDU header
+  19:pae_libs/io_sublayer.c **** PDUHeader create_pdu_header(uint8_t version, uint8_t qos, uint8_t pdu_id, uint8_t dfc_id,
+  20:pae_libs/io_sublayer.c ****     uint16_t sc_id, uint8_t pc_id, uint8_t port_id, uint8_t sd_id, 
+  21:pae_libs/io_sublayer.c ****     uint16_t data_length, uint8_t fsn) {
+  84              		.loc 1 21 40
+  85              		.cfi_startproc
+  86              		@ args = 28, pretend = 0, frame = 16
+  87              		@ frame_needed = 1, uses_anonymous_args = 0
+  88              		@ link register save eliminated.
+  89 0000 80B4     		push	{r7}
+  90              	.LCFI6:
+  91              		.cfi_def_cfa_offset 4
+  92              		.cfi_offset 7, -4
+  93 0002 85B0     		sub	sp, sp, #20
+  94              	.LCFI7:
+  95              		.cfi_def_cfa_offset 24
+  96 0004 00AF     		add	r7, sp, #0
+  97              	.LCFI8:
+  98              		.cfi_def_cfa_register 7
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 3
+
+
+  99 0006 7860     		str	r0, [r7, #4]
+ 100 0008 0846     		mov	r0, r1
+ 101 000a 1146     		mov	r1, r2
+ 102 000c 1A46     		mov	r2, r3
+ 103 000e 0346     		mov	r3, r0
+ 104 0010 FB70     		strb	r3, [r7, #3]
+ 105 0012 0B46     		mov	r3, r1
+ 106 0014 BB70     		strb	r3, [r7, #2]
+ 107 0016 1346     		mov	r3, r2
+ 108 0018 7B70     		strb	r3, [r7, #1]
+  22:pae_libs/io_sublayer.c ****     PDUHeader header = {0}; // Initialize header to zero
+ 109              		.loc 1 22 15
+ 110 001a 07F10803 		add	r3, r7, #8
+ 111 001e 0022     		movs	r2, #0
+ 112 0020 1A60     		str	r2, [r3]
+ 113 0022 1A71     		strb	r2, [r3, #4]
+  23:pae_libs/io_sublayer.c **** 
+  24:pae_libs/io_sublayer.c ****     // Assign values to the header fields
+  25:pae_libs/io_sublayer.c ****     header.VersionNum = version; 
+ 114              		.loc 1 25 23
+ 115 0024 FB78     		ldrb	r3, [r7, #3]
+ 116 0026 03F00303 		and	r3, r3, #3
+ 117 002a DAB2     		uxtb	r2, r3
+ 118 002c 3B7A     		ldrb	r3, [r7, #8]
+ 119 002e 62F30103 		bfi	r3, r2, #0, #2
+ 120 0032 3B72     		strb	r3, [r7, #8]
+  26:pae_libs/io_sublayer.c ****     header.QoS = qos; 
+ 121              		.loc 1 26 16
+ 122 0034 BB78     		ldrb	r3, [r7, #2]
+ 123 0036 03F00103 		and	r3, r3, #1
+ 124 003a DAB2     		uxtb	r2, r3
+ 125 003c 3B7A     		ldrb	r3, [r7, #8]
+ 126 003e 62F38203 		bfi	r3, r2, #2, #1
+ 127 0042 3B72     		strb	r3, [r7, #8]
+  27:pae_libs/io_sublayer.c ****     header.PDU_ID = pdu_id;
+ 128              		.loc 1 27 19
+ 129 0044 7B78     		ldrb	r3, [r7, #1]
+ 130 0046 03F00103 		and	r3, r3, #1
+ 131 004a DAB2     		uxtb	r2, r3
+ 132 004c 3B7A     		ldrb	r3, [r7, #8]
+ 133 004e 62F3C303 		bfi	r3, r2, #3, #1
+ 134 0052 3B72     		strb	r3, [r7, #8]
+  28:pae_libs/io_sublayer.c ****     header.DFC_ID = dfc_id;
+ 135              		.loc 1 28 19
+ 136 0054 3B7E     		ldrb	r3, [r7, #24]
+ 137 0056 03F00303 		and	r3, r3, #3
+ 138 005a DAB2     		uxtb	r2, r3
+ 139 005c 3B7A     		ldrb	r3, [r7, #8]
+ 140 005e 62F30513 		bfi	r3, r2, #4, #2
+ 141 0062 3B72     		strb	r3, [r7, #8]
+  29:pae_libs/io_sublayer.c ****     header.SC_ID_part1 = (sc_id >> 8) & 0xFF;;
+ 142              		.loc 1 29 39
+ 143 0064 BB8B     		ldrh	r3, [r7, #28]
+ 144 0066 1B0A     		lsrs	r3, r3, #8
+ 145 0068 9BB2     		uxth	r3, r3
+ 146 006a 03F00303 		and	r3, r3, #3
+ 147 006e DAB2     		uxtb	r2, r3
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 4
+
+
+ 148              		.loc 1 29 24
+ 149 0070 3B7A     		ldrb	r3, [r7, #8]
+ 150 0072 62F38713 		bfi	r3, r2, #6, #2
+ 151 0076 3B72     		strb	r3, [r7, #8]
+  30:pae_libs/io_sublayer.c ****     header.SC_ID_part2 = sc_id & 0xFF;
+ 152              		.loc 1 30 24
+ 153 0078 BB8B     		ldrh	r3, [r7, #28]	@ movhi
+ 154 007a DBB2     		uxtb	r3, r3
+ 155 007c 7B72     		strb	r3, [r7, #9]
+  31:pae_libs/io_sublayer.c ****     header.PC_ID = pc_id;
+ 156              		.loc 1 31 18
+ 157 007e 97F82030 		ldrb	r3, [r7, #32]
+ 158 0082 03F00103 		and	r3, r3, #1
+ 159 0086 DAB2     		uxtb	r2, r3
+ 160 0088 BB7A     		ldrb	r3, [r7, #10]
+ 161 008a 62F30003 		bfi	r3, r2, #0, #1
+ 162 008e BB72     		strb	r3, [r7, #10]
+  32:pae_libs/io_sublayer.c ****     header.PortID = port_id;
+ 163              		.loc 1 32 19
+ 164 0090 97F82430 		ldrb	r3, [r7, #36]
+ 165 0094 03F00703 		and	r3, r3, #7
+ 166 0098 DAB2     		uxtb	r2, r3
+ 167 009a BB7A     		ldrb	r3, [r7, #10]
+ 168 009c 62F34303 		bfi	r3, r2, #1, #3
+ 169 00a0 BB72     		strb	r3, [r7, #10]
+  33:pae_libs/io_sublayer.c ****     header.SD_ID = sd_id;
+ 170              		.loc 1 33 18
+ 171 00a2 97F82830 		ldrb	r3, [r7, #40]
+ 172 00a6 03F00103 		and	r3, r3, #1
+ 173 00aa DAB2     		uxtb	r2, r3
+ 174 00ac BB7A     		ldrb	r3, [r7, #10]
+ 175 00ae 62F30413 		bfi	r3, r2, #4, #1
+ 176 00b2 BB72     		strb	r3, [r7, #10]
+  34:pae_libs/io_sublayer.c ****     header.data_length_high = (data_length >> 8) & 0x07; // High part of data_length
+ 177              		.loc 1 34 50
+ 178 00b4 BB8D     		ldrh	r3, [r7, #44]
+ 179 00b6 1B0A     		lsrs	r3, r3, #8
+ 180 00b8 9BB2     		uxth	r3, r3
+ 181 00ba 03F00703 		and	r3, r3, #7
+ 182 00be DAB2     		uxtb	r2, r3
+ 183              		.loc 1 34 29
+ 184 00c0 BB7A     		ldrb	r3, [r7, #10]
+ 185 00c2 62F34713 		bfi	r3, r2, #5, #3
+ 186 00c6 BB72     		strb	r3, [r7, #10]
+  35:pae_libs/io_sublayer.c ****     header.data_length_low = data_length & 0xFF; // Low part of data_length
+ 187              		.loc 1 35 28
+ 188 00c8 BB8D     		ldrh	r3, [r7, #44]	@ movhi
+ 189 00ca DBB2     		uxtb	r3, r3
+ 190 00cc FB72     		strb	r3, [r7, #11]
+  36:pae_libs/io_sublayer.c ****     header.FSN = fsn; // Initialize FSN with the provided value or 0 by default
+ 191              		.loc 1 36 16
+ 192 00ce 97F83030 		ldrb	r3, [r7, #48]
+ 193 00d2 3B73     		strb	r3, [r7, #12]
+  37:pae_libs/io_sublayer.c **** 
+  38:pae_libs/io_sublayer.c ****     return header;
+ 194              		.loc 1 38 12
+ 195 00d4 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 5
+
+
+ 196 00d6 1A46     		mov	r2, r3
+ 197 00d8 07F10803 		add	r3, r7, #8
+ 198 00dc 1868     		ldr	r0, [r3]
+ 199 00de 1060     		str	r0, [r2]	@ unaligned
+ 200 00e0 1B79     		ldrb	r3, [r3, #4]
+ 201 00e2 1371     		strb	r3, [r2, #4]
+  39:pae_libs/io_sublayer.c **** }
+ 202              		.loc 1 39 1
+ 203 00e4 7868     		ldr	r0, [r7, #4]
+ 204 00e6 1437     		adds	r7, r7, #20
+ 205              	.LCFI9:
+ 206              		.cfi_def_cfa_offset 4
+ 207 00e8 BD46     		mov	sp, r7
+ 208              	.LCFI10:
+ 209              		.cfi_def_cfa_register 13
+ 210              		@ sp needed
+ 211 00ea 5DF8047B 		ldr	r7, [sp], #4
+ 212              	.LCFI11:
+ 213              		.cfi_restore 7
+ 214              		.cfi_def_cfa_offset 0
+ 215 00ee 7047     		bx	lr
+ 216              		.cfi_endproc
+ 217              	.LFE4:
+ 219              		.section	.text.create_segmentation_header,"ax",%progbits
+ 220              		.align	1
+ 221              		.global	create_segmentation_header
+ 222              		.syntax unified
+ 223              		.thumb
+ 224              		.thumb_func
+ 226              	create_segmentation_header:
+ 227              	.LFB5:
+  40:pae_libs/io_sublayer.c **** // Create a new segmentation header
+  41:pae_libs/io_sublayer.c **** SegmentationHeader create_segmentation_header(uint8_t seg_flag, uint8_t pseudo_packet_id) {
+ 228              		.loc 1 41 91
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 16
+ 231              		@ frame_needed = 1, uses_anonymous_args = 0
+ 232              		@ link register save eliminated.
+ 233 0000 80B4     		push	{r7}
+ 234              	.LCFI12:
+ 235              		.cfi_def_cfa_offset 4
+ 236              		.cfi_offset 7, -4
+ 237 0002 85B0     		sub	sp, sp, #20
+ 238              	.LCFI13:
+ 239              		.cfi_def_cfa_offset 24
+ 240 0004 00AF     		add	r7, sp, #0
+ 241              	.LCFI14:
+ 242              		.cfi_def_cfa_register 7
+ 243 0006 0346     		mov	r3, r0
+ 244 0008 0A46     		mov	r2, r1
+ 245 000a FB71     		strb	r3, [r7, #7]
+ 246 000c 1346     		mov	r3, r2
+ 247 000e BB71     		strb	r3, [r7, #6]
+  42:pae_libs/io_sublayer.c ****     SegmentationHeader header;
+  43:pae_libs/io_sublayer.c ****     header.SegFlag = seg_flag;
+ 248              		.loc 1 43 20
+ 249 0010 FB79     		ldrb	r3, [r7, #7]
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 6
+
+
+ 250 0012 03F00303 		and	r3, r3, #3
+ 251 0016 DAB2     		uxtb	r2, r3
+ 252 0018 3B7B     		ldrb	r3, [r7, #12]
+ 253 001a 62F30103 		bfi	r3, r2, #0, #2
+ 254 001e 3B73     		strb	r3, [r7, #12]
+  44:pae_libs/io_sublayer.c ****     header.PseudoPacketID = pseudo_packet_id;
+ 255              		.loc 1 44 27
+ 256 0020 BB79     		ldrb	r3, [r7, #6]
+ 257 0022 03F03F03 		and	r3, r3, #63
+ 258 0026 DAB2     		uxtb	r2, r3
+ 259 0028 3B7B     		ldrb	r3, [r7, #12]
+ 260 002a 62F38703 		bfi	r3, r2, #2, #6
+ 261 002e 3B73     		strb	r3, [r7, #12]
+  45:pae_libs/io_sublayer.c ****     return header;
+ 262              		.loc 1 45 12
+ 263 0030 3B7B     		ldrb	r3, [r7, #12]
+  46:pae_libs/io_sublayer.c **** }
+ 264              		.loc 1 46 1
+ 265 0032 1846     		mov	r0, r3
+ 266 0034 1437     		adds	r7, r7, #20
+ 267              	.LCFI15:
+ 268              		.cfi_def_cfa_offset 4
+ 269 0036 BD46     		mov	sp, r7
+ 270              	.LCFI16:
+ 271              		.cfi_def_cfa_register 13
+ 272              		@ sp needed
+ 273 0038 5DF8047B 		ldr	r7, [sp], #4
+ 274              	.LCFI17:
+ 275              		.cfi_restore 7
+ 276              		.cfi_def_cfa_offset 0
+ 277 003c 7047     		bx	lr
+ 278              		.cfi_endproc
+ 279              	.LFE5:
+ 281              		.section	.text.create_buffer,"ax",%progbits
+ 282              		.align	1
+ 283              		.global	create_buffer
+ 284              		.syntax unified
+ 285              		.thumb
+ 286              		.thumb_func
+ 288              	create_buffer:
+ 289              	.LFB6:
+  47:pae_libs/io_sublayer.c **** // Create a new frame buffer
+  48:pae_libs/io_sublayer.c **** void create_buffer(IOBuffer *buffer) {
+ 290              		.loc 1 48 38
+ 291              		.cfi_startproc
+ 292              		@ args = 0, pretend = 0, frame = 8
+ 293              		@ frame_needed = 1, uses_anonymous_args = 0
+ 294 0000 80B5     		push	{r7, lr}
+ 295              	.LCFI18:
+ 296              		.cfi_def_cfa_offset 8
+ 297              		.cfi_offset 7, -8
+ 298              		.cfi_offset 14, -4
+ 299 0002 82B0     		sub	sp, sp, #8
+ 300              	.LCFI19:
+ 301              		.cfi_def_cfa_offset 16
+ 302 0004 00AF     		add	r7, sp, #0
+ 303              	.LCFI20:
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 7
+
+
+ 304              		.cfi_def_cfa_register 7
+ 305 0006 7860     		str	r0, [r7, #4]
+  49:pae_libs/io_sublayer.c ****     memset(buffer, 0, sizeof(IOBuffer)); // Initialize entire buffer to zero
+ 306              		.loc 1 49 5
+ 307 0008 44F24832 		movw	r2, #17224
+ 308 000c 0021     		movs	r1, #0
+ 309 000e 7868     		ldr	r0, [r7, #4]
+ 310 0010 FFF7FEFF 		bl	memset
+  50:pae_libs/io_sublayer.c ****     buffer->size = 0;
+ 311              		.loc 1 50 18
+ 312 0014 7B68     		ldr	r3, [r7, #4]
+ 313 0016 03F58043 		add	r3, r3, #16384
+ 314 001a 1A46     		mov	r2, r3
+ 315 001c 0023     		movs	r3, #0
+ 316 001e C2F84433 		str	r3, [r2, #836]
+  51:pae_libs/io_sublayer.c ****     buffer->completframes = 0;
+ 317              		.loc 1 51 27
+ 318 0022 7B68     		ldr	r3, [r7, #4]
+ 319 0024 03F58043 		add	r3, r3, #16384
+ 320 0028 1A46     		mov	r2, r3
+ 321 002a 0023     		movs	r3, #0
+ 322 002c C2F84033 		str	r3, [r2, #832]
+  52:pae_libs/io_sublayer.c **** }
+ 323              		.loc 1 52 1
+ 324 0030 00BF     		nop
+ 325 0032 0837     		adds	r7, r7, #8
+ 326              	.LCFI21:
+ 327              		.cfi_def_cfa_offset 8
+ 328 0034 BD46     		mov	sp, r7
+ 329              	.LCFI22:
+ 330              		.cfi_def_cfa_register 13
+ 331              		@ sp needed
+ 332 0036 80BD     		pop	{r7, pc}
+ 333              		.cfi_endproc
+ 334              	.LFE6:
+ 336              		.section	.rodata
+ 337              		.align	2
+ 338              	.LC0:
+ 339 0000 4572726F 		.ascii	"Error: No available packet_id.\012\000"
+ 339      723A204E 
+ 339      6F206176 
+ 339      61696C61 
+ 339      626C6520 
+ 340              		.section	.text.generate_packet_id,"ax",%progbits
+ 341              		.align	1
+ 342              		.global	generate_packet_id
+ 343              		.syntax unified
+ 344              		.thumb
+ 345              		.thumb_func
+ 347              	generate_packet_id:
+ 348              	.LFB7:
+  53:pae_libs/io_sublayer.c **** // Create a new packet_id, used for tracking across all sublayers
+  54:pae_libs/io_sublayer.c **** uint32_t generate_packet_id(IOBuffer *buffer) {
+ 349              		.loc 1 54 47
+ 350              		.cfi_startproc
+ 351              		@ args = 0, pretend = 0, frame = 16
+ 352              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 8
+
+
+ 353 0000 80B5     		push	{r7, lr}
+ 354              	.LCFI23:
+ 355              		.cfi_def_cfa_offset 8
+ 356              		.cfi_offset 7, -8
+ 357              		.cfi_offset 14, -4
+ 358 0002 84B0     		sub	sp, sp, #16
+ 359              	.LCFI24:
+ 360              		.cfi_def_cfa_offset 24
+ 361 0004 00AF     		add	r7, sp, #0
+ 362              	.LCFI25:
+ 363              		.cfi_def_cfa_register 7
+ 364 0006 7860     		str	r0, [r7, #4]
+ 365              	.LBB2:
+  55:pae_libs/io_sublayer.c ****     // Find an available packet_id in the buffer
+  56:pae_libs/io_sublayer.c ****     for (uint32_t id = 0; id < NUM_MAX_SEGMENTS; id++) {
+ 366              		.loc 1 56 19
+ 367 0008 0023     		movs	r3, #0
+ 368 000a FB60     		str	r3, [r7, #12]
+ 369              		.loc 1 56 5
+ 370 000c 16E0     		b	.L9
+ 371              	.L12:
+  57:pae_libs/io_sublayer.c ****         if (!buffer->packet_id_in_use[id]) {
+ 372              		.loc 1 57 38
+ 373 000e 7A68     		ldr	r2, [r7, #4]
+ 374 0010 FB68     		ldr	r3, [r7, #12]
+ 375 0012 1344     		add	r3, r3, r2
+ 376 0014 03F58643 		add	r3, r3, #17152
+ 377 0018 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 378              		.loc 1 57 13
+ 379 001a 83F00103 		eor	r3, r3, #1
+ 380 001e DBB2     		uxtb	r3, r3
+ 381              		.loc 1 57 12
+ 382 0020 002B     		cmp	r3, #0
+ 383 0022 08D0     		beq	.L10
+  58:pae_libs/io_sublayer.c ****             buffer->packet_id_in_use[id] = true; // Mark ID as in use
+ 384              		.loc 1 58 42
+ 385 0024 7A68     		ldr	r2, [r7, #4]
+ 386 0026 FB68     		ldr	r3, [r7, #12]
+ 387 0028 1344     		add	r3, r3, r2
+ 388 002a 03F58643 		add	r3, r3, #17152
+ 389 002e 0122     		movs	r2, #1
+ 390 0030 1A70     		strb	r2, [r3]
+  59:pae_libs/io_sublayer.c ****             return id;
+ 391              		.loc 1 59 20
+ 392 0032 FB68     		ldr	r3, [r7, #12]
+ 393 0034 0FE0     		b	.L11
+ 394              	.L10:
+  56:pae_libs/io_sublayer.c ****         if (!buffer->packet_id_in_use[id]) {
+ 395              		.loc 1 56 52 discriminator 2
+ 396 0036 FB68     		ldr	r3, [r7, #12]
+ 397 0038 0133     		adds	r3, r3, #1
+ 398 003a FB60     		str	r3, [r7, #12]
+ 399              	.L9:
+  56:pae_libs/io_sublayer.c ****         if (!buffer->packet_id_in_use[id]) {
+ 400              		.loc 1 56 30 discriminator 1
+ 401 003c FB68     		ldr	r3, [r7, #12]
+ 402 003e 3F2B     		cmp	r3, #63
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 9
+
+
+ 403 0040 E5D9     		bls	.L12
+ 404              	.LBE2:
+  60:pae_libs/io_sublayer.c ****         }
+  61:pae_libs/io_sublayer.c ****     }
+  62:pae_libs/io_sublayer.c ****     fprintf(stderr, "Error: No available packet_id.\n");
+ 405              		.loc 1 62 13
+ 406 0042 074B     		ldr	r3, .L13
+ 407 0044 1B68     		ldr	r3, [r3]
+ 408 0046 DB68     		ldr	r3, [r3, #12]
+ 409              		.loc 1 62 5
+ 410 0048 1F22     		movs	r2, #31
+ 411 004a 0121     		movs	r1, #1
+ 412 004c 0548     		ldr	r0, .L13+4
+ 413 004e FFF7FEFF 		bl	fwrite
+  63:pae_libs/io_sublayer.c ****     return UINT32_MAX; // Indicate that there are no available IDs
+ 414              		.loc 1 63 12
+ 415 0052 4FF0FF33 		mov	r3, #-1
+ 416              	.L11:
+  64:pae_libs/io_sublayer.c **** }
+ 417              		.loc 1 64 1
+ 418 0056 1846     		mov	r0, r3
+ 419 0058 1037     		adds	r7, r7, #16
+ 420              	.LCFI26:
+ 421              		.cfi_def_cfa_offset 8
+ 422 005a BD46     		mov	sp, r7
+ 423              	.LCFI27:
+ 424              		.cfi_def_cfa_register 13
+ 425              		@ sp needed
+ 426 005c 80BD     		pop	{r7, pc}
+ 427              	.L14:
+ 428 005e 00BF     		.align	2
+ 429              	.L13:
+ 430 0060 00000000 		.word	_impure_ptr
+ 431 0064 00000000 		.word	.LC0
+ 432              		.cfi_endproc
+ 433              	.LFE7:
+ 435              		.section	.rodata
+ 436              		.align	2
+ 437              	.LC1:
+ 438 0020 4572726F 		.ascii	"Error: Invalid packet_id.\012\000"
+ 438      723A2049 
+ 438      6E76616C 
+ 438      69642070 
+ 438      61636B65 
+ 439              		.section	.text.release_packet_id,"ax",%progbits
+ 440              		.align	1
+ 441              		.global	release_packet_id
+ 442              		.syntax unified
+ 443              		.thumb
+ 444              		.thumb_func
+ 446              	release_packet_id:
+ 447              	.LFB8:
+  65:pae_libs/io_sublayer.c **** 
+  66:pae_libs/io_sublayer.c **** // Release a packet_id
+  67:pae_libs/io_sublayer.c **** void release_packet_id(IOBuffer *buffer, uint32_t packet_id) {
+ 448              		.loc 1 67 62
+ 449              		.cfi_startproc
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 10
+
+
+ 450              		@ args = 0, pretend = 0, frame = 8
+ 451              		@ frame_needed = 1, uses_anonymous_args = 0
+ 452 0000 80B5     		push	{r7, lr}
+ 453              	.LCFI28:
+ 454              		.cfi_def_cfa_offset 8
+ 455              		.cfi_offset 7, -8
+ 456              		.cfi_offset 14, -4
+ 457 0002 82B0     		sub	sp, sp, #8
+ 458              	.LCFI29:
+ 459              		.cfi_def_cfa_offset 16
+ 460 0004 00AF     		add	r7, sp, #0
+ 461              	.LCFI30:
+ 462              		.cfi_def_cfa_register 7
+ 463 0006 7860     		str	r0, [r7, #4]
+ 464 0008 3960     		str	r1, [r7]
+  68:pae_libs/io_sublayer.c ****     if (packet_id < NUM_MAX_SEGMENTS) {
+ 465              		.loc 1 68 8
+ 466 000a 3B68     		ldr	r3, [r7]
+ 467 000c 3F2B     		cmp	r3, #63
+ 468 000e 07D8     		bhi	.L16
+  69:pae_libs/io_sublayer.c ****         buffer->packet_id_in_use[packet_id] = false; // Mark ID as not in use
+ 469              		.loc 1 69 45
+ 470 0010 7A68     		ldr	r2, [r7, #4]
+ 471 0012 3B68     		ldr	r3, [r7]
+ 472 0014 1344     		add	r3, r3, r2
+ 473 0016 03F58643 		add	r3, r3, #17152
+ 474 001a 0022     		movs	r2, #0
+ 475 001c 1A70     		strb	r2, [r3]
+  70:pae_libs/io_sublayer.c ****     } else {
+  71:pae_libs/io_sublayer.c ****         fprintf(stderr, "Error: Invalid packet_id.\n");
+  72:pae_libs/io_sublayer.c ****     }
+  73:pae_libs/io_sublayer.c **** }
+ 476              		.loc 1 73 1
+ 477 001e 07E0     		b	.L18
+ 478              	.L16:
+  71:pae_libs/io_sublayer.c ****     }
+ 479              		.loc 1 71 17
+ 480 0020 054B     		ldr	r3, .L19
+ 481 0022 1B68     		ldr	r3, [r3]
+ 482 0024 DB68     		ldr	r3, [r3, #12]
+  71:pae_libs/io_sublayer.c ****     }
+ 483              		.loc 1 71 9
+ 484 0026 1A22     		movs	r2, #26
+ 485 0028 0121     		movs	r1, #1
+ 486 002a 0448     		ldr	r0, .L19+4
+ 487 002c FFF7FEFF 		bl	fwrite
+ 488              	.L18:
+ 489              		.loc 1 73 1
+ 490 0030 00BF     		nop
+ 491 0032 0837     		adds	r7, r7, #8
+ 492              	.LCFI31:
+ 493              		.cfi_def_cfa_offset 8
+ 494 0034 BD46     		mov	sp, r7
+ 495              	.LCFI32:
+ 496              		.cfi_def_cfa_register 13
+ 497              		@ sp needed
+ 498 0036 80BD     		pop	{r7, pc}
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 11
+
+
+ 499              	.L20:
+ 500              		.align	2
+ 501              	.L19:
+ 502 0038 00000000 		.word	_impure_ptr
+ 503 003c 20000000 		.word	.LC1
+ 504              		.cfi_endproc
+ 505              	.LFE8:
+ 507              		.section	.rodata
+ 508 003b 00       		.align	2
+ 509              	.LC2:
+ 510 003c 4572726F 		.ascii	"Error: OBC data size exceeds maximum fragmented num"
+ 510      723A204F 
+ 510      42432064 
+ 510      61746120 
+ 510      73697A65 
+ 511 006f 62657273 		.ascii	"bers.\012\000"
+ 511      2E0A00
+ 512              		.section	.text.segment_sdu,"ax",%progbits
+ 513              		.align	1
+ 514              		.global	segment_sdu
+ 515              		.syntax unified
+ 516              		.thumb
+ 517              		.thumb_func
+ 519              	segment_sdu:
+ 520              	.LFB9:
+  74:pae_libs/io_sublayer.c **** 
+  75:pae_libs/io_sublayer.c **** // Segment into multiple segments
+  76:pae_libs/io_sublayer.c **** void segment_sdu(uint8_t *OBC_data, size_t OBC_data_size, uint8_t PortID, uint8_t PDU_ID, uint16_t 
+ 521              		.loc 1 76 140
+ 522              		.cfi_startproc
+ 523              		@ args = 12, pretend = 0, frame = 312
+ 524              		@ frame_needed = 1, uses_anonymous_args = 0
+ 525 0000 90B5     		push	{r4, r7, lr}
+ 526              	.LCFI33:
+ 527              		.cfi_def_cfa_offset 12
+ 528              		.cfi_offset 4, -12
+ 529              		.cfi_offset 7, -8
+ 530              		.cfi_offset 14, -4
+ 531 0002 D7B0     		sub	sp, sp, #348
+ 532              	.LCFI34:
+ 533              		.cfi_def_cfa_offset 360
+ 534 0004 08AF     		add	r7, sp, #32
+ 535              	.LCFI35:
+ 536              		.cfi_def_cfa 7, 328
+ 537 0006 07F59C74 		add	r4, r7, #312
+ 538 000a A4F59674 		sub	r4, r4, #300
+ 539 000e 2060     		str	r0, [r4]
+ 540 0010 07F59C70 		add	r0, r7, #312
+ 541 0014 A0F59870 		sub	r0, r0, #304
+ 542 0018 0160     		str	r1, [r0]
+ 543 001a 1946     		mov	r1, r3
+ 544 001c 07F59C73 		add	r3, r7, #312
+ 545 0020 A3F23113 		subw	r3, r3, #305
+ 546 0024 1A70     		strb	r2, [r3]
+ 547 0026 07F59C73 		add	r3, r7, #312
+ 548 002a A3F59973 		sub	r3, r3, #306
+ 549 002e 0A46     		mov	r2, r1
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 12
+
+
+ 550 0030 1A70     		strb	r2, [r3]
+  77:pae_libs/io_sublayer.c ****     size_t num_segments = OBC_data_size / MAX_FRAGMENTED_SDU_SIZE;
+ 551              		.loc 1 77 12
+ 552 0032 07F59C73 		add	r3, r7, #312
+ 553 0036 A3F59873 		sub	r3, r3, #304
+ 554 003a 1A68     		ldr	r2, [r3]
+ 555 003c B24B     		ldr	r3, .L32
+ 556 003e A3FB0213 		umull	r1, r3, r3, r2
+ 557 0042 D21A     		subs	r2, r2, r3
+ 558 0044 5208     		lsrs	r2, r2, #1
+ 559 0046 1344     		add	r3, r3, r2
+ 560 0048 DB09     		lsrs	r3, r3, #7
+ 561 004a C7F83431 		str	r3, [r7, #308]
+  78:pae_libs/io_sublayer.c ****     if (OBC_data_size % MAX_FRAGMENTED_SDU_SIZE != 0) {
+ 562              		.loc 1 78 23
+ 563 004e 07F59C73 		add	r3, r7, #312
+ 564 0052 A3F59873 		sub	r3, r3, #304
+ 565 0056 1968     		ldr	r1, [r3]
+ 566 0058 AB4B     		ldr	r3, .L32
+ 567 005a A3FB0123 		umull	r2, r3, r3, r1
+ 568 005e CA1A     		subs	r2, r1, r3
+ 569 0060 5208     		lsrs	r2, r2, #1
+ 570 0062 1344     		add	r3, r3, r2
+ 571 0064 DA09     		lsrs	r2, r3, #7
+ 572 0066 1346     		mov	r3, r2
+ 573 0068 5B01     		lsls	r3, r3, #5
+ 574 006a 9B1A     		subs	r3, r3, r2
+ 575 006c DB00     		lsls	r3, r3, #3
+ 576 006e 1344     		add	r3, r3, r2
+ 577 0070 CA1A     		subs	r2, r1, r3
+ 578              		.loc 1 78 8
+ 579 0072 002A     		cmp	r2, #0
+ 580 0074 04D0     		beq	.L22
+  79:pae_libs/io_sublayer.c ****         num_segments++;
+ 581              		.loc 1 79 21
+ 582 0076 D7F83431 		ldr	r3, [r7, #308]
+ 583 007a 0133     		adds	r3, r3, #1
+ 584 007c C7F83431 		str	r3, [r7, #308]
+ 585              	.L22:
+  80:pae_libs/io_sublayer.c ****     }
+  81:pae_libs/io_sublayer.c **** 
+  82:pae_libs/io_sublayer.c ****     if (num_segments > NUM_MAX_SEGMENTS) {
+ 586              		.loc 1 82 8
+ 587 0080 D7F83431 		ldr	r3, [r7, #308]
+ 588 0084 402B     		cmp	r3, #64
+ 589 0086 08D9     		bls	.L23
+  83:pae_libs/io_sublayer.c ****         fprintf(stderr, "Error: OBC data size exceeds maximum fragmented numbers.\n");
+ 590              		.loc 1 83 17
+ 591 0088 A04B     		ldr	r3, .L32+4
+ 592 008a 1B68     		ldr	r3, [r3]
+ 593 008c DB68     		ldr	r3, [r3, #12]
+ 594              		.loc 1 83 9
+ 595 008e 3922     		movs	r2, #57
+ 596 0090 0121     		movs	r1, #1
+ 597 0092 9F48     		ldr	r0, .L32+8
+ 598 0094 FFF7FEFF 		bl	fwrite
+  84:pae_libs/io_sublayer.c ****         return;
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 13
+
+
+ 599              		.loc 1 84 9
+ 600 0098 32E1     		b	.L21
+ 601              	.L23:
+  85:pae_libs/io_sublayer.c ****     }
+  86:pae_libs/io_sublayer.c **** 
+  87:pae_libs/io_sublayer.c ****     // Generate unique pseudo packet ID using counter (wraps at 64 since it's 6 bits)
+  88:pae_libs/io_sublayer.c ****     uint8_t pseudo_packet_id = pseudo_packet_counter;
+ 602              		.loc 1 88 13
+ 603 009a 9E4B     		ldr	r3, .L32+12
+ 604 009c 1B78     		ldrb	r3, [r3]
+ 605 009e 87F82B31 		strb	r3, [r7, #299]
+  89:pae_libs/io_sublayer.c ****     pseudo_packet_counter = (pseudo_packet_counter + 1) & 0x3F; // Increment and wrap at 64
+ 606              		.loc 1 89 57
+ 607 00a2 9C4B     		ldr	r3, .L32+12
+ 608 00a4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 609              		.loc 1 89 52
+ 610 00a6 0133     		adds	r3, r3, #1
+ 611 00a8 DBB2     		uxtb	r3, r3
+ 612              		.loc 1 89 57
+ 613 00aa 03F03F03 		and	r3, r3, #63
+ 614 00ae DAB2     		uxtb	r2, r3
+ 615              		.loc 1 89 27
+ 616 00b0 984B     		ldr	r3, .L32+12
+ 617 00b2 1A70     		strb	r2, [r3]
+  90:pae_libs/io_sublayer.c ****     
+  91:pae_libs/io_sublayer.c ****     uint32_t packet_id = generate_packet_id(buffer);
+ 618              		.loc 1 91 26
+ 619 00b4 D7F85001 		ldr	r0, [r7, #336]
+ 620 00b8 FFF7FEFF 		bl	generate_packet_id
+ 621 00bc C7F82401 		str	r0, [r7, #292]
+  92:pae_libs/io_sublayer.c ****     buffer->index[packet_id].buffer_position = buffer->size; 
+ 622              		.loc 1 92 54
+ 623 00c0 D7F85031 		ldr	r3, [r7, #336]
+ 624 00c4 03F58043 		add	r3, r3, #16384
+ 625 00c8 D3F84413 		ldr	r1, [r3, #836]
+ 626              		.loc 1 92 46
+ 627 00cc D7F85001 		ldr	r0, [r7, #336]
+ 628 00d0 D7F82421 		ldr	r2, [r7, #292]
+ 629 00d4 1346     		mov	r3, r2
+ 630 00d6 5B00     		lsls	r3, r3, #1
+ 631 00d8 1344     		add	r3, r3, r2
+ 632 00da 9B00     		lsls	r3, r3, #2
+ 633 00dc 0344     		add	r3, r3, r0
+ 634 00de 03F58043 		add	r3, r3, #16384
+ 635 00e2 1960     		str	r1, [r3]
+  93:pae_libs/io_sublayer.c ****     buffer->index[packet_id].final_position = buffer->size + num_segments - 1;
+ 636              		.loc 1 93 53
+ 637 00e4 D7F85031 		ldr	r3, [r7, #336]
+ 638 00e8 03F58043 		add	r3, r3, #16384
+ 639 00ec D3F84423 		ldr	r2, [r3, #836]
+ 640              		.loc 1 93 60
+ 641 00f0 D7F83431 		ldr	r3, [r7, #308]
+ 642 00f4 1344     		add	r3, r3, r2
+ 643              		.loc 1 93 75
+ 644 00f6 591E     		subs	r1, r3, #1
+ 645              		.loc 1 93 45
+ 646 00f8 D7F85001 		ldr	r0, [r7, #336]
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 14
+
+
+ 647 00fc D7F82421 		ldr	r2, [r7, #292]
+ 648 0100 1346     		mov	r3, r2
+ 649 0102 5B00     		lsls	r3, r3, #1
+ 650 0104 1344     		add	r3, r3, r2
+ 651 0106 9B00     		lsls	r3, r3, #2
+ 652 0108 0344     		add	r3, r3, r0
+ 653 010a 03F58043 		add	r3, r3, #16384
+ 654 010e 0433     		adds	r3, r3, #4
+ 655 0110 1960     		str	r1, [r3]
+ 656              	.LBB3:
+  94:pae_libs/io_sublayer.c **** 
+  95:pae_libs/io_sublayer.c ****     for (size_t i = 0; i < num_segments; i++) {
+ 657              		.loc 1 95 17
+ 658 0112 0023     		movs	r3, #0
+ 659 0114 C7F83031 		str	r3, [r7, #304]
+ 660              		.loc 1 95 5
+ 661 0118 DEE0     		b	.L25
+ 662              	.L31:
+ 663              	.LBB4:
+  96:pae_libs/io_sublayer.c ****         size_t segment_size = MAX_FRAGMENTED_SDU_SIZE;
+ 664              		.loc 1 96 16
+ 665 011a F923     		movs	r3, #249
+ 666 011c C7F82C31 		str	r3, [r7, #300]
+  97:pae_libs/io_sublayer.c ****         if (i == num_segments - 1) {
+ 667              		.loc 1 97 31
+ 668 0120 D7F83431 		ldr	r3, [r7, #308]
+ 669 0124 013B     		subs	r3, r3, #1
+ 670              		.loc 1 97 12
+ 671 0126 D7F83021 		ldr	r2, [r7, #304]
+ 672 012a 9A42     		cmp	r2, r3
+ 673 012c 1BD1     		bne	.L26
+ 674              	.LBB5:
+  98:pae_libs/io_sublayer.c ****              size_t rem = OBC_data_size % MAX_FRAGMENTED_SDU_SIZE;
+ 675              		.loc 1 98 21
+ 676 012e 07F59C73 		add	r3, r7, #312
+ 677 0132 A3F59873 		sub	r3, r3, #304
+ 678 0136 1A68     		ldr	r2, [r3]
+ 679 0138 734B     		ldr	r3, .L32
+ 680 013a A3FB0213 		umull	r1, r3, r3, r2
+ 681 013e D11A     		subs	r1, r2, r3
+ 682 0140 4908     		lsrs	r1, r1, #1
+ 683 0142 0B44     		add	r3, r3, r1
+ 684 0144 D909     		lsrs	r1, r3, #7
+ 685 0146 0B46     		mov	r3, r1
+ 686 0148 5B01     		lsls	r3, r3, #5
+ 687 014a 5B1A     		subs	r3, r3, r1
+ 688 014c DB00     		lsls	r3, r3, #3
+ 689 014e 0B44     		add	r3, r3, r1
+ 690 0150 D31A     		subs	r3, r2, r3
+ 691 0152 C7F82031 		str	r3, [r7, #288]
+  99:pae_libs/io_sublayer.c ****              if (rem != 0) segment_size = rem;
+ 692              		.loc 1 99 17
+ 693 0156 D7F82031 		ldr	r3, [r7, #288]
+ 694 015a 002B     		cmp	r3, #0
+ 695 015c 03D0     		beq	.L26
+ 696              		.loc 1 99 41 discriminator 1
+ 697 015e D7F82031 		ldr	r3, [r7, #288]
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 15
+
+
+ 698 0162 C7F82C31 		str	r3, [r7, #300]
+ 699              	.L26:
+ 700              	.LBE5:
+ 100:pae_libs/io_sublayer.c ****         }
+ 101:pae_libs/io_sublayer.c **** 
+ 102:pae_libs/io_sublayer.c ****         PDUHeader pdu_header = create_pdu_header(VERSION_3, EXPEDITED, PDU_ID, DFC_FRAGMENTED, SC_I
+ 701              		.loc 1 102 32
+ 702 0166 D7F82C31 		ldr	r3, [r7, #300]
+ 703 016a 9BB2     		uxth	r3, r3
+ 704 016c D7F83021 		ldr	r2, [r7, #304]
+ 705 0170 D2B2     		uxtb	r2, r2
+ 706 0172 07F58C70 		add	r0, r7, #280
+ 707 0176 07F59C71 		add	r1, r7, #312
+ 708 017a A1F59971 		sub	r1, r1, #306
+ 709 017e 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 710 0180 0692     		str	r2, [sp, #24]
+ 711 0182 0593     		str	r3, [sp, #20]
+ 712 0184 97F84C31 		ldrb	r3, [r7, #332]	@ zero_extendqisi2
+ 713 0188 0493     		str	r3, [sp, #16]
+ 714 018a 07F59C73 		add	r3, r7, #312
+ 715 018e A3F23113 		subw	r3, r3, #305
+ 716 0192 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 717 0194 0393     		str	r3, [sp, #12]
+ 718 0196 0123     		movs	r3, #1
+ 719 0198 0293     		str	r3, [sp, #8]
+ 720 019a B7F84831 		ldrh	r3, [r7, #328]
+ 721 019e 0193     		str	r3, [sp, #4]
+ 722 01a0 0123     		movs	r3, #1
+ 723 01a2 0093     		str	r3, [sp]
+ 724 01a4 0B46     		mov	r3, r1
+ 725 01a6 0122     		movs	r2, #1
+ 726 01a8 0221     		movs	r1, #2
+ 727 01aa FFF7FEFF 		bl	create_pdu_header
+ 103:pae_libs/io_sublayer.c ****                                                  PortID, SD_ID, segment_size, i);
+ 104:pae_libs/io_sublayer.c **** 
+ 105:pae_libs/io_sublayer.c ****         SegmentationHeader seg_header;
+ 106:pae_libs/io_sublayer.c ****         if (num_segments == 1) {
+ 728              		.loc 1 106 12
+ 729 01ae D7F83431 		ldr	r3, [r7, #308]
+ 730 01b2 012B     		cmp	r3, #1
+ 731 01b4 09D1     		bne	.L27
+ 107:pae_libs/io_sublayer.c ****             seg_header = create_segmentation_header(NO_SEGMENT, pseudo_packet_id);
+ 732              		.loc 1 107 26
+ 733 01b6 97F82B31 		ldrb	r3, [r7, #299]	@ zero_extendqisi2
+ 734 01ba 1946     		mov	r1, r3
+ 735 01bc 0320     		movs	r0, #3
+ 736 01be FFF7FEFF 		bl	create_segmentation_header
+ 737 01c2 0346     		mov	r3, r0
+ 738 01c4 87F81431 		strb	r3, [r7, #276]
+ 739 01c8 27E0     		b	.L28
+ 740              	.L27:
+ 108:pae_libs/io_sublayer.c ****         } else if (i == 0) {
+ 741              		.loc 1 108 19
+ 742 01ca D7F83031 		ldr	r3, [r7, #304]
+ 743 01ce 002B     		cmp	r3, #0
+ 744 01d0 09D1     		bne	.L29
+ 109:pae_libs/io_sublayer.c ****             seg_header = create_segmentation_header(FIRST_SEGMENT, pseudo_packet_id);
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 16
+
+
+ 745              		.loc 1 109 26
+ 746 01d2 97F82B31 		ldrb	r3, [r7, #299]	@ zero_extendqisi2
+ 747 01d6 1946     		mov	r1, r3
+ 748 01d8 0120     		movs	r0, #1
+ 749 01da FFF7FEFF 		bl	create_segmentation_header
+ 750 01de 0346     		mov	r3, r0
+ 751 01e0 87F81431 		strb	r3, [r7, #276]
+ 752 01e4 19E0     		b	.L28
+ 753              	.L29:
+ 110:pae_libs/io_sublayer.c ****         } else if (i == num_segments - 1) {
+ 754              		.loc 1 110 38
+ 755 01e6 D7F83431 		ldr	r3, [r7, #308]
+ 756 01ea 013B     		subs	r3, r3, #1
+ 757              		.loc 1 110 19
+ 758 01ec D7F83021 		ldr	r2, [r7, #304]
+ 759 01f0 9A42     		cmp	r2, r3
+ 760 01f2 09D1     		bne	.L30
+ 111:pae_libs/io_sublayer.c ****             seg_header = create_segmentation_header(LAST_SEGMENT, pseudo_packet_id);
+ 761              		.loc 1 111 26
+ 762 01f4 97F82B31 		ldrb	r3, [r7, #299]	@ zero_extendqisi2
+ 763 01f8 1946     		mov	r1, r3
+ 764 01fa 0220     		movs	r0, #2
+ 765 01fc FFF7FEFF 		bl	create_segmentation_header
+ 766 0200 0346     		mov	r3, r0
+ 767 0202 87F81431 		strb	r3, [r7, #276]
+ 768 0206 08E0     		b	.L28
+ 769              	.L30:
+ 112:pae_libs/io_sublayer.c ****         } else {
+ 113:pae_libs/io_sublayer.c ****             seg_header = create_segmentation_header(MIDDLE_SEGMENT, pseudo_packet_id);
+ 770              		.loc 1 113 26
+ 771 0208 97F82B31 		ldrb	r3, [r7, #299]	@ zero_extendqisi2
+ 772 020c 1946     		mov	r1, r3
+ 773 020e 0020     		movs	r0, #0
+ 774 0210 FFF7FEFF 		bl	create_segmentation_header
+ 775 0214 0346     		mov	r3, r0
+ 776 0216 87F81431 		strb	r3, [r7, #276]
+ 777              	.L28:
+ 114:pae_libs/io_sublayer.c ****         }
+ 115:pae_libs/io_sublayer.c **** 
+ 116:pae_libs/io_sublayer.c ****         SDUFrame frame = {0};
+ 778              		.loc 1 116 18
+ 779 021a 07F59C73 		add	r3, r7, #312
+ 780 021e A3F59273 		sub	r3, r3, #292
+ 781 0222 1846     		mov	r0, r3
+ 782 0224 4FF48073 		mov	r3, #256
+ 783 0228 1A46     		mov	r2, r3
+ 784 022a 0021     		movs	r1, #0
+ 785 022c FFF7FEFF 		bl	memset
+ 117:pae_libs/io_sublayer.c ****         frame.type = FRAME_FRAGMENTED;
+ 786              		.loc 1 117 20
+ 787 0230 07F59C73 		add	r3, r7, #312
+ 788 0234 A3F59273 		sub	r3, r3, #292
+ 789 0238 0122     		movs	r2, #1
+ 790 023a 1A70     		strb	r2, [r3]
+ 118:pae_libs/io_sublayer.c ****         frame.data.fragmented.pdu_header = pdu_header;
+ 791              		.loc 1 118 42
+ 792 023c 07F59C73 		add	r3, r7, #312
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 17
+
+
+ 793 0240 A3F59273 		sub	r3, r3, #292
+ 794 0244 0133     		adds	r3, r3, #1
+ 795 0246 07F58C72 		add	r2, r7, #280
+ 796 024a 1068     		ldr	r0, [r2]
+ 797 024c 1860     		str	r0, [r3]	@ unaligned
+ 798 024e 1279     		ldrb	r2, [r2, #4]
+ 799 0250 1A71     		strb	r2, [r3, #4]
+ 119:pae_libs/io_sublayer.c ****         frame.data.fragmented.seg_header = seg_header;
+ 800              		.loc 1 119 42
+ 801 0252 07F59C73 		add	r3, r7, #312
+ 802 0256 A3F59273 		sub	r3, r3, #292
+ 803 025a 97F81421 		ldrb	r2, [r7, #276]
+ 804 025e 9A71     		strb	r2, [r3, #6]
+ 120:pae_libs/io_sublayer.c **** 
+ 121:pae_libs/io_sublayer.c ****         // Static copy instead of malloc
+ 122:pae_libs/io_sublayer.c ****         memcpy(frame.data.fragmented.sdu, OBC_data + (i * MAX_FRAGMENTED_SDU_SIZE), segment_size);
+ 805              		.loc 1 122 57
+ 806 0260 D7F83021 		ldr	r2, [r7, #304]
+ 807 0264 1346     		mov	r3, r2
+ 808 0266 5B01     		lsls	r3, r3, #5
+ 809 0268 9B1A     		subs	r3, r3, r2
+ 810 026a DB00     		lsls	r3, r3, #3
+ 811 026c 1344     		add	r3, r3, r2
+ 812              		.loc 1 122 52
+ 813 026e 07F59C72 		add	r2, r7, #312
+ 814 0272 A2F59672 		sub	r2, r2, #300
+ 815 0276 1268     		ldr	r2, [r2]
+ 816 0278 D118     		adds	r1, r2, r3
+ 817              		.loc 1 122 9
+ 818 027a 07F11403 		add	r3, r7, #20
+ 819 027e 0733     		adds	r3, r3, #7
+ 820 0280 D7F82C21 		ldr	r2, [r7, #300]
+ 821 0284 1846     		mov	r0, r3
+ 822 0286 FFF7FEFF 		bl	memcpy
+ 123:pae_libs/io_sublayer.c **** 
+ 124:pae_libs/io_sublayer.c ****         buffer->frames[buffer->size] = frame;
+ 823              		.loc 1 124 30
+ 824 028a D7F85031 		ldr	r3, [r7, #336]
+ 825 028e 03F58043 		add	r3, r3, #16384
+ 826 0292 D3F84433 		ldr	r3, [r3, #836]
+ 827              		.loc 1 124 38
+ 828 0296 D7F85021 		ldr	r2, [r7, #336]
+ 829 029a 1B02     		lsls	r3, r3, #8
+ 830 029c 1A44     		add	r2, r2, r3
+ 831 029e 07F59C73 		add	r3, r7, #312
+ 832 02a2 A3F59273 		sub	r3, r3, #292
+ 833 02a6 1046     		mov	r0, r2
+ 834 02a8 1946     		mov	r1, r3
+ 835 02aa 4FF48073 		mov	r3, #256
+ 836 02ae 1A46     		mov	r2, r3
+ 837 02b0 FFF7FEFF 		bl	memcpy
+ 125:pae_libs/io_sublayer.c ****         buffer->size++;
+ 838              		.loc 1 125 15
+ 839 02b4 D7F85031 		ldr	r3, [r7, #336]
+ 840 02b8 03F58043 		add	r3, r3, #16384
+ 841 02bc D3F84433 		ldr	r3, [r3, #836]
+ 842              		.loc 1 125 21
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 18
+
+
+ 843 02c0 0133     		adds	r3, r3, #1
+ 844 02c2 D7F85021 		ldr	r2, [r7, #336]
+ 845 02c6 02F58042 		add	r2, r2, #16384
+ 846 02ca C2F84433 		str	r3, [r2, #836]
+ 847              	.LBE4:
+  95:pae_libs/io_sublayer.c ****         size_t segment_size = MAX_FRAGMENTED_SDU_SIZE;
+ 848              		.loc 1 95 43 discriminator 2
+ 849 02ce D7F83031 		ldr	r3, [r7, #304]
+ 850 02d2 0133     		adds	r3, r3, #1
+ 851 02d4 C7F83031 		str	r3, [r7, #304]
+ 852              	.L25:
+  95:pae_libs/io_sublayer.c ****         size_t segment_size = MAX_FRAGMENTED_SDU_SIZE;
+ 853              		.loc 1 95 26 discriminator 1
+ 854 02d8 D7F83021 		ldr	r2, [r7, #304]
+ 855 02dc D7F83431 		ldr	r3, [r7, #308]
+ 856 02e0 9A42     		cmp	r2, r3
+ 857 02e2 FFF41AAF 		bcc	.L31
+ 858              	.LBE3:
+ 126:pae_libs/io_sublayer.c ****     }
+ 127:pae_libs/io_sublayer.c ****     buffer->completframes++;
+ 859              		.loc 1 127 11
+ 860 02e6 D7F85031 		ldr	r3, [r7, #336]
+ 861 02ea 03F58043 		add	r3, r3, #16384
+ 862 02ee D3F84033 		ldr	r3, [r3, #832]
+ 863              		.loc 1 127 26
+ 864 02f2 0133     		adds	r3, r3, #1
+ 865 02f4 D7F85021 		ldr	r2, [r7, #336]
+ 866 02f8 02F58042 		add	r2, r2, #16384
+ 867 02fc C2F84033 		str	r3, [r2, #832]
+ 868              	.L21:
+ 128:pae_libs/io_sublayer.c **** }
+ 869              		.loc 1 128 1
+ 870 0300 07F59E77 		add	r7, r7, #316
+ 871              	.LCFI36:
+ 872              		.cfi_def_cfa_offset 12
+ 873 0304 BD46     		mov	sp, r7
+ 874              	.LCFI37:
+ 875              		.cfi_def_cfa_register 13
+ 876              		@ sp needed
+ 877 0306 90BD     		pop	{r4, r7, pc}
+ 878              	.L33:
+ 879              		.align	2
+ 880              	.L32:
+ 881 0308 A5603207 		.word	120742053
+ 882 030c 00000000 		.word	_impure_ptr
+ 883 0310 3C000000 		.word	.LC2
+ 884 0314 00000000 		.word	pseudo_packet_counter
+ 885              		.cfi_endproc
+ 886              	.LFE9:
+ 888              		.section	.rodata
+ 889 0076 0000     		.align	2
+ 890              	.LC3:
+ 891 0078 4572726F 		.ascii	"Error: OBC data size exceeds maximum unfragmented s"
+ 891      723A204F 
+ 891      42432064 
+ 891      61746120 
+ 891      73697A65 
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 19
+
+
+ 892 00ab 697A652E 		.ascii	"ize.\012\000"
+ 892      0A00
+ 893              		.section	.text.create_unfragmented_sdu,"ax",%progbits
+ 894              		.align	1
+ 895              		.global	create_unfragmented_sdu
+ 896              		.syntax unified
+ 897              		.thumb
+ 898              		.thumb_func
+ 900              	create_unfragmented_sdu:
+ 901              	.LFB10:
+ 129:pae_libs/io_sublayer.c **** 
+ 130:pae_libs/io_sublayer.c **** // Function to create an unfragmented SDU
+ 131:pae_libs/io_sublayer.c **** SDUFrame create_unfragmented_sdu(uint8_t *OBC_data, size_t OBC_data_size, uint8_t PortID, uint8_t P
+ 902              		.loc 1 131 156
+ 903              		.cfi_startproc
+ 904              		@ args = 16, pretend = 0, frame = 288
+ 905              		@ frame_needed = 1, uses_anonymous_args = 0
+ 906 0000 90B5     		push	{r4, r7, lr}
+ 907              	.LCFI38:
+ 908              		.cfi_def_cfa_offset 12
+ 909              		.cfi_offset 4, -12
+ 910              		.cfi_offset 7, -8
+ 911              		.cfi_offset 14, -4
+ 912 0002 D1B0     		sub	sp, sp, #324
+ 913              	.LCFI39:
+ 914              		.cfi_def_cfa_offset 336
+ 915 0004 08AF     		add	r7, sp, #32
+ 916              	.LCFI40:
+ 917              		.cfi_def_cfa 7, 304
+ 918 0006 07F59074 		add	r4, r7, #288
+ 919 000a A4F58A74 		sub	r4, r4, #276
+ 920 000e 2060     		str	r0, [r4]
+ 921 0010 07F59070 		add	r0, r7, #288
+ 922 0014 A0F58C70 		sub	r0, r0, #280
+ 923 0018 0160     		str	r1, [r0]
+ 924 001a 07F59071 		add	r1, r7, #288
+ 925 001e A1F58E71 		sub	r1, r1, #284
+ 926 0022 0A60     		str	r2, [r1]
+ 927 0024 1A46     		mov	r2, r3
+ 928 0026 07F59073 		add	r3, r7, #288
+ 929 002a A3F21D13 		subw	r3, r3, #285
+ 930 002e 1A70     		strb	r2, [r3]
+ 132:pae_libs/io_sublayer.c ****     SDUFrame frame = {0}; // Initialize frame to zero
+ 931              		.loc 1 132 14
+ 932 0030 07F59073 		add	r3, r7, #288
+ 933 0034 A3F58273 		sub	r3, r3, #260
+ 934 0038 1846     		mov	r0, r3
+ 935 003a 4FF48073 		mov	r3, #256
+ 936 003e 1A46     		mov	r2, r3
+ 937 0040 0021     		movs	r1, #0
+ 938 0042 FFF7FEFF 		bl	memset
+ 133:pae_libs/io_sublayer.c **** 
+ 134:pae_libs/io_sublayer.c ****     // Check if OBC_data is too large to be unfragmented
+ 135:pae_libs/io_sublayer.c ****     if (OBC_data_size > MAX_UNFRAGMENTED_SDU_SIZE) {
+ 939              		.loc 1 135 8
+ 940 0046 07F59073 		add	r3, r7, #288
+ 941 004a A3F58E73 		sub	r3, r3, #284
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 20
+
+
+ 942 004e 1B68     		ldr	r3, [r3]
+ 943 0050 FA2B     		cmp	r3, #250
+ 944 0052 18D9     		bls	.L35
+ 136:pae_libs/io_sublayer.c ****         fprintf(stderr, "Error: OBC data size exceeds maximum unfragmented size.\n");
+ 945              		.loc 1 136 17
+ 946 0054 684B     		ldr	r3, .L38
+ 947 0056 1B68     		ldr	r3, [r3]
+ 948 0058 DB68     		ldr	r3, [r3, #12]
+ 949              		.loc 1 136 9
+ 950 005a 3822     		movs	r2, #56
+ 951 005c 0121     		movs	r1, #1
+ 952 005e 6748     		ldr	r0, .L38+4
+ 953 0060 FFF7FEFF 		bl	fwrite
+ 137:pae_libs/io_sublayer.c ****         return frame; // Return an empty frame in case of error
+ 954              		.loc 1 137 16
+ 955 0064 07F59073 		add	r3, r7, #288
+ 956 0068 A3F58A73 		sub	r3, r3, #276
+ 957 006c 1A68     		ldr	r2, [r3]
+ 958 006e 07F59073 		add	r3, r7, #288
+ 959 0072 A3F58273 		sub	r3, r3, #260
+ 960 0076 1046     		mov	r0, r2
+ 961 0078 1946     		mov	r1, r3
+ 962 007a 4FF48073 		mov	r3, #256
+ 963 007e 1A46     		mov	r2, r3
+ 964 0080 FFF7FEFF 		bl	memcpy
+ 965 0084 AFE0     		b	.L37
+ 966              	.L35:
+ 138:pae_libs/io_sublayer.c ****     }
+ 139:pae_libs/io_sublayer.c **** 
+ 140:pae_libs/io_sublayer.c ****     frame.type = FRAME_UNFRAGMENTED; // Indicate that it is an unfragmented frame
+ 967              		.loc 1 140 16
+ 968 0086 07F59073 		add	r3, r7, #288
+ 969 008a A3F58273 		sub	r3, r3, #260
+ 970 008e 0022     		movs	r2, #0
+ 971 0090 1A70     		strb	r2, [r3]
+ 141:pae_libs/io_sublayer.c **** 
+ 142:pae_libs/io_sublayer.c ****     // Create the PDU header
+ 143:pae_libs/io_sublayer.c ****     PDUHeader pdu_header = create_pdu_header(VERSION_3, EXPEDITED, PDU_ID, DFC_PACKETS, SC_ID, PRIM
+ 972              		.loc 1 143 28
+ 973 0092 07F59073 		add	r3, r7, #288
+ 974 0096 A3F58E73 		sub	r3, r3, #284
+ 975 009a 1B68     		ldr	r3, [r3]
+ 976 009c 9BB2     		uxth	r3, r3
+ 977 009e 07F59072 		add	r2, r7, #288
+ 978 00a2 A2F58670 		sub	r0, r2, #268
+ 979 00a6 97F83021 		ldrb	r2, [r7, #304]	@ zero_extendqisi2
+ 980 00aa 0021     		movs	r1, #0
+ 981 00ac 0691     		str	r1, [sp, #24]
+ 982 00ae 0593     		str	r3, [sp, #20]
+ 983 00b0 97F83831 		ldrb	r3, [r7, #312]	@ zero_extendqisi2
+ 984 00b4 0493     		str	r3, [sp, #16]
+ 985 00b6 07F59073 		add	r3, r7, #288
+ 986 00ba A3F21D13 		subw	r3, r3, #285
+ 987 00be 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 988 00c0 0393     		str	r3, [sp, #12]
+ 989 00c2 0123     		movs	r3, #1
+ 990 00c4 0293     		str	r3, [sp, #8]
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 21
+
+
+ 991 00c6 B7F83431 		ldrh	r3, [r7, #308]
+ 992 00ca 0193     		str	r3, [sp, #4]
+ 993 00cc 0023     		movs	r3, #0
+ 994 00ce 0093     		str	r3, [sp]
+ 995 00d0 1346     		mov	r3, r2
+ 996 00d2 0122     		movs	r2, #1
+ 997 00d4 0221     		movs	r1, #2
+ 998 00d6 FFF7FEFF 		bl	create_pdu_header
+ 144:pae_libs/io_sublayer.c ****         PortID, SD_ID, OBC_data_size, 0);
+ 145:pae_libs/io_sublayer.c ****     frame.data.unfragmented.header = pdu_header;
+ 999              		.loc 1 145 36
+ 1000 00da 07F59073 		add	r3, r7, #288
+ 1001 00de A3F58273 		sub	r3, r3, #260
+ 1002 00e2 07F59072 		add	r2, r7, #288
+ 1003 00e6 A2F58672 		sub	r2, r2, #268
+ 1004 00ea 0133     		adds	r3, r3, #1
+ 1005 00ec 1068     		ldr	r0, [r2]
+ 1006 00ee 1860     		str	r0, [r3]	@ unaligned
+ 1007 00f0 1279     		ldrb	r2, [r2, #4]
+ 1008 00f2 1A71     		strb	r2, [r3, #4]
+ 146:pae_libs/io_sublayer.c **** 
+ 147:pae_libs/io_sublayer.c ****     // Static copy instead of malloc
+ 148:pae_libs/io_sublayer.c ****     memcpy(frame.data.unfragmented.sdu, OBC_data, OBC_data_size);
+ 1009              		.loc 1 148 5
+ 1010 00f4 07F59073 		add	r3, r7, #288
+ 1011 00f8 A3F58E72 		sub	r2, r3, #284
+ 1012 00fc 07F59073 		add	r3, r7, #288
+ 1013 0100 A3F58C73 		sub	r3, r3, #280
+ 1014 0104 07F11C01 		add	r1, r7, #28
+ 1015 0108 881D     		adds	r0, r1, #6
+ 1016 010a 1268     		ldr	r2, [r2]
+ 1017 010c 1968     		ldr	r1, [r3]
+ 1018 010e FFF7FEFF 		bl	memcpy
+ 149:pae_libs/io_sublayer.c **** 
+ 150:pae_libs/io_sublayer.c ****     // Save the frame in the buffer
+ 151:pae_libs/io_sublayer.c ****     uint32_t packet_id = generate_packet_id(buffer);
+ 1019              		.loc 1 151 26
+ 1020 0112 D7F83C01 		ldr	r0, [r7, #316]
+ 1021 0116 FFF7FEFF 		bl	generate_packet_id
+ 1022 011a C7F81C01 		str	r0, [r7, #284]
+ 152:pae_libs/io_sublayer.c ****     buffer->index[packet_id].buffer_position = buffer->size;
+ 1023              		.loc 1 152 54
+ 1024 011e D7F83C31 		ldr	r3, [r7, #316]
+ 1025 0122 03F58043 		add	r3, r3, #16384
+ 1026 0126 D3F84413 		ldr	r1, [r3, #836]
+ 1027              		.loc 1 152 46
+ 1028 012a D7F83C01 		ldr	r0, [r7, #316]
+ 1029 012e D7F81C21 		ldr	r2, [r7, #284]
+ 1030 0132 1346     		mov	r3, r2
+ 1031 0134 5B00     		lsls	r3, r3, #1
+ 1032 0136 1344     		add	r3, r3, r2
+ 1033 0138 9B00     		lsls	r3, r3, #2
+ 1034 013a 0344     		add	r3, r3, r0
+ 1035 013c 03F58043 		add	r3, r3, #16384
+ 1036 0140 1960     		str	r1, [r3]
+ 153:pae_libs/io_sublayer.c ****     buffer->index[packet_id].final_position = buffer->size;
+ 1037              		.loc 1 153 53
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 22
+
+
+ 1038 0142 D7F83C31 		ldr	r3, [r7, #316]
+ 1039 0146 03F58043 		add	r3, r3, #16384
+ 1040 014a D3F84413 		ldr	r1, [r3, #836]
+ 1041              		.loc 1 153 45
+ 1042 014e D7F83C01 		ldr	r0, [r7, #316]
+ 1043 0152 D7F81C21 		ldr	r2, [r7, #284]
+ 1044 0156 1346     		mov	r3, r2
+ 1045 0158 5B00     		lsls	r3, r3, #1
+ 1046 015a 1344     		add	r3, r3, r2
+ 1047 015c 9B00     		lsls	r3, r3, #2
+ 1048 015e 0344     		add	r3, r3, r0
+ 1049 0160 03F58043 		add	r3, r3, #16384
+ 1050 0164 0433     		adds	r3, r3, #4
+ 1051 0166 1960     		str	r1, [r3]
+ 154:pae_libs/io_sublayer.c ****     buffer->frames[buffer->size] = frame;
+ 1052              		.loc 1 154 26
+ 1053 0168 D7F83C31 		ldr	r3, [r7, #316]
+ 1054 016c 03F58043 		add	r3, r3, #16384
+ 1055 0170 D3F84433 		ldr	r3, [r3, #836]
+ 1056              		.loc 1 154 34
+ 1057 0174 D7F83C21 		ldr	r2, [r7, #316]
+ 1058 0178 1B02     		lsls	r3, r3, #8
+ 1059 017a 1A44     		add	r2, r2, r3
+ 1060 017c 07F59073 		add	r3, r7, #288
+ 1061 0180 A3F58273 		sub	r3, r3, #260
+ 1062 0184 1046     		mov	r0, r2
+ 1063 0186 1946     		mov	r1, r3
+ 1064 0188 4FF48073 		mov	r3, #256
+ 1065 018c 1A46     		mov	r2, r3
+ 1066 018e FFF7FEFF 		bl	memcpy
+ 155:pae_libs/io_sublayer.c ****     buffer->size++;
+ 1067              		.loc 1 155 11
+ 1068 0192 D7F83C31 		ldr	r3, [r7, #316]
+ 1069 0196 03F58043 		add	r3, r3, #16384
+ 1070 019a D3F84433 		ldr	r3, [r3, #836]
+ 1071              		.loc 1 155 17
+ 1072 019e 0133     		adds	r3, r3, #1
+ 1073 01a0 D7F83C21 		ldr	r2, [r7, #316]
+ 1074 01a4 02F58042 		add	r2, r2, #16384
+ 1075 01a8 C2F84433 		str	r3, [r2, #836]
+ 156:pae_libs/io_sublayer.c ****     buffer->completframes++;
+ 1076              		.loc 1 156 11
+ 1077 01ac D7F83C31 		ldr	r3, [r7, #316]
+ 1078 01b0 03F58043 		add	r3, r3, #16384
+ 1079 01b4 D3F84033 		ldr	r3, [r3, #832]
+ 1080              		.loc 1 156 26
+ 1081 01b8 0133     		adds	r3, r3, #1
+ 1082 01ba D7F83C21 		ldr	r2, [r7, #316]
+ 1083 01be 02F58042 		add	r2, r2, #16384
+ 1084 01c2 C2F84033 		str	r3, [r2, #832]
+ 157:pae_libs/io_sublayer.c **** 
+ 158:pae_libs/io_sublayer.c ****     return frame;
+ 1085              		.loc 1 158 12
+ 1086 01c6 07F59073 		add	r3, r7, #288
+ 1087 01ca A3F58A73 		sub	r3, r3, #276
+ 1088 01ce 1A68     		ldr	r2, [r3]
+ 1089 01d0 07F59073 		add	r3, r7, #288
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 23
+
+
+ 1090 01d4 A3F58273 		sub	r3, r3, #260
+ 1091 01d8 1046     		mov	r0, r2
+ 1092 01da 1946     		mov	r1, r3
+ 1093 01dc 4FF48073 		mov	r3, #256
+ 1094 01e0 1A46     		mov	r2, r3
+ 1095 01e2 FFF7FEFF 		bl	memcpy
+ 1096              	.L37:
+ 159:pae_libs/io_sublayer.c **** }
+ 1097              		.loc 1 159 1
+ 1098 01e6 07F59073 		add	r3, r7, #288
+ 1099 01ea A3F58A73 		sub	r3, r3, #276
+ 1100 01ee 1868     		ldr	r0, [r3]
+ 1101 01f0 07F59277 		add	r7, r7, #292
+ 1102              	.LCFI41:
+ 1103              		.cfi_def_cfa_offset 12
+ 1104 01f4 BD46     		mov	sp, r7
+ 1105              	.LCFI42:
+ 1106              		.cfi_def_cfa_register 13
+ 1107              		@ sp needed
+ 1108 01f6 90BD     		pop	{r4, r7, pc}
+ 1109              	.L39:
+ 1110              		.align	2
+ 1111              	.L38:
+ 1112 01f8 00000000 		.word	_impure_ptr
+ 1113 01fc 78000000 		.word	.LC3
+ 1114              		.cfi_endproc
+ 1115              	.LFE10:
+ 1117              		.section	.text.free_buffer,"ax",%progbits
+ 1118              		.align	1
+ 1119              		.global	free_buffer
+ 1120              		.syntax unified
+ 1121              		.thumb
+ 1122              		.thumb_func
+ 1124              	free_buffer:
+ 1125              	.LFB11:
+ 160:pae_libs/io_sublayer.c **** 
+ 161:pae_libs/io_sublayer.c **** // Function to free the frame buffer
+ 162:pae_libs/io_sublayer.c **** void free_buffer(IOBuffer *buffer, uint32_t packet_id) {
+ 1126              		.loc 1 162 56
+ 1127              		.cfi_startproc
+ 1128              		@ args = 0, pretend = 0, frame = 32
+ 1129              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1130 0000 80B5     		push	{r7, lr}
+ 1131              	.LCFI43:
+ 1132              		.cfi_def_cfa_offset 8
+ 1133              		.cfi_offset 7, -8
+ 1134              		.cfi_offset 14, -4
+ 1135 0002 88B0     		sub	sp, sp, #32
+ 1136              	.LCFI44:
+ 1137              		.cfi_def_cfa_offset 40
+ 1138 0004 00AF     		add	r7, sp, #0
+ 1139              	.LCFI45:
+ 1140              		.cfi_def_cfa_register 7
+ 1141 0006 7860     		str	r0, [r7, #4]
+ 1142 0008 3960     		str	r1, [r7]
+ 163:pae_libs/io_sublayer.c ****     if (packet_id < NUM_MAX_SEGMENTS) {
+ 1143              		.loc 1 163 8
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 24
+
+
+ 1144 000a 3B68     		ldr	r3, [r7]
+ 1145 000c 3F2B     		cmp	r3, #63
+ 1146 000e 00F2D380 		bhi	.L41
+ 1147              	.LBB6:
+ 164:pae_libs/io_sublayer.c ****         size_t start = buffer->index[packet_id].buffer_position;
+ 1148              		.loc 1 164 16
+ 1149 0012 7968     		ldr	r1, [r7, #4]
+ 1150 0014 3A68     		ldr	r2, [r7]
+ 1151 0016 1346     		mov	r3, r2
+ 1152 0018 5B00     		lsls	r3, r3, #1
+ 1153 001a 1344     		add	r3, r3, r2
+ 1154 001c 9B00     		lsls	r3, r3, #2
+ 1155 001e 0B44     		add	r3, r3, r1
+ 1156 0020 03F58043 		add	r3, r3, #16384
+ 1157 0024 1B68     		ldr	r3, [r3]
+ 1158 0026 3B61     		str	r3, [r7, #16]
+ 165:pae_libs/io_sublayer.c ****         size_t end = buffer->index[packet_id].final_position;
+ 1159              		.loc 1 165 16
+ 1160 0028 7968     		ldr	r1, [r7, #4]
+ 1161 002a 3A68     		ldr	r2, [r7]
+ 1162 002c 1346     		mov	r3, r2
+ 1163 002e 5B00     		lsls	r3, r3, #1
+ 1164 0030 1344     		add	r3, r3, r2
+ 1165 0032 9B00     		lsls	r3, r3, #2
+ 1166 0034 0B44     		add	r3, r3, r1
+ 1167 0036 03F58043 		add	r3, r3, #16384
+ 1168 003a 0433     		adds	r3, r3, #4
+ 1169 003c 1B68     		ldr	r3, [r3]
+ 1170 003e FB60     		str	r3, [r7, #12]
+ 166:pae_libs/io_sublayer.c ****         size_t num_frames_to_remove = end - start + 1;
+ 1171              		.loc 1 166 43
+ 1172 0040 FA68     		ldr	r2, [r7, #12]
+ 1173 0042 3B69     		ldr	r3, [r7, #16]
+ 1174 0044 D31A     		subs	r3, r2, r3
+ 1175              		.loc 1 166 16
+ 1176 0046 0133     		adds	r3, r3, #1
+ 1177 0048 BB60     		str	r3, [r7, #8]
+ 1178              	.LBB7:
+ 167:pae_libs/io_sublayer.c **** 
+ 168:pae_libs/io_sublayer.c ****         // Clear the frames associated with the packet_id
+ 169:pae_libs/io_sublayer.c ****         for (size_t i = start; i <= end; i++) {
+ 1179              		.loc 1 169 21
+ 1180 004a 3B69     		ldr	r3, [r7, #16]
+ 1181 004c FB61     		str	r3, [r7, #28]
+ 1182              		.loc 1 169 9
+ 1183 004e 0CE0     		b	.L42
+ 1184              	.L43:
+ 170:pae_libs/io_sublayer.c ****             memset(&buffer->frames[i], 0, sizeof(SDUFrame)); // Clear the frame
+ 1185              		.loc 1 170 20
+ 1186 0050 FB69     		ldr	r3, [r7, #28]
+ 1187 0052 1B02     		lsls	r3, r3, #8
+ 1188 0054 7A68     		ldr	r2, [r7, #4]
+ 1189 0056 1344     		add	r3, r3, r2
+ 1190              		.loc 1 170 13
+ 1191 0058 4FF48072 		mov	r2, #256
+ 1192 005c 0021     		movs	r1, #0
+ 1193 005e 1846     		mov	r0, r3
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 25
+
+
+ 1194 0060 FFF7FEFF 		bl	memset
+ 169:pae_libs/io_sublayer.c ****             memset(&buffer->frames[i], 0, sizeof(SDUFrame)); // Clear the frame
+ 1195              		.loc 1 169 43 discriminator 3
+ 1196 0064 FB69     		ldr	r3, [r7, #28]
+ 1197 0066 0133     		adds	r3, r3, #1
+ 1198 0068 FB61     		str	r3, [r7, #28]
+ 1199              	.L42:
+ 169:pae_libs/io_sublayer.c ****             memset(&buffer->frames[i], 0, sizeof(SDUFrame)); // Clear the frame
+ 1200              		.loc 1 169 34 discriminator 1
+ 1201 006a FA69     		ldr	r2, [r7, #28]
+ 1202 006c FB68     		ldr	r3, [r7, #12]
+ 1203 006e 9A42     		cmp	r2, r3
+ 1204 0070 EED9     		bls	.L43
+ 1205              	.LBE7:
+ 1206              	.LBB8:
+ 171:pae_libs/io_sublayer.c ****         }
+ 172:pae_libs/io_sublayer.c **** 
+ 173:pae_libs/io_sublayer.c ****         // Move the remaining frames to fill the gap
+ 174:pae_libs/io_sublayer.c ****         for (size_t i = end + 1; i < buffer->size; i++) {
+ 1207              		.loc 1 174 21
+ 1208 0072 FB68     		ldr	r3, [r7, #12]
+ 1209 0074 0133     		adds	r3, r3, #1
+ 1210 0076 BB61     		str	r3, [r7, #24]
+ 1211              		.loc 1 174 9
+ 1212 0078 13E0     		b	.L44
+ 1213              	.L45:
+ 175:pae_libs/io_sublayer.c ****             buffer->frames[i - num_frames_to_remove] = buffer->frames[i];
+ 1214              		.loc 1 175 30
+ 1215 007a BA69     		ldr	r2, [r7, #24]
+ 1216 007c BB68     		ldr	r3, [r7, #8]
+ 1217 007e D31A     		subs	r3, r2, r3
+ 1218              		.loc 1 175 54
+ 1219 0080 7A68     		ldr	r2, [r7, #4]
+ 1220 0082 1B02     		lsls	r3, r3, #8
+ 1221 0084 D118     		adds	r1, r2, r3
+ 1222 0086 7A68     		ldr	r2, [r7, #4]
+ 1223 0088 BB69     		ldr	r3, [r7, #24]
+ 1224 008a 1B02     		lsls	r3, r3, #8
+ 1225 008c 1344     		add	r3, r3, r2
+ 1226 008e 0846     		mov	r0, r1
+ 1227 0090 1946     		mov	r1, r3
+ 1228 0092 4FF48073 		mov	r3, #256
+ 1229 0096 1A46     		mov	r2, r3
+ 1230 0098 FFF7FEFF 		bl	memcpy
+ 174:pae_libs/io_sublayer.c ****             buffer->frames[i - num_frames_to_remove] = buffer->frames[i];
+ 1231              		.loc 1 174 53 discriminator 3
+ 1232 009c BB69     		ldr	r3, [r7, #24]
+ 1233 009e 0133     		adds	r3, r3, #1
+ 1234 00a0 BB61     		str	r3, [r7, #24]
+ 1235              	.L44:
+ 174:pae_libs/io_sublayer.c ****             buffer->frames[i - num_frames_to_remove] = buffer->frames[i];
+ 1236              		.loc 1 174 44 discriminator 1
+ 1237 00a2 7B68     		ldr	r3, [r7, #4]
+ 1238 00a4 03F58043 		add	r3, r3, #16384
+ 1239 00a8 D3F84433 		ldr	r3, [r3, #836]
+ 174:pae_libs/io_sublayer.c ****             buffer->frames[i - num_frames_to_remove] = buffer->frames[i];
+ 1240              		.loc 1 174 36 discriminator 1
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 26
+
+
+ 1241 00ac BA69     		ldr	r2, [r7, #24]
+ 1242 00ae 9A42     		cmp	r2, r3
+ 1243 00b0 E3D3     		bcc	.L45
+ 1244              	.LBE8:
+ 176:pae_libs/io_sublayer.c ****         }
+ 177:pae_libs/io_sublayer.c **** 
+ 178:pae_libs/io_sublayer.c ****         // Update buffer size
+ 179:pae_libs/io_sublayer.c ****         buffer->size -= num_frames_to_remove;
+ 1245              		.loc 1 179 15
+ 1246 00b2 7B68     		ldr	r3, [r7, #4]
+ 1247 00b4 03F58043 		add	r3, r3, #16384
+ 1248 00b8 D3F84423 		ldr	r2, [r3, #836]
+ 1249              		.loc 1 179 22
+ 1250 00bc BB68     		ldr	r3, [r7, #8]
+ 1251 00be D31A     		subs	r3, r2, r3
+ 1252 00c0 7A68     		ldr	r2, [r7, #4]
+ 1253 00c2 02F58042 		add	r2, r2, #16384
+ 1254 00c6 C2F84433 		str	r3, [r2, #836]
+ 1255              	.LBB9:
+ 180:pae_libs/io_sublayer.c **** 
+ 181:pae_libs/io_sublayer.c ****         // Update the index positions in the buffer
+ 182:pae_libs/io_sublayer.c ****         for (uint32_t i = 0; i < NUM_MAX_SEGMENTS; i++) {
+ 1256              		.loc 1 182 23
+ 1257 00ca 0023     		movs	r3, #0
+ 1258 00cc 7B61     		str	r3, [r7, #20]
+ 1259              		.loc 1 182 9
+ 1260 00ce 45E0     		b	.L46
+ 1261              	.L48:
+ 183:pae_libs/io_sublayer.c ****             if (buffer->packet_id_in_use[i] && buffer->index[i].buffer_position > end) {
+ 1262              		.loc 1 183 41
+ 1263 00d0 7A68     		ldr	r2, [r7, #4]
+ 1264 00d2 7B69     		ldr	r3, [r7, #20]
+ 1265 00d4 1344     		add	r3, r3, r2
+ 1266 00d6 03F58643 		add	r3, r3, #17152
+ 1267 00da 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1268              		.loc 1 183 16
+ 1269 00dc 002B     		cmp	r3, #0
+ 1270 00de 3AD0     		beq	.L47
+ 1271              		.loc 1 183 64 discriminator 1
+ 1272 00e0 7968     		ldr	r1, [r7, #4]
+ 1273 00e2 7A69     		ldr	r2, [r7, #20]
+ 1274 00e4 1346     		mov	r3, r2
+ 1275 00e6 5B00     		lsls	r3, r3, #1
+ 1276 00e8 1344     		add	r3, r3, r2
+ 1277 00ea 9B00     		lsls	r3, r3, #2
+ 1278 00ec 0B44     		add	r3, r3, r1
+ 1279 00ee 03F58043 		add	r3, r3, #16384
+ 1280 00f2 1B68     		ldr	r3, [r3]
+ 1281              		.loc 1 183 45 discriminator 1
+ 1282 00f4 FA68     		ldr	r2, [r7, #12]
+ 1283 00f6 9A42     		cmp	r2, r3
+ 1284 00f8 2DD2     		bcs	.L47
+ 184:pae_libs/io_sublayer.c ****                 buffer->index[i].buffer_position -= num_frames_to_remove;
+ 1285              		.loc 1 184 33
+ 1286 00fa 7968     		ldr	r1, [r7, #4]
+ 1287 00fc 7A69     		ldr	r2, [r7, #20]
+ 1288 00fe 1346     		mov	r3, r2
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 27
+
+
+ 1289 0100 5B00     		lsls	r3, r3, #1
+ 1290 0102 1344     		add	r3, r3, r2
+ 1291 0104 9B00     		lsls	r3, r3, #2
+ 1292 0106 0B44     		add	r3, r3, r1
+ 1293 0108 03F58043 		add	r3, r3, #16384
+ 1294 010c 1A68     		ldr	r2, [r3]
+ 1295              		.loc 1 184 50
+ 1296 010e BB68     		ldr	r3, [r7, #8]
+ 1297 0110 D11A     		subs	r1, r2, r3
+ 1298 0112 7868     		ldr	r0, [r7, #4]
+ 1299 0114 7A69     		ldr	r2, [r7, #20]
+ 1300 0116 1346     		mov	r3, r2
+ 1301 0118 5B00     		lsls	r3, r3, #1
+ 1302 011a 1344     		add	r3, r3, r2
+ 1303 011c 9B00     		lsls	r3, r3, #2
+ 1304 011e 0344     		add	r3, r3, r0
+ 1305 0120 03F58043 		add	r3, r3, #16384
+ 1306 0124 1960     		str	r1, [r3]
+ 185:pae_libs/io_sublayer.c ****                 buffer->index[i].final_position -= num_frames_to_remove;
+ 1307              		.loc 1 185 33
+ 1308 0126 7968     		ldr	r1, [r7, #4]
+ 1309 0128 7A69     		ldr	r2, [r7, #20]
+ 1310 012a 1346     		mov	r3, r2
+ 1311 012c 5B00     		lsls	r3, r3, #1
+ 1312 012e 1344     		add	r3, r3, r2
+ 1313 0130 9B00     		lsls	r3, r3, #2
+ 1314 0132 0B44     		add	r3, r3, r1
+ 1315 0134 03F58043 		add	r3, r3, #16384
+ 1316 0138 0433     		adds	r3, r3, #4
+ 1317 013a 1A68     		ldr	r2, [r3]
+ 1318              		.loc 1 185 49
+ 1319 013c BB68     		ldr	r3, [r7, #8]
+ 1320 013e D11A     		subs	r1, r2, r3
+ 1321 0140 7868     		ldr	r0, [r7, #4]
+ 1322 0142 7A69     		ldr	r2, [r7, #20]
+ 1323 0144 1346     		mov	r3, r2
+ 1324 0146 5B00     		lsls	r3, r3, #1
+ 1325 0148 1344     		add	r3, r3, r2
+ 1326 014a 9B00     		lsls	r3, r3, #2
+ 1327 014c 0344     		add	r3, r3, r0
+ 1328 014e 03F58043 		add	r3, r3, #16384
+ 1329 0152 0433     		adds	r3, r3, #4
+ 1330 0154 1960     		str	r1, [r3]
+ 1331              	.L47:
+ 182:pae_libs/io_sublayer.c ****             if (buffer->packet_id_in_use[i] && buffer->index[i].buffer_position > end) {
+ 1332              		.loc 1 182 53 discriminator 2
+ 1333 0156 7B69     		ldr	r3, [r7, #20]
+ 1334 0158 0133     		adds	r3, r3, #1
+ 1335 015a 7B61     		str	r3, [r7, #20]
+ 1336              	.L46:
+ 182:pae_libs/io_sublayer.c ****             if (buffer->packet_id_in_use[i] && buffer->index[i].buffer_position > end) {
+ 1337              		.loc 1 182 32 discriminator 1
+ 1338 015c 7B69     		ldr	r3, [r7, #20]
+ 1339 015e 3F2B     		cmp	r3, #63
+ 1340 0160 B6D9     		bls	.L48
+ 1341              	.LBE9:
+ 186:pae_libs/io_sublayer.c ****             }
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 28
+
+
+ 187:pae_libs/io_sublayer.c ****         }
+ 188:pae_libs/io_sublayer.c ****         buffer->packet_id_in_use[packet_id] = false; // Mark ID as not in use
+ 1342              		.loc 1 188 45
+ 1343 0162 7A68     		ldr	r2, [r7, #4]
+ 1344 0164 3B68     		ldr	r3, [r7]
+ 1345 0166 1344     		add	r3, r3, r2
+ 1346 0168 03F58643 		add	r3, r3, #17152
+ 1347 016c 0022     		movs	r2, #0
+ 1348 016e 1A70     		strb	r2, [r3]
+ 189:pae_libs/io_sublayer.c ****         buffer->index[packet_id].buffer_position = 0; // Reset the packet's buffer position
+ 1349              		.loc 1 189 50
+ 1350 0170 7968     		ldr	r1, [r7, #4]
+ 1351 0172 3A68     		ldr	r2, [r7]
+ 1352 0174 1346     		mov	r3, r2
+ 1353 0176 5B00     		lsls	r3, r3, #1
+ 1354 0178 1344     		add	r3, r3, r2
+ 1355 017a 9B00     		lsls	r3, r3, #2
+ 1356 017c 0B44     		add	r3, r3, r1
+ 1357 017e 03F58043 		add	r3, r3, #16384
+ 1358 0182 0022     		movs	r2, #0
+ 1359 0184 1A60     		str	r2, [r3]
+ 190:pae_libs/io_sublayer.c ****         buffer->index[packet_id].final_position = 0; // Reset the packet's final buffer position
+ 1360              		.loc 1 190 49
+ 1361 0186 7968     		ldr	r1, [r7, #4]
+ 1362 0188 3A68     		ldr	r2, [r7]
+ 1363 018a 1346     		mov	r3, r2
+ 1364 018c 5B00     		lsls	r3, r3, #1
+ 1365 018e 1344     		add	r3, r3, r2
+ 1366 0190 9B00     		lsls	r3, r3, #2
+ 1367 0192 0B44     		add	r3, r3, r1
+ 1368 0194 03F58043 		add	r3, r3, #16384
+ 1369 0198 0433     		adds	r3, r3, #4
+ 1370 019a 0022     		movs	r2, #0
+ 1371 019c 1A60     		str	r2, [r3]
+ 191:pae_libs/io_sublayer.c ****         buffer->index[packet_id].in_nextsublayer = false; // Reset the packet's next sublayer index
+ 1372              		.loc 1 191 50
+ 1373 019e 7968     		ldr	r1, [r7, #4]
+ 1374 01a0 3A68     		ldr	r2, [r7]
+ 1375 01a2 1346     		mov	r3, r2
+ 1376 01a4 5B00     		lsls	r3, r3, #1
+ 1377 01a6 1344     		add	r3, r3, r2
+ 1378 01a8 9B00     		lsls	r3, r3, #2
+ 1379 01aa 0B44     		add	r3, r3, r1
+ 1380 01ac 03F58043 		add	r3, r3, #16384
+ 1381 01b0 0833     		adds	r3, r3, #8
+ 1382 01b2 0022     		movs	r2, #0
+ 1383 01b4 1A70     		strb	r2, [r3]
+ 1384              	.LBE6:
+ 1385 01b6 07E0     		b	.L49
+ 1386              	.L41:
+ 192:pae_libs/io_sublayer.c ****     } else {
+ 193:pae_libs/io_sublayer.c ****         fprintf(stderr, "Error: Invalid packet_id.\n");
+ 1387              		.loc 1 193 17
+ 1388 01b8 0B4B     		ldr	r3, .L50
+ 1389 01ba 1B68     		ldr	r3, [r3]
+ 1390 01bc DB68     		ldr	r3, [r3, #12]
+ 1391              		.loc 1 193 9
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 29
+
+
+ 1392 01be 1A22     		movs	r2, #26
+ 1393 01c0 0121     		movs	r1, #1
+ 1394 01c2 0A48     		ldr	r0, .L50+4
+ 1395 01c4 FFF7FEFF 		bl	fwrite
+ 1396              	.L49:
+ 194:pae_libs/io_sublayer.c ****     }
+ 195:pae_libs/io_sublayer.c ****     buffer->completframes--; // Decrement the number of complete frames in the buffer
+ 1397              		.loc 1 195 11
+ 1398 01c8 7B68     		ldr	r3, [r7, #4]
+ 1399 01ca 03F58043 		add	r3, r3, #16384
+ 1400 01ce D3F84033 		ldr	r3, [r3, #832]
+ 1401              		.loc 1 195 26
+ 1402 01d2 013B     		subs	r3, r3, #1
+ 1403 01d4 7A68     		ldr	r2, [r7, #4]
+ 1404 01d6 02F58042 		add	r2, r2, #16384
+ 1405 01da C2F84033 		str	r3, [r2, #832]
+ 196:pae_libs/io_sublayer.c **** }
+ 1406              		.loc 1 196 1
+ 1407 01de 00BF     		nop
+ 1408 01e0 2037     		adds	r7, r7, #32
+ 1409              	.LCFI46:
+ 1410              		.cfi_def_cfa_offset 8
+ 1411 01e2 BD46     		mov	sp, r7
+ 1412              	.LCFI47:
+ 1413              		.cfi_def_cfa_register 13
+ 1414              		@ sp needed
+ 1415 01e4 80BD     		pop	{r7, pc}
+ 1416              	.L51:
+ 1417 01e6 00BF     		.align	2
+ 1418              	.L50:
+ 1419 01e8 00000000 		.word	_impure_ptr
+ 1420 01ec 20000000 		.word	.LC1
+ 1421              		.cfi_endproc
+ 1422              	.LFE11:
+ 1424              		.section	.rodata
+ 1425 00b1 000000   		.align	2
+ 1426              	.LC4:
+ 1427 00b4 4572726F 		.ascii	"Error: out_count must not be NULL.\012\000"
+ 1427      723A206F 
+ 1427      75745F63 
+ 1427      6F756E74 
+ 1427      206D7573 
+ 1428              		.align	2
+ 1429              	.LC5:
+ 1430 00d8 4572726F 		.ascii	"Error: Output buffer too small.\012\000"
+ 1430      723A204F 
+ 1430      75747075 
+ 1430      74206275 
+ 1430      66666572 
+ 1431              		.section	.text.send_to_next_sublayer,"ax",%progbits
+ 1432              		.align	1
+ 1433              		.global	send_to_next_sublayer
+ 1434              		.syntax unified
+ 1435              		.thumb
+ 1436              		.thumb_func
+ 1438              	send_to_next_sublayer:
+ 1439              	.LFB12:
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 30
+
+
+ 197:pae_libs/io_sublayer.c **** 
+ 198:pae_libs/io_sublayer.c **** // Send to the next sublayer
+ 199:pae_libs/io_sublayer.c **** bool send_to_next_sublayer(IOBuffer *buffer, uint32_t packet_id, SDUFrame *output_frames, size_t *o
+ 1440              		.loc 1 199 129
+ 1441              		.cfi_startproc
+ 1442              		@ args = 4, pretend = 0, frame = 40
+ 1443              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1444 0000 80B5     		push	{r7, lr}
+ 1445              	.LCFI48:
+ 1446              		.cfi_def_cfa_offset 8
+ 1447              		.cfi_offset 7, -8
+ 1448              		.cfi_offset 14, -4
+ 1449 0002 8AB0     		sub	sp, sp, #40
+ 1450              	.LCFI49:
+ 1451              		.cfi_def_cfa_offset 48
+ 1452 0004 00AF     		add	r7, sp, #0
+ 1453              	.LCFI50:
+ 1454              		.cfi_def_cfa_register 7
+ 1455 0006 F860     		str	r0, [r7, #12]
+ 1456 0008 B960     		str	r1, [r7, #8]
+ 1457 000a 7A60     		str	r2, [r7, #4]
+ 1458 000c 3B60     		str	r3, [r7]
+ 200:pae_libs/io_sublayer.c ****     if (out_count == NULL) {
+ 1459              		.loc 1 200 8
+ 1460 000e 3B68     		ldr	r3, [r7]
+ 1461 0010 002B     		cmp	r3, #0
+ 1462 0012 09D1     		bne	.L53
+ 201:pae_libs/io_sublayer.c ****         fprintf(stderr, "Error: out_count must not be NULL.\n");
+ 1463              		.loc 1 201 17
+ 1464 0014 3D4B     		ldr	r3, .L60
+ 1465 0016 1B68     		ldr	r3, [r3]
+ 1466 0018 DB68     		ldr	r3, [r3, #12]
+ 1467              		.loc 1 201 9
+ 1468 001a 2322     		movs	r2, #35
+ 1469 001c 0121     		movs	r1, #1
+ 1470 001e 3C48     		ldr	r0, .L60+4
+ 1471 0020 FFF7FEFF 		bl	fwrite
+ 202:pae_libs/io_sublayer.c ****         return false;
+ 1472              		.loc 1 202 16
+ 1473 0024 0023     		movs	r3, #0
+ 1474 0026 6CE0     		b	.L54
+ 1475              	.L53:
+ 203:pae_libs/io_sublayer.c ****     }
+ 204:pae_libs/io_sublayer.c ****     *out_count = 0;
+ 1476              		.loc 1 204 16
+ 1477 0028 3B68     		ldr	r3, [r7]
+ 1478 002a 0022     		movs	r2, #0
+ 1479 002c 1A60     		str	r2, [r3]
+ 205:pae_libs/io_sublayer.c **** 
+ 206:pae_libs/io_sublayer.c ****     if (packet_id >= NUM_MAX_SEGMENTS) {
+ 1480              		.loc 1 206 8
+ 1481 002e BB68     		ldr	r3, [r7, #8]
+ 1482 0030 3F2B     		cmp	r3, #63
+ 1483 0032 09D9     		bls	.L55
+ 207:pae_libs/io_sublayer.c ****         fprintf(stderr, "Error: Invalid packet_id.\n");
+ 1484              		.loc 1 207 17
+ 1485 0034 354B     		ldr	r3, .L60
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 31
+
+
+ 1486 0036 1B68     		ldr	r3, [r3]
+ 1487 0038 DB68     		ldr	r3, [r3, #12]
+ 1488              		.loc 1 207 9
+ 1489 003a 1A22     		movs	r2, #26
+ 1490 003c 0121     		movs	r1, #1
+ 1491 003e 3548     		ldr	r0, .L60+8
+ 1492 0040 FFF7FEFF 		bl	fwrite
+ 208:pae_libs/io_sublayer.c ****         return false;
+ 1493              		.loc 1 208 16
+ 1494 0044 0023     		movs	r3, #0
+ 1495 0046 5CE0     		b	.L54
+ 1496              	.L55:
+ 209:pae_libs/io_sublayer.c ****     }
+ 210:pae_libs/io_sublayer.c **** 
+ 211:pae_libs/io_sublayer.c ****     size_t start = buffer->index[packet_id].buffer_position;
+ 1497              		.loc 1 211 12
+ 1498 0048 F968     		ldr	r1, [r7, #12]
+ 1499 004a BA68     		ldr	r2, [r7, #8]
+ 1500 004c 1346     		mov	r3, r2
+ 1501 004e 5B00     		lsls	r3, r3, #1
+ 1502 0050 1344     		add	r3, r3, r2
+ 1503 0052 9B00     		lsls	r3, r3, #2
+ 1504 0054 0B44     		add	r3, r3, r1
+ 1505 0056 03F58043 		add	r3, r3, #16384
+ 1506 005a 1B68     		ldr	r3, [r3]
+ 1507 005c 3B62     		str	r3, [r7, #32]
+ 212:pae_libs/io_sublayer.c ****     size_t end = buffer->index[packet_id].final_position;
+ 1508              		.loc 1 212 12
+ 1509 005e F968     		ldr	r1, [r7, #12]
+ 1510 0060 BA68     		ldr	r2, [r7, #8]
+ 1511 0062 1346     		mov	r3, r2
+ 1512 0064 5B00     		lsls	r3, r3, #1
+ 1513 0066 1344     		add	r3, r3, r2
+ 1514 0068 9B00     		lsls	r3, r3, #2
+ 1515 006a 0B44     		add	r3, r3, r1
+ 1516 006c 03F58043 		add	r3, r3, #16384
+ 1517 0070 0433     		adds	r3, r3, #4
+ 1518 0072 1B68     		ldr	r3, [r3]
+ 1519 0074 FB61     		str	r3, [r7, #28]
+ 213:pae_libs/io_sublayer.c ****     if (end < start) {
+ 1520              		.loc 1 213 8
+ 1521 0076 FA69     		ldr	r2, [r7, #28]
+ 1522 0078 3B6A     		ldr	r3, [r7, #32]
+ 1523 007a 9A42     		cmp	r2, r3
+ 1524 007c 01D2     		bcs	.L56
+ 214:pae_libs/io_sublayer.c ****         // nothing to send
+ 215:pae_libs/io_sublayer.c ****         return false;
+ 1525              		.loc 1 215 16
+ 1526 007e 0023     		movs	r3, #0
+ 1527 0080 3FE0     		b	.L54
+ 1528              	.L56:
+ 216:pae_libs/io_sublayer.c ****     }
+ 217:pae_libs/io_sublayer.c **** 
+ 218:pae_libs/io_sublayer.c ****     size_t num_frames_to_send = end - start + 1;
+ 1529              		.loc 1 218 37
+ 1530 0082 FA69     		ldr	r2, [r7, #28]
+ 1531 0084 3B6A     		ldr	r3, [r7, #32]
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 32
+
+
+ 1532 0086 D31A     		subs	r3, r2, r3
+ 1533              		.loc 1 218 12
+ 1534 0088 0133     		adds	r3, r3, #1
+ 1535 008a BB61     		str	r3, [r7, #24]
+ 219:pae_libs/io_sublayer.c ****     
+ 220:pae_libs/io_sublayer.c ****     if (num_frames_to_send > max_frames) {
+ 1536              		.loc 1 220 8
+ 1537 008c BA69     		ldr	r2, [r7, #24]
+ 1538 008e 3B6B     		ldr	r3, [r7, #48]
+ 1539 0090 9A42     		cmp	r2, r3
+ 1540 0092 09D9     		bls	.L57
+ 221:pae_libs/io_sublayer.c ****         fprintf(stderr, "Error: Output buffer too small.\n");
+ 1541              		.loc 1 221 17
+ 1542 0094 1D4B     		ldr	r3, .L60
+ 1543 0096 1B68     		ldr	r3, [r3]
+ 1544 0098 DB68     		ldr	r3, [r3, #12]
+ 1545              		.loc 1 221 9
+ 1546 009a 2022     		movs	r2, #32
+ 1547 009c 0121     		movs	r1, #1
+ 1548 009e 1E48     		ldr	r0, .L60+12
+ 1549 00a0 FFF7FEFF 		bl	fwrite
+ 222:pae_libs/io_sublayer.c ****         return false;
+ 1550              		.loc 1 222 16
+ 1551 00a4 0023     		movs	r3, #0
+ 1552 00a6 2CE0     		b	.L54
+ 1553              	.L57:
+ 1554              	.LBB10:
+ 223:pae_libs/io_sublayer.c ****     }
+ 224:pae_libs/io_sublayer.c **** 
+ 225:pae_libs/io_sublayer.c ****     // Copy frames
+ 226:pae_libs/io_sublayer.c ****     for (size_t i = start; i <= end; i++) {
+ 1555              		.loc 1 226 17
+ 1556 00a8 3B6A     		ldr	r3, [r7, #32]
+ 1557 00aa 7B62     		str	r3, [r7, #36]
+ 1558              		.loc 1 226 5
+ 1559 00ac 15E0     		b	.L58
+ 1560              	.L59:
+ 1561              	.LBB11:
+ 227:pae_libs/io_sublayer.c ****         size_t idx = i - start;
+ 1562              		.loc 1 227 16
+ 1563 00ae 7A6A     		ldr	r2, [r7, #36]
+ 1564 00b0 3B6A     		ldr	r3, [r7, #32]
+ 1565 00b2 D31A     		subs	r3, r2, r3
+ 1566 00b4 7B61     		str	r3, [r7, #20]
+ 228:pae_libs/io_sublayer.c ****         output_frames[idx] = buffer->frames[i]; // Direct struct copy (works because arrays are ins
+ 1567              		.loc 1 228 22
+ 1568 00b6 7B69     		ldr	r3, [r7, #20]
+ 1569 00b8 1B02     		lsls	r3, r3, #8
+ 1570 00ba 7A68     		ldr	r2, [r7, #4]
+ 1571 00bc D118     		adds	r1, r2, r3
+ 1572              		.loc 1 228 28
+ 1573 00be FA68     		ldr	r2, [r7, #12]
+ 1574 00c0 7B6A     		ldr	r3, [r7, #36]
+ 1575 00c2 1B02     		lsls	r3, r3, #8
+ 1576 00c4 1344     		add	r3, r3, r2
+ 1577 00c6 0846     		mov	r0, r1
+ 1578 00c8 1946     		mov	r1, r3
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 33
+
+
+ 1579 00ca 4FF48073 		mov	r3, #256
+ 1580 00ce 1A46     		mov	r2, r3
+ 1581 00d0 FFF7FEFF 		bl	memcpy
+ 1582              	.LBE11:
+ 226:pae_libs/io_sublayer.c ****         size_t idx = i - start;
+ 1583              		.loc 1 226 39 discriminator 3
+ 1584 00d4 7B6A     		ldr	r3, [r7, #36]
+ 1585 00d6 0133     		adds	r3, r3, #1
+ 1586 00d8 7B62     		str	r3, [r7, #36]
+ 1587              	.L58:
+ 226:pae_libs/io_sublayer.c ****         size_t idx = i - start;
+ 1588              		.loc 1 226 30 discriminator 1
+ 1589 00da 7A6A     		ldr	r2, [r7, #36]
+ 1590 00dc FB69     		ldr	r3, [r7, #28]
+ 1591 00de 9A42     		cmp	r2, r3
+ 1592 00e0 E5D9     		bls	.L59
+ 1593              	.LBE10:
+ 229:pae_libs/io_sublayer.c ****     }
+ 230:pae_libs/io_sublayer.c **** 
+ 231:pae_libs/io_sublayer.c ****     // success: report count and mark buffer entry
+ 232:pae_libs/io_sublayer.c ****     *out_count = num_frames_to_send;
+ 1594              		.loc 1 232 16
+ 1595 00e2 3B68     		ldr	r3, [r7]
+ 1596 00e4 BA69     		ldr	r2, [r7, #24]
+ 1597 00e6 1A60     		str	r2, [r3]
+ 233:pae_libs/io_sublayer.c ****     buffer->index[packet_id].in_nextsublayer = true; // Mark the packet as sent to the next sublaye
+ 1598              		.loc 1 233 46
+ 1599 00e8 F968     		ldr	r1, [r7, #12]
+ 1600 00ea BA68     		ldr	r2, [r7, #8]
+ 1601 00ec 1346     		mov	r3, r2
+ 1602 00ee 5B00     		lsls	r3, r3, #1
+ 1603 00f0 1344     		add	r3, r3, r2
+ 1604 00f2 9B00     		lsls	r3, r3, #2
+ 1605 00f4 0B44     		add	r3, r3, r1
+ 1606 00f6 03F58043 		add	r3, r3, #16384
+ 1607 00fa 0833     		adds	r3, r3, #8
+ 1608 00fc 0122     		movs	r2, #1
+ 1609 00fe 1A70     		strb	r2, [r3]
+ 234:pae_libs/io_sublayer.c ****     return true; 
+ 1610              		.loc 1 234 12
+ 1611 0100 0123     		movs	r3, #1
+ 1612              	.L54:
+ 235:pae_libs/io_sublayer.c **** }
+ 1613              		.loc 1 235 1
+ 1614 0102 1846     		mov	r0, r3
+ 1615 0104 2837     		adds	r7, r7, #40
+ 1616              	.LCFI51:
+ 1617              		.cfi_def_cfa_offset 8
+ 1618 0106 BD46     		mov	sp, r7
+ 1619              	.LCFI52:
+ 1620              		.cfi_def_cfa_register 13
+ 1621              		@ sp needed
+ 1622 0108 80BD     		pop	{r7, pc}
+ 1623              	.L61:
+ 1624 010a 00BF     		.align	2
+ 1625              	.L60:
+ 1626 010c 00000000 		.word	_impure_ptr
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 34
+
+
+ 1627 0110 B4000000 		.word	.LC4
+ 1628 0114 20000000 		.word	.LC1
+ 1629 0118 D8000000 		.word	.LC5
+ 1630              		.cfi_endproc
+ 1631              	.LFE12:
+ 1633              		.section	.rodata
+ 1634 00f9 000000   		.align	2
+ 1635              	.LC6:
+ 1636 00fc 4572726F 		.ascii	"Error: No valid packet_id found for the first eleme"
+ 1636      723A204E 
+ 1636      6F207661 
+ 1636      6C696420 
+ 1636      7061636B 
+ 1637 012f 6E742E0A 		.ascii	"nt.\012\000"
+ 1637      00
+ 1638              		.section	.text.get_first_packet_id,"ax",%progbits
+ 1639              		.align	1
+ 1640              		.global	get_first_packet_id
+ 1641              		.syntax unified
+ 1642              		.thumb
+ 1643              		.thumb_func
+ 1645              	get_first_packet_id:
+ 1646              	.LFB13:
+ 236:pae_libs/io_sublayer.c **** 
+ 237:pae_libs/io_sublayer.c **** uint32_t get_first_packet_id(IOBuffer *buffer) {
+ 1647              		.loc 1 237 48
+ 1648              		.cfi_startproc
+ 1649              		@ args = 0, pretend = 0, frame = 16
+ 1650              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1651 0000 80B5     		push	{r7, lr}
+ 1652              	.LCFI53:
+ 1653              		.cfi_def_cfa_offset 8
+ 1654              		.cfi_offset 7, -8
+ 1655              		.cfi_offset 14, -4
+ 1656 0002 84B0     		sub	sp, sp, #16
+ 1657              	.LCFI54:
+ 1658              		.cfi_def_cfa_offset 24
+ 1659 0004 00AF     		add	r7, sp, #0
+ 1660              	.LCFI55:
+ 1661              		.cfi_def_cfa_register 7
+ 1662 0006 7860     		str	r0, [r7, #4]
+ 1663              	.LBB12:
+ 238:pae_libs/io_sublayer.c ****         for (uint32_t id = 0; id < NUM_MAX_SEGMENTS; id++) {
+ 1664              		.loc 1 238 23
+ 1665 0008 0023     		movs	r3, #0
+ 1666 000a FB60     		str	r3, [r7, #12]
+ 1667              		.loc 1 238 9
+ 1668 000c 18E0     		b	.L63
+ 1669              	.L66:
+ 239:pae_libs/io_sublayer.c ****             if (buffer->packet_id_in_use[id] && buffer->index[id].buffer_position == 0) {
+ 1670              		.loc 1 239 41
+ 1671 000e 7A68     		ldr	r2, [r7, #4]
+ 1672 0010 FB68     		ldr	r3, [r7, #12]
+ 1673 0012 1344     		add	r3, r3, r2
+ 1674 0014 03F58643 		add	r3, r3, #17152
+ 1675 0018 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1676              		.loc 1 239 16
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 35
+
+
+ 1677 001a 002B     		cmp	r3, #0
+ 1678 001c 0DD0     		beq	.L64
+ 1679              		.loc 1 239 66 discriminator 1
+ 1680 001e 7968     		ldr	r1, [r7, #4]
+ 1681 0020 FA68     		ldr	r2, [r7, #12]
+ 1682 0022 1346     		mov	r3, r2
+ 1683 0024 5B00     		lsls	r3, r3, #1
+ 1684 0026 1344     		add	r3, r3, r2
+ 1685 0028 9B00     		lsls	r3, r3, #2
+ 1686 002a 0B44     		add	r3, r3, r1
+ 1687 002c 03F58043 		add	r3, r3, #16384
+ 1688 0030 1B68     		ldr	r3, [r3]
+ 1689              		.loc 1 239 46 discriminator 1
+ 1690 0032 002B     		cmp	r3, #0
+ 1691 0034 01D1     		bne	.L64
+ 240:pae_libs/io_sublayer.c ****                 return id; // Return the packet_id corresponding to the first element
+ 1692              		.loc 1 240 24
+ 1693 0036 FB68     		ldr	r3, [r7, #12]
+ 1694 0038 0FE0     		b	.L65
+ 1695              	.L64:
+ 238:pae_libs/io_sublayer.c ****         for (uint32_t id = 0; id < NUM_MAX_SEGMENTS; id++) {
+ 1696              		.loc 1 238 56 discriminator 2
+ 1697 003a FB68     		ldr	r3, [r7, #12]
+ 1698 003c 0133     		adds	r3, r3, #1
+ 1699 003e FB60     		str	r3, [r7, #12]
+ 1700              	.L63:
+ 238:pae_libs/io_sublayer.c ****         for (uint32_t id = 0; id < NUM_MAX_SEGMENTS; id++) {
+ 1701              		.loc 1 238 34 discriminator 1
+ 1702 0040 FB68     		ldr	r3, [r7, #12]
+ 1703 0042 3F2B     		cmp	r3, #63
+ 1704 0044 E3D9     		bls	.L66
+ 1705              	.LBE12:
+ 241:pae_libs/io_sublayer.c ****             }
+ 242:pae_libs/io_sublayer.c ****         }
+ 243:pae_libs/io_sublayer.c ****         fprintf(stderr, "Error: No valid packet_id found for the first element.\n");
+ 1706              		.loc 1 243 17
+ 1707 0046 074B     		ldr	r3, .L67
+ 1708 0048 1B68     		ldr	r3, [r3]
+ 1709 004a DB68     		ldr	r3, [r3, #12]
+ 1710              		.loc 1 243 9
+ 1711 004c 3722     		movs	r2, #55
+ 1712 004e 0121     		movs	r1, #1
+ 1713 0050 0548     		ldr	r0, .L67+4
+ 1714 0052 FFF7FEFF 		bl	fwrite
+ 244:pae_libs/io_sublayer.c ****         return UINT32_MAX; // Indicate that no valid packet_id was found
+ 1715              		.loc 1 244 16
+ 1716 0056 4FF0FF33 		mov	r3, #-1
+ 1717              	.L65:
+ 245:pae_libs/io_sublayer.c **** }
+ 1718              		.loc 1 245 1
+ 1719 005a 1846     		mov	r0, r3
+ 1720 005c 1037     		adds	r7, r7, #16
+ 1721              	.LCFI56:
+ 1722              		.cfi_def_cfa_offset 8
+ 1723 005e BD46     		mov	sp, r7
+ 1724              	.LCFI57:
+ 1725              		.cfi_def_cfa_register 13
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 36
+
+
+ 1726              		@ sp needed
+ 1727 0060 80BD     		pop	{r7, pc}
+ 1728              	.L68:
+ 1729 0062 00BF     		.align	2
+ 1730              	.L67:
+ 1731 0064 00000000 		.word	_impure_ptr
+ 1732 0068 FC000000 		.word	.LC6
+ 1733              		.cfi_endproc
+ 1734              	.LFE13:
+ 1736              		.section	.text.need_more_seg,"ax",%progbits
+ 1737              		.align	1
+ 1738              		.global	need_more_seg
+ 1739              		.syntax unified
+ 1740              		.thumb
+ 1741              		.thumb_func
+ 1743              	need_more_seg:
+ 1744              	.LFB14:
+ 246:pae_libs/io_sublayer.c **** 
+ 247:pae_libs/io_sublayer.c **** // I/O sublayer Rx
+ 248:pae_libs/io_sublayer.c **** 
+ 249:pae_libs/io_sublayer.c **** bool need_more_seg(SDUFrame frame) {
+ 1745              		.loc 1 249 36
+ 1746              		.cfi_startproc
+ 1747              		@ args = 256, pretend = 16, frame = 0
+ 1748              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1749              		@ link register save eliminated.
+ 1750 0000 84B0     		sub	sp, sp, #16
+ 1751              	.LCFI58:
+ 1752              		.cfi_def_cfa_offset 16
+ 1753 0002 90B4     		push	{r4, r7}
+ 1754              	.LCFI59:
+ 1755              		.cfi_def_cfa_offset 24
+ 1756              		.cfi_offset 4, -24
+ 1757              		.cfi_offset 7, -20
+ 1758 0004 00AF     		add	r7, sp, #0
+ 1759              	.LCFI60:
+ 1760              		.cfi_def_cfa_register 7
+ 1761 0006 07F10804 		add	r4, r7, #8
+ 1762 000a 84E80F00 		stm	r4, {r0, r1, r2, r3}
+ 250:pae_libs/io_sublayer.c ****     if (frame.type == FRAME_UNFRAGMENTED) {
+ 1763              		.loc 1 250 14
+ 1764 000e 3B7A     		ldrb	r3, [r7, #8]	@ zero_extendqisi2
+ 1765              		.loc 1 250 8
+ 1766 0010 002B     		cmp	r3, #0
+ 1767 0012 01D1     		bne	.L70
+ 251:pae_libs/io_sublayer.c ****         return false; // The frame is not fragmented
+ 1768              		.loc 1 251 16
+ 1769 0014 0023     		movs	r3, #0
+ 1770 0016 0EE0     		b	.L71
+ 1771              	.L70:
+ 252:pae_libs/io_sublayer.c ****     }
+ 253:pae_libs/io_sublayer.c ****     if (frame.data.fragmented.seg_header.SegFlag == LAST_SEGMENT || frame.data.fragmented.seg_heade
+ 1772              		.loc 1 253 50
+ 1773 0018 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 1774 001a 03F00303 		and	r3, r3, #3
+ 1775 001e DBB2     		uxtb	r3, r3
+ 1776              		.loc 1 253 8
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 37
+
+
+ 1777 0020 022B     		cmp	r3, #2
+ 1778 0022 05D0     		beq	.L72
+ 1779              		.loc 1 253 110 discriminator 1
+ 1780 0024 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 1781 0026 03F00303 		and	r3, r3, #3
+ 1782 002a DBB2     		uxtb	r3, r3
+ 1783              		.loc 1 253 66 discriminator 1
+ 1784 002c 032B     		cmp	r3, #3
+ 1785 002e 01D1     		bne	.L73
+ 1786              	.L72:
+ 254:pae_libs/io_sublayer.c ****         return false; // The frame is the last segment or not a segment
+ 1787              		.loc 1 254 16
+ 1788 0030 0023     		movs	r3, #0
+ 1789 0032 00E0     		b	.L71
+ 1790              	.L73:
+ 255:pae_libs/io_sublayer.c ****     }
+ 256:pae_libs/io_sublayer.c ****     return true; // The frame is an intermediate or first segment   
+ 1791              		.loc 1 256 12
+ 1792 0034 0123     		movs	r3, #1
+ 1793              	.L71:
+ 257:pae_libs/io_sublayer.c **** }
+ 1794              		.loc 1 257 1
+ 1795 0036 1846     		mov	r0, r3
+ 1796 0038 BD46     		mov	sp, r7
+ 1797              	.LCFI61:
+ 1798              		.cfi_def_cfa_register 13
+ 1799              		@ sp needed
+ 1800 003a 90BC     		pop	{r4, r7}
+ 1801              	.LCFI62:
+ 1802              		.cfi_restore 7
+ 1803              		.cfi_restore 4
+ 1804              		.cfi_def_cfa_offset 16
+ 1805 003c 04B0     		add	sp, sp, #16
+ 1806              	.LCFI63:
+ 1807              		.cfi_def_cfa_offset 0
+ 1808 003e 7047     		bx	lr
+ 1809              		.cfi_endproc
+ 1810              	.LFE14:
+ 1812              		.section	.text.serialize_to_obc,"ax",%progbits
+ 1813              		.align	1
+ 1814              		.global	serialize_to_obc
+ 1815              		.syntax unified
+ 1816              		.thumb
+ 1817              		.thumb_func
+ 1819              	serialize_to_obc:
+ 1820              	.LFB15:
+ 258:pae_libs/io_sublayer.c **** 
+ 259:pae_libs/io_sublayer.c **** void serialize_to_obc(SDUFrame frame, uint8_t* buffer, uint32_t* current_len, uint32_t max_len) {
+ 1821              		.loc 1 259 97
+ 1822              		.cfi_startproc
+ 1823              		@ args = 268, pretend = 16, frame = 8
+ 1824              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1825 0000 84B0     		sub	sp, sp, #16
+ 1826              	.LCFI64:
+ 1827              		.cfi_def_cfa_offset 16
+ 1828 0002 80B5     		push	{r7, lr}
+ 1829              	.LCFI65:
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 38
+
+
+ 1830              		.cfi_def_cfa_offset 24
+ 1831              		.cfi_offset 7, -24
+ 1832              		.cfi_offset 14, -20
+ 1833 0004 82B0     		sub	sp, sp, #8
+ 1834              	.LCFI66:
+ 1835              		.cfi_def_cfa_offset 32
+ 1836 0006 00AF     		add	r7, sp, #0
+ 1837              	.LCFI67:
+ 1838              		.cfi_def_cfa_register 7
+ 1839 0008 07F1100C 		add	ip, r7, #16
+ 1840 000c 8CE80F00 		stm	ip, {r0, r1, r2, r3}
+ 260:pae_libs/io_sublayer.c ****     if (buffer == NULL || current_len == NULL) return;
+ 1841              		.loc 1 260 8
+ 1842 0010 D7F81031 		ldr	r3, [r7, #272]
+ 1843 0014 002B     		cmp	r3, #0
+ 1844 0016 49D0     		beq	.L79
+ 1845              		.loc 1 260 24 discriminator 2
+ 1846 0018 D7F81431 		ldr	r3, [r7, #276]
+ 1847 001c 002B     		cmp	r3, #0
+ 1848 001e 45D0     		beq	.L79
+ 261:pae_libs/io_sublayer.c **** 
+ 262:pae_libs/io_sublayer.c ****     if (frame.type == FRAME_UNFRAGMENTED) {
+ 1849              		.loc 1 262 14
+ 1850 0020 3B7C     		ldrb	r3, [r7, #16]	@ zero_extendqisi2
+ 1851              		.loc 1 262 8
+ 1852 0022 002B     		cmp	r3, #0
+ 1853 0024 1FD1     		bne	.L78
+ 1854              	.LBB13:
+ 263:pae_libs/io_sublayer.c ****         // Copy only the data of the unfragmented SDU
+ 264:pae_libs/io_sublayer.c ****         uint32_t len = frame.data.unfragmented.header.data_length_low;
+ 1855              		.loc 1 264 54
+ 1856 0026 3B7D     		ldrb	r3, [r7, #20]	@ zero_extendqisi2
+ 1857              		.loc 1 264 18
+ 1858 0028 3B60     		str	r3, [r7]
+ 265:pae_libs/io_sublayer.c ****         if (*current_len + len <= max_len) {
+ 1859              		.loc 1 265 13
+ 1860 002a D7F81431 		ldr	r3, [r7, #276]
+ 1861 002e 1A68     		ldr	r2, [r3]
+ 1862              		.loc 1 265 26
+ 1863 0030 3B68     		ldr	r3, [r7]
+ 1864 0032 1344     		add	r3, r3, r2
+ 1865              		.loc 1 265 12
+ 1866 0034 D7F81821 		ldr	r2, [r7, #280]
+ 1867 0038 9A42     		cmp	r2, r3
+ 1868 003a 38D3     		bcc	.L74
+ 266:pae_libs/io_sublayer.c ****             memcpy(buffer + *current_len, frame.data.unfragmented.sdu, len);
+ 1869              		.loc 1 266 29
+ 1870 003c D7F81431 		ldr	r3, [r7, #276]
+ 1871 0040 1B68     		ldr	r3, [r3]
+ 1872              		.loc 1 266 27
+ 1873 0042 D7F81021 		ldr	r2, [r7, #272]
+ 1874 0046 1344     		add	r3, r3, r2
+ 1875              		.loc 1 266 13
+ 1876 0048 07F11601 		add	r1, r7, #22
+ 1877 004c 3A68     		ldr	r2, [r7]
+ 1878 004e 1846     		mov	r0, r3
+ 1879 0050 FFF7FEFF 		bl	memcpy
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 39
+
+
+ 267:pae_libs/io_sublayer.c ****             *current_len += len;
+ 1880              		.loc 1 267 13
+ 1881 0054 D7F81431 		ldr	r3, [r7, #276]
+ 1882 0058 1A68     		ldr	r2, [r3]
+ 1883              		.loc 1 267 26
+ 1884 005a 3B68     		ldr	r3, [r7]
+ 1885 005c 1A44     		add	r2, r2, r3
+ 1886 005e D7F81431 		ldr	r3, [r7, #276]
+ 1887 0062 1A60     		str	r2, [r3]
+ 1888 0064 23E0     		b	.L74
+ 1889              	.L78:
+ 1890              	.LBE13:
+ 268:pae_libs/io_sublayer.c ****         }
+ 269:pae_libs/io_sublayer.c ****     } else if (frame.type == FRAME_FRAGMENTED) {
+ 1891              		.loc 1 269 21
+ 1892 0066 3B7C     		ldrb	r3, [r7, #16]	@ zero_extendqisi2
+ 1893              		.loc 1 269 15
+ 1894 0068 012B     		cmp	r3, #1
+ 1895 006a 20D1     		bne	.L74
+ 1896              	.LBB14:
+ 270:pae_libs/io_sublayer.c ****         // Add the data of the fragmented SDU at the end of buffer
+ 271:pae_libs/io_sublayer.c ****         uint32_t segment_size = frame.data.fragmented.pdu_header.data_length_low;
+ 1897              		.loc 1 271 65
+ 1898 006c 3B7D     		ldrb	r3, [r7, #20]	@ zero_extendqisi2
+ 1899              		.loc 1 271 18
+ 1900 006e 7B60     		str	r3, [r7, #4]
+ 272:pae_libs/io_sublayer.c ****         if (*current_len + segment_size <= max_len) {
+ 1901              		.loc 1 272 13
+ 1902 0070 D7F81431 		ldr	r3, [r7, #276]
+ 1903 0074 1A68     		ldr	r2, [r3]
+ 1904              		.loc 1 272 26
+ 1905 0076 7B68     		ldr	r3, [r7, #4]
+ 1906 0078 1344     		add	r3, r3, r2
+ 1907              		.loc 1 272 12
+ 1908 007a D7F81821 		ldr	r2, [r7, #280]
+ 1909 007e 9A42     		cmp	r2, r3
+ 1910 0080 15D3     		bcc	.L74
+ 273:pae_libs/io_sublayer.c ****             memcpy(buffer + *current_len, frame.data.fragmented.sdu, segment_size);
+ 1911              		.loc 1 273 29
+ 1912 0082 D7F81431 		ldr	r3, [r7, #276]
+ 1913 0086 1B68     		ldr	r3, [r3]
+ 1914              		.loc 1 273 27
+ 1915 0088 D7F81021 		ldr	r2, [r7, #272]
+ 1916 008c 1344     		add	r3, r3, r2
+ 1917              		.loc 1 273 13
+ 1918 008e 07F11701 		add	r1, r7, #23
+ 1919 0092 7A68     		ldr	r2, [r7, #4]
+ 1920 0094 1846     		mov	r0, r3
+ 1921 0096 FFF7FEFF 		bl	memcpy
+ 274:pae_libs/io_sublayer.c ****             *current_len += segment_size;
+ 1922              		.loc 1 274 13
+ 1923 009a D7F81431 		ldr	r3, [r7, #276]
+ 1924 009e 1A68     		ldr	r2, [r3]
+ 1925              		.loc 1 274 26
+ 1926 00a0 7B68     		ldr	r3, [r7, #4]
+ 1927 00a2 1A44     		add	r2, r2, r3
+ 1928 00a4 D7F81431 		ldr	r3, [r7, #276]
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 40
+
+
+ 1929 00a8 1A60     		str	r2, [r3]
+ 1930 00aa 00E0     		b	.L74
+ 1931              	.L79:
+ 1932              	.LBE14:
+ 260:pae_libs/io_sublayer.c **** 
+ 1933              		.loc 1 260 48
+ 1934 00ac 00BF     		nop
+ 1935              	.L74:
+ 275:pae_libs/io_sublayer.c ****         }
+ 276:pae_libs/io_sublayer.c ****     }
+ 277:pae_libs/io_sublayer.c **** }
+ 1936              		.loc 1 277 1
+ 1937 00ae 0837     		adds	r7, r7, #8
+ 1938              	.LCFI68:
+ 1939              		.cfi_def_cfa_offset 24
+ 1940 00b0 BD46     		mov	sp, r7
+ 1941              	.LCFI69:
+ 1942              		.cfi_def_cfa_register 13
+ 1943              		@ sp needed
+ 1944 00b2 BDE88040 		pop	{r7, lr}
+ 1945              	.LCFI70:
+ 1946              		.cfi_restore 14
+ 1947              		.cfi_restore 7
+ 1948              		.cfi_def_cfa_offset 16
+ 1949 00b6 04B0     		add	sp, sp, #16
+ 1950              	.LCFI71:
+ 1951              		.cfi_def_cfa_offset 0
+ 1952 00b8 7047     		bx	lr
+ 1953              		.cfi_endproc
+ 1954              	.LFE15:
+ 1956              		.section	.text.create_bitsecuence,"ax",%progbits
+ 1957              		.align	1
+ 1958              		.global	create_bitsecuence
+ 1959              		.syntax unified
+ 1960              		.thumb
+ 1961              		.thumb_func
+ 1963              	create_bitsecuence:
+ 1964              	.LFB16:
+ 278:pae_libs/io_sublayer.c **** 
+ 279:pae_libs/io_sublayer.c **** bitsecuence create_bitsecuence(SerializedData* bufferserialized) {
+ 1965              		.loc 1 279 66
+ 1966              		.cfi_startproc
+ 1967              		@ args = 0, pretend = 0, frame = 16416
+ 1968              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1969 0000 80B5     		push	{r7, lr}
+ 1970              	.LCFI72:
+ 1971              		.cfi_def_cfa_offset 8
+ 1972              		.cfi_offset 7, -8
+ 1973              		.cfi_offset 14, -4
+ 1974 0002 ADF5804D 		sub	sp, sp, #16384
+ 1975              	.LCFI73:
+ 1976              		.cfi_def_cfa_offset 16392
+ 1977 0006 88B0     		sub	sp, sp, #32
+ 1978              	.LCFI74:
+ 1979              		.cfi_def_cfa_offset 16424
+ 1980 0008 00AF     		add	r7, sp, #0
+ 1981              	.LCFI75:
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 41
+
+
+ 1982              		.cfi_def_cfa_register 7
+ 1983 000a 07F12003 		add	r3, r7, #32
+ 1984 000e 43F81C0C 		str	r0, [r3, #-28]
+ 1985 0012 07F12003 		add	r3, r7, #32
+ 1986 0016 43F8201C 		str	r1, [r3, #-32]
+ 280:pae_libs/io_sublayer.c ****     bitsecuence bits = {0};
+ 1987              		.loc 1 280 17
+ 1988 001a 07F12003 		add	r3, r7, #32
+ 1989 001e 143B     		subs	r3, r3, #20
+ 1990 0020 44F20402 		movw	r2, #16388
+ 1991 0024 0021     		movs	r1, #0
+ 1992 0026 1846     		mov	r0, r3
+ 1993 0028 FFF7FEFF 		bl	memset
+ 281:pae_libs/io_sublayer.c ****     size_t bit_index = 0;
+ 1994              		.loc 1 281 12
+ 1995 002c 0023     		movs	r3, #0
+ 1996 002e 07F58042 		add	r2, r7, #16384
+ 1997 0032 02F11C02 		add	r2, r2, #28
+ 1998 0036 1360     		str	r3, [r2]
+ 282:pae_libs/io_sublayer.c **** 
+ 283:pae_libs/io_sublayer.c ****     if (bufferserialized == NULL) return bits;
+ 1999              		.loc 1 283 8
+ 2000 0038 07F12003 		add	r3, r7, #32
+ 2001 003c 53F8203C 		ldr	r3, [r3, #-32]
+ 2002 0040 002B     		cmp	r3, #0
+ 2003 0042 0DD1     		bne	.L81
+ 2004              		.loc 1 283 42 discriminator 1
+ 2005 0044 07F12003 		add	r3, r7, #32
+ 2006 0048 53F81C2C 		ldr	r2, [r3, #-28]
+ 2007 004c 07F12003 		add	r3, r7, #32
+ 2008 0050 1046     		mov	r0, r2
+ 2009 0052 143B     		subs	r3, r3, #20
+ 2010 0054 44F20402 		movw	r2, #16388
+ 2011 0058 1946     		mov	r1, r3
+ 2012 005a FFF7FEFF 		bl	memcpy
+ 2013              		.loc 1 283 42 is_stmt 0
+ 2014 005e A5E0     		b	.L91
+ 2015              	.L81:
+ 2016              	.LBB15:
+ 284:pae_libs/io_sublayer.c **** 
+ 285:pae_libs/io_sublayer.c ****     // Iterar solo sobre los bytes realmente usados
+ 286:pae_libs/io_sublayer.c ****     for (size_t i = 0; i < bufferserialized->length; i++) {
+ 2017              		.loc 1 286 17 is_stmt 1
+ 2018 0060 0023     		movs	r3, #0
+ 2019 0062 07F58042 		add	r2, r7, #16384
+ 2020 0066 02F11802 		add	r2, r2, #24
+ 2021 006a 1360     		str	r3, [r2]
+ 2022              		.loc 1 286 5
+ 2023 006c 65E0     		b	.L83
+ 2024              	.L90:
+ 2025              	.LBB16:
+ 287:pae_libs/io_sublayer.c ****         uint8_t byte = bufferserialized->data[i];
+ 2026              		.loc 1 287 17
+ 2027 006e 07F12003 		add	r3, r7, #32
+ 2028 0072 53F8202C 		ldr	r2, [r3, #-32]
+ 2029 0076 07F58043 		add	r3, r7, #16384
+ 2030 007a 03F11803 		add	r3, r3, #24
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 42
+
+
+ 2031 007e 1B68     		ldr	r3, [r3]
+ 2032 0080 1344     		add	r3, r3, r2
+ 2033 0082 1B78     		ldrb	r3, [r3]
+ 2034 0084 07F58042 		add	r2, r7, #16384
+ 2035 0088 02F11302 		add	r2, r2, #19
+ 2036 008c 1370     		strb	r3, [r2]
+ 2037              	.LBB17:
+ 288:pae_libs/io_sublayer.c ****         for (int b = 7; b >= 0; b--) {
+ 2038              		.loc 1 288 18
+ 2039 008e 0723     		movs	r3, #7
+ 2040 0090 07F58042 		add	r2, r7, #16384
+ 2041 0094 02F11402 		add	r2, r2, #20
+ 2042 0098 1360     		str	r3, [r2]
+ 2043              		.loc 1 288 9
+ 2044 009a 32E0     		b	.L84
+ 2045              	.L87:
+ 289:pae_libs/io_sublayer.c ****             if (bit_index >= MAX_BITSEQUENCE_SIZE) break;
+ 2046              		.loc 1 289 16
+ 2047 009c 07F58043 		add	r3, r7, #16384
+ 2048 00a0 03F11C03 		add	r3, r3, #28
+ 2049 00a4 1B68     		ldr	r3, [r3]
+ 2050 00a6 B3F5804F 		cmp	r3, #16384
+ 2051 00aa 32D2     		bcs	.L92
+ 290:pae_libs/io_sublayer.c ****             bits.bits[bit_index++] = (byte >> b) & 0x01;
+ 2052              		.loc 1 290 44
+ 2053 00ac 07F58043 		add	r3, r7, #16384
+ 2054 00b0 03F11303 		add	r3, r3, #19
+ 2055 00b4 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 2056 00b6 07F58043 		add	r3, r7, #16384
+ 2057 00ba 03F11403 		add	r3, r3, #20
+ 2058 00be 1B68     		ldr	r3, [r3]
+ 2059 00c0 42FA03F3 		asr	r3, r2, r3
+ 2060              		.loc 1 290 50
+ 2061 00c4 DAB2     		uxtb	r2, r3
+ 2062              		.loc 1 290 32
+ 2063 00c6 07F58043 		add	r3, r7, #16384
+ 2064 00ca 03F11C03 		add	r3, r3, #28
+ 2065 00ce 1B68     		ldr	r3, [r3]
+ 2066 00d0 591C     		adds	r1, r3, #1
+ 2067 00d2 07F58040 		add	r0, r7, #16384
+ 2068 00d6 00F11C00 		add	r0, r0, #28
+ 2069 00da 0160     		str	r1, [r0]
+ 2070              		.loc 1 290 50
+ 2071 00dc 02F00102 		and	r2, r2, #1
+ 2072 00e0 D2B2     		uxtb	r2, r2
+ 2073              		.loc 1 290 36
+ 2074 00e2 07F12001 		add	r1, r7, #32
+ 2075 00e6 0B44     		add	r3, r3, r1
+ 2076 00e8 03F8142C 		strb	r2, [r3, #-20]
+ 288:pae_libs/io_sublayer.c ****         for (int b = 7; b >= 0; b--) {
+ 2077              		.loc 1 288 34 discriminator 2
+ 2078 00ec 07F58043 		add	r3, r7, #16384
+ 2079 00f0 03F11403 		add	r3, r3, #20
+ 2080 00f4 1B68     		ldr	r3, [r3]
+ 2081 00f6 013B     		subs	r3, r3, #1
+ 2082 00f8 07F58042 		add	r2, r7, #16384
+ 2083 00fc 02F11402 		add	r2, r2, #20
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 43
+
+
+ 2084 0100 1360     		str	r3, [r2]
+ 2085              	.L84:
+ 288:pae_libs/io_sublayer.c ****         for (int b = 7; b >= 0; b--) {
+ 2086              		.loc 1 288 27 discriminator 1
+ 2087 0102 07F58043 		add	r3, r7, #16384
+ 2088 0106 03F11403 		add	r3, r3, #20
+ 2089 010a 1B68     		ldr	r3, [r3]
+ 2090 010c 002B     		cmp	r3, #0
+ 2091 010e C5DA     		bge	.L87
+ 2092 0110 00E0     		b	.L86
+ 2093              	.L92:
+ 289:pae_libs/io_sublayer.c ****             if (bit_index >= MAX_BITSEQUENCE_SIZE) break;
+ 2094              		.loc 1 289 52
+ 2095 0112 00BF     		nop
+ 2096              	.L86:
+ 2097              	.LBE17:
+ 291:pae_libs/io_sublayer.c ****         }
+ 292:pae_libs/io_sublayer.c ****         if (bit_index >= MAX_BITSEQUENCE_SIZE) break;
+ 2098              		.loc 1 292 12
+ 2099 0114 07F58043 		add	r3, r7, #16384
+ 2100 0118 03F11C03 		add	r3, r3, #28
+ 2101 011c 1B68     		ldr	r3, [r3]
+ 2102 011e B3F5804F 		cmp	r3, #16384
+ 2103 0122 18D2     		bcs	.L93
+ 2104              	.LBE16:
+ 286:pae_libs/io_sublayer.c ****         uint8_t byte = bufferserialized->data[i];
+ 2105              		.loc 1 286 55 discriminator 2
+ 2106 0124 07F58043 		add	r3, r7, #16384
+ 2107 0128 03F11803 		add	r3, r3, #24
+ 2108 012c 1B68     		ldr	r3, [r3]
+ 2109 012e 0133     		adds	r3, r3, #1
+ 2110 0130 07F58042 		add	r2, r7, #16384
+ 2111 0134 02F11802 		add	r2, r2, #24
+ 2112 0138 1360     		str	r3, [r2]
+ 2113              	.L83:
+ 286:pae_libs/io_sublayer.c ****         uint8_t byte = bufferserialized->data[i];
+ 2114              		.loc 1 286 44 discriminator 1
+ 2115 013a 07F12003 		add	r3, r7, #32
+ 2116 013e 53F8203C 		ldr	r3, [r3, #-32]
+ 2117 0142 D3F82C31 		ldr	r3, [r3, #300]
+ 286:pae_libs/io_sublayer.c ****         uint8_t byte = bufferserialized->data[i];
+ 2118              		.loc 1 286 26 discriminator 1
+ 2119 0146 07F58042 		add	r2, r7, #16384
+ 2120 014a 02F11802 		add	r2, r2, #24
+ 2121 014e 1268     		ldr	r2, [r2]
+ 2122 0150 9A42     		cmp	r2, r3
+ 2123 0152 8CD3     		bcc	.L90
+ 2124 0154 00E0     		b	.L89
+ 2125              	.L93:
+ 2126              	.LBB18:
+ 2127              		.loc 1 292 48
+ 2128 0156 00BF     		nop
+ 2129              	.L89:
+ 2130              	.LBE18:
+ 2131              	.LBE15:
+ 293:pae_libs/io_sublayer.c ****     }
+ 294:pae_libs/io_sublayer.c **** 
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 44
+
+
+ 295:pae_libs/io_sublayer.c ****     bits.bit_length = bit_index;
+ 2132              		.loc 1 295 21
+ 2133 0158 07F12003 		add	r3, r7, #32
+ 2134 015c 03F54053 		add	r3, r3, #12288
+ 2135 0160 1A46     		mov	r2, r3
+ 2136 0162 07F58043 		add	r3, r7, #16384
+ 2137 0166 03F11C03 		add	r3, r3, #28
+ 2138 016a 1B68     		ldr	r3, [r3]
+ 2139 016c C2F8EC3F 		str	r3, [r2, #4076]
+ 296:pae_libs/io_sublayer.c **** 
+ 297:pae_libs/io_sublayer.c ****     // Opcional: limpiar solo la parte usada o toda la capacidad
+ 298:pae_libs/io_sublayer.c ****     // memset(bufferserialized->data, 0, bufferserialized->length); // limpia la porción usada
+ 299:pae_libs/io_sublayer.c ****     memset(bufferserialized->data, 0, sizeof(bufferserialized->data)); // limpia toda la capacidad
+ 2140              		.loc 1 299 28
+ 2141 0170 07F12003 		add	r3, r7, #32
+ 2142 0174 53F8203C 		ldr	r3, [r3, #-32]
+ 2143              		.loc 1 299 5
+ 2144 0178 4FF49672 		mov	r2, #300
+ 2145 017c 0021     		movs	r1, #0
+ 2146 017e 1846     		mov	r0, r3
+ 2147 0180 FFF7FEFF 		bl	memset
+ 300:pae_libs/io_sublayer.c ****     bufferserialized->length = 0;
+ 2148              		.loc 1 300 30
+ 2149 0184 07F12003 		add	r3, r7, #32
+ 2150 0188 53F8203C 		ldr	r3, [r3, #-32]
+ 2151 018c 0022     		movs	r2, #0
+ 2152 018e C3F82C21 		str	r2, [r3, #300]
+ 301:pae_libs/io_sublayer.c **** 
+ 302:pae_libs/io_sublayer.c ****     return bits;
+ 2153              		.loc 1 302 12
+ 2154 0192 07F12003 		add	r3, r7, #32
+ 2155 0196 53F81C2C 		ldr	r2, [r3, #-28]
+ 2156 019a 07F12003 		add	r3, r7, #32
+ 2157 019e 1046     		mov	r0, r2
+ 2158 01a0 143B     		subs	r3, r3, #20
+ 2159 01a2 44F20402 		movw	r2, #16388
+ 2160 01a6 1946     		mov	r1, r3
+ 2161 01a8 FFF7FEFF 		bl	memcpy
+ 2162              	.L91:
+ 303:pae_libs/io_sublayer.c **** }
+ 2163              		.loc 1 303 1
+ 2164 01ac 07F12003 		add	r3, r7, #32
+ 2165 01b0 53F81C0C 		ldr	r0, [r3, #-28]
+ 2166 01b4 07F58047 		add	r7, r7, #16384
+ 2167 01b8 2037     		adds	r7, r7, #32
+ 2168              	.LCFI76:
+ 2169              		.cfi_def_cfa_offset 8
+ 2170 01ba BD46     		mov	sp, r7
+ 2171              	.LCFI77:
+ 2172              		.cfi_def_cfa_register 13
+ 2173              		@ sp needed
+ 2174 01bc 80BD     		pop	{r7, pc}
+ 2175              		.cfi_endproc
+ 2176              	.LFE16:
+ 2178              		.text
+ 2179              	.Letext0:
+ 2180              		.file 2 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/mac
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 45
+
+
+ 2181              		.file 3 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys
+ 2182              		.file 4 "pae_libs/protocol_definitions.h"
+ 2183              		.file 5 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/lib/gcc/arm-none-eabi/14.
+ 2184              		.file 6 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys
+ 2185              		.file 7 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys
+ 2186              		.file 8 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys
+ 2187              		.file 9 "pae_libs/io_sublayer.h"
+ 2188              		.file 10 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/st
+ARM GAS  C:\msys64\tmp\ccdvsrXb.s 			page 46
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 io_sublayer.c
+C:\msys64\tmp\ccdvsrXb.s:23     .bss.pseudo_packet_counter:00000000 pseudo_packet_counter
+C:\msys64\tmp\ccdvsrXb.s:24     .bss.pseudo_packet_counter:00000000 $d
+C:\msys64\tmp\ccdvsrXb.s:26     .text.need_fragmentation:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:32     .text.need_fragmentation:00000000 need_fragmentation
+C:\msys64\tmp\ccdvsrXb.s:76     .text.create_pdu_header:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:82     .text.create_pdu_header:00000000 create_pdu_header
+C:\msys64\tmp\ccdvsrXb.s:220    .text.create_segmentation_header:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:226    .text.create_segmentation_header:00000000 create_segmentation_header
+C:\msys64\tmp\ccdvsrXb.s:282    .text.create_buffer:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:288    .text.create_buffer:00000000 create_buffer
+C:\msys64\tmp\ccdvsrXb.s:337    .rodata:00000000 $d
+C:\msys64\tmp\ccdvsrXb.s:341    .text.generate_packet_id:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:347    .text.generate_packet_id:00000000 generate_packet_id
+C:\msys64\tmp\ccdvsrXb.s:430    .text.generate_packet_id:00000060 $d
+C:\msys64\tmp\ccdvsrXb.s:440    .text.release_packet_id:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:446    .text.release_packet_id:00000000 release_packet_id
+C:\msys64\tmp\ccdvsrXb.s:502    .text.release_packet_id:00000038 $d
+C:\msys64\tmp\ccdvsrXb.s:513    .text.segment_sdu:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:519    .text.segment_sdu:00000000 segment_sdu
+C:\msys64\tmp\ccdvsrXb.s:881    .text.segment_sdu:00000308 $d
+C:\msys64\tmp\ccdvsrXb.s:894    .text.create_unfragmented_sdu:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:900    .text.create_unfragmented_sdu:00000000 create_unfragmented_sdu
+C:\msys64\tmp\ccdvsrXb.s:1112   .text.create_unfragmented_sdu:000001f8 $d
+C:\msys64\tmp\ccdvsrXb.s:1118   .text.free_buffer:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:1124   .text.free_buffer:00000000 free_buffer
+C:\msys64\tmp\ccdvsrXb.s:1419   .text.free_buffer:000001e8 $d
+C:\msys64\tmp\ccdvsrXb.s:1432   .text.send_to_next_sublayer:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:1438   .text.send_to_next_sublayer:00000000 send_to_next_sublayer
+C:\msys64\tmp\ccdvsrXb.s:1626   .text.send_to_next_sublayer:0000010c $d
+C:\msys64\tmp\ccdvsrXb.s:1639   .text.get_first_packet_id:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:1645   .text.get_first_packet_id:00000000 get_first_packet_id
+C:\msys64\tmp\ccdvsrXb.s:1731   .text.get_first_packet_id:00000064 $d
+C:\msys64\tmp\ccdvsrXb.s:1737   .text.need_more_seg:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:1743   .text.need_more_seg:00000000 need_more_seg
+C:\msys64\tmp\ccdvsrXb.s:1813   .text.serialize_to_obc:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:1819   .text.serialize_to_obc:00000000 serialize_to_obc
+C:\msys64\tmp\ccdvsrXb.s:1957   .text.create_bitsecuence:00000000 $t
+C:\msys64\tmp\ccdvsrXb.s:1963   .text.create_bitsecuence:00000000 create_bitsecuence
+
+UNDEFINED SYMBOLS
+memset
+fwrite
+_impure_ptr
+memcpy

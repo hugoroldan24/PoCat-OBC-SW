@@ -1,0 +1,774 @@
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lr11xx_rttof.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c"
+  20              		.section	.text.lr11xx_rttof_set_address,"ax",%progbits
+  21              		.align	1
+  22              		.global	lr11xx_rttof_set_address
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	lr11xx_rttof_set_address:
+  28              	.LFB2:
+   1:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** /**
+   2:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * @file      lr11xx_rttof.c
+   3:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *
+   4:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * @brief     Round-Trip Time of Flight (RTToF) driver implementation for LR11XX
+   5:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *
+   6:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * The Clear BSD License
+   7:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * Copyright Semtech Corporation 2022. All rights reserved.
+   8:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *
+   9:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * below) provided that the following conditions are met:
+  12:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *       derived from this software without specific prior written permission.
+  20:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  *
+  21:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  26:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 2
+
+
+  31:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  */
+  34:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  35:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** /*
+  36:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * -----------------------------------------------------------------------------
+  37:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  */
+  39:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  40:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** #include <stdint.h>
+  41:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** #include "lr11xx_rttof.h"
+  42:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** #include "lr11xx_hal.h"
+  43:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  44:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** /*
+  45:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * -----------------------------------------------------------------------------
+  46:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  47:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  */
+  48:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  49:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** /*
+  50:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * -----------------------------------------------------------------------------
+  51:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  52:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  */
+  53:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  54:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** #define LR11XX_RTTOF_SET_ADDRESS_CMD_LENGTH ( 2 + 5 )
+  55:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** #define LR11XX_RTTOF_SET_REQUEST_ADDRESS_CMD_LENGTH ( 2 + 4 )
+  56:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** #define LR11XX_RTTOF_SET_RX_TX_DELAY_CMD_LENGTH ( 2 + 4 )
+  57:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** #define LR11XX_RTTOF_SET_PARAMETERS_CMD_LENGTH ( 2 + 2 )
+  58:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** #define LR11XX_RTTOF_GET_RESULT_CMD_LENGTH ( 2 + 1 )
+  59:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  60:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** /*
+  61:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * -----------------------------------------------------------------------------
+  62:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  63:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  */
+  64:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  65:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** /**
+  66:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * @brief Operating codes for RTToF-related operations
+  67:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  */
+  68:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** enum
+  69:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** {
+  70:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     LR11XX_RTTOF_SET_ADDRESS         = 0x021C,
+  71:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     LR11XX_RTTOF_SET_REQUEST_ADDRESS = 0x021D,
+  72:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     LR11XX_RTTOF_SET_RX_TX_DELAY     = 0x021F,
+  73:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     LR11XX_RTTOF_SET_PARAMETERS      = 0x0228,
+  74:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     LR11XX_RTTOF_GET_RESULT          = 0x021E,
+  75:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** };
+  76:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  77:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** /*
+  78:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * -----------------------------------------------------------------------------
+  79:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+  80:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  */
+  81:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  82:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** /*
+  83:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * -----------------------------------------------------------------------------
+  84:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * --- PRIVATE FUNCTION DECLARATIONS -------------------------------------------
+  85:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  */
+  86:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  87:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** /*
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 3
+
+
+  88:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * -----------------------------------------------------------------------------
+  89:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  * --- PUBLIC FUNCTION DEFINITIONS ---------------------------------------------
+  90:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****  */
+  91:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+  92:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** lr11xx_status_t lr11xx_rttof_set_address( const void* context, const uint32_t address, const uint8_
+  93:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** {
+  29              		.loc 1 93 1
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 24
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 88B0     		sub	sp, sp, #32
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 40
+  41 0004 02AF     		add	r7, sp, #8
+  42              	.LCFI2:
+  43              		.cfi_def_cfa 7, 32
+  44 0006 F860     		str	r0, [r7, #12]
+  45 0008 B960     		str	r1, [r7, #8]
+  46 000a 1346     		mov	r3, r2
+  47 000c FB71     		strb	r3, [r7, #7]
+  94:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_ADDRESS_CMD_LENGTH] = {
+  48              		.loc 1 94 19
+  49 000e 0223     		movs	r3, #2
+  50 0010 3B74     		strb	r3, [r7, #16]
+  51 0012 1C23     		movs	r3, #28
+  52 0014 7B74     		strb	r3, [r7, #17]
+  95:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_ADDRESS >> 8 ),
+  96:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_ADDRESS >> 0 ),
+  97:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( address >> 24 ),
+  53              		.loc 1 97 30
+  54 0016 BB68     		ldr	r3, [r7, #8]
+  55 0018 1B0E     		lsrs	r3, r3, #24
+  56              		.loc 1 97 9
+  57 001a DBB2     		uxtb	r3, r3
+  94:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_ADDRESS_CMD_LENGTH] = {
+  58              		.loc 1 94 19
+  59 001c BB74     		strb	r3, [r7, #18]
+  98:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( address >> 16 ),
+  60              		.loc 1 98 30
+  61 001e BB68     		ldr	r3, [r7, #8]
+  62 0020 1B0C     		lsrs	r3, r3, #16
+  63              		.loc 1 98 9
+  64 0022 DBB2     		uxtb	r3, r3
+  94:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_ADDRESS_CMD_LENGTH] = {
+  65              		.loc 1 94 19
+  66 0024 FB74     		strb	r3, [r7, #19]
+  99:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( address >> 8 ),
+  67              		.loc 1 99 30
+  68 0026 BB68     		ldr	r3, [r7, #8]
+  69 0028 1B0A     		lsrs	r3, r3, #8
+  70              		.loc 1 99 9
+  71 002a DBB2     		uxtb	r3, r3
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 4
+
+
+  94:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_ADDRESS >> 8 ),
+  72              		.loc 1 94 19
+  73 002c 3B75     		strb	r3, [r7, #20]
+ 100:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( address >> 0 ),
+  74              		.loc 1 100 9
+  75 002e BB68     		ldr	r3, [r7, #8]
+  76 0030 DBB2     		uxtb	r3, r3
+  94:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_ADDRESS >> 8 ),
+  77              		.loc 1 94 19
+  78 0032 7B75     		strb	r3, [r7, #21]
+  79 0034 FB79     		ldrb	r3, [r7, #7]
+  80 0036 BB75     		strb	r3, [r7, #22]
+ 101:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         check_length,
+ 102:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     };
+ 103:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 104:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     return ( lr11xx_status_t ) lr11xx_hal_write( context, cbuffer, LR11XX_RTTOF_SET_ADDRESS_CMD_LEN
+  81              		.loc 1 104 32
+  82 0038 07F11001 		add	r1, r7, #16
+  83 003c 0023     		movs	r3, #0
+  84 003e 0093     		str	r3, [sp]
+  85 0040 0023     		movs	r3, #0
+  86 0042 0722     		movs	r2, #7
+  87 0044 F868     		ldr	r0, [r7, #12]
+  88 0046 FFF7FEFF 		bl	lr11xx_hal_write
+  89 004a 0346     		mov	r3, r0
+ 105:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** }
+  90              		.loc 1 105 1
+  91 004c 1846     		mov	r0, r3
+  92 004e 1837     		adds	r7, r7, #24
+  93              	.LCFI3:
+  94              		.cfi_def_cfa_offset 8
+  95 0050 BD46     		mov	sp, r7
+  96              	.LCFI4:
+  97              		.cfi_def_cfa_register 13
+  98              		@ sp needed
+  99 0052 80BD     		pop	{r7, pc}
+ 100              		.cfi_endproc
+ 101              	.LFE2:
+ 103              		.section	.text.lr11xx_rttof_set_request_address,"ax",%progbits
+ 104              		.align	1
+ 105              		.global	lr11xx_rttof_set_request_address
+ 106              		.syntax unified
+ 107              		.thumb
+ 108              		.thumb_func
+ 110              	lr11xx_rttof_set_request_address:
+ 111              	.LFB3:
+ 106:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 107:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** lr11xx_status_t lr11xx_rttof_set_request_address( const void* context, const uint32_t request_addre
+ 108:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** {
+ 112              		.loc 1 108 1
+ 113              		.cfi_startproc
+ 114              		@ args = 0, pretend = 0, frame = 16
+ 115              		@ frame_needed = 1, uses_anonymous_args = 0
+ 116 0000 80B5     		push	{r7, lr}
+ 117              	.LCFI5:
+ 118              		.cfi_def_cfa_offset 8
+ 119              		.cfi_offset 7, -8
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 5
+
+
+ 120              		.cfi_offset 14, -4
+ 121 0002 86B0     		sub	sp, sp, #24
+ 122              	.LCFI6:
+ 123              		.cfi_def_cfa_offset 32
+ 124 0004 02AF     		add	r7, sp, #8
+ 125              	.LCFI7:
+ 126              		.cfi_def_cfa 7, 24
+ 127 0006 7860     		str	r0, [r7, #4]
+ 128 0008 3960     		str	r1, [r7]
+ 109:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_REQUEST_ADDRESS_CMD_LENGTH] = {
+ 129              		.loc 1 109 19
+ 130 000a 0223     		movs	r3, #2
+ 131 000c 3B72     		strb	r3, [r7, #8]
+ 132 000e 1D23     		movs	r3, #29
+ 133 0010 7B72     		strb	r3, [r7, #9]
+ 110:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_REQUEST_ADDRESS >> 8 ),
+ 111:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_REQUEST_ADDRESS >> 0 ),
+ 112:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( request_address >> 24 ),
+ 134              		.loc 1 112 38
+ 135 0012 3B68     		ldr	r3, [r7]
+ 136 0014 1B0E     		lsrs	r3, r3, #24
+ 137              		.loc 1 112 9
+ 138 0016 DBB2     		uxtb	r3, r3
+ 109:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_REQUEST_ADDRESS_CMD_LENGTH] = {
+ 139              		.loc 1 109 19
+ 140 0018 BB72     		strb	r3, [r7, #10]
+ 113:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( request_address >> 16 ),
+ 141              		.loc 1 113 38
+ 142 001a 3B68     		ldr	r3, [r7]
+ 143 001c 1B0C     		lsrs	r3, r3, #16
+ 144              		.loc 1 113 9
+ 145 001e DBB2     		uxtb	r3, r3
+ 109:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_REQUEST_ADDRESS_CMD_LENGTH] = {
+ 146              		.loc 1 109 19
+ 147 0020 FB72     		strb	r3, [r7, #11]
+ 114:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( request_address >> 8 ),
+ 148              		.loc 1 114 38
+ 149 0022 3B68     		ldr	r3, [r7]
+ 150 0024 1B0A     		lsrs	r3, r3, #8
+ 151              		.loc 1 114 9
+ 152 0026 DBB2     		uxtb	r3, r3
+ 109:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_REQUEST_ADDRESS >> 8 ),
+ 153              		.loc 1 109 19
+ 154 0028 3B73     		strb	r3, [r7, #12]
+ 115:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( request_address >> 0 ),
+ 155              		.loc 1 115 9
+ 156 002a 3B68     		ldr	r3, [r7]
+ 157 002c DBB2     		uxtb	r3, r3
+ 109:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_REQUEST_ADDRESS >> 8 ),
+ 158              		.loc 1 109 19
+ 159 002e 7B73     		strb	r3, [r7, #13]
+ 116:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     };
+ 117:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 118:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     return ( lr11xx_status_t ) lr11xx_hal_write( context, cbuffer, LR11XX_RTTOF_SET_REQUEST_ADDRESS
+ 160              		.loc 1 118 32
+ 161 0030 07F10801 		add	r1, r7, #8
+ 162 0034 0023     		movs	r3, #0
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 6
+
+
+ 163 0036 0093     		str	r3, [sp]
+ 164 0038 0023     		movs	r3, #0
+ 165 003a 0622     		movs	r2, #6
+ 166 003c 7868     		ldr	r0, [r7, #4]
+ 167 003e FFF7FEFF 		bl	lr11xx_hal_write
+ 168 0042 0346     		mov	r3, r0
+ 119:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** }
+ 169              		.loc 1 119 1
+ 170 0044 1846     		mov	r0, r3
+ 171 0046 1037     		adds	r7, r7, #16
+ 172              	.LCFI8:
+ 173              		.cfi_def_cfa_offset 8
+ 174 0048 BD46     		mov	sp, r7
+ 175              	.LCFI9:
+ 176              		.cfi_def_cfa_register 13
+ 177              		@ sp needed
+ 178 004a 80BD     		pop	{r7, pc}
+ 179              		.cfi_endproc
+ 180              	.LFE3:
+ 182              		.section	.text.lr11xx_rttof_set_rx_tx_delay_indicator,"ax",%progbits
+ 183              		.align	1
+ 184              		.global	lr11xx_rttof_set_rx_tx_delay_indicator
+ 185              		.syntax unified
+ 186              		.thumb
+ 187              		.thumb_func
+ 189              	lr11xx_rttof_set_rx_tx_delay_indicator:
+ 190              	.LFB4:
+ 120:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 121:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** lr11xx_status_t lr11xx_rttof_set_rx_tx_delay_indicator( const void* context, const uint32_t delay_i
+ 122:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** {
+ 191              		.loc 1 122 1
+ 192              		.cfi_startproc
+ 193              		@ args = 0, pretend = 0, frame = 16
+ 194              		@ frame_needed = 1, uses_anonymous_args = 0
+ 195 0000 80B5     		push	{r7, lr}
+ 196              	.LCFI10:
+ 197              		.cfi_def_cfa_offset 8
+ 198              		.cfi_offset 7, -8
+ 199              		.cfi_offset 14, -4
+ 200 0002 86B0     		sub	sp, sp, #24
+ 201              	.LCFI11:
+ 202              		.cfi_def_cfa_offset 32
+ 203 0004 02AF     		add	r7, sp, #8
+ 204              	.LCFI12:
+ 205              		.cfi_def_cfa 7, 24
+ 206 0006 7860     		str	r0, [r7, #4]
+ 207 0008 3960     		str	r1, [r7]
+ 123:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_RX_TX_DELAY_CMD_LENGTH] = {
+ 208              		.loc 1 123 19
+ 209 000a 0223     		movs	r3, #2
+ 210 000c 3B72     		strb	r3, [r7, #8]
+ 211 000e 1F23     		movs	r3, #31
+ 212 0010 7B72     		strb	r3, [r7, #9]
+ 124:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_RX_TX_DELAY >> 8 ),
+ 125:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_RX_TX_DELAY >> 0 ),
+ 126:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( delay_indicator >> 24 ),
+ 213              		.loc 1 126 38
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 7
+
+
+ 214 0012 3B68     		ldr	r3, [r7]
+ 215 0014 1B0E     		lsrs	r3, r3, #24
+ 216              		.loc 1 126 9
+ 217 0016 DBB2     		uxtb	r3, r3
+ 123:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_RX_TX_DELAY_CMD_LENGTH] = {
+ 218              		.loc 1 123 19
+ 219 0018 BB72     		strb	r3, [r7, #10]
+ 127:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( delay_indicator >> 16 ),
+ 220              		.loc 1 127 38
+ 221 001a 3B68     		ldr	r3, [r7]
+ 222 001c 1B0C     		lsrs	r3, r3, #16
+ 223              		.loc 1 127 9
+ 224 001e DBB2     		uxtb	r3, r3
+ 123:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_RX_TX_DELAY_CMD_LENGTH] = {
+ 225              		.loc 1 123 19
+ 226 0020 FB72     		strb	r3, [r7, #11]
+ 128:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( delay_indicator >> 8 ),
+ 227              		.loc 1 128 38
+ 228 0022 3B68     		ldr	r3, [r7]
+ 229 0024 1B0A     		lsrs	r3, r3, #8
+ 230              		.loc 1 128 9
+ 231 0026 DBB2     		uxtb	r3, r3
+ 123:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_RX_TX_DELAY >> 8 ),
+ 232              		.loc 1 123 19
+ 233 0028 3B73     		strb	r3, [r7, #12]
+ 129:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( delay_indicator >> 0 ),
+ 234              		.loc 1 129 9
+ 235 002a 3B68     		ldr	r3, [r7]
+ 236 002c DBB2     		uxtb	r3, r3
+ 123:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_SET_RX_TX_DELAY >> 8 ),
+ 237              		.loc 1 123 19
+ 238 002e 7B73     		strb	r3, [r7, #13]
+ 130:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     };
+ 131:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 132:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     return ( lr11xx_status_t ) lr11xx_hal_write( context, cbuffer, LR11XX_RTTOF_SET_RX_TX_DELAY_CMD
+ 239              		.loc 1 132 32
+ 240 0030 07F10801 		add	r1, r7, #8
+ 241 0034 0023     		movs	r3, #0
+ 242 0036 0093     		str	r3, [sp]
+ 243 0038 0023     		movs	r3, #0
+ 244 003a 0622     		movs	r2, #6
+ 245 003c 7868     		ldr	r0, [r7, #4]
+ 246 003e FFF7FEFF 		bl	lr11xx_hal_write
+ 247 0042 0346     		mov	r3, r0
+ 133:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** }
+ 248              		.loc 1 133 1
+ 249 0044 1846     		mov	r0, r3
+ 250 0046 1037     		adds	r7, r7, #16
+ 251              	.LCFI13:
+ 252              		.cfi_def_cfa_offset 8
+ 253 0048 BD46     		mov	sp, r7
+ 254              	.LCFI14:
+ 255              		.cfi_def_cfa_register 13
+ 256              		@ sp needed
+ 257 004a 80BD     		pop	{r7, pc}
+ 258              		.cfi_endproc
+ 259              	.LFE4:
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 8
+
+
+ 261              		.section	.text.lr11xx_rttof_set_parameters,"ax",%progbits
+ 262              		.align	1
+ 263              		.global	lr11xx_rttof_set_parameters
+ 264              		.syntax unified
+ 265              		.thumb
+ 266              		.thumb_func
+ 268              	lr11xx_rttof_set_parameters:
+ 269              	.LFB5:
+ 134:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 135:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** lr11xx_status_t lr11xx_rttof_set_parameters( const void* context, const uint8_t nb_symbols )
+ 136:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** {
+ 270              		.loc 1 136 1
+ 271              		.cfi_startproc
+ 272              		@ args = 0, pretend = 0, frame = 16
+ 273              		@ frame_needed = 1, uses_anonymous_args = 0
+ 274 0000 80B5     		push	{r7, lr}
+ 275              	.LCFI15:
+ 276              		.cfi_def_cfa_offset 8
+ 277              		.cfi_offset 7, -8
+ 278              		.cfi_offset 14, -4
+ 279 0002 86B0     		sub	sp, sp, #24
+ 280              	.LCFI16:
+ 281              		.cfi_def_cfa_offset 32
+ 282 0004 02AF     		add	r7, sp, #8
+ 283              	.LCFI17:
+ 284              		.cfi_def_cfa 7, 24
+ 285 0006 7860     		str	r0, [r7, #4]
+ 286 0008 0B46     		mov	r3, r1
+ 287 000a FB70     		strb	r3, [r7, #3]
+ 137:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_SET_PARAMETERS_CMD_LENGTH] = { ( uint8_t )( LR11XX_RTTOF_SET
+ 288              		.loc 1 137 19
+ 289 000c 0223     		movs	r3, #2
+ 290 000e 3B73     		strb	r3, [r7, #12]
+ 291 0010 2823     		movs	r3, #40
+ 292 0012 7B73     		strb	r3, [r7, #13]
+ 293 0014 0023     		movs	r3, #0
+ 294 0016 BB73     		strb	r3, [r7, #14]
+ 295 0018 FB78     		ldrb	r3, [r7, #3]
+ 296 001a FB73     		strb	r3, [r7, #15]
+ 138:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****                                                                       ( uint8_t )( LR11XX_RTTOF_SET
+ 139:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****                                                                       0x00, nb_symbols };
+ 140:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 141:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     return ( lr11xx_status_t ) lr11xx_hal_write( context, cbuffer, LR11XX_RTTOF_SET_PARAMETERS_CMD_
+ 297              		.loc 1 141 32
+ 298 001c 07F10C01 		add	r1, r7, #12
+ 299 0020 0023     		movs	r3, #0
+ 300 0022 0093     		str	r3, [sp]
+ 301 0024 0023     		movs	r3, #0
+ 302 0026 0422     		movs	r2, #4
+ 303 0028 7868     		ldr	r0, [r7, #4]
+ 304 002a FFF7FEFF 		bl	lr11xx_hal_write
+ 305 002e 0346     		mov	r3, r0
+ 142:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** }
+ 306              		.loc 1 142 1
+ 307 0030 1846     		mov	r0, r3
+ 308 0032 1037     		adds	r7, r7, #16
+ 309              	.LCFI18:
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 9
+
+
+ 310              		.cfi_def_cfa_offset 8
+ 311 0034 BD46     		mov	sp, r7
+ 312              	.LCFI19:
+ 313              		.cfi_def_cfa_register 13
+ 314              		@ sp needed
+ 315 0036 80BD     		pop	{r7, pc}
+ 316              		.cfi_endproc
+ 317              	.LFE5:
+ 319              		.section	.text.lr11xx_rttof_get_raw_result,"ax",%progbits
+ 320              		.align	1
+ 321              		.global	lr11xx_rttof_get_raw_result
+ 322              		.syntax unified
+ 323              		.thumb
+ 324              		.thumb_func
+ 326              	lr11xx_rttof_get_raw_result:
+ 327              	.LFB6:
+ 143:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 144:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** lr11xx_status_t lr11xx_rttof_get_raw_result( const void* context, const lr11xx_rttof_result_type_t 
+ 145:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****                                              uint8_t result[LR11XX_RTTOF_RESULT_LENGTH] )
+ 146:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** {
+ 328              		.loc 1 146 1
+ 329              		.cfi_startproc
+ 330              		@ args = 0, pretend = 0, frame = 24
+ 331              		@ frame_needed = 1, uses_anonymous_args = 0
+ 332 0000 80B5     		push	{r7, lr}
+ 333              	.LCFI20:
+ 334              		.cfi_def_cfa_offset 8
+ 335              		.cfi_offset 7, -8
+ 336              		.cfi_offset 14, -4
+ 337 0002 88B0     		sub	sp, sp, #32
+ 338              	.LCFI21:
+ 339              		.cfi_def_cfa_offset 40
+ 340 0004 02AF     		add	r7, sp, #8
+ 341              	.LCFI22:
+ 342              		.cfi_def_cfa 7, 32
+ 343 0006 F860     		str	r0, [r7, #12]
+ 344 0008 0B46     		mov	r3, r1
+ 345 000a 7A60     		str	r2, [r7, #4]
+ 346 000c FB72     		strb	r3, [r7, #11]
+ 147:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t cbuffer[LR11XX_RTTOF_GET_RESULT_CMD_LENGTH] = {
+ 347              		.loc 1 147 19
+ 348 000e 0223     		movs	r3, #2
+ 349 0010 3B75     		strb	r3, [r7, #20]
+ 350 0012 1E23     		movs	r3, #30
+ 351 0014 7B75     		strb	r3, [r7, #21]
+ 352 0016 FB7A     		ldrb	r3, [r7, #11]
+ 353 0018 BB75     		strb	r3, [r7, #22]
+ 148:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_GET_RESULT >> 8 ),
+ 149:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t )( LR11XX_RTTOF_GET_RESULT >> 0 ),
+ 150:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( uint8_t ) type,
+ 151:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     };
+ 152:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 153:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     return ( lr11xx_status_t ) lr11xx_hal_read( context, cbuffer, LR11XX_RTTOF_GET_RESULT_CMD_LENGT
+ 354              		.loc 1 153 32
+ 355 001a 07F11401 		add	r1, r7, #20
+ 356 001e 0423     		movs	r3, #4
+ 357 0020 0093     		str	r3, [sp]
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 10
+
+
+ 358 0022 7B68     		ldr	r3, [r7, #4]
+ 359 0024 0322     		movs	r2, #3
+ 360 0026 F868     		ldr	r0, [r7, #12]
+ 361 0028 FFF7FEFF 		bl	lr11xx_hal_read
+ 362 002c 0346     		mov	r3, r0
+ 154:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****                                                 LR11XX_RTTOF_RESULT_LENGTH );
+ 155:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** }
+ 363              		.loc 1 155 1
+ 364 002e 1846     		mov	r0, r3
+ 365 0030 1837     		adds	r7, r7, #24
+ 366              	.LCFI23:
+ 367              		.cfi_def_cfa_offset 8
+ 368 0032 BD46     		mov	sp, r7
+ 369              	.LCFI24:
+ 370              		.cfi_def_cfa_register 13
+ 371              		@ sp needed
+ 372 0034 80BD     		pop	{r7, pc}
+ 373              		.cfi_endproc
+ 374              	.LFE6:
+ 376              		.section	.text.lr11xx_rttof_distance_raw_to_meter,"ax",%progbits
+ 377              		.align	1
+ 378              		.global	lr11xx_rttof_distance_raw_to_meter
+ 379              		.syntax unified
+ 380              		.thumb
+ 381              		.thumb_func
+ 383              	lr11xx_rttof_distance_raw_to_meter:
+ 384              	.LFB7:
+ 156:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 157:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** int32_t lr11xx_rttof_distance_raw_to_meter( lr11xx_radio_lora_bw_t rttof_bw,
+ 158:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****                                             const uint8_t          raw_distance_buf[LR11XX_RTTOF_RE
+ 159:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** {
+ 385              		.loc 1 159 1
+ 386              		.cfi_startproc
+ 387              		@ args = 0, pretend = 0, frame = 24
+ 388              		@ frame_needed = 1, uses_anonymous_args = 0
+ 389              		@ link register save eliminated.
+ 390 0000 80B4     		push	{r7}
+ 391              	.LCFI25:
+ 392              		.cfi_def_cfa_offset 4
+ 393              		.cfi_offset 7, -4
+ 394 0002 87B0     		sub	sp, sp, #28
+ 395              	.LCFI26:
+ 396              		.cfi_def_cfa_offset 32
+ 397 0004 00AF     		add	r7, sp, #0
+ 398              	.LCFI27:
+ 399              		.cfi_def_cfa_register 7
+ 400 0006 0346     		mov	r3, r0
+ 401 0008 3960     		str	r1, [r7]
+ 402 000a FB71     		strb	r3, [r7, #7]
+ 160:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint8_t bitcnt     = 24u;
+ 403              		.loc 1 160 19
+ 404 000c 1823     		movs	r3, #24
+ 405 000e FB73     		strb	r3, [r7, #15]
+ 161:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     uint8_t       bw_scaling = 0u;
+ 406              		.loc 1 161 19
+ 407 0010 0023     		movs	r3, #0
+ 408 0012 FB75     		strb	r3, [r7, #23]
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 11
+
+
+ 162:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 163:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     const uint32_t raw_distance =
+ 164:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( ( uint32_t ) raw_distance_buf[3] << 0 ) + ( ( uint32_t ) raw_distance_buf[2] << 8 ) +
+ 409              		.loc 1 164 40
+ 410 0014 3B68     		ldr	r3, [r7]
+ 411 0016 0333     		adds	r3, r3, #3
+ 412 0018 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 413              		.loc 1 164 44
+ 414 001a 1A46     		mov	r2, r3
+ 415              		.loc 1 164 84
+ 416 001c 3B68     		ldr	r3, [r7]
+ 417 001e 0233     		adds	r3, r3, #2
+ 418 0020 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 419              		.loc 1 164 88
+ 420 0022 1B02     		lsls	r3, r3, #8
+ 421              		.loc 1 164 51
+ 422 0024 1A44     		add	r2, r2, r3
+ 165:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( ( uint32_t ) raw_distance_buf[1] << 16 ) + ( ( uint32_t ) raw_distance_buf[0] << 24 );
+ 423              		.loc 1 165 40
+ 424 0026 3B68     		ldr	r3, [r7]
+ 425 0028 0133     		adds	r3, r3, #1
+ 426 002a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 427              		.loc 1 165 44
+ 428 002c 1B04     		lsls	r3, r3, #16
+ 164:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( ( uint32_t ) raw_distance_buf[1] << 16 ) + ( ( uint32_t ) raw_distance_buf[0] << 24 );
+ 429              		.loc 1 164 95
+ 430 002e 1A44     		add	r2, r2, r3
+ 431              		.loc 1 165 85
+ 432 0030 3B68     		ldr	r3, [r7]
+ 433 0032 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 434              		.loc 1 165 89
+ 435 0034 1B06     		lsls	r3, r3, #24
+ 163:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         ( ( uint32_t ) raw_distance_buf[3] << 0 ) + ( ( uint32_t ) raw_distance_buf[2] << 8 ) +
+ 436              		.loc 1 163 20
+ 437 0036 1344     		add	r3, r3, r2
+ 438 0038 BB60     		str	r3, [r7, #8]
+ 166:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 167:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     if( rttof_bw == LR11XX_RADIO_LORA_BW_500 )
+ 439              		.loc 1 167 7
+ 440 003a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 441 003c 062B     		cmp	r3, #6
+ 442 003e 02D1     		bne	.L12
+ 168:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     {
+ 169:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         bw_scaling = 1u;
+ 443              		.loc 1 169 20
+ 444 0040 0123     		movs	r3, #1
+ 445 0042 FB75     		strb	r3, [r7, #23]
+ 446 0044 0AE0     		b	.L13
+ 447              	.L12:
+ 170:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     }
+ 171:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     else if( rttof_bw == LR11XX_RADIO_LORA_BW_250 )
+ 448              		.loc 1 171 12
+ 449 0046 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 450 0048 052B     		cmp	r3, #5
+ 451 004a 02D1     		bne	.L14
+ 172:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     {
+ 173:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         bw_scaling = 2u;
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 12
+
+
+ 452              		.loc 1 173 20
+ 453 004c 0223     		movs	r3, #2
+ 454 004e FB75     		strb	r3, [r7, #23]
+ 455 0050 04E0     		b	.L13
+ 456              	.L14:
+ 174:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     }
+ 175:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     else if( rttof_bw == LR11XX_RADIO_LORA_BW_125 )
+ 457              		.loc 1 175 12
+ 458 0052 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 459 0054 042B     		cmp	r3, #4
+ 460 0056 01D1     		bne	.L13
+ 176:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     {
+ 177:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         bw_scaling = 4u;
+ 461              		.loc 1 177 20
+ 462 0058 0423     		movs	r3, #4
+ 463 005a FB75     		strb	r3, [r7, #23]
+ 464              	.L13:
+ 178:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     }
+ 179:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 180:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     int32_t retval = raw_distance;
+ 465              		.loc 1 180 13
+ 466 005c BB68     		ldr	r3, [r7, #8]
+ 467 005e 3B61     		str	r3, [r7, #16]
+ 181:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     if( raw_distance >= ( 1 << ( bitcnt - 1 ) ) )
+ 468              		.loc 1 181 41
+ 469 0060 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 470 0062 013B     		subs	r3, r3, #1
+ 471              		.loc 1 181 29
+ 472 0064 0122     		movs	r2, #1
+ 473 0066 02FA03F3 		lsl	r3, r2, r3
+ 474 006a 1A46     		mov	r2, r3
+ 475              		.loc 1 181 7
+ 476 006c BB68     		ldr	r3, [r7, #8]
+ 477 006e 9342     		cmp	r3, r2
+ 478 0070 06D3     		bcc	.L15
+ 182:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     {
+ 183:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****         retval -= ( 1 << bitcnt );
+ 479              		.loc 1 183 23
+ 480 0072 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 481 0074 0122     		movs	r2, #1
+ 482 0076 02FA03F3 		lsl	r3, r2, r3
+ 483              		.loc 1 183 16
+ 484 007a 3A69     		ldr	r2, [r7, #16]
+ 485 007c D31A     		subs	r3, r2, r3
+ 486 007e 3B61     		str	r3, [r7, #16]
+ 487              	.L15:
+ 184:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     }
+ 185:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** 
+ 186:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c ****     return 300 * bw_scaling * retval / 4096;
+ 488              		.loc 1 186 16
+ 489 0080 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 490 0082 4FF49672 		mov	r2, #300
+ 491 0086 02FB03F3 		mul	r3, r2, r3
+ 492              		.loc 1 186 29
+ 493 008a 3A69     		ldr	r2, [r7, #16]
+ 494 008c 02FB03F3 		mul	r3, r2, r3
+ 495              		.loc 1 186 38
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 13
+
+
+ 496 0090 002B     		cmp	r3, #0
+ 497 0092 01DA     		bge	.L16
+ 498 0094 03F6FF73 		addw	r3, r3, #4095
+ 499              	.L16:
+ 500 0098 1B13     		asrs	r3, r3, #12
+ 187:../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof.c **** }
+ 501              		.loc 1 187 1
+ 502 009a 1846     		mov	r0, r3
+ 503 009c 1C37     		adds	r7, r7, #28
+ 504              	.LCFI28:
+ 505              		.cfi_def_cfa_offset 4
+ 506 009e BD46     		mov	sp, r7
+ 507              	.LCFI29:
+ 508              		.cfi_def_cfa_register 13
+ 509              		@ sp needed
+ 510 00a0 5DF8047B 		ldr	r7, [sp], #4
+ 511              	.LCFI30:
+ 512              		.cfi_restore 7
+ 513              		.cfi_def_cfa_offset 0
+ 514 00a4 7047     		bx	lr
+ 515              		.cfi_endproc
+ 516              	.LFE7:
+ 518              		.text
+ 519              	.Letext0:
+ 520              		.file 2 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/machin
+ 521              		.file 3 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys/_s
+ 522              		.file 4 "../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof_types.h"
+ 523              		.file 5 "../../../../lr11xx/lr11xx_driver/src/lr11xx_radio_types.h"
+ 524              		.file 6 "../../../../lr11xx/lr11xx_driver/src/lr11xx_types.h"
+ 525              		.file 7 "../../../../lr11xx/lr11xx_driver/src/lr11xx_hal.h"
+ARM GAS  C:\msys64\tmp\cc3Awn6h.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lr11xx_rttof.c
+C:\msys64\tmp\cc3Awn6h.s:21     .text.lr11xx_rttof_set_address:00000000 $t
+C:\msys64\tmp\cc3Awn6h.s:27     .text.lr11xx_rttof_set_address:00000000 lr11xx_rttof_set_address
+C:\msys64\tmp\cc3Awn6h.s:104    .text.lr11xx_rttof_set_request_address:00000000 $t
+C:\msys64\tmp\cc3Awn6h.s:110    .text.lr11xx_rttof_set_request_address:00000000 lr11xx_rttof_set_request_address
+C:\msys64\tmp\cc3Awn6h.s:183    .text.lr11xx_rttof_set_rx_tx_delay_indicator:00000000 $t
+C:\msys64\tmp\cc3Awn6h.s:189    .text.lr11xx_rttof_set_rx_tx_delay_indicator:00000000 lr11xx_rttof_set_rx_tx_delay_indicator
+C:\msys64\tmp\cc3Awn6h.s:262    .text.lr11xx_rttof_set_parameters:00000000 $t
+C:\msys64\tmp\cc3Awn6h.s:268    .text.lr11xx_rttof_set_parameters:00000000 lr11xx_rttof_set_parameters
+C:\msys64\tmp\cc3Awn6h.s:320    .text.lr11xx_rttof_get_raw_result:00000000 $t
+C:\msys64\tmp\cc3Awn6h.s:326    .text.lr11xx_rttof_get_raw_result:00000000 lr11xx_rttof_get_raw_result
+C:\msys64\tmp\cc3Awn6h.s:377    .text.lr11xx_rttof_distance_raw_to_meter:00000000 $t
+C:\msys64\tmp\cc3Awn6h.s:383    .text.lr11xx_rttof_distance_raw_to_meter:00000000 lr11xx_rttof_distance_raw_to_meter
+
+UNDEFINED SYMBOLS
+lr11xx_hal_write
+lr11xx_hal_read

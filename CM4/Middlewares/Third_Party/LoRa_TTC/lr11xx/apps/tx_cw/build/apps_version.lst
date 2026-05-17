@@ -1,0 +1,449 @@
+ARM GAS  C:\msys64\tmp\cchTNER3.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"apps_version.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../lr11xx/common/apps_version.c"
+  20              		.section	.rodata.gfsk_sync_word,"a"
+  21              		.align	2
+  24              	gfsk_sync_word:
+  25 0000 01234567 		.ascii	"\001#Eg\211\253\315\357"
+  25      89ABCDEF 
+  26              		.global	apps_version_validator_is_geolocation_capable
+  27              		.section	.rodata.apps_version_validator_is_geolocation_capable,"a"
+  28              		.align	2
+  31              	apps_version_validator_is_geolocation_capable:
+  32 0000 00000000 		.word	apps_version_assert_version_is_geolocation_capable
+  33              		.section	.text.apps_version_fetch_check_print_version,"ax",%progbits
+  34              		.align	1
+  35              		.global	apps_version_fetch_check_print_version
+  36              		.syntax unified
+  37              		.thumb
+  38              		.thumb_func
+  40              	apps_version_fetch_check_print_version:
+  41              	.LFB237:
+   1:../../../lr11xx/common/apps_version.c **** /*!
+   2:../../../lr11xx/common/apps_version.c ****  * @file      apps_version.c
+   3:../../../lr11xx/common/apps_version.c ****  *
+   4:../../../lr11xx/common/apps_version.c ****  * @brief     LR11xx version related functions shared by the examples
+   5:../../../lr11xx/common/apps_version.c ****  *
+   6:../../../lr11xx/common/apps_version.c ****  * @copyright
+   7:../../../lr11xx/common/apps_version.c ****  * The Clear BSD License
+   8:../../../lr11xx/common/apps_version.c ****  * Copyright Semtech Corporation 2022. All rights reserved.
+   9:../../../lr11xx/common/apps_version.c ****  *
+  10:../../../lr11xx/common/apps_version.c ****  * Redistribution and use in source and binary forms, with or without
+  11:../../../lr11xx/common/apps_version.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  12:../../../lr11xx/common/apps_version.c ****  * below) provided that the following conditions are met:
+  13:../../../lr11xx/common/apps_version.c ****  *     * Redistributions of source code must retain the above copyright
+  14:../../../lr11xx/common/apps_version.c ****  *       notice, this list of conditions and the following disclaimer.
+  15:../../../lr11xx/common/apps_version.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  16:../../../lr11xx/common/apps_version.c ****  *       notice, this list of conditions and the following disclaimer in the
+  17:../../../lr11xx/common/apps_version.c ****  *       documentation and/or other materials provided with the distribution.
+  18:../../../lr11xx/common/apps_version.c ****  *     * Neither the name of the Semtech corporation nor the
+  19:../../../lr11xx/common/apps_version.c ****  *       names of its contributors may be used to endorse or promote products
+  20:../../../lr11xx/common/apps_version.c ****  *       derived from this software without specific prior written permission.
+ARM GAS  C:\msys64\tmp\cchTNER3.s 			page 2
+
+
+  21:../../../lr11xx/common/apps_version.c ****  *
+  22:../../../lr11xx/common/apps_version.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  23:../../../lr11xx/common/apps_version.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  24:../../../lr11xx/common/apps_version.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  25:../../../lr11xx/common/apps_version.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  26:../../../lr11xx/common/apps_version.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  27:../../../lr11xx/common/apps_version.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  28:../../../lr11xx/common/apps_version.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  29:../../../lr11xx/common/apps_version.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  30:../../../lr11xx/common/apps_version.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  31:../../../lr11xx/common/apps_version.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  32:../../../lr11xx/common/apps_version.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  33:../../../lr11xx/common/apps_version.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  34:../../../lr11xx/common/apps_version.c ****  */
+  35:../../../lr11xx/common/apps_version.c **** 
+  36:../../../lr11xx/common/apps_version.c **** /*
+  37:../../../lr11xx/common/apps_version.c ****  * -----------------------------------------------------------------------------
+  38:../../../lr11xx/common/apps_version.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  39:../../../lr11xx/common/apps_version.c ****  */
+  40:../../../lr11xx/common/apps_version.c **** 
+  41:../../../lr11xx/common/apps_version.c **** #include "apps_version.h"
+  42:../../../lr11xx/common/apps_version.c **** #include "apps_common.h"
+  43:../../../lr11xx/common/apps_version.c **** #include "smtc_hal_dbg_trace.h"
+  44:../../../lr11xx/common/apps_version.c **** 
+  45:../../../lr11xx/common/apps_version.c **** /*
+  46:../../../lr11xx/common/apps_version.c ****  * -----------------------------------------------------------------------------
+  47:../../../lr11xx/common/apps_version.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  48:../../../lr11xx/common/apps_version.c ****  */
+  49:../../../lr11xx/common/apps_version.c **** 
+  50:../../../lr11xx/common/apps_version.c **** /*
+  51:../../../lr11xx/common/apps_version.c ****  * -----------------------------------------------------------------------------
+  52:../../../lr11xx/common/apps_version.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  53:../../../lr11xx/common/apps_version.c ****  */
+  54:../../../lr11xx/common/apps_version.c **** 
+  55:../../../lr11xx/common/apps_version.c **** /*
+  56:../../../lr11xx/common/apps_version.c ****  * -----------------------------------------------------------------------------
+  57:../../../lr11xx/common/apps_version.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+  58:../../../lr11xx/common/apps_version.c ****  */
+  59:../../../lr11xx/common/apps_version.c **** 
+  60:../../../lr11xx/common/apps_version.c **** /*
+  61:../../../lr11xx/common/apps_version.c ****  * -----------------------------------------------------------------------------
+  62:../../../lr11xx/common/apps_version.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+  63:../../../lr11xx/common/apps_version.c ****  */
+  64:../../../lr11xx/common/apps_version.c **** 
+  65:../../../lr11xx/common/apps_version.c **** /**
+  66:../../../lr11xx/common/apps_version.c ****  * @brief Validate that version corresponds to LR1110
+  67:../../../lr11xx/common/apps_version.c ****  *
+  68:../../../lr11xx/common/apps_version.c ****  * @param [in] version Version structure as fetched from device
+  69:../../../lr11xx/common/apps_version.c ****  *
+  70:../../../lr11xx/common/apps_version.c ****  * @return true The version correspond to LR1110
+  71:../../../lr11xx/common/apps_version.c ****  * @return false The version does not correspond to LR1110
+  72:../../../lr11xx/common/apps_version.c ****  */
+  73:../../../lr11xx/common/apps_version.c **** bool apps_version_assert_version_is_lr1110( const lr11xx_system_version_t* version );
+  74:../../../lr11xx/common/apps_version.c **** 
+  75:../../../lr11xx/common/apps_version.c **** /**
+  76:../../../lr11xx/common/apps_version.c ****  * @brief Validate that the version corresponds to LR1120
+  77:../../../lr11xx/common/apps_version.c ****  *
+ARM GAS  C:\msys64\tmp\cchTNER3.s 			page 3
+
+
+  78:../../../lr11xx/common/apps_version.c ****  * @param [in] version Version structure as fetched from device
+  79:../../../lr11xx/common/apps_version.c ****  *
+  80:../../../lr11xx/common/apps_version.c ****  * @return true The version correspond to LR1120
+  81:../../../lr11xx/common/apps_version.c ****  * @return false The version does not correspond to LR1120
+  82:../../../lr11xx/common/apps_version.c ****  */
+  83:../../../lr11xx/common/apps_version.c **** bool apps_version_assert_version_is_lr1120( const lr11xx_system_version_t* version );
+  84:../../../lr11xx/common/apps_version.c **** 
+  85:../../../lr11xx/common/apps_version.c **** /**
+  86:../../../lr11xx/common/apps_version.c ****  * @brief Validate that the version corresponds to geolocation capable device
+  87:../../../lr11xx/common/apps_version.c ****  *
+  88:../../../lr11xx/common/apps_version.c ****  * A geolocation capable is either a LR1110 or a LR1120.
+  89:../../../lr11xx/common/apps_version.c ****  *
+  90:../../../lr11xx/common/apps_version.c ****  * @param [in] version Version structure as fetched from device
+  91:../../../lr11xx/common/apps_version.c ****  *
+  92:../../../lr11xx/common/apps_version.c ****  * @return true The version correspond to a geolocation capable device
+  93:../../../lr11xx/common/apps_version.c ****  * @return false The version does not correspond to a geolocation capable device
+  94:../../../lr11xx/common/apps_version.c ****  */
+  95:../../../lr11xx/common/apps_version.c **** bool apps_version_assert_version_is_geolocation_capable( const lr11xx_system_version_t* version );
+  96:../../../lr11xx/common/apps_version.c **** 
+  97:../../../lr11xx/common/apps_version.c **** /*
+  98:../../../lr11xx/common/apps_version.c ****  * -----------------------------------------------------------------------------
+  99:../../../lr11xx/common/apps_version.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+ 100:../../../lr11xx/common/apps_version.c ****  */
+ 101:../../../lr11xx/common/apps_version.c **** 
+ 102:../../../lr11xx/common/apps_version.c **** const apps_version_validator_t apps_version_validator_is_geolocation_capable =
+ 103:../../../lr11xx/common/apps_version.c ****     apps_version_assert_version_is_geolocation_capable;
+ 104:../../../lr11xx/common/apps_version.c **** 
+ 105:../../../lr11xx/common/apps_version.c **** /*
+ 106:../../../lr11xx/common/apps_version.c ****  * -----------------------------------------------------------------------------
+ 107:../../../lr11xx/common/apps_version.c ****  * --- PUBLIC VARIABLES --------------------------------------------------------
+ 108:../../../lr11xx/common/apps_version.c ****  */
+ 109:../../../lr11xx/common/apps_version.c **** 
+ 110:../../../lr11xx/common/apps_version.c **** /*
+ 111:../../../lr11xx/common/apps_version.c ****  * -----------------------------------------------------------------------------
+ 112:../../../lr11xx/common/apps_version.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+ 113:../../../lr11xx/common/apps_version.c ****  */
+ 114:../../../lr11xx/common/apps_version.c **** 
+ 115:../../../lr11xx/common/apps_version.c **** bool apps_version_fetch_check_print_version( const void* context, const apps_version_validator_t va
+ 116:../../../lr11xx/common/apps_version.c **** {
+  42              		.loc 1 116 1
+  43              		.cfi_startproc
+  44              		@ args = 0, pretend = 0, frame = 16
+  45              		@ frame_needed = 1, uses_anonymous_args = 0
+  46 0000 80B5     		push	{r7, lr}
+  47              	.LCFI0:
+  48              		.cfi_def_cfa_offset 8
+  49              		.cfi_offset 7, -8
+  50              		.cfi_offset 14, -4
+  51 0002 84B0     		sub	sp, sp, #16
+  52              	.LCFI1:
+  53              		.cfi_def_cfa_offset 24
+  54 0004 00AF     		add	r7, sp, #0
+  55              	.LCFI2:
+  56              		.cfi_def_cfa_register 7
+  57 0006 7860     		str	r0, [r7, #4]
+  58 0008 3960     		str	r1, [r7]
+ 117:../../../lr11xx/common/apps_version.c ****     lr11xx_system_version_t version = { 0 };
+ARM GAS  C:\msys64\tmp\cchTNER3.s 			page 4
+
+
+  59              		.loc 1 117 29
+  60 000a 0023     		movs	r3, #0
+  61 000c BB60     		str	r3, [r7, #8]
+ 118:../../../lr11xx/common/apps_version.c ****     apps_common_lr11xx_fetch_version( context, &version );
+  62              		.loc 1 118 5
+  63 000e 07F10803 		add	r3, r7, #8
+  64 0012 1946     		mov	r1, r3
+  65 0014 7868     		ldr	r0, [r7, #4]
+  66 0016 FFF7FEFF 		bl	apps_common_lr11xx_fetch_version
+ 119:../../../lr11xx/common/apps_version.c ****     const bool is_expected = validator( &version );
+  67              		.loc 1 119 30
+  68 001a 07F10802 		add	r2, r7, #8
+  69 001e 3B68     		ldr	r3, [r7]
+  70 0020 1046     		mov	r0, r2
+  71 0022 9847     		blx	r3
+  72              	.LVL0:
+  73 0024 0346     		mov	r3, r0
+  74 0026 FB73     		strb	r3, [r7, #15]
+ 120:../../../lr11xx/common/apps_version.c ****     apps_common_lr11xx_print_version( &version );
+  75              		.loc 1 120 5
+  76 0028 07F10803 		add	r3, r7, #8
+  77 002c 1846     		mov	r0, r3
+  78 002e FFF7FEFF 		bl	apps_common_lr11xx_print_version
+ 121:../../../lr11xx/common/apps_version.c ****     return is_expected;
+  79              		.loc 1 121 12
+  80 0032 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 122:../../../lr11xx/common/apps_version.c **** }
+  81              		.loc 1 122 1
+  82 0034 1846     		mov	r0, r3
+  83 0036 1037     		adds	r7, r7, #16
+  84              	.LCFI3:
+  85              		.cfi_def_cfa_offset 8
+  86 0038 BD46     		mov	sp, r7
+  87              	.LCFI4:
+  88              		.cfi_def_cfa_register 13
+  89              		@ sp needed
+  90 003a 80BD     		pop	{r7, pc}
+  91              		.cfi_endproc
+  92              	.LFE237:
+  94              		.section	.text.apps_version_assert_version_is_lr1110,"ax",%progbits
+  95              		.align	1
+  96              		.global	apps_version_assert_version_is_lr1110
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 101              	apps_version_assert_version_is_lr1110:
+ 102              	.LFB238:
+ 123:../../../lr11xx/common/apps_version.c **** 
+ 124:../../../lr11xx/common/apps_version.c **** /*
+ 125:../../../lr11xx/common/apps_version.c ****  * -----------------------------------------------------------------------------
+ 126:../../../lr11xx/common/apps_version.c ****  * --- PRIVATE FUNCTIONS DEFINITION --------------------------------------------
+ 127:../../../lr11xx/common/apps_version.c ****  */
+ 128:../../../lr11xx/common/apps_version.c **** 
+ 129:../../../lr11xx/common/apps_version.c **** bool apps_version_assert_version_is_lr1110( const lr11xx_system_version_t* version )
+ 130:../../../lr11xx/common/apps_version.c **** {
+ 103              		.loc 1 130 1
+ 104              		.cfi_startproc
+ARM GAS  C:\msys64\tmp\cchTNER3.s 			page 5
+
+
+ 105              		@ args = 0, pretend = 0, frame = 8
+ 106              		@ frame_needed = 1, uses_anonymous_args = 0
+ 107              		@ link register save eliminated.
+ 108 0000 80B4     		push	{r7}
+ 109              	.LCFI5:
+ 110              		.cfi_def_cfa_offset 4
+ 111              		.cfi_offset 7, -4
+ 112 0002 83B0     		sub	sp, sp, #12
+ 113              	.LCFI6:
+ 114              		.cfi_def_cfa_offset 16
+ 115 0004 00AF     		add	r7, sp, #0
+ 116              	.LCFI7:
+ 117              		.cfi_def_cfa_register 7
+ 118 0006 7860     		str	r0, [r7, #4]
+ 131:../../../lr11xx/common/apps_version.c ****     return version->type == 0x01;
+ 119              		.loc 1 131 19
+ 120 0008 7B68     		ldr	r3, [r7, #4]
+ 121 000a 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 122              		.loc 1 131 26
+ 123 000c 012B     		cmp	r3, #1
+ 124 000e 0CBF     		ite	eq
+ 125 0010 0123     		moveq	r3, #1
+ 126 0012 0023     		movne	r3, #0
+ 127 0014 DBB2     		uxtb	r3, r3
+ 132:../../../lr11xx/common/apps_version.c **** }
+ 128              		.loc 1 132 1
+ 129 0016 1846     		mov	r0, r3
+ 130 0018 0C37     		adds	r7, r7, #12
+ 131              	.LCFI8:
+ 132              		.cfi_def_cfa_offset 4
+ 133 001a BD46     		mov	sp, r7
+ 134              	.LCFI9:
+ 135              		.cfi_def_cfa_register 13
+ 136              		@ sp needed
+ 137 001c 5DF8047B 		ldr	r7, [sp], #4
+ 138              	.LCFI10:
+ 139              		.cfi_restore 7
+ 140              		.cfi_def_cfa_offset 0
+ 141 0020 7047     		bx	lr
+ 142              		.cfi_endproc
+ 143              	.LFE238:
+ 145              		.section	.text.apps_version_assert_version_is_lr1120,"ax",%progbits
+ 146              		.align	1
+ 147              		.global	apps_version_assert_version_is_lr1120
+ 148              		.syntax unified
+ 149              		.thumb
+ 150              		.thumb_func
+ 152              	apps_version_assert_version_is_lr1120:
+ 153              	.LFB239:
+ 133:../../../lr11xx/common/apps_version.c **** 
+ 134:../../../lr11xx/common/apps_version.c **** bool apps_version_assert_version_is_lr1120( const lr11xx_system_version_t* version )
+ 135:../../../lr11xx/common/apps_version.c **** {
+ 154              		.loc 1 135 1
+ 155              		.cfi_startproc
+ 156              		@ args = 0, pretend = 0, frame = 8
+ 157              		@ frame_needed = 1, uses_anonymous_args = 0
+ 158              		@ link register save eliminated.
+ARM GAS  C:\msys64\tmp\cchTNER3.s 			page 6
+
+
+ 159 0000 80B4     		push	{r7}
+ 160              	.LCFI11:
+ 161              		.cfi_def_cfa_offset 4
+ 162              		.cfi_offset 7, -4
+ 163 0002 83B0     		sub	sp, sp, #12
+ 164              	.LCFI12:
+ 165              		.cfi_def_cfa_offset 16
+ 166 0004 00AF     		add	r7, sp, #0
+ 167              	.LCFI13:
+ 168              		.cfi_def_cfa_register 7
+ 169 0006 7860     		str	r0, [r7, #4]
+ 136:../../../lr11xx/common/apps_version.c ****     return version->type == 0x02;
+ 170              		.loc 1 136 19
+ 171 0008 7B68     		ldr	r3, [r7, #4]
+ 172 000a 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 173              		.loc 1 136 26
+ 174 000c 022B     		cmp	r3, #2
+ 175 000e 0CBF     		ite	eq
+ 176 0010 0123     		moveq	r3, #1
+ 177 0012 0023     		movne	r3, #0
+ 178 0014 DBB2     		uxtb	r3, r3
+ 137:../../../lr11xx/common/apps_version.c **** }
+ 179              		.loc 1 137 1
+ 180 0016 1846     		mov	r0, r3
+ 181 0018 0C37     		adds	r7, r7, #12
+ 182              	.LCFI14:
+ 183              		.cfi_def_cfa_offset 4
+ 184 001a BD46     		mov	sp, r7
+ 185              	.LCFI15:
+ 186              		.cfi_def_cfa_register 13
+ 187              		@ sp needed
+ 188 001c 5DF8047B 		ldr	r7, [sp], #4
+ 189              	.LCFI16:
+ 190              		.cfi_restore 7
+ 191              		.cfi_def_cfa_offset 0
+ 192 0020 7047     		bx	lr
+ 193              		.cfi_endproc
+ 194              	.LFE239:
+ 196              		.section	.text.apps_version_assert_version_is_geolocation_capable,"ax",%progbits
+ 197              		.align	1
+ 198              		.global	apps_version_assert_version_is_geolocation_capable
+ 199              		.syntax unified
+ 200              		.thumb
+ 201              		.thumb_func
+ 203              	apps_version_assert_version_is_geolocation_capable:
+ 204              	.LFB240:
+ 138:../../../lr11xx/common/apps_version.c **** 
+ 139:../../../lr11xx/common/apps_version.c **** bool apps_version_assert_version_is_geolocation_capable( const lr11xx_system_version_t* version )
+ 140:../../../lr11xx/common/apps_version.c **** {
+ 205              		.loc 1 140 1
+ 206              		.cfi_startproc
+ 207              		@ args = 0, pretend = 0, frame = 8
+ 208              		@ frame_needed = 1, uses_anonymous_args = 0
+ 209 0000 80B5     		push	{r7, lr}
+ 210              	.LCFI17:
+ 211              		.cfi_def_cfa_offset 8
+ 212              		.cfi_offset 7, -8
+ARM GAS  C:\msys64\tmp\cchTNER3.s 			page 7
+
+
+ 213              		.cfi_offset 14, -4
+ 214 0002 82B0     		sub	sp, sp, #8
+ 215              	.LCFI18:
+ 216              		.cfi_def_cfa_offset 16
+ 217 0004 00AF     		add	r7, sp, #0
+ 218              	.LCFI19:
+ 219              		.cfi_def_cfa_register 7
+ 220 0006 7860     		str	r0, [r7, #4]
+ 141:../../../lr11xx/common/apps_version.c ****     return apps_version_assert_version_is_lr1110( version ) || apps_version_assert_version_is_lr112
+ 221              		.loc 1 141 12
+ 222 0008 7868     		ldr	r0, [r7, #4]
+ 223 000a FFF7FEFF 		bl	apps_version_assert_version_is_lr1110
+ 224 000e 0346     		mov	r3, r0
+ 225              		.loc 1 141 61 discriminator 1
+ 226 0010 002B     		cmp	r3, #0
+ 227 0012 05D1     		bne	.L8
+ 228              		.loc 1 141 64 discriminator 2
+ 229 0014 7868     		ldr	r0, [r7, #4]
+ 230 0016 FFF7FEFF 		bl	apps_version_assert_version_is_lr1120
+ 231 001a 0346     		mov	r3, r0
+ 232              		.loc 1 141 61 discriminator 1
+ 233 001c 002B     		cmp	r3, #0
+ 234 001e 01D0     		beq	.L9
+ 235              	.L8:
+ 236              		.loc 1 141 61 is_stmt 0 discriminator 3
+ 237 0020 0123     		movs	r3, #1
+ 238              		.loc 1 141 61
+ 239 0022 00E0     		b	.L10
+ 240              	.L9:
+ 241              		.loc 1 141 61 discriminator 4
+ 242 0024 0023     		movs	r3, #0
+ 243              	.L10:
+ 244              		.loc 1 141 61 discriminator 6
+ 245 0026 03F00103 		and	r3, r3, #1
+ 246 002a DBB2     		uxtb	r3, r3
+ 142:../../../lr11xx/common/apps_version.c **** }
+ 247              		.loc 1 142 1 is_stmt 1
+ 248 002c 1846     		mov	r0, r3
+ 249 002e 0837     		adds	r7, r7, #8
+ 250              	.LCFI20:
+ 251              		.cfi_def_cfa_offset 8
+ 252 0030 BD46     		mov	sp, r7
+ 253              	.LCFI21:
+ 254              		.cfi_def_cfa_register 13
+ 255              		@ sp needed
+ 256 0032 80BD     		pop	{r7, pc}
+ 257              		.cfi_endproc
+ 258              	.LFE240:
+ 260              		.text
+ 261              	.Letext0:
+ 262              		.file 2 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/mac
+ 263              		.file 3 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys
+ 264              		.file 4 "../../../lr11xx/lr11xx_driver/src/lr11xx_system_types.h"
+ 265              		.file 5 "../../../lr11xx/common/apps_version.h"
+ 266              		.file 6 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_spi.h"
+ 267              		.file 7 "../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_spi_stm32l4.h"
+ 268              		.file 8 "../../../libs/smtc-hal-mcu-stm32l4/third_party/STM32CubeL4/Drivers/CMSIS/Device/ST/STM32L
+ARM GAS  C:\msys64\tmp\cchTNER3.s 			page 8
+
+
+ 269              		.file 9 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_gpio.h"
+ 270              		.file 10 "../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_gpio_stm32l4.h"
+ 271              		.file 11 "../../../lr11xx/common/lr11xx_hal_context.h"
+ 272              		.file 12 "../../../lr11xx/common/apps_common.h"
+ 273              		.file 13 "../../../lr11xx/common/apps_configuration.h"
+ARM GAS  C:\msys64\tmp\cchTNER3.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 apps_version.c
+C:\msys64\tmp\cchTNER3.s:21     .rodata.gfsk_sync_word:00000000 $d
+C:\msys64\tmp\cchTNER3.s:24     .rodata.gfsk_sync_word:00000000 gfsk_sync_word
+C:\msys64\tmp\cchTNER3.s:31     .rodata.apps_version_validator_is_geolocation_capable:00000000 apps_version_validator_is_geolocation_capable
+C:\msys64\tmp\cchTNER3.s:28     .rodata.apps_version_validator_is_geolocation_capable:00000000 $d
+C:\msys64\tmp\cchTNER3.s:203    .text.apps_version_assert_version_is_geolocation_capable:00000000 apps_version_assert_version_is_geolocation_capable
+C:\msys64\tmp\cchTNER3.s:34     .text.apps_version_fetch_check_print_version:00000000 $t
+C:\msys64\tmp\cchTNER3.s:40     .text.apps_version_fetch_check_print_version:00000000 apps_version_fetch_check_print_version
+C:\msys64\tmp\cchTNER3.s:95     .text.apps_version_assert_version_is_lr1110:00000000 $t
+C:\msys64\tmp\cchTNER3.s:101    .text.apps_version_assert_version_is_lr1110:00000000 apps_version_assert_version_is_lr1110
+C:\msys64\tmp\cchTNER3.s:146    .text.apps_version_assert_version_is_lr1120:00000000 $t
+C:\msys64\tmp\cchTNER3.s:152    .text.apps_version_assert_version_is_lr1120:00000000 apps_version_assert_version_is_lr1120
+C:\msys64\tmp\cchTNER3.s:197    .text.apps_version_assert_version_is_geolocation_capable:00000000 $t
+
+UNDEFINED SYMBOLS
+apps_common_lr11xx_fetch_version
+apps_common_lr11xx_print_version

@@ -1,0 +1,184 @@
+ARM GAS  C:\msys64\tmp\ccoySBdT.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lr11xx_rttof_types_str.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c"
+  20              		.section	.rodata
+  21              		.align	2
+  22              	.LC0:
+  23 0000 4C523131 		.ascii	"LR11XX_RTTOF_RESULT_TYPE_RAW\000"
+  23      58585F52 
+  23      54544F46 
+  23      5F524553 
+  23      554C545F 
+  24 001d 000000   		.align	2
+  25              	.LC1:
+  26 0020 4C523131 		.ascii	"LR11XX_RTTOF_RESULT_TYPE_RSSI\000"
+  26      58585F52 
+  26      54544F46 
+  26      5F524553 
+  26      554C545F 
+  27 003e 0000     		.align	2
+  28              	.LC2:
+  29 0040 556E6B6E 		.ascii	"Unknown\000"
+  29      6F776E00 
+  30              		.section	.text.lr11xx_rttof_result_type_to_str,"ax",%progbits
+  31              		.align	1
+  32              		.global	lr11xx_rttof_result_type_to_str
+  33              		.syntax unified
+  34              		.thumb
+  35              		.thumb_func
+  37              	lr11xx_rttof_result_type_to_str:
+  38              	.LFB0:
+   1:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c **** /*!
+   2:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * @file      lr11xx_rttof_types_str.c
+   3:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *
+   4:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * @brief     Printer helper functions for LR11xx RTToF types
+   5:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *
+   6:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * @copyright
+   7:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * The Clear BSD License
+   8:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   9:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *
+  10:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * Redistribution and use in source and binary forms, with or without
+  11:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+ARM GAS  C:\msys64\tmp\ccoySBdT.s 			page 2
+
+
+  12:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * below) provided that the following conditions are met:
+  13:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *     * Redistributions of source code must retain the above copyright
+  14:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *       notice, this list of conditions and the following disclaimer.
+  15:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  16:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *       notice, this list of conditions and the following disclaimer in the
+  17:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *       documentation and/or other materials provided with the distribution.
+  18:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *     * Neither the name of the Semtech corporation nor the
+  19:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *       names of its contributors may be used to endorse or promote products
+  20:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *       derived from this software without specific prior written permission.
+  21:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  *
+  22:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  23:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  24:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  25:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  26:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  27:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  28:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  29:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  30:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  31:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  32:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  33:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  34:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****  */
+  35:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c **** 
+  36:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c **** #include "lr11xx_rttof_types_str.h"
+  37:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c **** 
+  38:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c **** const char* lr11xx_rttof_result_type_to_str( const lr11xx_rttof_result_type_t value )
+  39:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c **** {
+  39              		.loc 1 39 1
+  40              		.cfi_startproc
+  41              		@ args = 0, pretend = 0, frame = 8
+  42              		@ frame_needed = 1, uses_anonymous_args = 0
+  43              		@ link register save eliminated.
+  44 0000 80B4     		push	{r7}
+  45              	.LCFI0:
+  46              		.cfi_def_cfa_offset 4
+  47              		.cfi_offset 7, -4
+  48 0002 83B0     		sub	sp, sp, #12
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 16
+  51 0004 00AF     		add	r7, sp, #0
+  52              	.LCFI2:
+  53              		.cfi_def_cfa_register 7
+  54 0006 0346     		mov	r3, r0
+  55 0008 FB71     		strb	r3, [r7, #7]
+  40:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     switch( value )
+  56              		.loc 1 40 5
+  57 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  58 000c 002B     		cmp	r3, #0
+  59 000e 02D0     		beq	.L2
+  60 0010 012B     		cmp	r3, #1
+  61 0012 02D0     		beq	.L3
+  62 0014 03E0     		b	.L6
+  63              	.L2:
+  41:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     {
+  42:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     case LR11XX_RTTOF_RESULT_TYPE_RAW:
+  43:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     {
+ARM GAS  C:\msys64\tmp\ccoySBdT.s 			page 3
+
+
+  44:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****         return ( const char* ) "LR11XX_RTTOF_RESULT_TYPE_RAW";
+  64              		.loc 1 44 16
+  65 0016 054B     		ldr	r3, .L7
+  66 0018 02E0     		b	.L5
+  67              	.L3:
+  45:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     }
+  46:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c **** 
+  47:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     case LR11XX_RTTOF_RESULT_TYPE_RSSI:
+  48:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     {
+  49:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****         return ( const char* ) "LR11XX_RTTOF_RESULT_TYPE_RSSI";
+  68              		.loc 1 49 16
+  69 001a 054B     		ldr	r3, .L7+4
+  70 001c 00E0     		b	.L5
+  71              	.L6:
+  50:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     }
+  51:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c **** 
+  52:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     default:
+  53:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     {
+  54:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****         return ( const char* ) "Unknown";
+  72              		.loc 1 54 16
+  73 001e 054B     		ldr	r3, .L7+8
+  74              	.L5:
+  55:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     }
+  56:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c ****     }
+  57:../../../../lr11xx/common/printers/lr11xx_rttof_types_str.c **** }
+  75              		.loc 1 57 1
+  76 0020 1846     		mov	r0, r3
+  77 0022 0C37     		adds	r7, r7, #12
+  78              	.LCFI3:
+  79              		.cfi_def_cfa_offset 4
+  80 0024 BD46     		mov	sp, r7
+  81              	.LCFI4:
+  82              		.cfi_def_cfa_register 13
+  83              		@ sp needed
+  84 0026 5DF8047B 		ldr	r7, [sp], #4
+  85              	.LCFI5:
+  86              		.cfi_restore 7
+  87              		.cfi_def_cfa_offset 0
+  88 002a 7047     		bx	lr
+  89              	.L8:
+  90              		.align	2
+  91              	.L7:
+  92 002c 00000000 		.word	.LC0
+  93 0030 20000000 		.word	.LC1
+  94 0034 40000000 		.word	.LC2
+  95              		.cfi_endproc
+  96              	.LFE0:
+  98              		.text
+  99              	.Letext0:
+ 100              		.file 2 "../../../../lr11xx/lr11xx_driver/src/lr11xx_rttof_types.h"
+ARM GAS  C:\msys64\tmp\ccoySBdT.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lr11xx_rttof_types_str.c
+C:\msys64\tmp\ccoySBdT.s:21     .rodata:00000000 $d
+C:\msys64\tmp\ccoySBdT.s:31     .text.lr11xx_rttof_result_type_to_str:00000000 $t
+C:\msys64\tmp\ccoySBdT.s:37     .text.lr11xx_rttof_result_type_to_str:00000000 lr11xx_rttof_result_type_to_str
+C:\msys64\tmp\ccoySBdT.s:92     .text.lr11xx_rttof_result_type_to_str:0000002c $d
+
+NO UNDEFINED SYMBOLS

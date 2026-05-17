@@ -1,0 +1,652 @@
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lr11xx_bootloader_types_str.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c"
+  20              		.section	.rodata
+  21              		.align	2
+  22              	.LC0:
+  23 0000 4C523131 		.ascii	"LR11XX_BOOTLOADER_CHIP_MODE_SLEEP\000"
+  23      58585F42 
+  23      4F4F544C 
+  23      4F414445 
+  23      525F4348 
+  24 0022 0000     		.align	2
+  25              	.LC1:
+  26 0024 4C523131 		.ascii	"LR11XX_BOOTLOADER_CHIP_MODE_STBY_RC\000"
+  26      58585F42 
+  26      4F4F544C 
+  26      4F414445 
+  26      525F4348 
+  27              		.align	2
+  28              	.LC2:
+  29 0048 4C523131 		.ascii	"LR11XX_BOOTLOADER_CHIP_MODE_STBY_XOSC\000"
+  29      58585F42 
+  29      4F4F544C 
+  29      4F414445 
+  29      525F4348 
+  30 006e 0000     		.align	2
+  31              	.LC3:
+  32 0070 4C523131 		.ascii	"LR11XX_BOOTLOADER_CHIP_MODE_FS\000"
+  32      58585F42 
+  32      4F4F544C 
+  32      4F414445 
+  32      525F4348 
+  33 008f 00       		.align	2
+  34              	.LC4:
+  35 0090 4C523131 		.ascii	"LR11XX_BOOTLOADER_CHIP_MODE_RX\000"
+  35      58585F42 
+  35      4F4F544C 
+  35      4F414445 
+  35      525F4348 
+  36 00af 00       		.align	2
+  37              	.LC5:
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 2
+
+
+  38 00b0 4C523131 		.ascii	"LR11XX_BOOTLOADER_CHIP_MODE_TX\000"
+  38      58585F42 
+  38      4F4F544C 
+  38      4F414445 
+  38      525F4348 
+  39 00cf 00       		.align	2
+  40              	.LC6:
+  41 00d0 4C523131 		.ascii	"LR11XX_BOOTLOADER_CHIP_MODE_LOC\000"
+  41      58585F42 
+  41      4F4F544C 
+  41      4F414445 
+  41      525F4348 
+  42              		.align	2
+  43              	.LC7:
+  44 00f0 556E6B6E 		.ascii	"Unknown\000"
+  44      6F776E00 
+  45              		.section	.text.lr11xx_bootloader_chip_modes_to_str,"ax",%progbits
+  46              		.align	1
+  47              		.global	lr11xx_bootloader_chip_modes_to_str
+  48              		.syntax unified
+  49              		.thumb
+  50              		.thumb_func
+  52              	lr11xx_bootloader_chip_modes_to_str:
+  53              	.LFB0:
+   1:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** /*!
+   2:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * @file      lr11xx_bootloader_types_str.c
+   3:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *
+   4:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * @brief     Printer helper functions for LR11xx bootloader types
+   5:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *
+   6:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * @copyright
+   7:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * The Clear BSD License
+   8:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   9:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *
+  10:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * Redistribution and use in source and binary forms, with or without
+  11:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  12:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * below) provided that the following conditions are met:
+  13:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *     * Redistributions of source code must retain the above copyright
+  14:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *       notice, this list of conditions and the following disclaimer.
+  15:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  16:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *       notice, this list of conditions and the following disclaimer in the
+  17:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *       documentation and/or other materials provided with the distribution.
+  18:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *     * Neither the name of the Semtech corporation nor the
+  19:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *       names of its contributors may be used to endorse or promote products
+  20:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *       derived from this software without specific prior written permission.
+  21:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  *
+  22:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  23:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  24:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  25:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  26:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  27:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  28:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  29:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  30:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  31:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  32:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  33:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  * POSSIBILITY OF SUCH DAMAGE.
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 3
+
+
+  34:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****  */
+  35:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  36:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** #include "lr11xx_bootloader_types_str.h"
+  37:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  38:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** const char* lr11xx_bootloader_chip_modes_to_str( const lr11xx_bootloader_chip_modes_t value )
+  39:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** {
+  54              		.loc 1 39 1
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 8
+  57              		@ frame_needed = 1, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  59 0000 80B4     		push	{r7}
+  60              	.LCFI0:
+  61              		.cfi_def_cfa_offset 4
+  62              		.cfi_offset 7, -4
+  63 0002 83B0     		sub	sp, sp, #12
+  64              	.LCFI1:
+  65              		.cfi_def_cfa_offset 16
+  66 0004 00AF     		add	r7, sp, #0
+  67              	.LCFI2:
+  68              		.cfi_def_cfa_register 7
+  69 0006 0346     		mov	r3, r0
+  70 0008 FB71     		strb	r3, [r7, #7]
+  40:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     switch( value )
+  71              		.loc 1 40 5
+  72 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  73 000c 062B     		cmp	r3, #6
+  74 000e 1FD8     		bhi	.L2
+  75 0010 01A2     		adr	r2, .L4
+  76 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+  77 0016 00BF     		.p2align 2
+  78              	.L4:
+  79 0018 35000000 		.word	.L10+1
+  80 001c 39000000 		.word	.L9+1
+  81 0020 3D000000 		.word	.L8+1
+  82 0024 41000000 		.word	.L7+1
+  83 0028 45000000 		.word	.L6+1
+  84 002c 49000000 		.word	.L5+1
+  85 0030 4D000000 		.word	.L3+1
+  86              		.p2align 1
+  87              	.L10:
+  41:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  42:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CHIP_MODE_SLEEP:
+  43:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  44:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CHIP_MODE_SLEEP";
+  88              		.loc 1 44 16
+  89 0034 0A4B     		ldr	r3, .L12
+  90 0036 0CE0     		b	.L11
+  91              	.L9:
+  45:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  46:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  47:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CHIP_MODE_STBY_RC:
+  48:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  49:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CHIP_MODE_STBY_RC";
+  92              		.loc 1 49 16
+  93 0038 0A4B     		ldr	r3, .L12+4
+  94 003a 0AE0     		b	.L11
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 4
+
+
+  95              	.L8:
+  50:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  51:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  52:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CHIP_MODE_STBY_XOSC:
+  53:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  54:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CHIP_MODE_STBY_XOSC";
+  96              		.loc 1 54 16
+  97 003c 0A4B     		ldr	r3, .L12+8
+  98 003e 08E0     		b	.L11
+  99              	.L7:
+  55:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  56:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  57:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CHIP_MODE_FS:
+  58:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  59:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CHIP_MODE_FS";
+ 100              		.loc 1 59 16
+ 101 0040 0A4B     		ldr	r3, .L12+12
+ 102 0042 06E0     		b	.L11
+ 103              	.L6:
+  60:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  61:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  62:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CHIP_MODE_RX:
+  63:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  64:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CHIP_MODE_RX";
+ 104              		.loc 1 64 16
+ 105 0044 0A4B     		ldr	r3, .L12+16
+ 106 0046 04E0     		b	.L11
+ 107              	.L5:
+  65:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  66:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  67:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CHIP_MODE_TX:
+  68:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  69:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CHIP_MODE_TX";
+ 108              		.loc 1 69 16
+ 109 0048 0A4B     		ldr	r3, .L12+20
+ 110 004a 02E0     		b	.L11
+ 111              	.L3:
+  70:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  71:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  72:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CHIP_MODE_LOC:
+  73:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  74:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CHIP_MODE_LOC";
+ 112              		.loc 1 74 16
+ 113 004c 0A4B     		ldr	r3, .L12+24
+ 114 004e 00E0     		b	.L11
+ 115              	.L2:
+  75:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  76:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  77:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     default:
+  78:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  79:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "Unknown";
+ 116              		.loc 1 79 16
+ 117 0050 0A4B     		ldr	r3, .L12+28
+ 118              	.L11:
+  80:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  81:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  82:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** }
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 5
+
+
+ 119              		.loc 1 82 1
+ 120 0052 1846     		mov	r0, r3
+ 121 0054 0C37     		adds	r7, r7, #12
+ 122              	.LCFI3:
+ 123              		.cfi_def_cfa_offset 4
+ 124 0056 BD46     		mov	sp, r7
+ 125              	.LCFI4:
+ 126              		.cfi_def_cfa_register 13
+ 127              		@ sp needed
+ 128 0058 5DF8047B 		ldr	r7, [sp], #4
+ 129              	.LCFI5:
+ 130              		.cfi_restore 7
+ 131              		.cfi_def_cfa_offset 0
+ 132 005c 7047     		bx	lr
+ 133              	.L13:
+ 134 005e 00BF     		.align	2
+ 135              	.L12:
+ 136 0060 00000000 		.word	.LC0
+ 137 0064 24000000 		.word	.LC1
+ 138 0068 48000000 		.word	.LC2
+ 139 006c 70000000 		.word	.LC3
+ 140 0070 90000000 		.word	.LC4
+ 141 0074 B0000000 		.word	.LC5
+ 142 0078 D0000000 		.word	.LC6
+ 143 007c F0000000 		.word	.LC7
+ 144              		.cfi_endproc
+ 145              	.LFE0:
+ 147              		.section	.rodata
+ 148              		.align	2
+ 149              	.LC8:
+ 150 00f8 4C523131 		.ascii	"LR11XX_BOOTLOADER_RESET_STATUS_CLEARED\000"
+ 150      58585F42 
+ 150      4F4F544C 
+ 150      4F414445 
+ 150      525F5245 
+ 151 011f 00       		.align	2
+ 152              	.LC9:
+ 153 0120 4C523131 		.ascii	"LR11XX_BOOTLOADER_RESET_STATUS_ANALOG\000"
+ 153      58585F42 
+ 153      4F4F544C 
+ 153      4F414445 
+ 153      525F5245 
+ 154 0146 0000     		.align	2
+ 155              	.LC10:
+ 156 0148 4C523131 		.ascii	"LR11XX_BOOTLOADER_RESET_STATUS_EXTERNAL\000"
+ 156      58585F42 
+ 156      4F4F544C 
+ 156      4F414445 
+ 156      525F5245 
+ 157              		.align	2
+ 158              	.LC11:
+ 159 0170 4C523131 		.ascii	"LR11XX_BOOTLOADER_RESET_STATUS_SYSTEM\000"
+ 159      58585F42 
+ 159      4F4F544C 
+ 159      4F414445 
+ 159      525F5245 
+ 160 0196 0000     		.align	2
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 6
+
+
+ 161              	.LC12:
+ 162 0198 4C523131 		.ascii	"LR11XX_BOOTLOADER_RESET_STATUS_WATCHDOG\000"
+ 162      58585F42 
+ 162      4F4F544C 
+ 162      4F414445 
+ 162      525F5245 
+ 163              		.align	2
+ 164              	.LC13:
+ 165 01c0 4C523131 		.ascii	"LR11XX_BOOTLOADER_RESET_STATUS_IOCD_RESTART\000"
+ 165      58585F42 
+ 165      4F4F544C 
+ 165      4F414445 
+ 165      525F5245 
+ 166              		.align	2
+ 167              	.LC14:
+ 168 01ec 4C523131 		.ascii	"LR11XX_BOOTLOADER_RESET_STATUS_RTC_RESTART\000"
+ 168      58585F42 
+ 168      4F4F544C 
+ 168      4F414445 
+ 168      525F5245 
+ 169              		.section	.text.lr11xx_bootloader_reset_status_to_str,"ax",%progbits
+ 170              		.align	1
+ 171              		.global	lr11xx_bootloader_reset_status_to_str
+ 172              		.syntax unified
+ 173              		.thumb
+ 174              		.thumb_func
+ 176              	lr11xx_bootloader_reset_status_to_str:
+ 177              	.LFB1:
+  83:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  84:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** const char* lr11xx_bootloader_reset_status_to_str( const lr11xx_bootloader_reset_status_t value )
+  85:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** {
+ 178              		.loc 1 85 1
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 8
+ 181              		@ frame_needed = 1, uses_anonymous_args = 0
+ 182              		@ link register save eliminated.
+ 183 0000 80B4     		push	{r7}
+ 184              	.LCFI6:
+ 185              		.cfi_def_cfa_offset 4
+ 186              		.cfi_offset 7, -4
+ 187 0002 83B0     		sub	sp, sp, #12
+ 188              	.LCFI7:
+ 189              		.cfi_def_cfa_offset 16
+ 190 0004 00AF     		add	r7, sp, #0
+ 191              	.LCFI8:
+ 192              		.cfi_def_cfa_register 7
+ 193 0006 0346     		mov	r3, r0
+ 194 0008 FB71     		strb	r3, [r7, #7]
+  86:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     switch( value )
+ 195              		.loc 1 86 5
+ 196 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 197 000c 062B     		cmp	r3, #6
+ 198 000e 1FD8     		bhi	.L15
+ 199 0010 01A2     		adr	r2, .L17
+ 200 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 201 0016 00BF     		.p2align 2
+ 202              	.L17:
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 7
+
+
+ 203 0018 35000000 		.word	.L23+1
+ 204 001c 39000000 		.word	.L22+1
+ 205 0020 3D000000 		.word	.L21+1
+ 206 0024 41000000 		.word	.L20+1
+ 207 0028 45000000 		.word	.L19+1
+ 208 002c 49000000 		.word	.L18+1
+ 209 0030 4D000000 		.word	.L16+1
+ 210              		.p2align 1
+ 211              	.L23:
+  87:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  88:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_RESET_STATUS_CLEARED:
+  89:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  90:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_RESET_STATUS_CLEARED";
+ 212              		.loc 1 90 16
+ 213 0034 0A4B     		ldr	r3, .L25
+ 214 0036 0CE0     		b	.L24
+ 215              	.L22:
+  91:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  92:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  93:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_RESET_STATUS_ANALOG:
+  94:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+  95:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_RESET_STATUS_ANALOG";
+ 216              		.loc 1 95 16
+ 217 0038 0A4B     		ldr	r3, .L25+4
+ 218 003a 0AE0     		b	.L24
+ 219              	.L21:
+  96:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+  97:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+  98:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_RESET_STATUS_EXTERNAL:
+  99:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 100:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_RESET_STATUS_EXTERNAL";
+ 220              		.loc 1 100 16
+ 221 003c 0A4B     		ldr	r3, .L25+8
+ 222 003e 08E0     		b	.L24
+ 223              	.L20:
+ 101:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 102:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 103:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_RESET_STATUS_SYSTEM:
+ 104:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 105:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_RESET_STATUS_SYSTEM";
+ 224              		.loc 1 105 16
+ 225 0040 0A4B     		ldr	r3, .L25+12
+ 226 0042 06E0     		b	.L24
+ 227              	.L19:
+ 106:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 107:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 108:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_RESET_STATUS_WATCHDOG:
+ 109:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 110:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_RESET_STATUS_WATCHDOG";
+ 228              		.loc 1 110 16
+ 229 0044 0A4B     		ldr	r3, .L25+16
+ 230 0046 04E0     		b	.L24
+ 231              	.L18:
+ 111:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 112:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 113:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_RESET_STATUS_IOCD_RESTART:
+ 114:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 8
+
+
+ 115:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_RESET_STATUS_IOCD_RESTART";
+ 232              		.loc 1 115 16
+ 233 0048 0A4B     		ldr	r3, .L25+20
+ 234 004a 02E0     		b	.L24
+ 235              	.L16:
+ 116:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 117:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 118:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_RESET_STATUS_RTC_RESTART:
+ 119:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 120:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_RESET_STATUS_RTC_RESTART";
+ 236              		.loc 1 120 16
+ 237 004c 0A4B     		ldr	r3, .L25+24
+ 238 004e 00E0     		b	.L24
+ 239              	.L15:
+ 121:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 122:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 123:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     default:
+ 124:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 125:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "Unknown";
+ 240              		.loc 1 125 16
+ 241 0050 0A4B     		ldr	r3, .L25+28
+ 242              	.L24:
+ 126:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 127:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 128:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** }
+ 243              		.loc 1 128 1
+ 244 0052 1846     		mov	r0, r3
+ 245 0054 0C37     		adds	r7, r7, #12
+ 246              	.LCFI9:
+ 247              		.cfi_def_cfa_offset 4
+ 248 0056 BD46     		mov	sp, r7
+ 249              	.LCFI10:
+ 250              		.cfi_def_cfa_register 13
+ 251              		@ sp needed
+ 252 0058 5DF8047B 		ldr	r7, [sp], #4
+ 253              	.LCFI11:
+ 254              		.cfi_restore 7
+ 255              		.cfi_def_cfa_offset 0
+ 256 005c 7047     		bx	lr
+ 257              	.L26:
+ 258 005e 00BF     		.align	2
+ 259              	.L25:
+ 260 0060 F8000000 		.word	.LC8
+ 261 0064 20010000 		.word	.LC9
+ 262 0068 48010000 		.word	.LC10
+ 263 006c 70010000 		.word	.LC11
+ 264 0070 98010000 		.word	.LC12
+ 265 0074 C0010000 		.word	.LC13
+ 266 0078 EC010000 		.word	.LC14
+ 267 007c F0000000 		.word	.LC7
+ 268              		.cfi_endproc
+ 269              	.LFE1:
+ 271              		.section	.rodata
+ 272 0217 00       		.align	2
+ 273              	.LC15:
+ 274 0218 4C523131 		.ascii	"LR11XX_BOOTLOADER_CMD_STATUS_FAIL\000"
+ 274      58585F42 
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 9
+
+
+ 274      4F4F544C 
+ 274      4F414445 
+ 274      525F434D 
+ 275 023a 0000     		.align	2
+ 276              	.LC16:
+ 277 023c 4C523131 		.ascii	"LR11XX_BOOTLOADER_CMD_STATUS_PERR\000"
+ 277      58585F42 
+ 277      4F4F544C 
+ 277      4F414445 
+ 277      525F434D 
+ 278 025e 0000     		.align	2
+ 279              	.LC17:
+ 280 0260 4C523131 		.ascii	"LR11XX_BOOTLOADER_CMD_STATUS_OK\000"
+ 280      58585F42 
+ 280      4F4F544C 
+ 280      4F414445 
+ 280      525F434D 
+ 281              		.align	2
+ 282              	.LC18:
+ 283 0280 4C523131 		.ascii	"LR11XX_BOOTLOADER_CMD_STATUS_DATA\000"
+ 283      58585F42 
+ 283      4F4F544C 
+ 283      4F414445 
+ 283      525F434D 
+ 284              		.section	.text.lr11xx_bootloader_command_status_to_str,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	lr11xx_bootloader_command_status_to_str
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 291              	lr11xx_bootloader_command_status_to_str:
+ 292              	.LFB2:
+ 129:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 130:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** const char* lr11xx_bootloader_command_status_to_str( const lr11xx_bootloader_command_status_t value
+ 131:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** {
+ 293              		.loc 1 131 1
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 8
+ 296              		@ frame_needed = 1, uses_anonymous_args = 0
+ 297              		@ link register save eliminated.
+ 298 0000 80B4     		push	{r7}
+ 299              	.LCFI12:
+ 300              		.cfi_def_cfa_offset 4
+ 301              		.cfi_offset 7, -4
+ 302 0002 83B0     		sub	sp, sp, #12
+ 303              	.LCFI13:
+ 304              		.cfi_def_cfa_offset 16
+ 305 0004 00AF     		add	r7, sp, #0
+ 306              	.LCFI14:
+ 307              		.cfi_def_cfa_register 7
+ 308 0006 0346     		mov	r3, r0
+ 309 0008 FB71     		strb	r3, [r7, #7]
+ 132:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     switch( value )
+ 310              		.loc 1 132 5
+ 311 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 312 000c 032B     		cmp	r3, #3
+ 313 000e 13D8     		bhi	.L28
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 10
+
+
+ 314 0010 01A2     		adr	r2, .L30
+ 315 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 316 0016 00BF     		.p2align 2
+ 317              	.L30:
+ 318 0018 29000000 		.word	.L33+1
+ 319 001c 2D000000 		.word	.L32+1
+ 320 0020 31000000 		.word	.L31+1
+ 321 0024 35000000 		.word	.L29+1
+ 322              		.p2align 1
+ 323              	.L33:
+ 133:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 134:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CMD_STATUS_FAIL:
+ 135:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 136:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CMD_STATUS_FAIL";
+ 324              		.loc 1 136 16
+ 325 0028 074B     		ldr	r3, .L35
+ 326 002a 06E0     		b	.L34
+ 327              	.L32:
+ 137:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 138:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 139:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CMD_STATUS_PERR:
+ 140:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 141:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CMD_STATUS_PERR";
+ 328              		.loc 1 141 16
+ 329 002c 074B     		ldr	r3, .L35+4
+ 330 002e 04E0     		b	.L34
+ 331              	.L31:
+ 142:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 143:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 144:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CMD_STATUS_OK:
+ 145:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 146:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CMD_STATUS_OK";
+ 332              		.loc 1 146 16
+ 333 0030 074B     		ldr	r3, .L35+8
+ 334 0032 02E0     		b	.L34
+ 335              	.L29:
+ 147:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 148:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 149:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     case LR11XX_BOOTLOADER_CMD_STATUS_DATA:
+ 150:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 151:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "LR11XX_BOOTLOADER_CMD_STATUS_DATA";
+ 336              		.loc 1 151 16
+ 337 0034 074B     		ldr	r3, .L35+12
+ 338 0036 00E0     		b	.L34
+ 339              	.L28:
+ 152:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 153:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** 
+ 154:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     default:
+ 155:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     {
+ 156:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****         return ( const char* ) "Unknown";
+ 340              		.loc 1 156 16
+ 341 0038 074B     		ldr	r3, .L35+16
+ 342              	.L34:
+ 157:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 158:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c ****     }
+ 159:../../../../lr11xx/common/printers/lr11xx_bootloader_types_str.c **** }
+ 343              		.loc 1 159 1
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 11
+
+
+ 344 003a 1846     		mov	r0, r3
+ 345 003c 0C37     		adds	r7, r7, #12
+ 346              	.LCFI15:
+ 347              		.cfi_def_cfa_offset 4
+ 348 003e BD46     		mov	sp, r7
+ 349              	.LCFI16:
+ 350              		.cfi_def_cfa_register 13
+ 351              		@ sp needed
+ 352 0040 5DF8047B 		ldr	r7, [sp], #4
+ 353              	.LCFI17:
+ 354              		.cfi_restore 7
+ 355              		.cfi_def_cfa_offset 0
+ 356 0044 7047     		bx	lr
+ 357              	.L36:
+ 358 0046 00BF     		.align	2
+ 359              	.L35:
+ 360 0048 18020000 		.word	.LC15
+ 361 004c 3C020000 		.word	.LC16
+ 362 0050 60020000 		.word	.LC17
+ 363 0054 80020000 		.word	.LC18
+ 364 0058 F0000000 		.word	.LC7
+ 365              		.cfi_endproc
+ 366              	.LFE2:
+ 368              		.text
+ 369              	.Letext0:
+ 370              		.file 2 "../../../../lr11xx/lr11xx_driver/src/lr11xx_bootloader_types.h"
+ARM GAS  C:\msys64\tmp\ccwPSsFU.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lr11xx_bootloader_types_str.c
+C:\msys64\tmp\ccwPSsFU.s:21     .rodata:00000000 $d
+C:\msys64\tmp\ccwPSsFU.s:46     .text.lr11xx_bootloader_chip_modes_to_str:00000000 $t
+C:\msys64\tmp\ccwPSsFU.s:52     .text.lr11xx_bootloader_chip_modes_to_str:00000000 lr11xx_bootloader_chip_modes_to_str
+C:\msys64\tmp\ccwPSsFU.s:79     .text.lr11xx_bootloader_chip_modes_to_str:00000018 $d
+C:\msys64\tmp\ccwPSsFU.s:86     .text.lr11xx_bootloader_chip_modes_to_str:00000034 $t
+C:\msys64\tmp\ccwPSsFU.s:136    .text.lr11xx_bootloader_chip_modes_to_str:00000060 $d
+C:\msys64\tmp\ccwPSsFU.s:170    .text.lr11xx_bootloader_reset_status_to_str:00000000 $t
+C:\msys64\tmp\ccwPSsFU.s:176    .text.lr11xx_bootloader_reset_status_to_str:00000000 lr11xx_bootloader_reset_status_to_str
+C:\msys64\tmp\ccwPSsFU.s:203    .text.lr11xx_bootloader_reset_status_to_str:00000018 $d
+C:\msys64\tmp\ccwPSsFU.s:210    .text.lr11xx_bootloader_reset_status_to_str:00000034 $t
+C:\msys64\tmp\ccwPSsFU.s:260    .text.lr11xx_bootloader_reset_status_to_str:00000060 $d
+C:\msys64\tmp\ccwPSsFU.s:285    .text.lr11xx_bootloader_command_status_to_str:00000000 $t
+C:\msys64\tmp\ccwPSsFU.s:291    .text.lr11xx_bootloader_command_status_to_str:00000000 lr11xx_bootloader_command_status_to_str
+C:\msys64\tmp\ccwPSsFU.s:318    .text.lr11xx_bootloader_command_status_to_str:00000018 $d
+C:\msys64\tmp\ccwPSsFU.s:322    .text.lr11xx_bootloader_command_status_to_str:00000028 $t
+C:\msys64\tmp\ccwPSsFU.s:360    .text.lr11xx_bootloader_command_status_to_str:00000048 $d
+
+NO UNDEFINED SYMBOLS

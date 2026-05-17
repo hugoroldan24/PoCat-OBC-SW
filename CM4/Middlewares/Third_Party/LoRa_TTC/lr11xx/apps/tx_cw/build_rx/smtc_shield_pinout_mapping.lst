@@ -1,0 +1,243 @@
+ARM GAS  C:\msys64\tmp\ccAB2OsY.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"smtc_shield_pinout_mapping.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../common/src/smtc_shield_pinout_mapping.c"
+  20              		.global	arduino_mapping
+  21              		.section	.rodata.arduino_mapping,"a"
+  22              		.align	2
+  25              	arduino_mapping:
+  26 0000 00000048 		.word	1207959552
+  27 0004 08000000 		.word	8
+  28 0008 00000048 		.word	1207959552
+  29 000c 04000000 		.word	4
+  30 0010 00000048 		.word	1207959552
+  31 0014 00040000 		.word	1024
+  32 0018 00040048 		.word	1207960576
+  33 001c 08000000 		.word	8
+  34 0020 00040048 		.word	1207960576
+  35 0024 20000000 		.word	32
+  36 0028 00040048 		.word	1207960576
+  37 002c 10000000 		.word	16
+  38 0030 00040048 		.word	1207960576
+  39 0034 00040000 		.word	1024
+  40 0038 00000048 		.word	1207959552
+  41 003c 00010000 		.word	256
+  42 0040 00000048 		.word	1207959552
+  43 0044 00020000 		.word	512
+  44 0048 00080048 		.word	1207961600
+  45 004c 80000000 		.word	128
+  46 0050 00040048 		.word	1207960576
+  47 0054 40000000 		.word	64
+  48 0058 00000048 		.word	1207959552
+  49 005c 80000000 		.word	128
+  50 0060 00000048 		.word	1207959552
+  51 0064 40000000 		.word	64
+  52 0068 00000048 		.word	1207959552
+  53 006c 20000000 		.word	32
+  54 0070 00040048 		.word	1207960576
+  55 0074 00020000 		.word	512
+  56 0078 00040048 		.word	1207960576
+  57 007c 00010000 		.word	256
+  58 0080 00000048 		.word	1207959552
+  59 0084 01000000 		.word	1
+ARM GAS  C:\msys64\tmp\ccAB2OsY.s 			page 2
+
+
+  60 0088 00000048 		.word	1207959552
+  61 008c 02000000 		.word	2
+  62 0090 00000048 		.word	1207959552
+  63 0094 10000000 		.word	16
+  64 0098 00040048 		.word	1207960576
+  65 009c 01000000 		.word	1
+  66 00a0 00080048 		.word	1207961600
+  67 00a4 02000000 		.word	2
+  68 00a8 00080048 		.word	1207961600
+  69 00ac 01000000 		.word	1
+  70              		.section	.text.smtc_shield_pinout_mapping_get_gpio_cfg,"ax",%progbits
+  71              		.align	1
+  72              		.global	smtc_shield_pinout_mapping_get_gpio_cfg
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  77              	smtc_shield_pinout_mapping_get_gpio_cfg:
+  78              	.LFB160:
+   1:../../../common/src/smtc_shield_pinout_mapping.c **** /*!
+   2:../../../common/src/smtc_shield_pinout_mapping.c ****  * @file      smtc_shield_pinout_mapping.c
+   3:../../../common/src/smtc_shield_pinout_mapping.c ****  *
+   4:../../../common/src/smtc_shield_pinout_mapping.c ****  * @brief     Arduino mapping implementation
+   5:../../../common/src/smtc_shield_pinout_mapping.c ****  *
+   6:../../../common/src/smtc_shield_pinout_mapping.c ****  * The Clear BSD License
+   7:../../../common/src/smtc_shield_pinout_mapping.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   8:../../../common/src/smtc_shield_pinout_mapping.c ****  *
+   9:../../../common/src/smtc_shield_pinout_mapping.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../common/src/smtc_shield_pinout_mapping.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../common/src/smtc_shield_pinout_mapping.c ****  * below) provided that the following conditions are met:
+  12:../../../common/src/smtc_shield_pinout_mapping.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../common/src/smtc_shield_pinout_mapping.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../common/src/smtc_shield_pinout_mapping.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../common/src/smtc_shield_pinout_mapping.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../common/src/smtc_shield_pinout_mapping.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../common/src/smtc_shield_pinout_mapping.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../common/src/smtc_shield_pinout_mapping.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../common/src/smtc_shield_pinout_mapping.c ****  *       derived from this software without specific prior written permission.
+  20:../../../common/src/smtc_shield_pinout_mapping.c ****  *
+  21:../../../common/src/smtc_shield_pinout_mapping.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../common/src/smtc_shield_pinout_mapping.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../common/src/smtc_shield_pinout_mapping.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../common/src/smtc_shield_pinout_mapping.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../common/src/smtc_shield_pinout_mapping.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  26:../../../common/src/smtc_shield_pinout_mapping.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../common/src/smtc_shield_pinout_mapping.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../common/src/smtc_shield_pinout_mapping.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../common/src/smtc_shield_pinout_mapping.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../common/src/smtc_shield_pinout_mapping.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  31:../../../common/src/smtc_shield_pinout_mapping.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../common/src/smtc_shield_pinout_mapping.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../common/src/smtc_shield_pinout_mapping.c ****  */
+  34:../../../common/src/smtc_shield_pinout_mapping.c **** 
+  35:../../../common/src/smtc_shield_pinout_mapping.c **** /*
+  36:../../../common/src/smtc_shield_pinout_mapping.c ****  * -----------------------------------------------------------------------------
+  37:../../../common/src/smtc_shield_pinout_mapping.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../common/src/smtc_shield_pinout_mapping.c ****  */
+  39:../../../common/src/smtc_shield_pinout_mapping.c **** 
+ARM GAS  C:\msys64\tmp\ccAB2OsY.s 			page 3
+
+
+  40:../../../common/src/smtc_shield_pinout_mapping.c **** #include <stdio.h>
+  41:../../../common/src/smtc_shield_pinout_mapping.c **** #include "smtc_shield_pinout.h"
+  42:../../../common/src/smtc_shield_pinout_mapping.c **** #include "smtc_hal_mcu_gpio.h"
+  43:../../../common/src/smtc_shield_pinout_mapping.c **** #include "smtc_hal_mcu_gpio_stm32l4.h"
+  44:../../../common/src/smtc_shield_pinout_mapping.c **** #include "stm32l4xx_ll_gpio.h"
+  45:../../../common/src/smtc_shield_pinout_mapping.c **** 
+  46:../../../common/src/smtc_shield_pinout_mapping.c **** /*
+  47:../../../common/src/smtc_shield_pinout_mapping.c ****  * -----------------------------------------------------------------------------
+  48:../../../common/src/smtc_shield_pinout_mapping.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  49:../../../common/src/smtc_shield_pinout_mapping.c ****  */
+  50:../../../common/src/smtc_shield_pinout_mapping.c **** 
+  51:../../../common/src/smtc_shield_pinout_mapping.c **** /*
+  52:../../../common/src/smtc_shield_pinout_mapping.c ****  * -----------------------------------------------------------------------------
+  53:../../../common/src/smtc_shield_pinout_mapping.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  54:../../../common/src/smtc_shield_pinout_mapping.c ****  */
+  55:../../../common/src/smtc_shield_pinout_mapping.c **** 
+  56:../../../common/src/smtc_shield_pinout_mapping.c **** const struct smtc_hal_mcu_gpio_cfg_s arduino_mapping[22] = {
+  57:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOA, .pin = LL_GPIO_PIN_3 },  { .port = GPIOA, .pin = LL_GPIO_PIN_2 },
+  58:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOA, .pin = LL_GPIO_PIN_10 }, { .port = GPIOB, .pin = LL_GPIO_PIN_3 },
+  59:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOB, .pin = LL_GPIO_PIN_5 },  { .port = GPIOB, .pin = LL_GPIO_PIN_4 },
+  60:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOB, .pin = LL_GPIO_PIN_10 }, { .port = GPIOA, .pin = LL_GPIO_PIN_8 },
+  61:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOA, .pin = LL_GPIO_PIN_9 },  { .port = GPIOC, .pin = LL_GPIO_PIN_7 },
+  62:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOB, .pin = LL_GPIO_PIN_6 },  { .port = GPIOA, .pin = LL_GPIO_PIN_7 },
+  63:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOA, .pin = LL_GPIO_PIN_6 },  { .port = GPIOA, .pin = LL_GPIO_PIN_5 },
+  64:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOB, .pin = LL_GPIO_PIN_9 },  { .port = GPIOB, .pin = LL_GPIO_PIN_8 },
+  65:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOA, .pin = LL_GPIO_PIN_0 },  { .port = GPIOA, .pin = LL_GPIO_PIN_1 },
+  66:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOA, .pin = LL_GPIO_PIN_4 },  { .port = GPIOB, .pin = LL_GPIO_PIN_0 },
+  67:../../../common/src/smtc_shield_pinout_mapping.c ****     { .port = GPIOC, .pin = LL_GPIO_PIN_1 },  { .port = GPIOC, .pin = LL_GPIO_PIN_0 },
+  68:../../../common/src/smtc_shield_pinout_mapping.c **** };
+  69:../../../common/src/smtc_shield_pinout_mapping.c **** 
+  70:../../../common/src/smtc_shield_pinout_mapping.c **** /*
+  71:../../../common/src/smtc_shield_pinout_mapping.c ****  * -----------------------------------------------------------------------------
+  72:../../../common/src/smtc_shield_pinout_mapping.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  73:../../../common/src/smtc_shield_pinout_mapping.c ****  */
+  74:../../../common/src/smtc_shield_pinout_mapping.c **** 
+  75:../../../common/src/smtc_shield_pinout_mapping.c **** /*
+  76:../../../common/src/smtc_shield_pinout_mapping.c ****  * -----------------------------------------------------------------------------
+  77:../../../common/src/smtc_shield_pinout_mapping.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+  78:../../../common/src/smtc_shield_pinout_mapping.c ****  */
+  79:../../../common/src/smtc_shield_pinout_mapping.c **** 
+  80:../../../common/src/smtc_shield_pinout_mapping.c **** /*
+  81:../../../common/src/smtc_shield_pinout_mapping.c ****  * -----------------------------------------------------------------------------
+  82:../../../common/src/smtc_shield_pinout_mapping.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+  83:../../../common/src/smtc_shield_pinout_mapping.c ****  */
+  84:../../../common/src/smtc_shield_pinout_mapping.c **** 
+  85:../../../common/src/smtc_shield_pinout_mapping.c **** /*
+  86:../../../common/src/smtc_shield_pinout_mapping.c ****  * -----------------------------------------------------------------------------
+  87:../../../common/src/smtc_shield_pinout_mapping.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+  88:../../../common/src/smtc_shield_pinout_mapping.c ****  */
+  89:../../../common/src/smtc_shield_pinout_mapping.c **** 
+  90:../../../common/src/smtc_shield_pinout_mapping.c **** const smtc_hal_mcu_gpio_cfg_t smtc_shield_pinout_mapping_get_gpio_cfg( smtc_shield_pinout_t gpio )
+  91:../../../common/src/smtc_shield_pinout_mapping.c **** {
+  79              		.loc 1 91 1
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 8
+  82              		@ frame_needed = 1, uses_anonymous_args = 0
+  83              		@ link register save eliminated.
+ARM GAS  C:\msys64\tmp\ccAB2OsY.s 			page 4
+
+
+  84 0000 80B4     		push	{r7}
+  85              	.LCFI0:
+  86              		.cfi_def_cfa_offset 4
+  87              		.cfi_offset 7, -4
+  88 0002 83B0     		sub	sp, sp, #12
+  89              	.LCFI1:
+  90              		.cfi_def_cfa_offset 16
+  91 0004 00AF     		add	r7, sp, #0
+  92              	.LCFI2:
+  93              		.cfi_def_cfa_register 7
+  94 0006 0346     		mov	r3, r0
+  95 0008 FB71     		strb	r3, [r7, #7]
+  92:../../../common/src/smtc_shield_pinout_mapping.c ****     return ( const smtc_hal_mcu_gpio_cfg_t ) &arduino_mapping[( int ) gpio];
+  96              		.loc 1 92 63
+  97 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  98              		.loc 1 92 12
+  99 000c DB00     		lsls	r3, r3, #3
+ 100 000e 044A     		ldr	r2, .L3
+ 101 0010 1344     		add	r3, r3, r2
+  93:../../../common/src/smtc_shield_pinout_mapping.c **** }
+ 102              		.loc 1 93 1
+ 103 0012 1846     		mov	r0, r3
+ 104 0014 0C37     		adds	r7, r7, #12
+ 105              	.LCFI3:
+ 106              		.cfi_def_cfa_offset 4
+ 107 0016 BD46     		mov	sp, r7
+ 108              	.LCFI4:
+ 109              		.cfi_def_cfa_register 13
+ 110              		@ sp needed
+ 111 0018 5DF8047B 		ldr	r7, [sp], #4
+ 112              	.LCFI5:
+ 113              		.cfi_restore 7
+ 114              		.cfi_def_cfa_offset 0
+ 115 001c 7047     		bx	lr
+ 116              	.L4:
+ 117 001e 00BF     		.align	2
+ 118              	.L3:
+ 119 0020 00000000 		.word	arduino_mapping
+ 120              		.cfi_endproc
+ 121              	.LFE160:
+ 123              		.text
+ 124              	.Letext0:
+ 125              		.file 2 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/machin
+ 126              		.file 3 "../../../libs/smtc-shields/common/inc/smtc_shield_pinout.h"
+ 127              		.file 4 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_gpio.h"
+ 128              		.file 5 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys/_s
+ 129              		.file 6 "../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_gpio_stm32l4.h"
+ 130              		.file 7 "../../../libs/smtc-hal-mcu-stm32l4/third_party/STM32CubeL4/Drivers/CMSIS/Device/ST/STM32L
+ARM GAS  C:\msys64\tmp\ccAB2OsY.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 smtc_shield_pinout_mapping.c
+C:\msys64\tmp\ccAB2OsY.s:25     .rodata.arduino_mapping:00000000 arduino_mapping
+C:\msys64\tmp\ccAB2OsY.s:22     .rodata.arduino_mapping:00000000 $d
+C:\msys64\tmp\ccAB2OsY.s:71     .text.smtc_shield_pinout_mapping_get_gpio_cfg:00000000 $t
+C:\msys64\tmp\ccAB2OsY.s:77     .text.smtc_shield_pinout_mapping_get_gpio_cfg:00000000 smtc_shield_pinout_mapping_get_gpio_cfg
+C:\msys64\tmp\ccAB2OsY.s:119    .text.smtc_shield_pinout_mapping_get_gpio_cfg:00000020 $d
+
+NO UNDEFINED SYMBOLS

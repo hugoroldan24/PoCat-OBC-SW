@@ -38,7 +38,6 @@ static void process_obdh(void) {
 
     TaskNotifyValue_t value;
     wait_for_notification(&value);
-    printf("Processing OBDH...\n");
 
     // Gestión de la flash:
     // Leemos datos de la cola de la tarea (donde habran peticiones de read o write de otras tareas

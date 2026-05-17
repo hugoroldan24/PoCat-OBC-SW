@@ -1,0 +1,2453 @@
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"dataser_sublayer.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "pae_libs/dataser_sublayer.c"
+  20              		.section	.text.sent_frame_queue_init,"ax",%progbits
+  21              		.align	1
+  22              		.global	sent_frame_queue_init
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	sent_frame_queue_init:
+  28              	.LFB0:
+   1:pae_libs/dataser_sublayer.c **** #include "protocol_definitions.h"
+   2:pae_libs/dataser_sublayer.c **** #include <stdint.h>
+   3:pae_libs/dataser_sublayer.c **** #include <stdbool.h>
+   4:pae_libs/dataser_sublayer.c **** #include <stdlib.h>
+   5:pae_libs/dataser_sublayer.c **** #include "io_sublayer.h"
+   6:pae_libs/dataser_sublayer.c **** #include "dataser_sublayer.h"
+   7:pae_libs/dataser_sublayer.c **** #include <string.h>
+   8:pae_libs/dataser_sublayer.c **** 
+   9:pae_libs/dataser_sublayer.c **** 
+  10:pae_libs/dataser_sublayer.c **** 
+  11:pae_libs/dataser_sublayer.c **** 
+  12:pae_libs/dataser_sublayer.c **** 
+  13:pae_libs/dataser_sublayer.c **** 
+  14:pae_libs/dataser_sublayer.c **** 
+  15:pae_libs/dataser_sublayer.c **** 
+  16:pae_libs/dataser_sublayer.c **** //Crear e inicalizar SentFrameQueue
+  17:pae_libs/dataser_sublayer.c **** void sent_frame_queue_init(SentFrameQueue *queue){
+  29              		.loc 1 17 50
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 82B0     		sub	sp, sp, #8
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 16
+  41 0004 00AF     		add	r7, sp, #0
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 2
+
+
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
+  18:pae_libs/dataser_sublayer.c **** 
+  19:pae_libs/dataser_sublayer.c **** 
+  20:pae_libs/dataser_sublayer.c ****     if (queue == NULL) { //por si alguien llama a la funcion sin querer
+  45              		.loc 1 20 8
+  46 0008 7B68     		ldr	r3, [r7, #4]
+  47 000a 002B     		cmp	r3, #0
+  48 000c 0BD0     		beq	.L4
+  21:pae_libs/dataser_sublayer.c ****     return;
+  22:pae_libs/dataser_sublayer.c ****     }
+  23:pae_libs/dataser_sublayer.c **** 
+  24:pae_libs/dataser_sublayer.c **** 
+  25:pae_libs/dataser_sublayer.c ****     queue->count = 0;
+  49              		.loc 1 25 18
+  50 000e 7B68     		ldr	r3, [r7, #4]
+  51 0010 0022     		movs	r2, #0
+  52 0012 C3F80024 		str	r2, [r3, #1024]
+  26:pae_libs/dataser_sublayer.c ****     memset(queue->frames, 0, sizeof(queue->frames));
+  53              		.loc 1 26 17
+  54 0016 7B68     		ldr	r3, [r7, #4]
+  55              		.loc 1 26 5
+  56 0018 4FF48062 		mov	r2, #1024
+  57 001c 0021     		movs	r1, #0
+  58 001e 1846     		mov	r0, r3
+  59 0020 FFF7FEFF 		bl	memset
+  60 0024 00E0     		b	.L1
+  61              	.L4:
+  21:pae_libs/dataser_sublayer.c ****     return;
+  62              		.loc 1 21 5
+  63 0026 00BF     		nop
+  64              	.L1:
+  27:pae_libs/dataser_sublayer.c **** }
+  65              		.loc 1 27 1
+  66 0028 0837     		adds	r7, r7, #8
+  67              	.LCFI3:
+  68              		.cfi_def_cfa_offset 8
+  69 002a BD46     		mov	sp, r7
+  70              	.LCFI4:
+  71              		.cfi_def_cfa_register 13
+  72              		@ sp needed
+  73 002c 80BD     		pop	{r7, pc}
+  74              		.cfi_endproc
+  75              	.LFE0:
+  77              		.section	.text.dataservice_timer_init,"ax",%progbits
+  78              		.align	1
+  79              		.global	dataservice_timer_init
+  80              		.syntax unified
+  81              		.thumb
+  82              		.thumb_func
+  84              	dataservice_timer_init:
+  85              	.LFB1:
+  28:pae_libs/dataser_sublayer.c **** 
+  29:pae_libs/dataser_sublayer.c **** 
+  30:pae_libs/dataser_sublayer.c **** 
+  31:pae_libs/dataser_sublayer.c **** 
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 3
+
+
+  32:pae_libs/dataser_sublayer.c **** //Inicailizar valores timer (es inicializar el struct del DataServiceTimer) (Helper de fop_init) El
+  33:pae_libs/dataser_sublayer.c **** void dataservice_timer_init(DataServiceTimer *timer, uint32_t timeout_ms)
+  34:pae_libs/dataser_sublayer.c **** {
+  86              		.loc 1 34 1
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 8
+  89              		@ frame_needed = 1, uses_anonymous_args = 0
+  90              		@ link register save eliminated.
+  91 0000 80B4     		push	{r7}
+  92              	.LCFI5:
+  93              		.cfi_def_cfa_offset 4
+  94              		.cfi_offset 7, -4
+  95 0002 83B0     		sub	sp, sp, #12
+  96              	.LCFI6:
+  97              		.cfi_def_cfa_offset 16
+  98 0004 00AF     		add	r7, sp, #0
+  99              	.LCFI7:
+ 100              		.cfi_def_cfa_register 7
+ 101 0006 7860     		str	r0, [r7, #4]
+ 102 0008 3960     		str	r1, [r7]
+  35:pae_libs/dataser_sublayer.c ****     if (timer == NULL) {
+ 103              		.loc 1 35 8
+ 104 000a 7B68     		ldr	r3, [r7, #4]
+ 105 000c 002B     		cmp	r3, #0
+ 106 000e 09D0     		beq	.L8
+  36:pae_libs/dataser_sublayer.c ****         return;
+  37:pae_libs/dataser_sublayer.c ****     }
+  38:pae_libs/dataser_sublayer.c ****     timer->start_ms = 0;
+ 107              		.loc 1 38 21
+ 108 0010 7B68     		ldr	r3, [r7, #4]
+ 109 0012 0022     		movs	r2, #0
+ 110 0014 1A60     		str	r2, [r3]
+  39:pae_libs/dataser_sublayer.c ****     timer->timeout_ms = timeout_ms;
+ 111              		.loc 1 39 23
+ 112 0016 7B68     		ldr	r3, [r7, #4]
+ 113 0018 3A68     		ldr	r2, [r7]
+ 114 001a 5A60     		str	r2, [r3, #4]
+  40:pae_libs/dataser_sublayer.c ****     timer->active = false;
+ 115              		.loc 1 40 19
+ 116 001c 7B68     		ldr	r3, [r7, #4]
+ 117 001e 0022     		movs	r2, #0
+ 118 0020 1A72     		strb	r2, [r3, #8]
+ 119 0022 00E0     		b	.L5
+ 120              	.L8:
+  36:pae_libs/dataser_sublayer.c ****         return;
+ 121              		.loc 1 36 9
+ 122 0024 00BF     		nop
+ 123              	.L5:
+  41:pae_libs/dataser_sublayer.c **** }
+ 124              		.loc 1 41 1
+ 125 0026 0C37     		adds	r7, r7, #12
+ 126              	.LCFI8:
+ 127              		.cfi_def_cfa_offset 4
+ 128 0028 BD46     		mov	sp, r7
+ 129              	.LCFI9:
+ 130              		.cfi_def_cfa_register 13
+ 131              		@ sp needed
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 4
+
+
+ 132 002a 5DF8047B 		ldr	r7, [sp], #4
+ 133              	.LCFI10:
+ 134              		.cfi_restore 7
+ 135              		.cfi_def_cfa_offset 0
+ 136 002e 7047     		bx	lr
+ 137              		.cfi_endproc
+ 138              	.LFE1:
+ 140              		.section	.text.fop_init,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	fop_init
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 147              	fop_init:
+ 148              	.LFB2:
+  42:pae_libs/dataser_sublayer.c **** 
+  43:pae_libs/dataser_sublayer.c **** 
+  44:pae_libs/dataser_sublayer.c **** //Inicializar el Todo lo del FOP-P (FopPcontext)
+  45:pae_libs/dataser_sublayer.c **** void fop_init(FopPContext *fop, uint32_t timeout_ms)
+  46:pae_libs/dataser_sublayer.c **** {
+ 149              		.loc 1 46 1
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 8
+ 152              		@ frame_needed = 1, uses_anonymous_args = 0
+ 153 0000 80B5     		push	{r7, lr}
+ 154              	.LCFI11:
+ 155              		.cfi_def_cfa_offset 8
+ 156              		.cfi_offset 7, -8
+ 157              		.cfi_offset 14, -4
+ 158 0002 82B0     		sub	sp, sp, #8
+ 159              	.LCFI12:
+ 160              		.cfi_def_cfa_offset 16
+ 161 0004 00AF     		add	r7, sp, #0
+ 162              	.LCFI13:
+ 163              		.cfi_def_cfa_register 7
+ 164 0006 7860     		str	r0, [r7, #4]
+ 165 0008 3960     		str	r1, [r7]
+  47:pae_libs/dataser_sublayer.c ****     if (fop == NULL) {
+ 166              		.loc 1 47 8
+ 167 000a 7B68     		ldr	r3, [r7, #4]
+ 168 000c 002B     		cmp	r3, #0
+ 169 000e 15D0     		beq	.L12
+  48:pae_libs/dataser_sublayer.c ****         return;
+  49:pae_libs/dataser_sublayer.c ****     }
+  50:pae_libs/dataser_sublayer.c **** 
+  51:pae_libs/dataser_sublayer.c **** 
+  52:pae_libs/dataser_sublayer.c ****     fop->snd_sndNxt = 0;
+ 170              		.loc 1 52 21
+ 171 0010 7B68     		ldr	r3, [r7, #4]
+ 172 0012 0022     		movs	r2, #0
+ 173 0014 1A70     		strb	r2, [r3]
+  53:pae_libs/dataser_sublayer.c ****     fop->snd_rcvNxt = 0;
+ 174              		.loc 1 53 21
+ 175 0016 7B68     		ldr	r3, [r7, #4]
+ 176 0018 0022     		movs	r2, #0
+ 177 001a 5A70     		strb	r2, [r3, #1]
+  54:pae_libs/dataser_sublayer.c ****     fop->snd_prevRcvNxt = 0;
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 5
+
+
+ 178              		.loc 1 54 25
+ 179 001c 7B68     		ldr	r3, [r7, #4]
+ 180 001e 0022     		movs	r2, #0
+ 181 0020 9A70     		strb	r2, [r3, #2]
+  55:pae_libs/dataser_sublayer.c **** 
+  56:pae_libs/dataser_sublayer.c **** 
+  57:pae_libs/dataser_sublayer.c ****     fop->snd_retx = false;
+ 182              		.loc 1 57 19
+ 183 0022 7B68     		ldr	r3, [r7, #4]
+ 184 0024 0022     		movs	r2, #0
+ 185 0026 DA70     		strb	r2, [r3, #3]
+  58:pae_libs/dataser_sublayer.c ****     fop->snd_prevRetx = false;
+ 186              		.loc 1 58 23
+ 187 0028 7B68     		ldr	r3, [r7, #4]
+ 188 002a 0022     		movs	r2, #0
+ 189 002c 1A71     		strb	r2, [r3, #4]
+  59:pae_libs/dataser_sublayer.c **** 
+  60:pae_libs/dataser_sublayer.c **** 
+  61:pae_libs/dataser_sublayer.c ****     dataservice_timer_init(&fop->timer, timeout_ms);
+ 190              		.loc 1 61 5
+ 191 002e 7B68     		ldr	r3, [r7, #4]
+ 192 0030 0833     		adds	r3, r3, #8
+ 193 0032 3968     		ldr	r1, [r7]
+ 194 0034 1846     		mov	r0, r3
+ 195 0036 FFF7FEFF 		bl	dataservice_timer_init
+ 196 003a 00E0     		b	.L9
+ 197              	.L12:
+  48:pae_libs/dataser_sublayer.c ****     }
+ 198              		.loc 1 48 9
+ 199 003c 00BF     		nop
+ 200              	.L9:
+  62:pae_libs/dataser_sublayer.c **** }
+ 201              		.loc 1 62 1
+ 202 003e 0837     		adds	r7, r7, #8
+ 203              	.LCFI14:
+ 204              		.cfi_def_cfa_offset 8
+ 205 0040 BD46     		mov	sp, r7
+ 206              	.LCFI15:
+ 207              		.cfi_def_cfa_register 13
+ 208              		@ sp needed
+ 209 0042 80BD     		pop	{r7, pc}
+ 210              		.cfi_endproc
+ 211              	.LFE2:
+ 213              		.section	.text.dataservice_timer_start,"ax",%progbits
+ 214              		.align	1
+ 215              		.global	dataservice_timer_start
+ 216              		.syntax unified
+ 217              		.thumb
+ 218              		.thumb_func
+ 220              	dataservice_timer_start:
+ 221              	.LFB3:
+  63:pae_libs/dataser_sublayer.c **** 
+  64:pae_libs/dataser_sublayer.c **** 
+  65:pae_libs/dataser_sublayer.c **** //Que empieze el timer en now_ms --> Eso se hará en el main con **HAL_GetTick()**
+  66:pae_libs/dataser_sublayer.c **** void dataservice_timer_start(DataServiceTimer *timer, uint32_t now_ms){
+ 222              		.loc 1 66 71
+ 223              		.cfi_startproc
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 6
+
+
+ 224              		@ args = 0, pretend = 0, frame = 8
+ 225              		@ frame_needed = 1, uses_anonymous_args = 0
+ 226              		@ link register save eliminated.
+ 227 0000 80B4     		push	{r7}
+ 228              	.LCFI16:
+ 229              		.cfi_def_cfa_offset 4
+ 230              		.cfi_offset 7, -4
+ 231 0002 83B0     		sub	sp, sp, #12
+ 232              	.LCFI17:
+ 233              		.cfi_def_cfa_offset 16
+ 234 0004 00AF     		add	r7, sp, #0
+ 235              	.LCFI18:
+ 236              		.cfi_def_cfa_register 7
+ 237 0006 7860     		str	r0, [r7, #4]
+ 238 0008 3960     		str	r1, [r7]
+  67:pae_libs/dataser_sublayer.c **** 
+  68:pae_libs/dataser_sublayer.c **** 
+  69:pae_libs/dataser_sublayer.c ****     if(timer==NULL){
+ 239              		.loc 1 69 7
+ 240 000a 7B68     		ldr	r3, [r7, #4]
+ 241 000c 002B     		cmp	r3, #0
+ 242 000e 06D0     		beq	.L16
+  70:pae_libs/dataser_sublayer.c ****         return;
+  71:pae_libs/dataser_sublayer.c ****     }
+  72:pae_libs/dataser_sublayer.c ****     timer->start_ms=now_ms;
+ 243              		.loc 1 72 20
+ 244 0010 7B68     		ldr	r3, [r7, #4]
+ 245 0012 3A68     		ldr	r2, [r7]
+ 246 0014 1A60     		str	r2, [r3]
+  73:pae_libs/dataser_sublayer.c ****     timer->active=true;
+ 247              		.loc 1 73 18
+ 248 0016 7B68     		ldr	r3, [r7, #4]
+ 249 0018 0122     		movs	r2, #1
+ 250 001a 1A72     		strb	r2, [r3, #8]
+ 251 001c 00E0     		b	.L13
+ 252              	.L16:
+  70:pae_libs/dataser_sublayer.c ****         return;
+ 253              		.loc 1 70 9
+ 254 001e 00BF     		nop
+ 255              	.L13:
+  74:pae_libs/dataser_sublayer.c **** 
+  75:pae_libs/dataser_sublayer.c **** 
+  76:pae_libs/dataser_sublayer.c **** 
+  77:pae_libs/dataser_sublayer.c **** 
+  78:pae_libs/dataser_sublayer.c **** }
+ 256              		.loc 1 78 1
+ 257 0020 0C37     		adds	r7, r7, #12
+ 258              	.LCFI19:
+ 259              		.cfi_def_cfa_offset 4
+ 260 0022 BD46     		mov	sp, r7
+ 261              	.LCFI20:
+ 262              		.cfi_def_cfa_register 13
+ 263              		@ sp needed
+ 264 0024 5DF8047B 		ldr	r7, [sp], #4
+ 265              	.LCFI21:
+ 266              		.cfi_restore 7
+ 267              		.cfi_def_cfa_offset 0
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 7
+
+
+ 268 0028 7047     		bx	lr
+ 269              		.cfi_endproc
+ 270              	.LFE3:
+ 272              		.section	.text.dataservice_timer_stop,"ax",%progbits
+ 273              		.align	1
+ 274              		.global	dataservice_timer_stop
+ 275              		.syntax unified
+ 276              		.thumb
+ 277              		.thumb_func
+ 279              	dataservice_timer_stop:
+ 280              	.LFB4:
+  79:pae_libs/dataser_sublayer.c **** 
+  80:pae_libs/dataser_sublayer.c **** 
+  81:pae_libs/dataser_sublayer.c **** 
+  82:pae_libs/dataser_sublayer.c **** 
+  83:pae_libs/dataser_sublayer.c **** //Funcion que pare el timer porque ya ha llegado el PLCW (ACK)
+  84:pae_libs/dataser_sublayer.c **** void dataservice_timer_stop(DataServiceTimer *timer){
+ 281              		.loc 1 84 53
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 8
+ 284              		@ frame_needed = 1, uses_anonymous_args = 0
+ 285              		@ link register save eliminated.
+ 286 0000 80B4     		push	{r7}
+ 287              	.LCFI22:
+ 288              		.cfi_def_cfa_offset 4
+ 289              		.cfi_offset 7, -4
+ 290 0002 83B0     		sub	sp, sp, #12
+ 291              	.LCFI23:
+ 292              		.cfi_def_cfa_offset 16
+ 293 0004 00AF     		add	r7, sp, #0
+ 294              	.LCFI24:
+ 295              		.cfi_def_cfa_register 7
+ 296 0006 7860     		str	r0, [r7, #4]
+  85:pae_libs/dataser_sublayer.c ****     if(timer==NULL){
+ 297              		.loc 1 85 7
+ 298 0008 7B68     		ldr	r3, [r7, #4]
+ 299 000a 002B     		cmp	r3, #0
+ 300 000c 03D0     		beq	.L20
+  86:pae_libs/dataser_sublayer.c ****         return;
+  87:pae_libs/dataser_sublayer.c ****     }
+  88:pae_libs/dataser_sublayer.c ****     timer->active=false;
+ 301              		.loc 1 88 18
+ 302 000e 7B68     		ldr	r3, [r7, #4]
+ 303 0010 0022     		movs	r2, #0
+ 304 0012 1A72     		strb	r2, [r3, #8]
+ 305 0014 00E0     		b	.L17
+ 306              	.L20:
+  86:pae_libs/dataser_sublayer.c ****         return;
+ 307              		.loc 1 86 9
+ 308 0016 00BF     		nop
+ 309              	.L17:
+  89:pae_libs/dataser_sublayer.c **** }
+ 310              		.loc 1 89 1
+ 311 0018 0C37     		adds	r7, r7, #12
+ 312              	.LCFI25:
+ 313              		.cfi_def_cfa_offset 4
+ 314 001a BD46     		mov	sp, r7
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 8
+
+
+ 315              	.LCFI26:
+ 316              		.cfi_def_cfa_register 13
+ 317              		@ sp needed
+ 318 001c 5DF8047B 		ldr	r7, [sp], #4
+ 319              	.LCFI27:
+ 320              		.cfi_restore 7
+ 321              		.cfi_def_cfa_offset 0
+ 322 0020 7047     		bx	lr
+ 323              		.cfi_endproc
+ 324              	.LFE4:
+ 326              		.section	.text.dataservice_timer_expired,"ax",%progbits
+ 327              		.align	1
+ 328              		.global	dataservice_timer_expired
+ 329              		.syntax unified
+ 330              		.thumb
+ 331              		.thumb_func
+ 333              	dataservice_timer_expired:
+ 334              	.LFB5:
+  90:pae_libs/dataser_sublayer.c **** 
+  91:pae_libs/dataser_sublayer.c **** 
+  92:pae_libs/dataser_sublayer.c **** 
+  93:pae_libs/dataser_sublayer.c **** 
+  94:pae_libs/dataser_sublayer.c **** //Te dice si ha ya ha caducado el timer (osea si ha llegado timeout). Le pasas con **HAL_GetTick()*
+  95:pae_libs/dataser_sublayer.c **** bool dataservice_timer_expired(const DataServiceTimer *timer, uint32_t now_ms)
+  96:pae_libs/dataser_sublayer.c **** {
+ 335              		.loc 1 96 1
+ 336              		.cfi_startproc
+ 337              		@ args = 0, pretend = 0, frame = 8
+ 338              		@ frame_needed = 1, uses_anonymous_args = 0
+ 339              		@ link register save eliminated.
+ 340 0000 80B4     		push	{r7}
+ 341              	.LCFI28:
+ 342              		.cfi_def_cfa_offset 4
+ 343              		.cfi_offset 7, -4
+ 344 0002 83B0     		sub	sp, sp, #12
+ 345              	.LCFI29:
+ 346              		.cfi_def_cfa_offset 16
+ 347 0004 00AF     		add	r7, sp, #0
+ 348              	.LCFI30:
+ 349              		.cfi_def_cfa_register 7
+ 350 0006 7860     		str	r0, [r7, #4]
+ 351 0008 3960     		str	r1, [r7]
+  97:pae_libs/dataser_sublayer.c ****     if (timer == NULL || !timer->active) { //Si el timer es null(no le pasamo parametro) o el timer
+ 352              		.loc 1 97 8
+ 353 000a 7B68     		ldr	r3, [r7, #4]
+ 354 000c 002B     		cmp	r3, #0
+ 355 000e 06D0     		beq	.L22
+ 356              		.loc 1 97 32 discriminator 1
+ 357 0010 7B68     		ldr	r3, [r7, #4]
+ 358 0012 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 359              		.loc 1 97 26 discriminator 1
+ 360 0014 83F00103 		eor	r3, r3, #1
+ 361 0018 DBB2     		uxtb	r3, r3
+ 362              		.loc 1 97 23 discriminator 1
+ 363 001a 002B     		cmp	r3, #0
+ 364 001c 01D0     		beq	.L23
+ 365              	.L22:
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 9
+
+
+  98:pae_libs/dataser_sublayer.c ****         return false;
+ 366              		.loc 1 98 16
+ 367 001e 0023     		movs	r3, #0
+ 368 0020 0AE0     		b	.L24
+ 369              	.L23:
+  99:pae_libs/dataser_sublayer.c ****     }
+ 100:pae_libs/dataser_sublayer.c **** 
+ 101:pae_libs/dataser_sublayer.c **** 
+ 102:pae_libs/dataser_sublayer.c ****     return (now_ms - timer->start_ms) >= timer->timeout_ms;  //Si lo que lleva el timer corriendo e
+ 370              		.loc 1 102 27
+ 371 0022 7B68     		ldr	r3, [r7, #4]
+ 372 0024 1B68     		ldr	r3, [r3]
+ 373              		.loc 1 102 20
+ 374 0026 3A68     		ldr	r2, [r7]
+ 375 0028 D21A     		subs	r2, r2, r3
+ 376              		.loc 1 102 47
+ 377 002a 7B68     		ldr	r3, [r7, #4]
+ 378 002c 5B68     		ldr	r3, [r3, #4]
+ 379              		.loc 1 102 39
+ 380 002e 9A42     		cmp	r2, r3
+ 381 0030 2CBF     		ite	cs
+ 382 0032 0123     		movcs	r3, #1
+ 383 0034 0023     		movcc	r3, #0
+ 384 0036 DBB2     		uxtb	r3, r3
+ 385              	.L24:
+ 103:pae_libs/dataser_sublayer.c **** }
+ 386              		.loc 1 103 1
+ 387 0038 1846     		mov	r0, r3
+ 388 003a 0C37     		adds	r7, r7, #12
+ 389              	.LCFI31:
+ 390              		.cfi_def_cfa_offset 4
+ 391 003c BD46     		mov	sp, r7
+ 392              	.LCFI32:
+ 393              		.cfi_def_cfa_register 13
+ 394              		@ sp needed
+ 395 003e 5DF8047B 		ldr	r7, [sp], #4
+ 396              	.LCFI33:
+ 397              		.cfi_restore 7
+ 398              		.cfi_def_cfa_offset 0
+ 399 0042 7047     		bx	lr
+ 400              		.cfi_endproc
+ 401              	.LFE5:
+ 403              		.section	.text.fsn_is_acknowledged,"ax",%progbits
+ 404              		.align	1
+ 405              		.syntax unified
+ 406              		.thumb
+ 407              		.thumb_func
+ 409              	fsn_is_acknowledged:
+ 410              	.LFB6:
+ 104:pae_libs/dataser_sublayer.c **** 
+ 105:pae_libs/dataser_sublayer.c **** 
+ 106:pae_libs/dataser_sublayer.c **** 
+ 107:pae_libs/dataser_sublayer.c **** 
+ 108:pae_libs/dataser_sublayer.c **** 
+ 109:pae_libs/dataser_sublayer.c **** 
+ 110:pae_libs/dataser_sublayer.c **** //helper para sent_frame_queue_remove_acked_fsn : te dice si tiene que borrar el frame porque el nu
+ 111:pae_libs/dataser_sublayer.c **** //static porque solo lo utilizaremos dentor de dataser_sublayer.c
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 10
+
+
+ 112:pae_libs/dataser_sublayer.c **** static bool fsn_is_acknowledged(uint8_t fsn, uint8_t report_value)
+ 113:pae_libs/dataser_sublayer.c **** {
+ 411              		.loc 1 113 1
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 16
+ 414              		@ frame_needed = 1, uses_anonymous_args = 0
+ 415              		@ link register save eliminated.
+ 416 0000 80B4     		push	{r7}
+ 417              	.LCFI34:
+ 418              		.cfi_def_cfa_offset 4
+ 419              		.cfi_offset 7, -4
+ 420 0002 85B0     		sub	sp, sp, #20
+ 421              	.LCFI35:
+ 422              		.cfi_def_cfa_offset 24
+ 423 0004 00AF     		add	r7, sp, #0
+ 424              	.LCFI36:
+ 425              		.cfi_def_cfa_register 7
+ 426 0006 0346     		mov	r3, r0
+ 427 0008 0A46     		mov	r2, r1
+ 428 000a FB71     		strb	r3, [r7, #7]
+ 429 000c 1346     		mov	r3, r2
+ 430 000e BB71     		strb	r3, [r7, #6]
+ 114:pae_libs/dataser_sublayer.c ****     uint8_t distance = report_value - fsn;
+ 431              		.loc 1 114 13
+ 432 0010 BA79     		ldrb	r2, [r7, #6]
+ 433 0012 FB79     		ldrb	r3, [r7, #7]
+ 434 0014 D31A     		subs	r3, r2, r3
+ 435 0016 FB73     		strb	r3, [r7, #15]
+ 115:pae_libs/dataser_sublayer.c **** 
+ 116:pae_libs/dataser_sublayer.c **** 
+ 117:pae_libs/dataser_sublayer.c ****     return distance > 0 && distance <= 128; //Protección con el 128. Puede dar el caso por ejemplo
+ 436              		.loc 1 117 25
+ 437 0018 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 438 001a 002B     		cmp	r3, #0
+ 439 001c 04D0     		beq	.L26
+ 440              		.loc 1 117 25 is_stmt 0 discriminator 1
+ 441 001e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 442 0020 802B     		cmp	r3, #128
+ 443 0022 01D8     		bhi	.L26
+ 444              		.loc 1 117 25 discriminator 3
+ 445 0024 0123     		movs	r3, #1
+ 446              		.loc 1 117 25
+ 447 0026 00E0     		b	.L27
+ 448              	.L26:
+ 449              		.loc 1 117 25 discriminator 4
+ 450 0028 0023     		movs	r3, #0
+ 451              	.L27:
+ 452              		.loc 1 117 25 discriminator 6
+ 453 002a 03F00103 		and	r3, r3, #1
+ 454 002e DBB2     		uxtb	r3, r3
+ 118:pae_libs/dataser_sublayer.c ****     //Con una ventana de 129 por ejemplo si puede fallar (ambiguidad)
+ 119:pae_libs/dataser_sublayer.c **** }
+ 455              		.loc 1 119 1 is_stmt 1
+ 456 0030 1846     		mov	r0, r3
+ 457 0032 1437     		adds	r7, r7, #20
+ 458              	.LCFI37:
+ 459              		.cfi_def_cfa_offset 4
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 11
+
+
+ 460 0034 BD46     		mov	sp, r7
+ 461              	.LCFI38:
+ 462              		.cfi_def_cfa_register 13
+ 463              		@ sp needed
+ 464 0036 5DF8047B 		ldr	r7, [sp], #4
+ 465              	.LCFI39:
+ 466              		.cfi_restore 7
+ 467              		.cfi_def_cfa_offset 0
+ 468 003a 7047     		bx	lr
+ 469              		.cfi_endproc
+ 470              	.LFE6:
+ 472              		.section	.text.sent_frame_queue_remove_acked_fsn,"ax",%progbits
+ 473              		.align	1
+ 474              		.global	sent_frame_queue_remove_acked_fsn
+ 475              		.syntax unified
+ 476              		.thumb
+ 477              		.thumb_func
+ 479              	sent_frame_queue_remove_acked_fsn:
+ 480              	.LFB7:
+ 120:pae_libs/dataser_sublayer.c **** 
+ 121:pae_libs/dataser_sublayer.c **** 
+ 122:pae_libs/dataser_sublayer.c **** 
+ 123:pae_libs/dataser_sublayer.c **** 
+ 124:pae_libs/dataser_sublayer.c **** //Sem ira en la sent_frame_queue los ackeados y se borran. Devulve true si se ha ackeado 1 o más.
+ 125:pae_libs/dataser_sublayer.c **** bool sent_frame_queue_remove_acked_fsn(SentFrameQueue *queue, uint8_t report_value)
+ 126:pae_libs/dataser_sublayer.c **** {
+ 481              		.loc 1 126 1
+ 482              		.cfi_startproc
+ 483              		@ args = 0, pretend = 0, frame = 24
+ 484              		@ frame_needed = 1, uses_anonymous_args = 0
+ 485 0000 80B5     		push	{r7, lr}
+ 486              	.LCFI40:
+ 487              		.cfi_def_cfa_offset 8
+ 488              		.cfi_offset 7, -8
+ 489              		.cfi_offset 14, -4
+ 490 0002 86B0     		sub	sp, sp, #24
+ 491              	.LCFI41:
+ 492              		.cfi_def_cfa_offset 32
+ 493 0004 00AF     		add	r7, sp, #0
+ 494              	.LCFI42:
+ 495              		.cfi_def_cfa_register 7
+ 496 0006 7860     		str	r0, [r7, #4]
+ 497 0008 0B46     		mov	r3, r1
+ 498 000a FB70     		strb	r3, [r7, #3]
+ 127:pae_libs/dataser_sublayer.c ****     if (queue == NULL) {
+ 499              		.loc 1 127 8
+ 500 000c 7B68     		ldr	r3, [r7, #4]
+ 501 000e 002B     		cmp	r3, #0
+ 502 0010 01D1     		bne	.L30
+ 128:pae_libs/dataser_sublayer.c ****         return false;
+ 503              		.loc 1 128 16
+ 504 0012 0023     		movs	r3, #0
+ 505 0014 67E0     		b	.L31
+ 506              	.L30:
+ 129:pae_libs/dataser_sublayer.c ****     }
+ 130:pae_libs/dataser_sublayer.c **** 
+ 131:pae_libs/dataser_sublayer.c **** 
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 12
+
+
+ 132:pae_libs/dataser_sublayer.c ****     if (queue->count == 0) {
+ 507              		.loc 1 132 14
+ 508 0016 7B68     		ldr	r3, [r7, #4]
+ 509 0018 D3F80034 		ldr	r3, [r3, #1024]
+ 510              		.loc 1 132 8
+ 511 001c 002B     		cmp	r3, #0
+ 512 001e 01D1     		bne	.L32
+ 133:pae_libs/dataser_sublayer.c ****         return false;
+ 513              		.loc 1 133 16
+ 514 0020 0023     		movs	r3, #0
+ 515 0022 60E0     		b	.L31
+ 516              	.L32:
+ 134:pae_libs/dataser_sublayer.c ****     }
+ 135:pae_libs/dataser_sublayer.c **** 
+ 136:pae_libs/dataser_sublayer.c **** 
+ 137:pae_libs/dataser_sublayer.c ****     bool removed = false;
+ 517              		.loc 1 137 10
+ 518 0024 0023     		movs	r3, #0
+ 519 0026 FB75     		strb	r3, [r7, #23]
+ 138:pae_libs/dataser_sublayer.c ****     size_t i = 0;
+ 520              		.loc 1 138 12
+ 521 0028 0023     		movs	r3, #0
+ 522 002a 3B61     		str	r3, [r7, #16]
+ 139:pae_libs/dataser_sublayer.c **** 
+ 140:pae_libs/dataser_sublayer.c **** 
+ 141:pae_libs/dataser_sublayer.c ****     while (i < queue->count) { //Mientras estemos en un transfer-frame de la sent-frame-queue
+ 523              		.loc 1 141 11
+ 524 002c 54E0     		b	.L33
+ 525              	.L40:
+ 526              	.LBB2:
+ 142:pae_libs/dataser_sublayer.c ****         uint8_t frame_fsn;
+ 143:pae_libs/dataser_sublayer.c **** 
+ 144:pae_libs/dataser_sublayer.c **** 
+ 145:pae_libs/dataser_sublayer.c ****         if (queue->frames[i].type == FRAME_FRAGMENTED) {
+ 527              		.loc 1 145 29
+ 528 002e 7A68     		ldr	r2, [r7, #4]
+ 529 0030 3B69     		ldr	r3, [r7, #16]
+ 530 0032 1B02     		lsls	r3, r3, #8
+ 531 0034 1344     		add	r3, r3, r2
+ 532 0036 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 533              		.loc 1 145 12
+ 534 0038 012B     		cmp	r3, #1
+ 535 003a 07D1     		bne	.L34
+ 146:pae_libs/dataser_sublayer.c ****             frame_fsn = queue->frames[i].data.fragmented.pdu_header.FSN;
+ 536              		.loc 1 146 23
+ 537 003c 7A68     		ldr	r2, [r7, #4]
+ 538 003e 3B69     		ldr	r3, [r7, #16]
+ 539 0040 1B02     		lsls	r3, r3, #8
+ 540 0042 1344     		add	r3, r3, r2
+ 541 0044 0533     		adds	r3, r3, #5
+ 542 0046 1B78     		ldrb	r3, [r3]
+ 543 0048 FB73     		strb	r3, [r7, #15]
+ 544 004a 06E0     		b	.L35
+ 545              	.L34:
+ 147:pae_libs/dataser_sublayer.c ****         } else {
+ 148:pae_libs/dataser_sublayer.c ****             frame_fsn = queue->frames[i].data.unfragmented.header.FSN;
+ 546              		.loc 1 148 23
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 13
+
+
+ 547 004c 7A68     		ldr	r2, [r7, #4]
+ 548 004e 3B69     		ldr	r3, [r7, #16]
+ 549 0050 1B02     		lsls	r3, r3, #8
+ 550 0052 1344     		add	r3, r3, r2
+ 551 0054 0533     		adds	r3, r3, #5
+ 552 0056 1B78     		ldrb	r3, [r3]
+ 553 0058 FB73     		strb	r3, [r7, #15]
+ 554              	.L35:
+ 149:pae_libs/dataser_sublayer.c ****         }
+ 150:pae_libs/dataser_sublayer.c **** 
+ 151:pae_libs/dataser_sublayer.c **** 
+ 152:pae_libs/dataser_sublayer.c ****         if (fsn_is_acknowledged(frame_fsn, report_value)) { //Comprobamos si el report_value lo ha 
+ 555              		.loc 1 152 13
+ 556 005a FA78     		ldrb	r2, [r7, #3]	@ zero_extendqisi2
+ 557 005c FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 558 005e 1146     		mov	r1, r2
+ 559 0060 1846     		mov	r0, r3
+ 560 0062 FFF7FEFF 		bl	fsn_is_acknowledged
+ 561 0066 0346     		mov	r3, r0
+ 562              		.loc 1 152 12 discriminator 1
+ 563 0068 002B     		cmp	r3, #0
+ 564 006a 32D0     		beq	.L36
+ 565              	.LBB3:
+ 153:pae_libs/dataser_sublayer.c ****             // Borramos el frame ACKeado.
+ 154:pae_libs/dataser_sublayer.c ****             for (size_t j = i; j + 1 < queue->count; j++) {
+ 566              		.loc 1 154 25
+ 567 006c 3B69     		ldr	r3, [r7, #16]
+ 568 006e BB60     		str	r3, [r7, #8]
+ 569              		.loc 1 154 13
+ 570 0070 12E0     		b	.L37
+ 571              	.L38:
+ 155:pae_libs/dataser_sublayer.c ****                 queue->frames[j] = queue->frames[j + 1];
+ 572              		.loc 1 155 52
+ 573 0072 BB68     		ldr	r3, [r7, #8]
+ 574 0074 0133     		adds	r3, r3, #1
+ 575              		.loc 1 155 34
+ 576 0076 7968     		ldr	r1, [r7, #4]
+ 577 0078 BA68     		ldr	r2, [r7, #8]
+ 578 007a 1202     		lsls	r2, r2, #8
+ 579 007c 1144     		add	r1, r1, r2
+ 580 007e 7A68     		ldr	r2, [r7, #4]
+ 581 0080 1B02     		lsls	r3, r3, #8
+ 582 0082 1344     		add	r3, r3, r2
+ 583 0084 0846     		mov	r0, r1
+ 584 0086 1946     		mov	r1, r3
+ 585 0088 4FF48073 		mov	r3, #256
+ 586 008c 1A46     		mov	r2, r3
+ 587 008e FFF7FEFF 		bl	memcpy
+ 154:pae_libs/dataser_sublayer.c ****                 queue->frames[j] = queue->frames[j + 1];
+ 588              		.loc 1 154 55 discriminator 3
+ 589 0092 BB68     		ldr	r3, [r7, #8]
+ 590 0094 0133     		adds	r3, r3, #1
+ 591 0096 BB60     		str	r3, [r7, #8]
+ 592              	.L37:
+ 154:pae_libs/dataser_sublayer.c ****                 queue->frames[j] = queue->frames[j + 1];
+ 593              		.loc 1 154 34 discriminator 1
+ 594 0098 BB68     		ldr	r3, [r7, #8]
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 14
+
+
+ 595 009a 5A1C     		adds	r2, r3, #1
+ 154:pae_libs/dataser_sublayer.c ****                 queue->frames[j] = queue->frames[j + 1];
+ 596              		.loc 1 154 45 discriminator 1
+ 597 009c 7B68     		ldr	r3, [r7, #4]
+ 598 009e D3F80034 		ldr	r3, [r3, #1024]
+ 154:pae_libs/dataser_sublayer.c ****                 queue->frames[j] = queue->frames[j + 1];
+ 599              		.loc 1 154 38 discriminator 1
+ 600 00a2 9A42     		cmp	r2, r3
+ 601 00a4 E5D3     		bcc	.L38
+ 602              	.LBE3:
+ 156:pae_libs/dataser_sublayer.c ****             }
+ 157:pae_libs/dataser_sublayer.c **** 
+ 158:pae_libs/dataser_sublayer.c **** 
+ 159:pae_libs/dataser_sublayer.c ****             queue->count--; //Habrá uno menos
+ 603              		.loc 1 159 18
+ 604 00a6 7B68     		ldr	r3, [r7, #4]
+ 605 00a8 D3F80034 		ldr	r3, [r3, #1024]
+ 606              		.loc 1 159 25
+ 607 00ac 5A1E     		subs	r2, r3, #1
+ 608 00ae 7B68     		ldr	r3, [r7, #4]
+ 609 00b0 C3F80024 		str	r2, [r3, #1024]
+ 160:pae_libs/dataser_sublayer.c **** 
+ 161:pae_libs/dataser_sublayer.c **** 
+ 162:pae_libs/dataser_sublayer.c ****             // Limpiamos la ultima posicion duplicada.
+ 163:pae_libs/dataser_sublayer.c ****             memset(&queue->frames[queue->count], 0, sizeof(SDUFrame));
+ 610              		.loc 1 163 40
+ 611 00b4 7B68     		ldr	r3, [r7, #4]
+ 612 00b6 D3F80034 		ldr	r3, [r3, #1024]
+ 613              		.loc 1 163 20
+ 614 00ba 1B02     		lsls	r3, r3, #8
+ 615 00bc 7A68     		ldr	r2, [r7, #4]
+ 616 00be 1344     		add	r3, r3, r2
+ 617              		.loc 1 163 13
+ 618 00c0 4FF48072 		mov	r2, #256
+ 619 00c4 0021     		movs	r1, #0
+ 620 00c6 1846     		mov	r0, r3
+ 621 00c8 FFF7FEFF 		bl	memset
+ 164:pae_libs/dataser_sublayer.c **** 
+ 165:pae_libs/dataser_sublayer.c **** 
+ 166:pae_libs/dataser_sublayer.c ****             removed = true;
+ 622              		.loc 1 166 21
+ 623 00cc 0123     		movs	r3, #1
+ 624 00ce FB75     		strb	r3, [r7, #23]
+ 625 00d0 02E0     		b	.L33
+ 626              	.L36:
+ 167:pae_libs/dataser_sublayer.c **** 
+ 168:pae_libs/dataser_sublayer.c **** 
+ 169:pae_libs/dataser_sublayer.c ****             // No incrementamos i porque el siguiente frame se ha desplazado a esta posicion.
+ 170:pae_libs/dataser_sublayer.c ****         } else {
+ 171:pae_libs/dataser_sublayer.c ****             i++; //Incrementamos i, miramos el siguiente frame (si hay)
+ 627              		.loc 1 171 14
+ 628 00d2 3B69     		ldr	r3, [r7, #16]
+ 629 00d4 0133     		adds	r3, r3, #1
+ 630 00d6 3B61     		str	r3, [r7, #16]
+ 631              	.L33:
+ 632              	.LBE2:
+ 141:pae_libs/dataser_sublayer.c ****         uint8_t frame_fsn;
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 15
+
+
+ 633              		.loc 1 141 21
+ 634 00d8 7B68     		ldr	r3, [r7, #4]
+ 635 00da D3F80034 		ldr	r3, [r3, #1024]
+ 141:pae_libs/dataser_sublayer.c ****         uint8_t frame_fsn;
+ 636              		.loc 1 141 14
+ 637 00de 3A69     		ldr	r2, [r7, #16]
+ 638 00e0 9A42     		cmp	r2, r3
+ 639 00e2 A4D3     		bcc	.L40
+ 172:pae_libs/dataser_sublayer.c ****         }
+ 173:pae_libs/dataser_sublayer.c ****     }
+ 174:pae_libs/dataser_sublayer.c **** 
+ 175:pae_libs/dataser_sublayer.c **** 
+ 176:pae_libs/dataser_sublayer.c ****     return removed; //Devolvemos si se ha ackeado alguno (minimo 1 si es true, pueden haber sido m�
+ 640              		.loc 1 176 12
+ 641 00e4 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 642              	.L31:
+ 177:pae_libs/dataser_sublayer.c **** }
+ 643              		.loc 1 177 1
+ 644 00e6 1846     		mov	r0, r3
+ 645 00e8 1837     		adds	r7, r7, #24
+ 646              	.LCFI43:
+ 647              		.cfi_def_cfa_offset 8
+ 648 00ea BD46     		mov	sp, r7
+ 649              	.LCFI44:
+ 650              		.cfi_def_cfa_register 13
+ 651              		@ sp needed
+ 652 00ec 80BD     		pop	{r7, pc}
+ 653              		.cfi_endproc
+ 654              	.LFE7:
+ 656              		.section	.text.dataservice_set_fsn,"ax",%progbits
+ 657              		.align	1
+ 658              		.global	dataservice_set_fsn
+ 659              		.syntax unified
+ 660              		.thumb
+ 661              		.thumb_func
+ 663              	dataservice_set_fsn:
+ 664              	.LFB8:
+ 178:pae_libs/dataser_sublayer.c **** 
+ 179:pae_libs/dataser_sublayer.c **** 
+ 180:pae_libs/dataser_sublayer.c **** //Cuando expire el timer tendre que volver a enviar los frames
+ 181:pae_libs/dataser_sublayer.c **** 
+ 182:pae_libs/dataser_sublayer.c **** 
+ 183:pae_libs/dataser_sublayer.c **** // Helper de io_buffer_to_sent_frame_queue: asigna FSN a un SDUFrame
+ 184:pae_libs/dataser_sublayer.c **** void dataservice_set_fsn(uint8_t fsn, SDUFrame *frame)
+ 185:pae_libs/dataser_sublayer.c **** {
+ 665              		.loc 1 185 1
+ 666              		.cfi_startproc
+ 667              		@ args = 0, pretend = 0, frame = 8
+ 668              		@ frame_needed = 1, uses_anonymous_args = 0
+ 669              		@ link register save eliminated.
+ 670 0000 80B4     		push	{r7}
+ 671              	.LCFI45:
+ 672              		.cfi_def_cfa_offset 4
+ 673              		.cfi_offset 7, -4
+ 674 0002 83B0     		sub	sp, sp, #12
+ 675              	.LCFI46:
+ 676              		.cfi_def_cfa_offset 16
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 16
+
+
+ 677 0004 00AF     		add	r7, sp, #0
+ 678              	.LCFI47:
+ 679              		.cfi_def_cfa_register 7
+ 680 0006 0346     		mov	r3, r0
+ 681 0008 3960     		str	r1, [r7]
+ 682 000a FB71     		strb	r3, [r7, #7]
+ 186:pae_libs/dataser_sublayer.c ****     if (frame == NULL) {
+ 683              		.loc 1 186 8
+ 684 000c 3B68     		ldr	r3, [r7]
+ 685 000e 002B     		cmp	r3, #0
+ 686 0010 0BD0     		beq	.L45
+ 187:pae_libs/dataser_sublayer.c ****         return;
+ 188:pae_libs/dataser_sublayer.c ****     }
+ 189:pae_libs/dataser_sublayer.c **** 
+ 190:pae_libs/dataser_sublayer.c **** 
+ 191:pae_libs/dataser_sublayer.c ****     if (frame->type == FRAME_FRAGMENTED) {
+ 687              		.loc 1 191 14
+ 688 0012 3B68     		ldr	r3, [r7]
+ 689 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 690              		.loc 1 191 8
+ 691 0016 012B     		cmp	r3, #1
+ 692 0018 03D1     		bne	.L44
+ 192:pae_libs/dataser_sublayer.c ****         frame->data.fragmented.pdu_header.FSN = fsn;
+ 693              		.loc 1 192 47
+ 694 001a 3B68     		ldr	r3, [r7]
+ 695 001c FA79     		ldrb	r2, [r7, #7]
+ 696 001e 5A71     		strb	r2, [r3, #5]
+ 697 0020 04E0     		b	.L41
+ 698              	.L44:
+ 193:pae_libs/dataser_sublayer.c ****     } else {
+ 194:pae_libs/dataser_sublayer.c ****         frame->data.unfragmented.header.FSN = fsn;
+ 699              		.loc 1 194 45
+ 700 0022 3B68     		ldr	r3, [r7]
+ 701 0024 FA79     		ldrb	r2, [r7, #7]
+ 702 0026 5A71     		strb	r2, [r3, #5]
+ 703 0028 00E0     		b	.L41
+ 704              	.L45:
+ 187:pae_libs/dataser_sublayer.c ****     }
+ 705              		.loc 1 187 9
+ 706 002a 00BF     		nop
+ 707              	.L41:
+ 195:pae_libs/dataser_sublayer.c ****     }
+ 196:pae_libs/dataser_sublayer.c **** }
+ 708              		.loc 1 196 1
+ 709 002c 0C37     		adds	r7, r7, #12
+ 710              	.LCFI48:
+ 711              		.cfi_def_cfa_offset 4
+ 712 002e BD46     		mov	sp, r7
+ 713              	.LCFI49:
+ 714              		.cfi_def_cfa_register 13
+ 715              		@ sp needed
+ 716 0030 5DF8047B 		ldr	r7, [sp], #4
+ 717              	.LCFI50:
+ 718              		.cfi_restore 7
+ 719              		.cfi_def_cfa_offset 0
+ 720 0034 7047     		bx	lr
+ 721              		.cfi_endproc
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 17
+
+
+ 722              	.LFE8:
+ 724              		.section	.text.io_buffer_to_sent_frame_queue,"ax",%progbits
+ 725              		.align	1
+ 726              		.global	io_buffer_to_sent_frame_queue
+ 727              		.syntax unified
+ 728              		.thumb
+ 729              		.thumb_func
+ 731              	io_buffer_to_sent_frame_queue:
+ 732              	.LFB9:
+ 197:pae_libs/dataser_sublayer.c **** 
+ 198:pae_libs/dataser_sublayer.c **** 
+ 199:pae_libs/dataser_sublayer.c **** //tAMBINE SE asinga el FSN con el Helper (funcion de arriba). Solo rellena a la sent_frame_queue co
+ 200:pae_libs/dataser_sublayer.c **** bool io_buffer_to_sent_frame_queue(IOBuffer *buffer,SentFrameQueue *queue, FopPContext *fop){ //OJO
+ 733              		.loc 1 200 93
+ 734              		.cfi_startproc
+ 735              		@ args = 0, pretend = 0, frame = 24
+ 736              		@ frame_needed = 1, uses_anonymous_args = 0
+ 737 0000 80B5     		push	{r7, lr}
+ 738              	.LCFI51:
+ 739              		.cfi_def_cfa_offset 8
+ 740              		.cfi_offset 7, -8
+ 741              		.cfi_offset 14, -4
+ 742 0002 86B0     		sub	sp, sp, #24
+ 743              	.LCFI52:
+ 744              		.cfi_def_cfa_offset 32
+ 745 0004 00AF     		add	r7, sp, #0
+ 746              	.LCFI53:
+ 747              		.cfi_def_cfa_register 7
+ 748 0006 F860     		str	r0, [r7, #12]
+ 749 0008 B960     		str	r1, [r7, #8]
+ 750 000a 7A60     		str	r2, [r7, #4]
+ 201:pae_libs/dataser_sublayer.c **** 
+ 202:pae_libs/dataser_sublayer.c **** 
+ 203:pae_libs/dataser_sublayer.c ****     if (buffer == NULL || queue == NULL ||fop==NULL) {
+ 751              		.loc 1 203 8
+ 752 000c FB68     		ldr	r3, [r7, #12]
+ 753 000e 002B     		cmp	r3, #0
+ 754 0010 05D0     		beq	.L47
+ 755              		.loc 1 203 24 discriminator 1
+ 756 0012 BB68     		ldr	r3, [r7, #8]
+ 757 0014 002B     		cmp	r3, #0
+ 758 0016 02D0     		beq	.L47
+ 759              		.loc 1 203 41 discriminator 2
+ 760 0018 7B68     		ldr	r3, [r7, #4]
+ 761 001a 002B     		cmp	r3, #0
+ 762 001c 01D1     		bne	.L48
+ 763              	.L47:
+ 204:pae_libs/dataser_sublayer.c ****         return false;
+ 764              		.loc 1 204 16
+ 765 001e 0023     		movs	r3, #0
+ 766 0020 6EE0     		b	.L49
+ 767              	.L48:
+ 205:pae_libs/dataser_sublayer.c ****     }
+ 206:pae_libs/dataser_sublayer.c **** 
+ 207:pae_libs/dataser_sublayer.c **** 
+ 208:pae_libs/dataser_sublayer.c ****     if (buffer->size == 0) {
+ 768              		.loc 1 208 15
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 18
+
+
+ 769 0022 FB68     		ldr	r3, [r7, #12]
+ 770 0024 03F58043 		add	r3, r3, #16384
+ 771 0028 D3F84433 		ldr	r3, [r3, #836]
+ 772              		.loc 1 208 8
+ 773 002c 002B     		cmp	r3, #0
+ 774 002e 01D1     		bne	.L50
+ 209:pae_libs/dataser_sublayer.c ****         return false;
+ 775              		.loc 1 209 16
+ 776 0030 0023     		movs	r3, #0
+ 777 0032 65E0     		b	.L49
+ 778              	.L50:
+ 210:pae_libs/dataser_sublayer.c ****     }
+ 211:pae_libs/dataser_sublayer.c **** 
+ 212:pae_libs/dataser_sublayer.c **** 
+ 213:pae_libs/dataser_sublayer.c ****     if (queue->count >= DATASER_SENT_FRAME_QUEUE_SIZE) {
+ 779              		.loc 1 213 14
+ 780 0034 BB68     		ldr	r3, [r7, #8]
+ 781 0036 D3F80034 		ldr	r3, [r3, #1024]
+ 782              		.loc 1 213 8
+ 783 003a 032B     		cmp	r3, #3
+ 784 003c 01D9     		bls	.L51
+ 214:pae_libs/dataser_sublayer.c ****         return false;
+ 785              		.loc 1 214 16
+ 786 003e 0023     		movs	r3, #0
+ 787 0040 5EE0     		b	.L49
+ 788              	.L51:
+ 215:pae_libs/dataser_sublayer.c ****     }
+ 216:pae_libs/dataser_sublayer.c ****     // Copiamos el primer frame del IOBuffer a la SentFrameQueue
+ 217:pae_libs/dataser_sublayer.c ****     queue->frames[queue->count] = buffer->frames[0];
+ 789              		.loc 1 217 24
+ 790 0042 BB68     		ldr	r3, [r7, #8]
+ 791 0044 D3F80034 		ldr	r3, [r3, #1024]
+ 792              		.loc 1 217 33
+ 793 0048 BA68     		ldr	r2, [r7, #8]
+ 794 004a 1B02     		lsls	r3, r3, #8
+ 795 004c 1A44     		add	r2, r2, r3
+ 796 004e FB68     		ldr	r3, [r7, #12]
+ 797 0050 1046     		mov	r0, r2
+ 798 0052 1946     		mov	r1, r3
+ 799 0054 4FF48073 		mov	r3, #256
+ 800 0058 1A46     		mov	r2, r3
+ 801 005a FFF7FEFF 		bl	memcpy
+ 218:pae_libs/dataser_sublayer.c **** 
+ 219:pae_libs/dataser_sublayer.c **** 
+ 220:pae_libs/dataser_sublayer.c ****     // Asignamos el FSN real de FOP-P al frame que queda en SentFrameQueue
+ 221:pae_libs/dataser_sublayer.c ****     dataservice_set_fsn(fop->snd_sndNxt, &queue->frames[queue->count]);
+ 802              		.loc 1 221 5
+ 803 005e 7B68     		ldr	r3, [r7, #4]
+ 804 0060 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 805              		.loc 1 221 62
+ 806 0062 BB68     		ldr	r3, [r7, #8]
+ 807 0064 D3F80034 		ldr	r3, [r3, #1024]
+ 808              		.loc 1 221 5
+ 809 0068 1B02     		lsls	r3, r3, #8
+ 810 006a BA68     		ldr	r2, [r7, #8]
+ 811 006c 1344     		add	r3, r3, r2
+ 812 006e 1946     		mov	r1, r3
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 19
+
+
+ 813 0070 FFF7FEFF 		bl	dataservice_set_fsn
+ 222:pae_libs/dataser_sublayer.c ****    
+ 223:pae_libs/dataser_sublayer.c ****     fop->snd_sndNxt++; //Incrementamos el snd_sndNxt
+ 814              		.loc 1 223 8
+ 815 0074 7B68     		ldr	r3, [r7, #4]
+ 816 0076 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 817              		.loc 1 223 20
+ 818 0078 0133     		adds	r3, r3, #1
+ 819 007a DAB2     		uxtb	r2, r3
+ 820 007c 7B68     		ldr	r3, [r7, #4]
+ 821 007e 1A70     		strb	r2, [r3]
+ 224:pae_libs/dataser_sublayer.c ****     queue->count++;
+ 822              		.loc 1 224 10
+ 823 0080 BB68     		ldr	r3, [r7, #8]
+ 824 0082 D3F80034 		ldr	r3, [r3, #1024]
+ 825              		.loc 1 224 17
+ 826 0086 5A1C     		adds	r2, r3, #1
+ 827 0088 BB68     		ldr	r3, [r7, #8]
+ 828 008a C3F80024 		str	r2, [r3, #1024]
+ 829              	.LBB4:
+ 225:pae_libs/dataser_sublayer.c **** 
+ 226:pae_libs/dataser_sublayer.c **** 
+ 227:pae_libs/dataser_sublayer.c **** 
+ 228:pae_libs/dataser_sublayer.c **** 
+ 229:pae_libs/dataser_sublayer.c **** 
+ 230:pae_libs/dataser_sublayer.c **** 
+ 231:pae_libs/dataser_sublayer.c ****     // Borramos buffer->frames[0] desplazando todo el IOBuffer a la izquierda
+ 232:pae_libs/dataser_sublayer.c ****     for (size_t i = 0; i + 1 < buffer->size; i++) {
+ 830              		.loc 1 232 17
+ 831 008e 0023     		movs	r3, #0
+ 832 0090 7B61     		str	r3, [r7, #20]
+ 833              		.loc 1 232 5
+ 834 0092 12E0     		b	.L52
+ 835              	.L53:
+ 233:pae_libs/dataser_sublayer.c ****         buffer->frames[i] = buffer->frames[i + 1];
+ 836              		.loc 1 233 46
+ 837 0094 7B69     		ldr	r3, [r7, #20]
+ 838 0096 0133     		adds	r3, r3, #1
+ 839              		.loc 1 233 27
+ 840 0098 F968     		ldr	r1, [r7, #12]
+ 841 009a 7A69     		ldr	r2, [r7, #20]
+ 842 009c 1202     		lsls	r2, r2, #8
+ 843 009e 1144     		add	r1, r1, r2
+ 844 00a0 FA68     		ldr	r2, [r7, #12]
+ 845 00a2 1B02     		lsls	r3, r3, #8
+ 846 00a4 1344     		add	r3, r3, r2
+ 847 00a6 0846     		mov	r0, r1
+ 848 00a8 1946     		mov	r1, r3
+ 849 00aa 4FF48073 		mov	r3, #256
+ 850 00ae 1A46     		mov	r2, r3
+ 851 00b0 FFF7FEFF 		bl	memcpy
+ 232:pae_libs/dataser_sublayer.c ****         buffer->frames[i] = buffer->frames[i + 1];
+ 852              		.loc 1 232 47 discriminator 3
+ 853 00b4 7B69     		ldr	r3, [r7, #20]
+ 854 00b6 0133     		adds	r3, r3, #1
+ 855 00b8 7B61     		str	r3, [r7, #20]
+ 856              	.L52:
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 20
+
+
+ 232:pae_libs/dataser_sublayer.c ****         buffer->frames[i] = buffer->frames[i + 1];
+ 857              		.loc 1 232 26 discriminator 1
+ 858 00ba 7B69     		ldr	r3, [r7, #20]
+ 859 00bc 5A1C     		adds	r2, r3, #1
+ 232:pae_libs/dataser_sublayer.c ****         buffer->frames[i] = buffer->frames[i + 1];
+ 860              		.loc 1 232 38 discriminator 1
+ 861 00be FB68     		ldr	r3, [r7, #12]
+ 862 00c0 03F58043 		add	r3, r3, #16384
+ 863 00c4 D3F84433 		ldr	r3, [r3, #836]
+ 232:pae_libs/dataser_sublayer.c ****         buffer->frames[i] = buffer->frames[i + 1];
+ 864              		.loc 1 232 30 discriminator 1
+ 865 00c8 9A42     		cmp	r2, r3
+ 866 00ca E3D3     		bcc	.L53
+ 867              	.LBE4:
+ 234:pae_libs/dataser_sublayer.c ****     }
+ 235:pae_libs/dataser_sublayer.c **** 
+ 236:pae_libs/dataser_sublayer.c **** 
+ 237:pae_libs/dataser_sublayer.c ****     buffer->size--;
+ 868              		.loc 1 237 11
+ 869 00cc FB68     		ldr	r3, [r7, #12]
+ 870 00ce 03F58043 		add	r3, r3, #16384
+ 871 00d2 D3F84433 		ldr	r3, [r3, #836]
+ 872              		.loc 1 237 17
+ 873 00d6 013B     		subs	r3, r3, #1
+ 874 00d8 FA68     		ldr	r2, [r7, #12]
+ 875 00da 02F58042 		add	r2, r2, #16384
+ 876 00de C2F84433 		str	r3, [r2, #836]
+ 238:pae_libs/dataser_sublayer.c **** 
+ 239:pae_libs/dataser_sublayer.c **** 
+ 240:pae_libs/dataser_sublayer.c ****     // Limpiamos la ultima posicion duplicada
+ 241:pae_libs/dataser_sublayer.c ****     memset(&buffer->frames[buffer->size], 0, sizeof(SDUFrame));
+ 877              		.loc 1 241 34
+ 878 00e2 FB68     		ldr	r3, [r7, #12]
+ 879 00e4 03F58043 		add	r3, r3, #16384
+ 880 00e8 D3F84433 		ldr	r3, [r3, #836]
+ 881              		.loc 1 241 12
+ 882 00ec 1B02     		lsls	r3, r3, #8
+ 883 00ee FA68     		ldr	r2, [r7, #12]
+ 884 00f0 1344     		add	r3, r3, r2
+ 885              		.loc 1 241 5
+ 886 00f2 4FF48072 		mov	r2, #256
+ 887 00f6 0021     		movs	r1, #0
+ 888 00f8 1846     		mov	r0, r3
+ 889 00fa FFF7FEFF 		bl	memset
+ 242:pae_libs/dataser_sublayer.c **** 
+ 243:pae_libs/dataser_sublayer.c **** 
+ 244:pae_libs/dataser_sublayer.c **** 
+ 245:pae_libs/dataser_sublayer.c **** 
+ 246:pae_libs/dataser_sublayer.c **** 
+ 247:pae_libs/dataser_sublayer.c **** 
+ 248:pae_libs/dataser_sublayer.c ****     return true;
+ 890              		.loc 1 248 12
+ 891 00fe 0123     		movs	r3, #1
+ 892              	.L49:
+ 249:pae_libs/dataser_sublayer.c **** 
+ 250:pae_libs/dataser_sublayer.c **** 
+ 251:pae_libs/dataser_sublayer.c **** }
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 21
+
+
+ 893              		.loc 1 251 1
+ 894 0100 1846     		mov	r0, r3
+ 895 0102 1837     		adds	r7, r7, #24
+ 896              	.LCFI54:
+ 897              		.cfi_def_cfa_offset 8
+ 898 0104 BD46     		mov	sp, r7
+ 899              	.LCFI55:
+ 900              		.cfi_def_cfa_register 13
+ 901              		@ sp needed
+ 902 0106 80BD     		pop	{r7, pc}
+ 903              		.cfi_endproc
+ 904              	.LFE9:
+ 906              		.section	.text.fill_sent_frame_queue_from_io_buffer,"ax",%progbits
+ 907              		.align	1
+ 908              		.global	fill_sent_frame_queue_from_io_buffer
+ 909              		.syntax unified
+ 910              		.thumb
+ 911              		.thumb_func
+ 913              	fill_sent_frame_queue_from_io_buffer:
+ 914              	.LFB10:
+ 252:pae_libs/dataser_sublayer.c **** 
+ 253:pae_libs/dataser_sublayer.c **** 
+ 254:pae_libs/dataser_sublayer.c **** //Lo usmaos para llenar la sentframequeue. Utuiiza   io_buffer_to_sent_frame_queue tantas veces com
+ 255:pae_libs/dataser_sublayer.c **** size_t fill_sent_frame_queue_from_io_buffer(IOBuffer *buffer, SentFrameQueue *queue, FopPContext *f
+ 256:pae_libs/dataser_sublayer.c **** {
+ 915              		.loc 1 256 1
+ 916              		.cfi_startproc
+ 917              		@ args = 0, pretend = 0, frame = 24
+ 918              		@ frame_needed = 1, uses_anonymous_args = 0
+ 919 0000 80B5     		push	{r7, lr}
+ 920              	.LCFI56:
+ 921              		.cfi_def_cfa_offset 8
+ 922              		.cfi_offset 7, -8
+ 923              		.cfi_offset 14, -4
+ 924 0002 86B0     		sub	sp, sp, #24
+ 925              	.LCFI57:
+ 926              		.cfi_def_cfa_offset 32
+ 927 0004 00AF     		add	r7, sp, #0
+ 928              	.LCFI58:
+ 929              		.cfi_def_cfa_register 7
+ 930 0006 F860     		str	r0, [r7, #12]
+ 931 0008 B960     		str	r1, [r7, #8]
+ 932 000a 7A60     		str	r2, [r7, #4]
+ 257:pae_libs/dataser_sublayer.c ****     size_t added = 0;
+ 933              		.loc 1 257 12
+ 934 000c 0023     		movs	r3, #0
+ 935 000e 7B61     		str	r3, [r7, #20]
+ 258:pae_libs/dataser_sublayer.c **** 
+ 259:pae_libs/dataser_sublayer.c **** 
+ 260:pae_libs/dataser_sublayer.c ****     if (buffer == NULL || queue == NULL || fop == NULL) {
+ 936              		.loc 1 260 8
+ 937 0010 FB68     		ldr	r3, [r7, #12]
+ 938 0012 002B     		cmp	r3, #0
+ 939 0014 05D0     		beq	.L55
+ 940              		.loc 1 260 24 discriminator 1
+ 941 0016 BB68     		ldr	r3, [r7, #8]
+ 942 0018 002B     		cmp	r3, #0
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 22
+
+
+ 943 001a 02D0     		beq	.L55
+ 944              		.loc 1 260 41 discriminator 2
+ 945 001c 7B68     		ldr	r3, [r7, #4]
+ 946 001e 002B     		cmp	r3, #0
+ 947 0020 0FD1     		bne	.L58
+ 948              	.L55:
+ 261:pae_libs/dataser_sublayer.c ****         return 0;
+ 949              		.loc 1 261 16
+ 950 0022 0023     		movs	r3, #0
+ 951 0024 1CE0     		b	.L57
+ 952              	.L61:
+ 262:pae_libs/dataser_sublayer.c ****     }
+ 263:pae_libs/dataser_sublayer.c **** 
+ 264:pae_libs/dataser_sublayer.c **** 
+ 265:pae_libs/dataser_sublayer.c ****     while (queue->count < DATASER_SENT_FRAME_QUEUE_SIZE && buffer->size > 0) {
+ 266:pae_libs/dataser_sublayer.c ****         if (!io_buffer_to_sent_frame_queue(buffer, queue, fop)) {
+ 953              		.loc 1 266 14
+ 954 0026 7A68     		ldr	r2, [r7, #4]
+ 955 0028 B968     		ldr	r1, [r7, #8]
+ 956 002a F868     		ldr	r0, [r7, #12]
+ 957 002c FFF7FEFF 		bl	io_buffer_to_sent_frame_queue
+ 958 0030 0346     		mov	r3, r0
+ 959              		.loc 1 266 13 discriminator 1
+ 960 0032 83F00103 		eor	r3, r3, #1
+ 961 0036 DBB2     		uxtb	r3, r3
+ 962              		.loc 1 266 12 discriminator 1
+ 963 0038 002B     		cmp	r3, #0
+ 964 003a 0FD1     		bne	.L62
+ 267:pae_libs/dataser_sublayer.c ****             break;
+ 268:pae_libs/dataser_sublayer.c ****         }
+ 269:pae_libs/dataser_sublayer.c **** 
+ 270:pae_libs/dataser_sublayer.c **** 
+ 271:pae_libs/dataser_sublayer.c ****         added++;
+ 965              		.loc 1 271 14
+ 966 003c 7B69     		ldr	r3, [r7, #20]
+ 967 003e 0133     		adds	r3, r3, #1
+ 968 0040 7B61     		str	r3, [r7, #20]
+ 969              	.L58:
+ 265:pae_libs/dataser_sublayer.c ****         if (!io_buffer_to_sent_frame_queue(buffer, queue, fop)) {
+ 970              		.loc 1 265 17
+ 971 0042 BB68     		ldr	r3, [r7, #8]
+ 972 0044 D3F80034 		ldr	r3, [r3, #1024]
+ 265:pae_libs/dataser_sublayer.c ****         if (!io_buffer_to_sent_frame_queue(buffer, queue, fop)) {
+ 973              		.loc 1 265 57
+ 974 0048 032B     		cmp	r3, #3
+ 975 004a 08D8     		bhi	.L60
+ 265:pae_libs/dataser_sublayer.c ****         if (!io_buffer_to_sent_frame_queue(buffer, queue, fop)) {
+ 976              		.loc 1 265 66 discriminator 1
+ 977 004c FB68     		ldr	r3, [r7, #12]
+ 978 004e 03F58043 		add	r3, r3, #16384
+ 979 0052 D3F84433 		ldr	r3, [r3, #836]
+ 265:pae_libs/dataser_sublayer.c ****         if (!io_buffer_to_sent_frame_queue(buffer, queue, fop)) {
+ 980              		.loc 1 265 57 discriminator 1
+ 981 0056 002B     		cmp	r3, #0
+ 982 0058 E5D1     		bne	.L61
+ 983 005a 00E0     		b	.L60
+ 984              	.L62:
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 23
+
+
+ 267:pae_libs/dataser_sublayer.c ****             break;
+ 985              		.loc 1 267 13
+ 986 005c 00BF     		nop
+ 987              	.L60:
+ 272:pae_libs/dataser_sublayer.c ****     }
+ 273:pae_libs/dataser_sublayer.c **** 
+ 274:pae_libs/dataser_sublayer.c **** 
+ 275:pae_libs/dataser_sublayer.c ****     return added;
+ 988              		.loc 1 275 12
+ 989 005e 7B69     		ldr	r3, [r7, #20]
+ 990              	.L57:
+ 276:pae_libs/dataser_sublayer.c **** }
+ 991              		.loc 1 276 1
+ 992 0060 1846     		mov	r0, r3
+ 993 0062 1837     		adds	r7, r7, #24
+ 994              	.LCFI59:
+ 995              		.cfi_def_cfa_offset 8
+ 996 0064 BD46     		mov	sp, r7
+ 997              	.LCFI60:
+ 998              		.cfi_def_cfa_register 13
+ 999              		@ sp needed
+ 1000 0066 80BD     		pop	{r7, pc}
+ 1001              		.cfi_endproc
+ 1002              	.LFE10:
+ 1004              		.section	.text.dataservice_create_plcw,"ax",%progbits
+ 1005              		.align	1
+ 1006              		.syntax unified
+ 1007              		.thumb
+ 1008              		.thumb_func
+ 1010              	dataservice_create_plcw:
+ 1011              	.LFB11:
+ 277:pae_libs/dataser_sublayer.c **** 
+ 278:pae_libs/dataser_sublayer.c **** 
+ 279:pae_libs/dataser_sublayer.c **** 
+ 280:pae_libs/dataser_sublayer.c **** 
+ 281:pae_libs/dataser_sublayer.c **** //Crea PLCW lógico constuye estructura de 16bits. Es el Helper de dataservice
+ 282:pae_libs/dataser_sublayer.c **** static PLCW dataservice_create_plcw(uint8_t report_value, uint8_t expedited_frame_counter,  uint8_t
+ 283:pae_libs/dataser_sublayer.c **** {
+ 1012              		.loc 1 283 1
+ 1013              		.cfi_startproc
+ 1014              		@ args = 0, pretend = 0, frame = 16
+ 1015              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1016              		@ link register save eliminated.
+ 1017 0000 90B4     		push	{r4, r7}
+ 1018              	.LCFI61:
+ 1019              		.cfi_def_cfa_offset 8
+ 1020              		.cfi_offset 4, -8
+ 1021              		.cfi_offset 7, -4
+ 1022 0002 84B0     		sub	sp, sp, #16
+ 1023              	.LCFI62:
+ 1024              		.cfi_def_cfa_offset 24
+ 1025 0004 00AF     		add	r7, sp, #0
+ 1026              	.LCFI63:
+ 1027              		.cfi_def_cfa_register 7
+ 1028 0006 0446     		mov	r4, r0
+ 1029 0008 0846     		mov	r0, r1
+ 1030 000a 1146     		mov	r1, r2
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 24
+
+
+ 1031 000c 1A46     		mov	r2, r3
+ 1032 000e 2346     		mov	r3, r4
+ 1033 0010 FB71     		strb	r3, [r7, #7]
+ 1034 0012 0346     		mov	r3, r0
+ 1035 0014 BB71     		strb	r3, [r7, #6]
+ 1036 0016 0B46     		mov	r3, r1
+ 1037 0018 7B71     		strb	r3, [r7, #5]
+ 1038 001a 1346     		mov	r3, r2
+ 1039 001c 3B71     		strb	r3, [r7, #4]
+ 284:pae_libs/dataser_sublayer.c ****     PLCW plcw = {0};
+ 1040              		.loc 1 284 10
+ 1041 001e 0023     		movs	r3, #0
+ 1042 0020 3B81     		strh	r3, [r7, #8]	@ movhi
+ 285:pae_libs/dataser_sublayer.c **** 
+ 286:pae_libs/dataser_sublayer.c **** 
+ 287:pae_libs/dataser_sublayer.c ****     // SPDU Header
+ 288:pae_libs/dataser_sublayer.c ****     plcw.SPDU_Format_ID = 1; // fixed-length SPDU
+ 1043              		.loc 1 288 25
+ 1044 0022 3B7A     		ldrb	r3, [r7, #8]
+ 1045 0024 43F00103 		orr	r3, r3, #1
+ 1046 0028 3B72     		strb	r3, [r7, #8]
+ 289:pae_libs/dataser_sublayer.c ****     plcw.SPDU_Type_ID = 0;   // PLCW
+ 1047              		.loc 1 289 23
+ 1048 002a 3B7A     		ldrb	r3, [r7, #8]
+ 1049 002c 23F00203 		bic	r3, r3, #2
+ 1050 0030 3B72     		strb	r3, [r7, #8]
+ 290:pae_libs/dataser_sublayer.c **** 
+ 291:pae_libs/dataser_sublayer.c **** 
+ 292:pae_libs/dataser_sublayer.c ****     // SPDU Data Field
+ 293:pae_libs/dataser_sublayer.c ****     plcw.Retransmit_Flag = retransmit_flag ? 1 : 0;
+ 1051              		.loc 1 293 48
+ 1052 0032 3A79     		ldrb	r2, [r7, #4]	@ zero_extendqisi2
+ 1053              		.loc 1 293 26
+ 1054 0034 3B7A     		ldrb	r3, [r7, #8]
+ 1055 0036 62F38203 		bfi	r3, r2, #2, #1
+ 1056 003a 3B72     		strb	r3, [r7, #8]
+ 294:pae_libs/dataser_sublayer.c ****     plcw.PCID = pcid & 0x01;
+ 1057              		.loc 1 294 22
+ 1058 003c 7B79     		ldrb	r3, [r7, #5]
+ 1059 003e 03F00103 		and	r3, r3, #1
+ 1060 0042 DAB2     		uxtb	r2, r3
+ 1061              		.loc 1 294 15
+ 1062 0044 3B7A     		ldrb	r3, [r7, #8]
+ 1063 0046 62F3C303 		bfi	r3, r2, #3, #1
+ 1064 004a 3B72     		strb	r3, [r7, #8]
+ 295:pae_libs/dataser_sublayer.c ****     plcw.Reserved_Spare = 0;
+ 1065              		.loc 1 295 25
+ 1066 004c 3B7A     		ldrb	r3, [r7, #8]
+ 1067 004e 23F01003 		bic	r3, r3, #16
+ 1068 0052 3B72     		strb	r3, [r7, #8]
+ 296:pae_libs/dataser_sublayer.c ****     plcw.Expedited_Frame_Counter = expedited_frame_counter & 0x07;
+ 1069              		.loc 1 296 60
+ 1070 0054 BB79     		ldrb	r3, [r7, #6]
+ 1071 0056 03F00703 		and	r3, r3, #7
+ 1072 005a DAB2     		uxtb	r2, r3
+ 1073              		.loc 1 296 34
+ 1074 005c 3B7A     		ldrb	r3, [r7, #8]
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 25
+
+
+ 1075 005e 62F34713 		bfi	r3, r2, #5, #3
+ 1076 0062 3B72     		strb	r3, [r7, #8]
+ 297:pae_libs/dataser_sublayer.c ****     plcw.Report_Value = report_value;
+ 1077              		.loc 1 297 23
+ 1078 0064 FB79     		ldrb	r3, [r7, #7]
+ 1079 0066 7B72     		strb	r3, [r7, #9]
+ 298:pae_libs/dataser_sublayer.c **** 
+ 299:pae_libs/dataser_sublayer.c **** 
+ 300:pae_libs/dataser_sublayer.c ****     return plcw;
+ 1080              		.loc 1 300 12
+ 1081 0068 3B89     		ldrh	r3, [r7, #8]	@ movhi
+ 1082 006a BB81     		strh	r3, [r7, #12]	@ movhi
+ 1083 006c 0023     		movs	r3, #0
+ 1084 006e 3A7B     		ldrb	r2, [r7, #12]	@ zero_extendqisi2
+ 1085 0070 62F30703 		bfi	r3, r2, #0, #8
+ 1086 0074 7A7B     		ldrb	r2, [r7, #13]	@ zero_extendqisi2
+ 1087 0076 62F30F23 		bfi	r3, r2, #8, #8
+ 301:pae_libs/dataser_sublayer.c **** }
+ 1088              		.loc 1 301 1
+ 1089 007a 1846     		mov	r0, r3	@ movhi
+ 1090 007c 1037     		adds	r7, r7, #16
+ 1091              	.LCFI64:
+ 1092              		.cfi_def_cfa_offset 8
+ 1093 007e BD46     		mov	sp, r7
+ 1094              	.LCFI65:
+ 1095              		.cfi_def_cfa_register 13
+ 1096              		@ sp needed
+ 1097 0080 90BC     		pop	{r4, r7}
+ 1098              	.LCFI66:
+ 1099              		.cfi_restore 7
+ 1100              		.cfi_restore 4
+ 1101              		.cfi_def_cfa_offset 0
+ 1102 0082 7047     		bx	lr
+ 1103              		.cfi_endproc
+ 1104              	.LFE11:
+ 1106              		.section	.text.dataservice_create_plcw_pframe,"ax",%progbits
+ 1107              		.align	1
+ 1108              		.global	dataservice_create_plcw_pframe
+ 1109              		.syntax unified
+ 1110              		.thumb
+ 1111              		.thumb_func
+ 1113              	dataservice_create_plcw_pframe:
+ 1114              	.LFB12:
+ 302:pae_libs/dataser_sublayer.c **** 
+ 303:pae_libs/dataser_sublayer.c **** 
+ 304:pae_libs/dataser_sublayer.c **** 
+ 305:pae_libs/dataser_sublayer.c **** 
+ 306:pae_libs/dataser_sublayer.c **** SDUFrame dataservice_create_plcw_pframe(    
+ 307:pae_libs/dataser_sublayer.c ****     uint8_t report_value,
+ 308:pae_libs/dataser_sublayer.c ****     uint8_t expedited_frame_counter,
+ 309:pae_libs/dataser_sublayer.c ****     uint8_t pcid,
+ 310:pae_libs/dataser_sublayer.c ****     bool retransmit_flag,
+ 311:pae_libs/dataser_sublayer.c ****     uint8_t PortID,
+ 312:pae_libs/dataser_sublayer.c ****     uint16_t SC_ID,
+ 313:pae_libs/dataser_sublayer.c ****     uint8_t SD_ID
+ 314:pae_libs/dataser_sublayer.c **** )
+ 315:pae_libs/dataser_sublayer.c **** {
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 26
+
+
+ 1115              		.loc 1 315 1
+ 1116              		.cfi_startproc
+ 1117              		@ args = 16, pretend = 0, frame = 280
+ 1118              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1119 0000 90B5     		push	{r4, r7, lr}
+ 1120              	.LCFI67:
+ 1121              		.cfi_def_cfa_offset 12
+ 1122              		.cfi_offset 4, -12
+ 1123              		.cfi_offset 7, -8
+ 1124              		.cfi_offset 14, -4
+ 1125 0002 CFB0     		sub	sp, sp, #316
+ 1126              	.LCFI68:
+ 1127              		.cfi_def_cfa_offset 328
+ 1128 0004 08AF     		add	r7, sp, #32
+ 1129              	.LCFI69:
+ 1130              		.cfi_def_cfa 7, 296
+ 1131 0006 07F58C74 		add	r4, r7, #280
+ 1132 000a A4F58A74 		sub	r4, r4, #276
+ 1133 000e 2060     		str	r0, [r4]
+ 1134 0010 0C46     		mov	r4, r1
+ 1135 0012 1046     		mov	r0, r2
+ 1136 0014 1946     		mov	r1, r3
+ 1137 0016 07F58C73 		add	r3, r7, #280
+ 1138 001a A3F21513 		subw	r3, r3, #277
+ 1139 001e 2246     		mov	r2, r4
+ 1140 0020 1A70     		strb	r2, [r3]
+ 1141 0022 07F58C73 		add	r3, r7, #280
+ 1142 0026 A3F58B73 		sub	r3, r3, #278
+ 1143 002a 0246     		mov	r2, r0
+ 1144 002c 1A70     		strb	r2, [r3]
+ 1145 002e 07F58C73 		add	r3, r7, #280
+ 1146 0032 A3F21713 		subw	r3, r3, #279
+ 1147 0036 0A46     		mov	r2, r1
+ 1148 0038 1A70     		strb	r2, [r3]
+ 316:pae_libs/dataser_sublayer.c ****     SDUFrame frame = {0};
+ 1149              		.loc 1 316 14
+ 1150 003a 07F58C73 		add	r3, r7, #280
+ 1151 003e A3F58073 		sub	r3, r3, #256
+ 1152 0042 1846     		mov	r0, r3
+ 1153 0044 4FF48073 		mov	r3, #256
+ 1154 0048 1A46     		mov	r2, r3
+ 1155 004a 0021     		movs	r1, #0
+ 1156 004c FFF7FEFF 		bl	memset
+ 317:pae_libs/dataser_sublayer.c **** 
+ 318:pae_libs/dataser_sublayer.c **** 
+ 319:pae_libs/dataser_sublayer.c ****     PLCW plcw = dataservice_create_plcw(
+ 1157              		.loc 1 319 17
+ 1158 0050 97F82841 		ldrb	r4, [r7, #296]	@ zero_extendqisi2
+ 1159 0054 07F58C73 		add	r3, r7, #280
+ 1160 0058 A3F21713 		subw	r3, r3, #279
+ 1161 005c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1162 005e 07F58C73 		add	r3, r7, #280
+ 1163 0062 A3F58B73 		sub	r3, r3, #278
+ 1164 0066 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1165 0068 07F58C73 		add	r3, r7, #280
+ 1166 006c A3F21513 		subw	r3, r3, #277
+ 1167 0070 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 27
+
+
+ 1168 0072 2346     		mov	r3, r4
+ 1169 0074 FFF7FEFF 		bl	dataservice_create_plcw
+ 1170 0078 0246     		mov	r2, r0	@ movhi
+ 1171 007a 07F58C73 		add	r3, r7, #280
+ 1172 007e A3F58273 		sub	r3, r3, #260
+ 1173 0082 1A80     		strh	r2, [r3]	@ movhi
+ 320:pae_libs/dataser_sublayer.c ****         report_value,
+ 321:pae_libs/dataser_sublayer.c ****         expedited_frame_counter,
+ 322:pae_libs/dataser_sublayer.c ****         pcid,
+ 323:pae_libs/dataser_sublayer.c ****         retransmit_flag
+ 324:pae_libs/dataser_sublayer.c ****     );
+ 325:pae_libs/dataser_sublayer.c **** 
+ 326:pae_libs/dataser_sublayer.c **** 
+ 327:pae_libs/dataser_sublayer.c ****     frame.type = FRAME_UNFRAGMENTED;
+ 1174              		.loc 1 327 16
+ 1175 0084 07F58C73 		add	r3, r7, #280
+ 1176 0088 A3F58073 		sub	r3, r3, #256
+ 1177 008c 0022     		movs	r2, #0
+ 1178 008e 1A70     		strb	r2, [r3]
+ 328:pae_libs/dataser_sublayer.c **** 
+ 329:pae_libs/dataser_sublayer.c **** 
+ 330:pae_libs/dataser_sublayer.c ****     PDUHeader pdu_header = create_pdu_header(
+ 1179              		.loc 1 330 28
+ 1180 0090 07F58C73 		add	r3, r7, #280
+ 1181 0094 A3F58670 		sub	r0, r3, #268
+ 1182 0098 0023     		movs	r3, #0
+ 1183 009a 0693     		str	r3, [sp, #24]
+ 1184 009c 0223     		movs	r3, #2
+ 1185 009e 0593     		str	r3, [sp, #20]
+ 1186 00a0 97F83431 		ldrb	r3, [r7, #308]	@ zero_extendqisi2
+ 1187 00a4 0493     		str	r3, [sp, #16]
+ 1188 00a6 97F82C31 		ldrb	r3, [r7, #300]	@ zero_extendqisi2
+ 1189 00aa 0393     		str	r3, [sp, #12]
+ 1190 00ac 0123     		movs	r3, #1
+ 1191 00ae 0293     		str	r3, [sp, #8]
+ 1192 00b0 B7F83031 		ldrh	r3, [r7, #304]
+ 1193 00b4 0193     		str	r3, [sp, #4]
+ 1194 00b6 0023     		movs	r3, #0
+ 1195 00b8 0093     		str	r3, [sp]
+ 1196 00ba 0123     		movs	r3, #1
+ 1197 00bc 0122     		movs	r2, #1
+ 1198 00be 0221     		movs	r1, #2
+ 1199 00c0 FFF7FEFF 		bl	create_pdu_header
+ 331:pae_libs/dataser_sublayer.c ****         VERSION_3,
+ 332:pae_libs/dataser_sublayer.c ****         EXPEDITED,
+ 333:pae_libs/dataser_sublayer.c ****         PDU_COMMAND,
+ 334:pae_libs/dataser_sublayer.c ****         DFC_PACKETS,
+ 335:pae_libs/dataser_sublayer.c ****         SC_ID,
+ 336:pae_libs/dataser_sublayer.c ****         PRIMARYCANAL,
+ 337:pae_libs/dataser_sublayer.c ****         PortID,
+ 338:pae_libs/dataser_sublayer.c ****         SD_ID,
+ 339:pae_libs/dataser_sublayer.c ****         sizeof(PLCW),
+ 340:pae_libs/dataser_sublayer.c ****         0
+ 341:pae_libs/dataser_sublayer.c ****     );
+ 342:pae_libs/dataser_sublayer.c **** 
+ 343:pae_libs/dataser_sublayer.c **** 
+ 344:pae_libs/dataser_sublayer.c ****     frame.data.unfragmented.header = pdu_header;
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 28
+
+
+ 1200              		.loc 1 344 36
+ 1201 00c4 07F58C73 		add	r3, r7, #280
+ 1202 00c8 A3F58073 		sub	r3, r3, #256
+ 1203 00cc 07F58C72 		add	r2, r7, #280
+ 1204 00d0 A2F58672 		sub	r2, r2, #268
+ 1205 00d4 0133     		adds	r3, r3, #1
+ 1206 00d6 1068     		ldr	r0, [r2]
+ 1207 00d8 1860     		str	r0, [r3]	@ unaligned
+ 1208 00da 1279     		ldrb	r2, [r2, #4]
+ 1209 00dc 1A71     		strb	r2, [r3, #4]
+ 345:pae_libs/dataser_sublayer.c ****     memcpy(frame.data.unfragmented.sdu, &plcw, sizeof(PLCW));
+ 1210              		.loc 1 345 5
+ 1211 00de 07F58C73 		add	r3, r7, #280
+ 1212 00e2 A3F58273 		sub	r3, r3, #260
+ 1213 00e6 1A88     		ldrh	r2, [r3]
+ 1214 00e8 07F58C73 		add	r3, r7, #280
+ 1215 00ec A3F58073 		sub	r3, r3, #256
+ 1216 00f0 DA80     		strh	r2, [r3, #6]	@ movhi
+ 346:pae_libs/dataser_sublayer.c **** 
+ 347:pae_libs/dataser_sublayer.c **** 
+ 348:pae_libs/dataser_sublayer.c ****     return frame;
+ 1217              		.loc 1 348 12
+ 1218 00f2 07F58C73 		add	r3, r7, #280
+ 1219 00f6 A3F58A73 		sub	r3, r3, #276
+ 1220 00fa 1A68     		ldr	r2, [r3]
+ 1221 00fc 07F58C73 		add	r3, r7, #280
+ 1222 0100 A3F58073 		sub	r3, r3, #256
+ 1223 0104 1046     		mov	r0, r2
+ 1224 0106 1946     		mov	r1, r3
+ 1225 0108 4FF48073 		mov	r3, #256
+ 1226 010c 1A46     		mov	r2, r3
+ 1227 010e FFF7FEFF 		bl	memcpy
+ 349:pae_libs/dataser_sublayer.c **** }
+ 1228              		.loc 1 349 1
+ 1229 0112 07F58C73 		add	r3, r7, #280
+ 1230 0116 A3F58A73 		sub	r3, r3, #276
+ 1231 011a 1868     		ldr	r0, [r3]
+ 1232 011c 07F58E77 		add	r7, r7, #284
+ 1233              	.LCFI70:
+ 1234              		.cfi_def_cfa_offset 12
+ 1235 0120 BD46     		mov	sp, r7
+ 1236              	.LCFI71:
+ 1237              		.cfi_def_cfa_register 13
+ 1238              		@ sp needed
+ 1239 0122 90BD     		pop	{r4, r7, pc}
+ 1240              		.cfi_endproc
+ 1241              	.LFE12:
+ 1243              		.section	.text.dataservice_get_report_value,"ax",%progbits
+ 1244              		.align	1
+ 1245              		.global	dataservice_get_report_value
+ 1246              		.syntax unified
+ 1247              		.thumb
+ 1248              		.thumb_func
+ 1250              	dataservice_get_report_value:
+ 1251              	.LFB13:
+ 350:pae_libs/dataser_sublayer.c **** 
+ 351:pae_libs/dataser_sublayer.c **** 
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 29
+
+
+ 352:pae_libs/dataser_sublayer.c **** //Pasa el report value por puntero. Decuelve true si se ha heoc satisfacotriamente.
+ 353:pae_libs/dataser_sublayer.c **** bool dataservice_get_report_value(const SDUFrame *pframe, uint8_t *report_value)
+ 354:pae_libs/dataser_sublayer.c **** {
+ 1252              		.loc 1 354 1
+ 1253              		.cfi_startproc
+ 1254              		@ args = 0, pretend = 0, frame = 16
+ 1255              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1256              		@ link register save eliminated.
+ 1257 0000 80B4     		push	{r7}
+ 1258              	.LCFI72:
+ 1259              		.cfi_def_cfa_offset 4
+ 1260              		.cfi_offset 7, -4
+ 1261 0002 85B0     		sub	sp, sp, #20
+ 1262              	.LCFI73:
+ 1263              		.cfi_def_cfa_offset 24
+ 1264 0004 00AF     		add	r7, sp, #0
+ 1265              	.LCFI74:
+ 1266              		.cfi_def_cfa_register 7
+ 1267 0006 7860     		str	r0, [r7, #4]
+ 1268 0008 3960     		str	r1, [r7]
+ 355:pae_libs/dataser_sublayer.c ****     if (pframe == NULL || report_value == NULL) {
+ 1269              		.loc 1 355 8
+ 1270 000a 7B68     		ldr	r3, [r7, #4]
+ 1271 000c 002B     		cmp	r3, #0
+ 1272 000e 02D0     		beq	.L68
+ 1273              		.loc 1 355 24 discriminator 1
+ 1274 0010 3B68     		ldr	r3, [r7]
+ 1275 0012 002B     		cmp	r3, #0
+ 1276 0014 01D1     		bne	.L69
+ 1277              	.L68:
+ 356:pae_libs/dataser_sublayer.c ****         return false;
+ 1278              		.loc 1 356 16
+ 1279 0016 0023     		movs	r3, #0
+ 1280 0018 27E0     		b	.L75
+ 1281              	.L69:
+ 357:pae_libs/dataser_sublayer.c ****     }
+ 358:pae_libs/dataser_sublayer.c **** 
+ 359:pae_libs/dataser_sublayer.c **** 
+ 360:pae_libs/dataser_sublayer.c ****     if (pframe->type != FRAME_UNFRAGMENTED) {
+ 1282              		.loc 1 360 15
+ 1283 001a 7B68     		ldr	r3, [r7, #4]
+ 1284 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1285              		.loc 1 360 8
+ 1286 001e 002B     		cmp	r3, #0
+ 1287 0020 01D0     		beq	.L71
+ 361:pae_libs/dataser_sublayer.c ****         return false;
+ 1288              		.loc 1 361 16
+ 1289 0022 0023     		movs	r3, #0
+ 1290 0024 21E0     		b	.L75
+ 1291              	.L71:
+ 362:pae_libs/dataser_sublayer.c ****     }
+ 363:pae_libs/dataser_sublayer.c **** 
+ 364:pae_libs/dataser_sublayer.c **** 
+ 365:pae_libs/dataser_sublayer.c ****     if (pframe->data.unfragmented.header.PDU_ID != PDU_COMMAND) {
+ 1292              		.loc 1 365 49
+ 1293 0026 7B68     		ldr	r3, [r7, #4]
+ 1294 0028 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 30
+
+
+ 1295 002a 03F00803 		and	r3, r3, #8
+ 1296 002e DBB2     		uxtb	r3, r3
+ 1297              		.loc 1 365 8
+ 1298 0030 002B     		cmp	r3, #0
+ 1299 0032 01D1     		bne	.L72
+ 366:pae_libs/dataser_sublayer.c ****         return false;
+ 1300              		.loc 1 366 16
+ 1301 0034 0023     		movs	r3, #0
+ 1302 0036 18E0     		b	.L75
+ 1303              	.L72:
+ 367:pae_libs/dataser_sublayer.c ****     }
+ 368:pae_libs/dataser_sublayer.c **** 
+ 369:pae_libs/dataser_sublayer.c **** 
+ 370:pae_libs/dataser_sublayer.c ****     PLCW plcw = {0};
+ 1304              		.loc 1 370 10
+ 1305 0038 0023     		movs	r3, #0
+ 1306 003a BB81     		strh	r3, [r7, #12]	@ movhi
+ 371:pae_libs/dataser_sublayer.c ****     memcpy(&plcw, pframe->data.unfragmented.sdu, sizeof(PLCW));
+ 1307              		.loc 1 371 44
+ 1308 003c 7B68     		ldr	r3, [r7, #4]
+ 1309 003e 0633     		adds	r3, r3, #6
+ 1310              		.loc 1 371 5
+ 1311 0040 1B88     		ldrh	r3, [r3]	@ unaligned
+ 1312 0042 9BB2     		uxth	r3, r3
+ 1313 0044 BB81     		strh	r3, [r7, #12]	@ movhi
+ 372:pae_libs/dataser_sublayer.c **** 
+ 373:pae_libs/dataser_sublayer.c **** 
+ 374:pae_libs/dataser_sublayer.c ****     if (plcw.SPDU_Format_ID != 1 || plcw.SPDU_Type_ID != 0) {
+ 1314              		.loc 1 374 29
+ 1315 0046 3B7B     		ldrb	r3, [r7, #12]	@ zero_extendqisi2
+ 1316 0048 03F00103 		and	r3, r3, #1
+ 1317 004c DBB2     		uxtb	r3, r3
+ 1318              		.loc 1 374 8
+ 1319 004e 002B     		cmp	r3, #0
+ 1320 0050 05D0     		beq	.L73
+ 1321              		.loc 1 374 55 discriminator 1
+ 1322 0052 3B7B     		ldrb	r3, [r7, #12]	@ zero_extendqisi2
+ 1323 0054 03F00203 		and	r3, r3, #2
+ 1324 0058 DBB2     		uxtb	r3, r3
+ 1325              		.loc 1 374 34 discriminator 1
+ 1326 005a 002B     		cmp	r3, #0
+ 1327 005c 01D0     		beq	.L74
+ 1328              	.L73:
+ 375:pae_libs/dataser_sublayer.c ****         return false;
+ 1329              		.loc 1 375 16
+ 1330 005e 0023     		movs	r3, #0
+ 1331 0060 03E0     		b	.L75
+ 1332              	.L74:
+ 376:pae_libs/dataser_sublayer.c ****     }
+ 377:pae_libs/dataser_sublayer.c **** 
+ 378:pae_libs/dataser_sublayer.c **** 
+ 379:pae_libs/dataser_sublayer.c ****     *report_value = plcw.Report_Value;
+ 1333              		.loc 1 379 25
+ 1334 0062 7A7B     		ldrb	r2, [r7, #13]	@ zero_extendqisi2
+ 1335              		.loc 1 379 19
+ 1336 0064 3B68     		ldr	r3, [r7]
+ 1337 0066 1A70     		strb	r2, [r3]
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 31
+
+
+ 380:pae_libs/dataser_sublayer.c **** 
+ 381:pae_libs/dataser_sublayer.c **** 
+ 382:pae_libs/dataser_sublayer.c ****     return true;
+ 1338              		.loc 1 382 12
+ 1339 0068 0123     		movs	r3, #1
+ 1340              	.L75:
+ 383:pae_libs/dataser_sublayer.c **** }
+ 1341              		.loc 1 383 1
+ 1342 006a 1846     		mov	r0, r3
+ 1343 006c 1437     		adds	r7, r7, #20
+ 1344              	.LCFI75:
+ 1345              		.cfi_def_cfa_offset 4
+ 1346 006e BD46     		mov	sp, r7
+ 1347              	.LCFI76:
+ 1348              		.cfi_def_cfa_register 13
+ 1349              		@ sp needed
+ 1350 0070 5DF8047B 		ldr	r7, [sp], #4
+ 1351              	.LCFI77:
+ 1352              		.cfi_restore 7
+ 1353              		.cfi_def_cfa_offset 0
+ 1354 0074 7047     		bx	lr
+ 1355              		.cfi_endproc
+ 1356              	.LFE13:
+ 1358              		.section	.text.farmp_process_transfer_frame,"ax",%progbits
+ 1359              		.align	1
+ 1360              		.global	farmp_process_transfer_frame
+ 1361              		.syntax unified
+ 1362              		.thumb
+ 1363              		.thumb_func
+ 1365              	farmp_process_transfer_frame:
+ 1366              	.LFB14:
+ 384:pae_libs/dataser_sublayer.c **** 
+ 385:pae_libs/dataser_sublayer.c **** 
+ 386:pae_libs/dataser_sublayer.c **** 
+ 387:pae_libs/dataser_sublayer.c **** 
+ 388:pae_libs/dataser_sublayer.c **** void farmp_process_transfer_frame(FarmPContext *farmp, const SDUFrame *transfer_frame)
+ 389:pae_libs/dataser_sublayer.c **** {
+ 1367              		.loc 1 389 1
+ 1368              		.cfi_startproc
+ 1369              		@ args = 0, pretend = 0, frame = 16
+ 1370              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1371              		@ link register save eliminated.
+ 1372 0000 80B4     		push	{r7}
+ 1373              	.LCFI78:
+ 1374              		.cfi_def_cfa_offset 4
+ 1375              		.cfi_offset 7, -4
+ 1376 0002 85B0     		sub	sp, sp, #20
+ 1377              	.LCFI79:
+ 1378              		.cfi_def_cfa_offset 24
+ 1379 0004 00AF     		add	r7, sp, #0
+ 1380              	.LCFI80:
+ 1381              		.cfi_def_cfa_register 7
+ 1382 0006 7860     		str	r0, [r7, #4]
+ 1383 0008 3960     		str	r1, [r7]
+ 390:pae_libs/dataser_sublayer.c ****     if (farmp == NULL || transfer_frame == NULL) {
+ 1384              		.loc 1 390 8
+ 1385 000a 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 32
+
+
+ 1386 000c 002B     		cmp	r3, #0
+ 1387 000e 33D0     		beq	.L84
+ 1388              		.loc 1 390 23 discriminator 1
+ 1389 0010 3B68     		ldr	r3, [r7]
+ 1390 0012 002B     		cmp	r3, #0
+ 1391 0014 30D0     		beq	.L84
+ 391:pae_libs/dataser_sublayer.c ****         return;
+ 392:pae_libs/dataser_sublayer.c ****     }
+ 393:pae_libs/dataser_sublayer.c **** 
+ 394:pae_libs/dataser_sublayer.c **** 
+ 395:pae_libs/dataser_sublayer.c ****     uint8_t fsn = 0;
+ 1392              		.loc 1 395 13
+ 1393 0016 0023     		movs	r3, #0
+ 1394 0018 FB73     		strb	r3, [r7, #15]
+ 396:pae_libs/dataser_sublayer.c ****     uint8_t pdu_id = 0;
+ 1395              		.loc 1 396 13
+ 1396 001a 0023     		movs	r3, #0
+ 1397 001c BB73     		strb	r3, [r7, #14]
+ 397:pae_libs/dataser_sublayer.c **** 
+ 398:pae_libs/dataser_sublayer.c **** 
+ 399:pae_libs/dataser_sublayer.c ****     if (transfer_frame->type == FRAME_FRAGMENTED) {
+ 1398              		.loc 1 399 23
+ 1399 001e 3B68     		ldr	r3, [r7]
+ 1400 0020 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1401              		.loc 1 399 8
+ 1402 0022 012B     		cmp	r3, #1
+ 1403 0024 09D1     		bne	.L80
+ 400:pae_libs/dataser_sublayer.c ****         fsn = transfer_frame->data.fragmented.pdu_header.FSN;
+ 1404              		.loc 1 400 13
+ 1405 0026 3B68     		ldr	r3, [r7]
+ 1406 0028 5B79     		ldrb	r3, [r3, #5]
+ 1407 002a FB73     		strb	r3, [r7, #15]
+ 401:pae_libs/dataser_sublayer.c ****         pdu_id = transfer_frame->data.fragmented.pdu_header.PDU_ID;
+ 1408              		.loc 1 401 60
+ 1409 002c 3B68     		ldr	r3, [r7]
+ 1410 002e 5B78     		ldrb	r3, [r3, #1]
+ 1411 0030 C3F3C003 		ubfx	r3, r3, #3, #1
+ 1412 0034 DBB2     		uxtb	r3, r3
+ 1413              		.loc 1 401 16
+ 1414 0036 BB73     		strb	r3, [r7, #14]
+ 1415 0038 08E0     		b	.L81
+ 1416              	.L80:
+ 402:pae_libs/dataser_sublayer.c ****     } else {
+ 403:pae_libs/dataser_sublayer.c ****         fsn = transfer_frame->data.unfragmented.header.FSN;
+ 1417              		.loc 1 403 13
+ 1418 003a 3B68     		ldr	r3, [r7]
+ 1419 003c 5B79     		ldrb	r3, [r3, #5]
+ 1420 003e FB73     		strb	r3, [r7, #15]
+ 404:pae_libs/dataser_sublayer.c ****         pdu_id = transfer_frame->data.unfragmented.header.PDU_ID;
+ 1421              		.loc 1 404 58
+ 1422 0040 3B68     		ldr	r3, [r7]
+ 1423 0042 5B78     		ldrb	r3, [r3, #1]
+ 1424 0044 C3F3C003 		ubfx	r3, r3, #3, #1
+ 1425 0048 DBB2     		uxtb	r3, r3
+ 1426              		.loc 1 404 16
+ 1427 004a BB73     		strb	r3, [r7, #14]
+ 1428              	.L81:
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 33
+
+
+ 405:pae_libs/dataser_sublayer.c ****     }
+ 406:pae_libs/dataser_sublayer.c **** 
+ 407:pae_libs/dataser_sublayer.c **** 
+ 408:pae_libs/dataser_sublayer.c ****     // FARM-P only processes user-data frames for sequence control.
+ 409:pae_libs/dataser_sublayer.c ****     if (pdu_id != PDU_DATA) {
+ 1429              		.loc 1 409 8
+ 1430 004c BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 1431 004e 002B     		cmp	r3, #0
+ 1432 0050 14D1     		bne	.L85
+ 410:pae_libs/dataser_sublayer.c ****         return;
+ 411:pae_libs/dataser_sublayer.c ****     }
+ 412:pae_libs/dataser_sublayer.c **** 
+ 413:pae_libs/dataser_sublayer.c **** 
+ 414:pae_libs/dataser_sublayer.c ****     if (fsn == farmp->rcv_rcvNxt) {
+ 1433              		.loc 1 414 21
+ 1434 0052 7B68     		ldr	r3, [r7, #4]
+ 1435 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1436              		.loc 1 414 8
+ 1437 0056 FA7B     		ldrb	r2, [r7, #15]	@ zero_extendqisi2
+ 1438 0058 9A42     		cmp	r2, r3
+ 1439 005a 09D1     		bne	.L83
+ 415:pae_libs/dataser_sublayer.c ****         // Expected frame received: advance V(R).
+ 416:pae_libs/dataser_sublayer.c ****         farmp->rcv_rcvNxt++;
+ 1440              		.loc 1 416 14
+ 1441 005c 7B68     		ldr	r3, [r7, #4]
+ 1442 005e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1443              		.loc 1 416 26
+ 1444 0060 0133     		adds	r3, r3, #1
+ 1445 0062 DAB2     		uxtb	r2, r3
+ 1446 0064 7B68     		ldr	r3, [r7, #4]
+ 1447 0066 1A70     		strb	r2, [r3]
+ 417:pae_libs/dataser_sublayer.c ****         farmp->rcv_retx = false;
+ 1448              		.loc 1 417 25
+ 1449 0068 7B68     		ldr	r3, [r7, #4]
+ 1450 006a 0022     		movs	r2, #0
+ 1451 006c 5A70     		strb	r2, [r3, #1]
+ 1452 006e 06E0     		b	.L76
+ 1453              	.L83:
+ 418:pae_libs/dataser_sublayer.c ****     } else {
+ 419:pae_libs/dataser_sublayer.c ****         // Sequence gap or unexpected frame: request retransmission.
+ 420:pae_libs/dataser_sublayer.c ****         farmp->rcv_retx = true;
+ 1454              		.loc 1 420 25
+ 1455 0070 7B68     		ldr	r3, [r7, #4]
+ 1456 0072 0122     		movs	r2, #1
+ 1457 0074 5A70     		strb	r2, [r3, #1]
+ 1458 0076 02E0     		b	.L76
+ 1459              	.L84:
+ 391:pae_libs/dataser_sublayer.c ****     }
+ 1460              		.loc 1 391 9
+ 1461 0078 00BF     		nop
+ 1462 007a 00E0     		b	.L76
+ 1463              	.L85:
+ 410:pae_libs/dataser_sublayer.c ****     }
+ 1464              		.loc 1 410 9
+ 1465 007c 00BF     		nop
+ 1466              	.L76:
+ 421:pae_libs/dataser_sublayer.c ****     }
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 34
+
+
+ 422:pae_libs/dataser_sublayer.c **** }
+ 1467              		.loc 1 422 1
+ 1468 007e 1437     		adds	r7, r7, #20
+ 1469              	.LCFI81:
+ 1470              		.cfi_def_cfa_offset 4
+ 1471 0080 BD46     		mov	sp, r7
+ 1472              	.LCFI82:
+ 1473              		.cfi_def_cfa_register 13
+ 1474              		@ sp needed
+ 1475 0082 5DF8047B 		ldr	r7, [sp], #4
+ 1476              	.LCFI83:
+ 1477              		.cfi_restore 7
+ 1478              		.cfi_def_cfa_offset 0
+ 1479 0086 7047     		bx	lr
+ 1480              		.cfi_endproc
+ 1481              	.LFE14:
+ 1483              		.section	.text.farmp_process_frame_and_create_plcw,"ax",%progbits
+ 1484              		.align	1
+ 1485              		.global	farmp_process_frame_and_create_plcw
+ 1486              		.syntax unified
+ 1487              		.thumb
+ 1488              		.thumb_func
+ 1490              	farmp_process_frame_and_create_plcw:
+ 1491              	.LFB15:
+ 423:pae_libs/dataser_sublayer.c **** 
+ 424:pae_libs/dataser_sublayer.c **** 
+ 425:pae_libs/dataser_sublayer.c **** 
+ 426:pae_libs/dataser_sublayer.c **** 
+ 427:pae_libs/dataser_sublayer.c **** /*Recibe un transfer frame de datos.
+ 428:pae_libs/dataser_sublayer.c **** Actualiza el estado FARM-P.
+ 429:pae_libs/dataser_sublayer.c **** Crea un P-frame con PLCW.
+ 430:pae_libs/dataser_sublayer.c **** Devuelve ese P-frame listo para enviar.*/
+ 431:pae_libs/dataser_sublayer.c **** 
+ 432:pae_libs/dataser_sublayer.c **** 
+ 433:pae_libs/dataser_sublayer.c **** bool farmp_process_frame_and_create_plcw(
+ 434:pae_libs/dataser_sublayer.c ****     FarmPContext *farmp,
+ 435:pae_libs/dataser_sublayer.c ****     const SDUFrame *received_frame,
+ 436:pae_libs/dataser_sublayer.c ****     uint8_t expedited_frame_counter,
+ 437:pae_libs/dataser_sublayer.c ****     uint8_t pcid,
+ 438:pae_libs/dataser_sublayer.c ****     uint8_t PortID,
+ 439:pae_libs/dataser_sublayer.c ****     uint16_t SC_ID,
+ 440:pae_libs/dataser_sublayer.c ****     uint8_t SD_ID,
+ 441:pae_libs/dataser_sublayer.c ****     SDUFrame *out_plcw_pframe
+ 442:pae_libs/dataser_sublayer.c **** )
+ 443:pae_libs/dataser_sublayer.c **** {
+ 1492              		.loc 1 443 1
+ 1493              		.cfi_startproc
+ 1494              		@ args = 16, pretend = 0, frame = 272
+ 1495              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1496 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1497              	.LCFI84:
+ 1498              		.cfi_def_cfa_offset 20
+ 1499              		.cfi_offset 4, -20
+ 1500              		.cfi_offset 5, -16
+ 1501              		.cfi_offset 6, -12
+ 1502              		.cfi_offset 7, -8
+ 1503              		.cfi_offset 14, -4
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 35
+
+
+ 1504 0002 C9B0     		sub	sp, sp, #292
+ 1505              	.LCFI85:
+ 1506              		.cfi_def_cfa_offset 312
+ 1507 0004 04AF     		add	r7, sp, #16
+ 1508              	.LCFI86:
+ 1509              		.cfi_def_cfa 7, 296
+ 1510 0006 C7F80C01 		str	r0, [r7, #268]
+ 1511 000a C7F80811 		str	r1, [r7, #264]
+ 1512 000e 1146     		mov	r1, r2
+ 1513 0010 1A46     		mov	r2, r3
+ 1514 0012 0B46     		mov	r3, r1
+ 1515 0014 87F80731 		strb	r3, [r7, #263]
+ 1516 0018 1346     		mov	r3, r2
+ 1517 001a 87F80631 		strb	r3, [r7, #262]
+ 444:pae_libs/dataser_sublayer.c ****     if (farmp == NULL || received_frame == NULL || out_plcw_pframe == NULL) {
+ 1518              		.loc 1 444 8
+ 1519 001e D7F80C31 		ldr	r3, [r7, #268]
+ 1520 0022 002B     		cmp	r3, #0
+ 1521 0024 07D0     		beq	.L87
+ 1522              		.loc 1 444 23 discriminator 1
+ 1523 0026 D7F80831 		ldr	r3, [r7, #264]
+ 1524 002a 002B     		cmp	r3, #0
+ 1525 002c 03D0     		beq	.L87
+ 1526              		.loc 1 444 49 discriminator 2
+ 1527 002e D7F83431 		ldr	r3, [r7, #308]
+ 1528 0032 002B     		cmp	r3, #0
+ 1529 0034 01D1     		bne	.L88
+ 1530              	.L87:
+ 445:pae_libs/dataser_sublayer.c ****         return false;
+ 1531              		.loc 1 445 16
+ 1532 0036 0023     		movs	r3, #0
+ 1533 0038 2CE0     		b	.L89
+ 1534              	.L88:
+ 446:pae_libs/dataser_sublayer.c ****     }
+ 447:pae_libs/dataser_sublayer.c **** 
+ 448:pae_libs/dataser_sublayer.c **** 
+ 449:pae_libs/dataser_sublayer.c ****     farmp_process_transfer_frame(farmp, received_frame);
+ 1535              		.loc 1 449 5
+ 1536 003a D7F80811 		ldr	r1, [r7, #264]
+ 1537 003e D7F80C01 		ldr	r0, [r7, #268]
+ 1538 0042 FFF7FEFF 		bl	farmp_process_transfer_frame
+ 450:pae_libs/dataser_sublayer.c **** 
+ 451:pae_libs/dataser_sublayer.c **** 
+ 452:pae_libs/dataser_sublayer.c ****     *out_plcw_pframe = dataservice_create_plcw_pframe(
+ 1539              		.loc 1 452 24
+ 1540 0046 D7F80C31 		ldr	r3, [r7, #268]
+ 1541 004a 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1542 004c D7F80C31 		ldr	r3, [r7, #268]
+ 1543 0050 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1544 0052 D7F83461 		ldr	r6, [r7, #308]
+ 1545 0056 3846     		mov	r0, r7
+ 1546 0058 97F80651 		ldrb	r5, [r7, #262]	@ zero_extendqisi2
+ 1547 005c 97F80741 		ldrb	r4, [r7, #263]	@ zero_extendqisi2
+ 1548 0060 97F83021 		ldrb	r2, [r7, #304]	@ zero_extendqisi2
+ 1549 0064 0392     		str	r2, [sp, #12]
+ 1550 0066 B7F82C21 		ldrh	r2, [r7, #300]
+ 1551 006a 0292     		str	r2, [sp, #8]
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 36
+
+
+ 1552 006c 97F82821 		ldrb	r2, [r7, #296]	@ zero_extendqisi2
+ 1553 0070 0192     		str	r2, [sp, #4]
+ 1554 0072 0093     		str	r3, [sp]
+ 1555 0074 2B46     		mov	r3, r5
+ 1556 0076 2246     		mov	r2, r4
+ 1557 0078 FFF7FEFF 		bl	dataservice_create_plcw_pframe
+ 1558 007c 07F58873 		add	r3, r7, #272
+ 1559 0080 A3F58873 		sub	r3, r3, #272
+ 1560 0084 3046     		mov	r0, r6
+ 1561 0086 1946     		mov	r1, r3
+ 1562 0088 4FF48073 		mov	r3, #256
+ 1563 008c 1A46     		mov	r2, r3
+ 1564 008e FFF7FEFF 		bl	memcpy
+ 453:pae_libs/dataser_sublayer.c ****         farmp->rcv_rcvNxt,          // Report Value
+ 454:pae_libs/dataser_sublayer.c ****         expedited_frame_counter,
+ 455:pae_libs/dataser_sublayer.c ****         pcid,
+ 456:pae_libs/dataser_sublayer.c ****         farmp->rcv_retx,            // Retransmit Flag
+ 457:pae_libs/dataser_sublayer.c ****         PortID,
+ 458:pae_libs/dataser_sublayer.c ****         SC_ID,
+ 459:pae_libs/dataser_sublayer.c ****         SD_ID
+ 460:pae_libs/dataser_sublayer.c ****     );
+ 461:pae_libs/dataser_sublayer.c **** 
+ 462:pae_libs/dataser_sublayer.c **** 
+ 463:pae_libs/dataser_sublayer.c ****     return true;
+ 1565              		.loc 1 463 12
+ 1566 0092 0123     		movs	r3, #1
+ 1567              	.L89:
+ 464:pae_libs/dataser_sublayer.c **** }
+ 1568              		.loc 1 464 1
+ 1569 0094 1846     		mov	r0, r3
+ 1570 0096 07F58A77 		add	r7, r7, #276
+ 1571              	.LCFI87:
+ 1572              		.cfi_def_cfa_offset 20
+ 1573 009a BD46     		mov	sp, r7
+ 1574              	.LCFI88:
+ 1575              		.cfi_def_cfa_register 13
+ 1576              		@ sp needed
+ 1577 009c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1578              		.cfi_endproc
+ 1579              	.LFE15:
+ 1581              		.section	.text.farmp_init,"ax",%progbits
+ 1582              		.align	1
+ 1583              		.global	farmp_init
+ 1584              		.syntax unified
+ 1585              		.thumb
+ 1586              		.thumb_func
+ 1588              	farmp_init:
+ 1589              	.LFB16:
+ 465:pae_libs/dataser_sublayer.c **** void farmp_init(FarmPContext *farmp)
+ 466:pae_libs/dataser_sublayer.c **** {
+ 1590              		.loc 1 466 1
+ 1591              		.cfi_startproc
+ 1592              		@ args = 0, pretend = 0, frame = 8
+ 1593              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1594              		@ link register save eliminated.
+ 1595 0000 80B4     		push	{r7}
+ 1596              	.LCFI89:
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 37
+
+
+ 1597              		.cfi_def_cfa_offset 4
+ 1598              		.cfi_offset 7, -4
+ 1599 0002 83B0     		sub	sp, sp, #12
+ 1600              	.LCFI90:
+ 1601              		.cfi_def_cfa_offset 16
+ 1602 0004 00AF     		add	r7, sp, #0
+ 1603              	.LCFI91:
+ 1604              		.cfi_def_cfa_register 7
+ 1605 0006 7860     		str	r0, [r7, #4]
+ 467:pae_libs/dataser_sublayer.c ****     if (farmp == NULL) {
+ 1606              		.loc 1 467 8
+ 1607 0008 7B68     		ldr	r3, [r7, #4]
+ 1608 000a 002B     		cmp	r3, #0
+ 1609 000c 09D0     		beq	.L93
+ 468:pae_libs/dataser_sublayer.c ****         return;
+ 469:pae_libs/dataser_sublayer.c ****     }
+ 470:pae_libs/dataser_sublayer.c **** 
+ 471:pae_libs/dataser_sublayer.c **** 
+ 472:pae_libs/dataser_sublayer.c ****     farmp->rcv_rcvNxt = 0;
+ 1610              		.loc 1 472 23
+ 1611 000e 7B68     		ldr	r3, [r7, #4]
+ 1612 0010 0022     		movs	r2, #0
+ 1613 0012 1A70     		strb	r2, [r3]
+ 473:pae_libs/dataser_sublayer.c ****     farmp->rcv_retx = false;
+ 1614              		.loc 1 473 21
+ 1615 0014 7B68     		ldr	r3, [r7, #4]
+ 1616 0016 0022     		movs	r2, #0
+ 1617 0018 5A70     		strb	r2, [r3, #1]
+ 474:pae_libs/dataser_sublayer.c ****     farmp->receiver_ready = true;
+ 1618              		.loc 1 474 27
+ 1619 001a 7B68     		ldr	r3, [r7, #4]
+ 1620 001c 0122     		movs	r2, #1
+ 1621 001e 9A70     		strb	r2, [r3, #2]
+ 1622 0020 00E0     		b	.L90
+ 1623              	.L93:
+ 468:pae_libs/dataser_sublayer.c ****         return;
+ 1624              		.loc 1 468 9
+ 1625 0022 00BF     		nop
+ 1626              	.L90:
+ 475:pae_libs/dataser_sublayer.c **** }
+ 1627              		.loc 1 475 1
+ 1628 0024 0C37     		adds	r7, r7, #12
+ 1629              	.LCFI92:
+ 1630              		.cfi_def_cfa_offset 4
+ 1631 0026 BD46     		mov	sp, r7
+ 1632              	.LCFI93:
+ 1633              		.cfi_def_cfa_register 13
+ 1634              		@ sp needed
+ 1635 0028 5DF8047B 		ldr	r7, [sp], #4
+ 1636              	.LCFI94:
+ 1637              		.cfi_restore 7
+ 1638              		.cfi_def_cfa_offset 0
+ 1639 002c 7047     		bx	lr
+ 1640              		.cfi_endproc
+ 1641              	.LFE16:
+ 1643              		.section	.text.fop_process_plcw,"ax",%progbits
+ 1644              		.align	1
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 38
+
+
+ 1645              		.global	fop_process_plcw
+ 1646              		.syntax unified
+ 1647              		.thumb
+ 1648              		.thumb_func
+ 1650              	fop_process_plcw:
+ 1651              	.LFB17:
+ 476:pae_libs/dataser_sublayer.c **** 
+ 477:pae_libs/dataser_sublayer.c **** 
+ 478:pae_libs/dataser_sublayer.c **** 
+ 479:pae_libs/dataser_sublayer.c **** 
+ 480:pae_libs/dataser_sublayer.c **** 
+ 481:pae_libs/dataser_sublayer.c **** 
+ 482:pae_libs/dataser_sublayer.c **** 
+ 483:pae_libs/dataser_sublayer.c **** 
+ 484:pae_libs/dataser_sublayer.c **** /*
+ 485:pae_libs/dataser_sublayer.c **** Extrae el Report_Value del P-frame/PLCW recibido.
+ 486:pae_libs/dataser_sublayer.c **** Actualiza el estado FOP-P con ese ACK (PLCW).
+ 487:pae_libs/dataser_sublayer.c **** Borra de la SentFrameQueue los frames ya ACKeados.
+ 488:pae_libs/dataser_sublayer.c **** Rellena los huecos de ventana con nuevos frames del IOBuffer.
+ 489:pae_libs/dataser_sublayer.c **** Si no quedan frames pendientes, para el timer.
+ 490:pae_libs/dataser_sublayer.c **** */
+ 491:pae_libs/dataser_sublayer.c **** 
+ 492:pae_libs/dataser_sublayer.c **** 
+ 493:pae_libs/dataser_sublayer.c **** 
+ 494:pae_libs/dataser_sublayer.c **** 
+ 495:pae_libs/dataser_sublayer.c **** bool fop_process_plcw(
+ 496:pae_libs/dataser_sublayer.c ****     FopPContext *fop,
+ 497:pae_libs/dataser_sublayer.c ****     SentFrameQueue *queue,
+ 498:pae_libs/dataser_sublayer.c ****     IOBuffer *buffer,
+ 499:pae_libs/dataser_sublayer.c ****     const SDUFrame *pframe
+ 500:pae_libs/dataser_sublayer.c **** )
+ 501:pae_libs/dataser_sublayer.c **** {
+ 1652              		.loc 1 501 1
+ 1653              		.cfi_startproc
+ 1654              		@ args = 0, pretend = 0, frame = 24
+ 1655              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1656 0000 80B5     		push	{r7, lr}
+ 1657              	.LCFI95:
+ 1658              		.cfi_def_cfa_offset 8
+ 1659              		.cfi_offset 7, -8
+ 1660              		.cfi_offset 14, -4
+ 1661 0002 86B0     		sub	sp, sp, #24
+ 1662              	.LCFI96:
+ 1663              		.cfi_def_cfa_offset 32
+ 1664 0004 00AF     		add	r7, sp, #0
+ 1665              	.LCFI97:
+ 1666              		.cfi_def_cfa_register 7
+ 1667 0006 F860     		str	r0, [r7, #12]
+ 1668 0008 B960     		str	r1, [r7, #8]
+ 1669 000a 7A60     		str	r2, [r7, #4]
+ 1670 000c 3B60     		str	r3, [r7]
+ 502:pae_libs/dataser_sublayer.c ****     if (fop == NULL || queue == NULL || buffer == NULL || pframe == NULL) {
+ 1671              		.loc 1 502 8
+ 1672 000e FB68     		ldr	r3, [r7, #12]
+ 1673 0010 002B     		cmp	r3, #0
+ 1674 0012 08D0     		beq	.L95
+ 1675              		.loc 1 502 21 discriminator 1
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 39
+
+
+ 1676 0014 BB68     		ldr	r3, [r7, #8]
+ 1677 0016 002B     		cmp	r3, #0
+ 1678 0018 05D0     		beq	.L95
+ 1679              		.loc 1 502 38 discriminator 2
+ 1680 001a 7B68     		ldr	r3, [r7, #4]
+ 1681 001c 002B     		cmp	r3, #0
+ 1682 001e 02D0     		beq	.L95
+ 1683              		.loc 1 502 56 discriminator 3
+ 1684 0020 3B68     		ldr	r3, [r7]
+ 1685 0022 002B     		cmp	r3, #0
+ 1686 0024 01D1     		bne	.L96
+ 1687              	.L95:
+ 503:pae_libs/dataser_sublayer.c ****         return false;
+ 1688              		.loc 1 503 16
+ 1689 0026 0023     		movs	r3, #0
+ 1690 0028 2BE0     		b	.L100
+ 1691              	.L96:
+ 504:pae_libs/dataser_sublayer.c ****     }
+ 505:pae_libs/dataser_sublayer.c **** 
+ 506:pae_libs/dataser_sublayer.c **** 
+ 507:pae_libs/dataser_sublayer.c ****     uint8_t report_value = 0;
+ 1692              		.loc 1 507 13
+ 1693 002a 0023     		movs	r3, #0
+ 1694 002c FB75     		strb	r3, [r7, #23]
+ 508:pae_libs/dataser_sublayer.c **** 
+ 509:pae_libs/dataser_sublayer.c **** 
+ 510:pae_libs/dataser_sublayer.c ****     if (!dataservice_get_report_value(pframe, &report_value)) {
+ 1695              		.loc 1 510 10
+ 1696 002e 07F11703 		add	r3, r7, #23
+ 1697 0032 1946     		mov	r1, r3
+ 1698 0034 3868     		ldr	r0, [r7]
+ 1699 0036 FFF7FEFF 		bl	dataservice_get_report_value
+ 1700 003a 0346     		mov	r3, r0
+ 1701              		.loc 1 510 9 discriminator 1
+ 1702 003c 83F00103 		eor	r3, r3, #1
+ 1703 0040 DBB2     		uxtb	r3, r3
+ 1704              		.loc 1 510 8 discriminator 1
+ 1705 0042 002B     		cmp	r3, #0
+ 1706 0044 01D0     		beq	.L98
+ 511:pae_libs/dataser_sublayer.c ****         return false;
+ 1707              		.loc 1 511 16
+ 1708 0046 0023     		movs	r3, #0
+ 1709 0048 1BE0     		b	.L100
+ 1710              	.L98:
+ 512:pae_libs/dataser_sublayer.c ****     }
+ 513:pae_libs/dataser_sublayer.c **** 
+ 514:pae_libs/dataser_sublayer.c **** 
+ 515:pae_libs/dataser_sublayer.c ****     fop->snd_prevRcvNxt = fop->snd_rcvNxt;
+ 1711              		.loc 1 515 30
+ 1712 004a FB68     		ldr	r3, [r7, #12]
+ 1713 004c 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 1714              		.loc 1 515 25
+ 1715 004e FB68     		ldr	r3, [r7, #12]
+ 1716 0050 9A70     		strb	r2, [r3, #2]
+ 516:pae_libs/dataser_sublayer.c ****     fop->snd_rcvNxt = report_value;
+ 1717              		.loc 1 516 21
+ 1718 0052 FA7D     		ldrb	r2, [r7, #23]	@ zero_extendqisi2
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 40
+
+
+ 1719 0054 FB68     		ldr	r3, [r7, #12]
+ 1720 0056 5A70     		strb	r2, [r3, #1]
+ 517:pae_libs/dataser_sublayer.c **** 
+ 518:pae_libs/dataser_sublayer.c **** 
+ 519:pae_libs/dataser_sublayer.c ****     sent_frame_queue_remove_acked_fsn(queue, report_value);
+ 1721              		.loc 1 519 5
+ 1722 0058 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1723 005a 1946     		mov	r1, r3
+ 1724 005c B868     		ldr	r0, [r7, #8]
+ 1725 005e FFF7FEFF 		bl	sent_frame_queue_remove_acked_fsn
+ 520:pae_libs/dataser_sublayer.c ****     fill_sent_frame_queue_from_io_buffer(buffer, queue, fop);
+ 1726              		.loc 1 520 5
+ 1727 0062 FA68     		ldr	r2, [r7, #12]
+ 1728 0064 B968     		ldr	r1, [r7, #8]
+ 1729 0066 7868     		ldr	r0, [r7, #4]
+ 1730 0068 FFF7FEFF 		bl	fill_sent_frame_queue_from_io_buffer
+ 521:pae_libs/dataser_sublayer.c **** 
+ 522:pae_libs/dataser_sublayer.c **** 
+ 523:pae_libs/dataser_sublayer.c ****     if (queue->count == 0) {
+ 1731              		.loc 1 523 14
+ 1732 006c BB68     		ldr	r3, [r7, #8]
+ 1733 006e D3F80034 		ldr	r3, [r3, #1024]
+ 1734              		.loc 1 523 8
+ 1735 0072 002B     		cmp	r3, #0
+ 1736 0074 04D1     		bne	.L99
+ 524:pae_libs/dataser_sublayer.c ****         dataservice_timer_stop(&fop->timer);
+ 1737              		.loc 1 524 9
+ 1738 0076 FB68     		ldr	r3, [r7, #12]
+ 1739 0078 0833     		adds	r3, r3, #8
+ 1740 007a 1846     		mov	r0, r3
+ 1741 007c FFF7FEFF 		bl	dataservice_timer_stop
+ 1742              	.L99:
+ 525:pae_libs/dataser_sublayer.c ****     }
+ 526:pae_libs/dataser_sublayer.c **** 
+ 527:pae_libs/dataser_sublayer.c **** 
+ 528:pae_libs/dataser_sublayer.c ****     return true;
+ 1743              		.loc 1 528 12
+ 1744 0080 0123     		movs	r3, #1
+ 1745              	.L100:
+ 529:pae_libs/dataser_sublayer.c **** }
+ 1746              		.loc 1 529 1
+ 1747 0082 1846     		mov	r0, r3
+ 1748 0084 1837     		adds	r7, r7, #24
+ 1749              	.LCFI98:
+ 1750              		.cfi_def_cfa_offset 8
+ 1751 0086 BD46     		mov	sp, r7
+ 1752              	.LCFI99:
+ 1753              		.cfi_def_cfa_register 13
+ 1754              		@ sp needed
+ 1755 0088 80BD     		pop	{r7, pc}
+ 1756              		.cfi_endproc
+ 1757              	.LFE17:
+ 1759              		.text
+ 1760              	.Letext0:
+ 1761              		.file 2 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/mac
+ 1762              		.file 3 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys
+ 1763              		.file 4 "pae_libs/protocol_definitions.h"
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 41
+
+
+ 1764              		.file 5 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/lib/gcc/arm-none-eabi/14.
+ 1765              		.file 6 "pae_libs/io_sublayer.h"
+ 1766              		.file 7 "pae_libs/dataser_sublayer.h"
+ 1767              		.file 8 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/str
+ARM GAS  C:\msys64\tmp\ccXczoG7.s 			page 42
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 dataser_sublayer.c
+C:\msys64\tmp\ccXczoG7.s:21     .text.sent_frame_queue_init:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:27     .text.sent_frame_queue_init:00000000 sent_frame_queue_init
+C:\msys64\tmp\ccXczoG7.s:78     .text.dataservice_timer_init:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:84     .text.dataservice_timer_init:00000000 dataservice_timer_init
+C:\msys64\tmp\ccXczoG7.s:141    .text.fop_init:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:147    .text.fop_init:00000000 fop_init
+C:\msys64\tmp\ccXczoG7.s:214    .text.dataservice_timer_start:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:220    .text.dataservice_timer_start:00000000 dataservice_timer_start
+C:\msys64\tmp\ccXczoG7.s:273    .text.dataservice_timer_stop:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:279    .text.dataservice_timer_stop:00000000 dataservice_timer_stop
+C:\msys64\tmp\ccXczoG7.s:327    .text.dataservice_timer_expired:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:333    .text.dataservice_timer_expired:00000000 dataservice_timer_expired
+C:\msys64\tmp\ccXczoG7.s:404    .text.fsn_is_acknowledged:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:409    .text.fsn_is_acknowledged:00000000 fsn_is_acknowledged
+C:\msys64\tmp\ccXczoG7.s:473    .text.sent_frame_queue_remove_acked_fsn:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:479    .text.sent_frame_queue_remove_acked_fsn:00000000 sent_frame_queue_remove_acked_fsn
+C:\msys64\tmp\ccXczoG7.s:657    .text.dataservice_set_fsn:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:663    .text.dataservice_set_fsn:00000000 dataservice_set_fsn
+C:\msys64\tmp\ccXczoG7.s:725    .text.io_buffer_to_sent_frame_queue:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:731    .text.io_buffer_to_sent_frame_queue:00000000 io_buffer_to_sent_frame_queue
+C:\msys64\tmp\ccXczoG7.s:907    .text.fill_sent_frame_queue_from_io_buffer:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:913    .text.fill_sent_frame_queue_from_io_buffer:00000000 fill_sent_frame_queue_from_io_buffer
+C:\msys64\tmp\ccXczoG7.s:1005   .text.dataservice_create_plcw:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:1010   .text.dataservice_create_plcw:00000000 dataservice_create_plcw
+C:\msys64\tmp\ccXczoG7.s:1107   .text.dataservice_create_plcw_pframe:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:1113   .text.dataservice_create_plcw_pframe:00000000 dataservice_create_plcw_pframe
+C:\msys64\tmp\ccXczoG7.s:1244   .text.dataservice_get_report_value:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:1250   .text.dataservice_get_report_value:00000000 dataservice_get_report_value
+C:\msys64\tmp\ccXczoG7.s:1359   .text.farmp_process_transfer_frame:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:1365   .text.farmp_process_transfer_frame:00000000 farmp_process_transfer_frame
+C:\msys64\tmp\ccXczoG7.s:1484   .text.farmp_process_frame_and_create_plcw:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:1490   .text.farmp_process_frame_and_create_plcw:00000000 farmp_process_frame_and_create_plcw
+C:\msys64\tmp\ccXczoG7.s:1582   .text.farmp_init:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:1588   .text.farmp_init:00000000 farmp_init
+C:\msys64\tmp\ccXczoG7.s:1644   .text.fop_process_plcw:00000000 $t
+C:\msys64\tmp\ccXczoG7.s:1650   .text.fop_process_plcw:00000000 fop_process_plcw
+
+UNDEFINED SYMBOLS
+memset
+memcpy
+create_pdu_header

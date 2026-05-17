@@ -4,9 +4,10 @@
 
 /* LEDS */
 /*PG8: 11 ->NOMINAL
-PI5:12     -> COMMISSIONING
+PF0:18b    ->COMMISSIONING
  PG15:15   -> SUN SAFE
- PF1:16 -> CONTINGENCY */
+ PF1:16 -> CONTINGENCY 
+ GND -> */
 
 
 /* EN LA DK2 */
@@ -34,27 +35,27 @@ PI5:12     -> COMMISSIONING
 #include "common.h"
 #include "adcs_task.h"
 #include "health_task.h"
-
+#include "semphr.h"
 
 /* ================= MACROS AND CONSTANTS ================= */
 // Task stack sizes
 #define OBC_STACK_SIZE     3000
-#define COMMS_STACK_SIZE   3000 // ??
-#define PAYLOAD_STACK_SIZE 4000 // ??
+#define COMMS_STACK_SIZE   250 // ??
+#define PAYLOAD_STACK_SIZE 250 // ??
 #define EPS_STACK_SIZE	   250  // ??
-#define OBDH_STACK_SIZE    1000 // ??
-#define ADCS_STACK_SIZE    1000 // ??
+#define OBDH_STACK_SIZE    250 // ??
+#define ADCS_STACK_SIZE    250 // ??
 #define HEALTH_STACK_SIZE  250  // ??
 
 
-// Task priorities
+// Task priorities                      
 #define OBC_PRIORITY       6 // ??
-#define COMMS_PRIORITY     0 // ??
-#define PAYLOAD_PRIORITY   1 // ?? Mirar!!
-#define EPS_PRIORITY       2 // ?? 
+#define COMMS_PRIORITY     3 // ??
+#define PAYLOAD_PRIORITY   3 // ?? ALL SET EQUAL FOR TESTING!!
+#define EPS_PRIORITY       3 // ?? 
 #define OBDH_PRIORITY      3 // ??
-#define ADCS_PRIORITY      4 // ??
-#define HEALTH_PRIORITY    5
+#define ADCS_PRIORITY      3 // ??
+#define HEALTH_PRIORITY    3
 
 /* ================= TYPE DEFINITIONS ================= */
 /* ================= GLOBAL VARIABLES ================= */
@@ -66,7 +67,9 @@ TaskHandle_t obdh_task_handle;
 TaskHandle_t adcs_task_handle;
 TaskHandle_t health_task_handle;
 
-OBC_SatelliteState_t obc_current_state = OBC_STATE_NOMINAL;
+OBC_SatelliteState_t obc_current_state = OBC_STATE_COMMISSIONING; // Default state at startup
+
+SemaphoreHandle_t uart_mutex; //debugging
 
 /* ================= MODULE-LEVEL VARIABLES ================= */
 static TaskNotifyValue_t obc_event_slot;
@@ -155,6 +158,7 @@ ReturnCode_t obc_send_event_from_task(OBC_TaskID_t id, EVT_ID_t *val, uint32_t n
         taskENTER_CRITICAL();
         HAL_GPIO_WritePin(GPIOG, GPIO_PIN_2, GPIO_PIN_SET); /*Activate LED because more than one task were able to notify OBC task before he woke up*/
         taskEXIT_CRITICAL();
+        printf("Failed to send notification from task %d\n", id);
         return NOT_OK;
     }
     
@@ -173,13 +177,14 @@ static void obc_task(void *pv_parameters)
 
 static ReturnCode_t obc_setup(void) {
 
-    printf("Setting up OBC...\n");
     // 1. Create queues
     // create_queues();  // TODO: implement this function
 
     (void)obc_create_subsystem_tasks();
 
-    HAL_GPIO_WritePin(GPIOG, GPIO_PIN_8, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOF, GPIO_PIN_0, GPIO_PIN_SET);
+
+    LOGGING("OBC Task setup complete. Entering main loop...\n");
 
     return OK;
 }
@@ -210,14 +215,13 @@ static ReturnCode_t obc_create_subsystem_tasks(void)
 static ReturnCode_t obc_process(void)
 {
     
-    printf("Processing OBC...\n");
-
     /* We iterate until no actions to be done are available */
    
     wait_for_notification(&obc_event_slot); 
 
 
     (void)obc_process_slot(obc_event_slot);
+
 
     return OK;
 }

@@ -1,0 +1,1367 @@
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"smtc_shield_lr1120mb1gxs_common.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c"
+  20              		.global	smtc_shield_lr1120mb1gxs_common_pa_pwr_cfg_table
+  21              		.section	.rodata.smtc_shield_lr1120mb1gxs_common_pa_pwr_cfg_table,"a"
+  22              		.align	2
+  25              	smtc_shield_lr1120mb1gxs_common_pa_pwr_cfg_table:
+  26 0000 F1       		.byte	-15
+  27 0001 00       		.byte	0
+  28 0002 00       		.byte	0
+  29 0003 02       		.byte	2
+  30 0004 00       		.byte	0
+  31 0005 F2       		.byte	-14
+  32 0006 00       		.byte	0
+  33 0007 00       		.byte	0
+  34 0008 02       		.byte	2
+  35 0009 00       		.byte	0
+  36 000a F4       		.byte	-12
+  37 000b 00       		.byte	0
+  38 000c 00       		.byte	0
+  39 000d 00       		.byte	0
+  40 000e 00       		.byte	0
+  41 000f F4       		.byte	-12
+  42 0010 00       		.byte	0
+  43 0011 00       		.byte	0
+  44 0012 02       		.byte	2
+  45 0013 00       		.byte	0
+  46 0014 F6       		.byte	-10
+  47 0015 00       		.byte	0
+  48 0016 00       		.byte	0
+  49 0017 01       		.byte	1
+  50 0018 00       		.byte	0
+  51 0019 F7       		.byte	-9
+  52 001a 00       		.byte	0
+  53 001b 00       		.byte	0
+  54 001c 00       		.byte	0
+  55 001d 00       		.byte	0
+  56 001e F8       		.byte	-8
+  57 001f 00       		.byte	0
+  58 0020 00       		.byte	0
+  59 0021 00       		.byte	0
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 2
+
+
+  60 0022 00       		.byte	0
+  61 0023 F9       		.byte	-7
+  62 0024 00       		.byte	0
+  63 0025 00       		.byte	0
+  64 0026 00       		.byte	0
+  65 0027 00       		.byte	0
+  66 0028 FA       		.byte	-6
+  67 0029 00       		.byte	0
+  68 002a 00       		.byte	0
+  69 002b 00       		.byte	0
+  70 002c 00       		.byte	0
+  71 002d FA       		.byte	-6
+  72 002e 00       		.byte	0
+  73 002f 00       		.byte	0
+  74 0030 02       		.byte	2
+  75 0031 00       		.byte	0
+  76 0032 FC       		.byte	-4
+  77 0033 00       		.byte	0
+  78 0034 00       		.byte	0
+  79 0035 00       		.byte	0
+  80 0036 00       		.byte	0
+  81 0037 FD       		.byte	-3
+  82 0038 00       		.byte	0
+  83 0039 00       		.byte	0
+  84 003a 00       		.byte	0
+  85 003b 00       		.byte	0
+  86 003c FE       		.byte	-2
+  87 003d 00       		.byte	0
+  88 003e 00       		.byte	0
+  89 003f 00       		.byte	0
+  90 0040 00       		.byte	0
+  91 0041 FF       		.byte	-1
+  92 0042 00       		.byte	0
+  93 0043 00       		.byte	0
+  94 0044 00       		.byte	0
+  95 0045 00       		.byte	0
+  96 0046 00       		.byte	0
+  97 0047 00       		.byte	0
+  98 0048 00       		.byte	0
+  99 0049 00       		.byte	0
+ 100 004a 00       		.byte	0
+ 101 004b 01       		.byte	1
+ 102 004c 00       		.byte	0
+ 103 004d 00       		.byte	0
+ 104 004e 00       		.byte	0
+ 105 004f 00       		.byte	0
+ 106 0050 02       		.byte	2
+ 107 0051 00       		.byte	0
+ 108 0052 00       		.byte	0
+ 109 0053 00       		.byte	0
+ 110 0054 00       		.byte	0
+ 111 0055 03       		.byte	3
+ 112 0056 00       		.byte	0
+ 113 0057 00       		.byte	0
+ 114 0058 00       		.byte	0
+ 115 0059 00       		.byte	0
+ 116 005a 03       		.byte	3
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 3
+
+
+ 117 005b 00       		.byte	0
+ 118 005c 00       		.byte	0
+ 119 005d 02       		.byte	2
+ 120 005e 00       		.byte	0
+ 121 005f 05       		.byte	5
+ 122 0060 00       		.byte	0
+ 123 0061 00       		.byte	0
+ 124 0062 00       		.byte	0
+ 125 0063 00       		.byte	0
+ 126 0064 06       		.byte	6
+ 127 0065 00       		.byte	0
+ 128 0066 00       		.byte	0
+ 129 0067 00       		.byte	0
+ 130 0068 00       		.byte	0
+ 131 0069 06       		.byte	6
+ 132 006a 00       		.byte	0
+ 133 006b 00       		.byte	0
+ 134 006c 01       		.byte	1
+ 135 006d 00       		.byte	0
+ 136 006e 08       		.byte	8
+ 137 006f 00       		.byte	0
+ 138 0070 00       		.byte	0
+ 139 0071 00       		.byte	0
+ 140 0072 00       		.byte	0
+ 141 0073 09       		.byte	9
+ 142 0074 00       		.byte	0
+ 143 0075 00       		.byte	0
+ 144 0076 00       		.byte	0
+ 145 0077 00       		.byte	0
+ 146 0078 0A       		.byte	10
+ 147 0079 00       		.byte	0
+ 148 007a 00       		.byte	0
+ 149 007b 00       		.byte	0
+ 150 007c 00       		.byte	0
+ 151 007d 0B       		.byte	11
+ 152 007e 00       		.byte	0
+ 153 007f 00       		.byte	0
+ 154 0080 00       		.byte	0
+ 155 0081 00       		.byte	0
+ 156 0082 0A       		.byte	10
+ 157 0083 00       		.byte	0
+ 158 0084 00       		.byte	0
+ 159 0085 02       		.byte	2
+ 160 0086 00       		.byte	0
+ 161 0087 0C       		.byte	12
+ 162 0088 00       		.byte	0
+ 163 0089 00       		.byte	0
+ 164 008a 01       		.byte	1
+ 165 008b 00       		.byte	0
+ 166 008c 0D       		.byte	13
+ 167 008d 00       		.byte	0
+ 168 008e 00       		.byte	0
+ 169 008f 01       		.byte	1
+ 170 0090 00       		.byte	0
+ 171 0091 0D       		.byte	13
+ 172 0092 00       		.byte	0
+ 173 0093 00       		.byte	0
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 4
+
+
+ 174 0094 03       		.byte	3
+ 175 0095 00       		.byte	0
+ 176 0096 0E       		.byte	14
+ 177 0097 00       		.byte	0
+ 178 0098 00       		.byte	0
+ 179 0099 03       		.byte	3
+ 180 009a 00       		.byte	0
+ 181 009b 0E       		.byte	14
+ 182 009c 00       		.byte	0
+ 183 009d 00       		.byte	0
+ 184 009e 06       		.byte	6
+ 185 009f 00       		.byte	0
+ 186 00a0 0E       		.byte	14
+ 187 00a1 00       		.byte	0
+ 188 00a2 00       		.byte	0
+ 189 00a3 07       		.byte	7
+ 190 00a4 00       		.byte	0
+ 191 00a5 15       		.byte	21
+ 192 00a6 01       		.byte	1
+ 193 00a7 01       		.byte	1
+ 194 00a8 00       		.byte	0
+ 195 00a9 05       		.byte	5
+ 196 00aa 16       		.byte	22
+ 197 00ab 01       		.byte	1
+ 198 00ac 01       		.byte	1
+ 199 00ad 00       		.byte	0
+ 200 00ae 05       		.byte	5
+ 201 00af 16       		.byte	22
+ 202 00b0 01       		.byte	1
+ 203 00b1 01       		.byte	1
+ 204 00b2 01       		.byte	1
+ 205 00b3 05       		.byte	5
+ 206 00b4 16       		.byte	22
+ 207 00b5 01       		.byte	1
+ 208 00b6 01       		.byte	1
+ 209 00b7 02       		.byte	2
+ 210 00b8 05       		.byte	5
+ 211 00b9 16       		.byte	22
+ 212 00ba 01       		.byte	1
+ 213 00bb 01       		.byte	1
+ 214 00bc 02       		.byte	2
+ 215 00bd 07       		.byte	7
+ 216 00be 16       		.byte	22
+ 217 00bf 01       		.byte	1
+ 218 00c0 01       		.byte	1
+ 219 00c1 04       		.byte	4
+ 220 00c2 06       		.byte	6
+ 221 00c3 16       		.byte	22
+ 222 00c4 01       		.byte	1
+ 223 00c5 01       		.byte	1
+ 224 00c6 04       		.byte	4
+ 225 00c7 07       		.byte	7
+ 226              		.global	smtc_shield_lr1120mb1gxs_common_pa_pwr_hf_cfg_table
+ 227              		.section	.rodata.smtc_shield_lr1120mb1gxs_common_pa_pwr_hf_cfg_table,"a"
+ 228              		.align	2
+ 231              	smtc_shield_lr1120mb1gxs_common_pa_pwr_hf_cfg_table:
+ 232 0000 EE       		.byte	-18
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 5
+
+
+ 233 0001 02       		.byte	2
+ 234 0002 00       		.byte	0
+ 235 0003 00       		.byte	0
+ 236 0004 00       		.byte	0
+ 237 0005 EE       		.byte	-18
+ 238 0006 02       		.byte	2
+ 239 0007 00       		.byte	0
+ 240 0008 04       		.byte	4
+ 241 0009 00       		.byte	0
+ 242 000a EF       		.byte	-17
+ 243 000b 02       		.byte	2
+ 244 000c 00       		.byte	0
+ 245 000d 04       		.byte	4
+ 246 000e 00       		.byte	0
+ 247 000f F0       		.byte	-16
+ 248 0010 02       		.byte	2
+ 249 0011 00       		.byte	0
+ 250 0012 04       		.byte	4
+ 251 0013 00       		.byte	0
+ 252 0014 F1       		.byte	-15
+ 253 0015 02       		.byte	2
+ 254 0016 00       		.byte	0
+ 255 0017 04       		.byte	4
+ 256 0018 00       		.byte	0
+ 257 0019 F2       		.byte	-14
+ 258 001a 02       		.byte	2
+ 259 001b 00       		.byte	0
+ 260 001c 04       		.byte	4
+ 261 001d 00       		.byte	0
+ 262 001e F3       		.byte	-13
+ 263 001f 02       		.byte	2
+ 264 0020 00       		.byte	0
+ 265 0021 04       		.byte	4
+ 266 0022 00       		.byte	0
+ 267 0023 F4       		.byte	-12
+ 268 0024 02       		.byte	2
+ 269 0025 00       		.byte	0
+ 270 0026 04       		.byte	4
+ 271 0027 00       		.byte	0
+ 272 0028 F6       		.byte	-10
+ 273 0029 02       		.byte	2
+ 274 002a 00       		.byte	0
+ 275 002b 04       		.byte	4
+ 276 002c 00       		.byte	0
+ 277 002d F7       		.byte	-9
+ 278 002e 02       		.byte	2
+ 279 002f 00       		.byte	0
+ 280 0030 04       		.byte	4
+ 281 0031 00       		.byte	0
+ 282 0032 F8       		.byte	-8
+ 283 0033 02       		.byte	2
+ 284 0034 00       		.byte	0
+ 285 0035 04       		.byte	4
+ 286 0036 00       		.byte	0
+ 287 0037 F9       		.byte	-7
+ 288 0038 02       		.byte	2
+ 289 0039 00       		.byte	0
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 6
+
+
+ 290 003a 04       		.byte	4
+ 291 003b 00       		.byte	0
+ 292 003c FA       		.byte	-6
+ 293 003d 02       		.byte	2
+ 294 003e 00       		.byte	0
+ 295 003f 04       		.byte	4
+ 296 0040 00       		.byte	0
+ 297 0041 FB       		.byte	-5
+ 298 0042 02       		.byte	2
+ 299 0043 00       		.byte	0
+ 300 0044 04       		.byte	4
+ 301 0045 00       		.byte	0
+ 302 0046 FC       		.byte	-4
+ 303 0047 02       		.byte	2
+ 304 0048 00       		.byte	0
+ 305 0049 04       		.byte	4
+ 306 004a 00       		.byte	0
+ 307 004b FD       		.byte	-3
+ 308 004c 02       		.byte	2
+ 309 004d 00       		.byte	0
+ 310 004e 04       		.byte	4
+ 311 004f 00       		.byte	0
+ 312 0050 FE       		.byte	-2
+ 313 0051 02       		.byte	2
+ 314 0052 00       		.byte	0
+ 315 0053 03       		.byte	3
+ 316 0054 00       		.byte	0
+ 317 0055 FF       		.byte	-1
+ 318 0056 02       		.byte	2
+ 319 0057 00       		.byte	0
+ 320 0058 04       		.byte	4
+ 321 0059 00       		.byte	0
+ 322 005a 00       		.byte	0
+ 323 005b 02       		.byte	2
+ 324 005c 00       		.byte	0
+ 325 005d 04       		.byte	4
+ 326 005e 00       		.byte	0
+ 327 005f 02       		.byte	2
+ 328 0060 02       		.byte	2
+ 329 0061 00       		.byte	0
+ 330 0062 04       		.byte	4
+ 331 0063 00       		.byte	0
+ 332 0064 02       		.byte	2
+ 333 0065 02       		.byte	2
+ 334 0066 00       		.byte	0
+ 335 0067 00       		.byte	0
+ 336 0068 00       		.byte	0
+ 337 0069 04       		.byte	4
+ 338 006a 02       		.byte	2
+ 339 006b 00       		.byte	0
+ 340 006c 04       		.byte	4
+ 341 006d 00       		.byte	0
+ 342 006e 05       		.byte	5
+ 343 006f 02       		.byte	2
+ 344 0070 00       		.byte	0
+ 345 0071 04       		.byte	4
+ 346 0072 00       		.byte	0
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 7
+
+
+ 347 0073 06       		.byte	6
+ 348 0074 02       		.byte	2
+ 349 0075 00       		.byte	0
+ 350 0076 04       		.byte	4
+ 351 0077 00       		.byte	0
+ 352 0078 07       		.byte	7
+ 353 0079 02       		.byte	2
+ 354 007a 00       		.byte	0
+ 355 007b 04       		.byte	4
+ 356 007c 00       		.byte	0
+ 357 007d 08       		.byte	8
+ 358 007e 02       		.byte	2
+ 359 007f 00       		.byte	0
+ 360 0080 04       		.byte	4
+ 361 0081 00       		.byte	0
+ 362 0082 09       		.byte	9
+ 363 0083 02       		.byte	2
+ 364 0084 00       		.byte	0
+ 365 0085 04       		.byte	4
+ 366 0086 00       		.byte	0
+ 367 0087 0A       		.byte	10
+ 368 0088 02       		.byte	2
+ 369 0089 00       		.byte	0
+ 370 008a 04       		.byte	4
+ 371 008b 00       		.byte	0
+ 372 008c 0B       		.byte	11
+ 373 008d 02       		.byte	2
+ 374 008e 00       		.byte	0
+ 375 008f 04       		.byte	4
+ 376 0090 00       		.byte	0
+ 377 0091 0C       		.byte	12
+ 378 0092 02       		.byte	2
+ 379 0093 00       		.byte	0
+ 380 0094 03       		.byte	3
+ 381 0095 00       		.byte	0
+ 382 0096 0D       		.byte	13
+ 383 0097 02       		.byte	2
+ 384 0098 00       		.byte	0
+ 385 0099 01       		.byte	1
+ 386 009a 00       		.byte	0
+ 387 009b 0D       		.byte	13
+ 388 009c 02       		.byte	2
+ 389 009d 00       		.byte	0
+ 390 009e 00       		.byte	0
+ 391 009f 00       		.byte	0
+ 392              		.section	.text.smtc_shield_lr1120mb1gxs_common_get_pa_pwr_cfg,"ax",%progbits
+ 393              		.align	1
+ 394              		.global	smtc_shield_lr1120mb1gxs_common_get_pa_pwr_cfg
+ 395              		.syntax unified
+ 396              		.thumb
+ 397              		.thumb_func
+ 399              	smtc_shield_lr1120mb1gxs_common_get_pa_pwr_cfg:
+ 400              	.LFB1:
+   1:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** /*!
+   2:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * @file      smtc_shield_lr1120mb1gxs_common.c
+   3:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *
+   4:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * @brief     Implementation common to LR1120MB1GxS shield
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 8
+
+
+   5:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *
+   6:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * The Clear BSD License
+   7:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * Copyright Semtech Corporation 2022. All rights reserved.
+   8:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *
+   9:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * below) provided that the following conditions are met:
+  12:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *       derived from this software without specific prior written permission.
+  20:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  *
+  21:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  26:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  31:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  */
+  34:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+  35:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** /*
+  36:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * -----------------------------------------------------------------------------
+  37:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  */
+  39:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+  40:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** #include <stddef.h>
+  41:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** #include <stdbool.h>
+  42:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** #include <stdint.h>
+  43:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** #include "smtc_shield_lr11xx_types.h"
+  44:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+  45:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** /*
+  46:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * -----------------------------------------------------------------------------
+  47:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  48:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  */
+  49:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+  50:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** /*
+  51:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * -----------------------------------------------------------------------------
+  52:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  53:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  */
+  54:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+  55:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** const smtc_shield_lr11xx_pa_pwr_cfg_t smtc_shield_lr1120mb1gxs_common_pa_pwr_cfg_table[SMTC_SHIELD_
+  56:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -17dBm
+  57:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -15,
+  58:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+  59:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+  60:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+  61:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x02,
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 9
+
+
+  62:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+  63:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+  64:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+  65:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -16dBm
+  66:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -14,
+  67:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+  68:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+  69:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+  70:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x02,
+  71:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+  72:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+  73:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+  74:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -15dBm
+  75:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -12,
+  76:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+  77:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+  78:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+  79:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+  80:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+  81:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+  82:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+  83:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -14dBm
+  84:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -12,
+  85:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+  86:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+  87:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+  88:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x02,
+  89:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+  90:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+  91:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+  92:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -13dBm
+  93:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -10,
+  94:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+  95:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+  96:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+  97:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x01,
+  98:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+  99:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 100:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 101:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -12dBm
+ 102:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -9,
+ 103:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 104:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 105:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 106:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 107:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 108:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 109:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 110:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -11dBm
+ 111:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -8,
+ 112:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 113:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 114:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 115:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 116:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 117:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 118:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 10
+
+
+ 119:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -10dBm
+ 120:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -7,
+ 121:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 122:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 123:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 124:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 125:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 126:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 127:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 128:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -9dBm
+ 129:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -6,
+ 130:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 131:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 132:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 133:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 134:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 135:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 136:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 137:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -8dBm
+ 138:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -6,
+ 139:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 140:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 141:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 142:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x02,
+ 143:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 144:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 145:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 146:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -7dBm
+ 147:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -4,
+ 148:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 149:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 150:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 151:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 152:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 153:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 154:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 155:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -6dBm
+ 156:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -3,
+ 157:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 158:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 159:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 160:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 161:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 162:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 163:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 164:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -5dBm
+ 165:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -2,
+ 166:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 167:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 168:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 169:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 170:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 171:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 172:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 173:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -4dBm
+ 174:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -1,
+ 175:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 11
+
+
+ 176:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 177:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 178:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 179:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 180:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 181:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 182:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -3dBm
+ 183:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 0, 
+ 184:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 185:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 186:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 187:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 188:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 189:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 190:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 191:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -2dBm
+ 192:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 1,
+ 193:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 194:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 195:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 196:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 197:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 198:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 199:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 200:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -1dBm
+ 201:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 2,
+ 202:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 203:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 204:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 205:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 206:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 207:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 208:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 209:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 0dBm
+ 210:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 3,
+ 211:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 212:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 213:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 214:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 215:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 216:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 217:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 218:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 1dBm
+ 219:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 3,
+ 220:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 221:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 222:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 223:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x02,
+ 224:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 225:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 226:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 227:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 2dBm
+ 228:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 5,
+ 229:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 230:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 231:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 232:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 12
+
+
+ 233:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 234:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 235:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 236:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 3dBm
+ 237:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 6,
+ 238:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 239:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 240:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 241:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 242:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 243:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 244:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 245:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 4dBm
+ 246:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 6,
+ 247:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 248:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 249:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 250:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x01,
+ 251:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 252:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 253:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 254:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 5dBm
+ 255:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 8,
+ 256:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 257:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 258:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 259:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 260:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 261:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 262:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 263:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 6dBm
+ 264:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 9,
+ 265:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 266:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 267:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 268:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 269:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 270:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 271:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 272:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 7dBm
+ 273:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 10,
+ 274:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 275:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 276:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 277:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 278:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 279:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 280:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 281:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 8dBm
+ 282:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 11,
+ 283:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 284:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 285:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 286:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 287:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 288:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 289:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 13
+
+
+ 290:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 9dBm
+ 291:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 10,
+ 292:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 293:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 294:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 295:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x02,
+ 296:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 297:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 298:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 299:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 10dBm
+ 300:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 12,
+ 301:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 302:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 303:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 304:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x01,
+ 305:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 306:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 307:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 308:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 11dBm
+ 309:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 13,
+ 310:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 311:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 312:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 313:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x01,
+ 314:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 315:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 316:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 317:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 12dBm
+ 318:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 13,
+ 319:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 320:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 321:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 322:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x03,
+ 323:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 324:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 325:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 326:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 13dBm
+ 327:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 14,
+ 328:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 329:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 330:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 331:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x03,
+ 332:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 333:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 334:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 335:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 14dBm
+ 336:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 14,
+ 337:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 338:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 339:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 340:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x06,
+ 341:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 342:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 343:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 344:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 15dBm
+ 345:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 14,
+ 346:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 14
+
+
+ 347:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_LP,
+ 348:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 349:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x07,
+ 350:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 351:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 352:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 353:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 16dBm
+ 354:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 21,
+ 355:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 356:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HP,
+ 357:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VBAT,
+ 358:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 359:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x05,
+ 360:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 361:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 362:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 17dBm
+ 363:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 22,
+ 364:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 365:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HP,
+ 366:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VBAT,
+ 367:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 368:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x05,
+ 369:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 370:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 371:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 18dBm
+ 372:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 22,
+ 373:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 374:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HP,
+ 375:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VBAT,
+ 376:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x01,
+ 377:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x05,
+ 378:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 379:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 380:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 19dBm
+ 381:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 22,
+ 382:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 383:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HP,
+ 384:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VBAT,
+ 385:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x02,
+ 386:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x05,
+ 387:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 388:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 389:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 20dBm
+ 390:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 22,
+ 391:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 392:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HP,
+ 393:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VBAT,
+ 394:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x02,
+ 395:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x07,
+ 396:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 397:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 398:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 21dBm
+ 399:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 22,
+ 400:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 401:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HP,
+ 402:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VBAT,
+ 403:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 15
+
+
+ 404:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x06,
+ 405:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 406:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 407:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 22dBm
+ 408:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 22,
+ 409:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 410:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HP,
+ 411:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VBAT,
+ 412:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 413:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x07,
+ 414:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 415:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 416:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** };
+ 417:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+ 418:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** const smtc_shield_lr11xx_pa_pwr_cfg_t smtc_shield_lr1120mb1gxs_common_pa_pwr_hf_cfg_table[SMTC_SHIE
+ 419:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -18dBm
+ 420:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -18,
+ 421:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 422:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 423:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 424:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 425:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 426:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 427:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 428:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -17dBm
+ 429:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -18,
+ 430:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 431:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 432:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 433:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 434:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 435:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 436:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 437:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -16dBm
+ 438:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -17,
+ 439:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 440:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 441:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 442:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 443:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 444:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 445:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 446:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -15dBm
+ 447:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -16,
+ 448:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 449:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 450:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 451:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 452:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 453:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 454:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 455:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -14dBm
+ 456:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -15,
+ 457:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 458:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 459:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 460:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 16
+
+
+ 461:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 462:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 463:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 464:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -13dBm
+ 465:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -14,
+ 466:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 467:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 468:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 469:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 470:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 471:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 472:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 473:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -12dBm
+ 474:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -13,
+ 475:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 476:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 477:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 478:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 479:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 480:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 481:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 482:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -11dBm
+ 483:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -12,
+ 484:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 485:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 486:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 487:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 488:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 489:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 490:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 491:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -10dBm
+ 492:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -10,
+ 493:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 494:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 495:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 496:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 497:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 498:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 499:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 500:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -9dBm
+ 501:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -9,
+ 502:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 503:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 504:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 505:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 506:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 507:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 508:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 509:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -8dBm
+ 510:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -8,
+ 511:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 512:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 513:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 514:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 515:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 516:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 517:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 17
+
+
+ 518:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -7dBm
+ 519:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -7,
+ 520:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 521:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 522:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 523:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 524:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 525:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 526:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 527:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -6dBm
+ 528:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -6,
+ 529:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 530:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 531:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 532:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 533:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 534:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 535:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 536:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -5dBm
+ 537:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -5,
+ 538:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 539:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 540:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 541:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 542:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 543:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 544:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 545:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -4dBm
+ 546:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -4,
+ 547:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 548:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 549:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 550:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 551:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 552:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 553:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 554:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -3dBm
+ 555:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -3,
+ 556:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 557:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 558:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 559:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 560:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 561:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 562:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 563:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -2dBm
+ 564:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -2,
+ 565:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 566:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 567:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 568:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x03,
+ 569:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 570:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 571:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 572:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = -1dBm
+ 573:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = -1,
+ 574:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 18
+
+
+ 575:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 576:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 577:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 578:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 579:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 580:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 581:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 0dBm
+ 582:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 0,
+ 583:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 584:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 585:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 586:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 587:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 588:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 589:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 590:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 1dBm
+ 591:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 2,
+ 592:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 593:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 594:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 595:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 596:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 597:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 598:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 599:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 2dBm
+ 600:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 2,
+ 601:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 602:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 603:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 604:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 605:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 606:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 607:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 608:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 3dBm
+ 609:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 4,
+ 610:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 611:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 612:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 613:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 614:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 615:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 616:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 617:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 4dBm
+ 618:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 5,
+ 619:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 620:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 621:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 622:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 623:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 624:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 625:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 626:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 5dBm
+ 627:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 6,
+ 628:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 629:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 630:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 631:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 19
+
+
+ 632:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 633:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 634:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 635:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 6dBm
+ 636:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 7,
+ 637:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 638:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 639:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 640:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 641:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 642:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 643:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 644:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {  // Expected output power = 7dBm
+ 645:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 8,
+ 646:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 647:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 648:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 649:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 650:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 651:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 652:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 653:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 8dBm
+ 654:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 9,
+ 655:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 656:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 657:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 658:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 659:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 660:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 661:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 662:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 9dBm
+ 663:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 10,
+ 664:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 665:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 666:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 667:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 668:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 669:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 670:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 671:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 10dBm
+ 672:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 11,
+ 673:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 674:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 675:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 676:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x04,
+ 677:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 678:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 679:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 680:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 11dBm
+ 681:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 12,
+ 682:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 683:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 684:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 685:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x03,
+ 686:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 687:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 688:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 20
+
+
+ 689:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 12dBm
+ 690:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 13,
+ 691:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 692:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 693:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 694:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x01,
+ 695:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 696:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 697:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 698:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     { // Expected output power = 13dBm
+ 699:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .power = 13,
+ 700:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         .pa_config = {
+ 701:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_sel        = LR11XX_RADIO_PA_SEL_HF,
+ 702:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_reg_supply = LR11XX_RADIO_PA_REG_SUPPLY_VREG,
+ 703:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_duty_cycle = 0x00,
+ 704:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             .pa_hp_sel     = 0x00,
+ 705:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         },
+ 706:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     },
+ 707:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** };
+ 708:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+ 709:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** /*
+ 710:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * -----------------------------------------------------------------------------
+ 711:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+ 712:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  */
+ 713:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+ 714:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** /*
+ 715:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * -----------------------------------------------------------------------------
+ 716:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+ 717:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  */
+ 718:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+ 719:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** /*
+ 720:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * -----------------------------------------------------------------------------
+ 721:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+ 722:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  */
+ 723:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+ 724:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** /*
+ 725:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * -----------------------------------------------------------------------------
+ 726:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * --- PUBLIC VARIABLES --------------------------------------------------------
+ 727:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  */
+ 728:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+ 729:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** /*
+ 730:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * -----------------------------------------------------------------------------
+ 731:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+ 732:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****  */
+ 733:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+ 734:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** const smtc_shield_lr11xx_pa_pwr_cfg_t* smtc_shield_lr1120mb1gxs_common_get_pa_pwr_cfg(
+ 735:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     const uint32_t rf_freq_in_hz, int8_t expected_output_pwr_in_dbm )
+ 736:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** {
+ 401              		.loc 1 736 1
+ 402              		.cfi_startproc
+ 403              		@ args = 0, pretend = 0, frame = 8
+ 404              		@ frame_needed = 1, uses_anonymous_args = 0
+ 405              		@ link register save eliminated.
+ 406 0000 80B4     		push	{r7}
+ 407              	.LCFI0:
+ 408              		.cfi_def_cfa_offset 4
+ 409              		.cfi_offset 7, -4
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 21
+
+
+ 410 0002 83B0     		sub	sp, sp, #12
+ 411              	.LCFI1:
+ 412              		.cfi_def_cfa_offset 16
+ 413 0004 00AF     		add	r7, sp, #0
+ 414              	.LCFI2:
+ 415              		.cfi_def_cfa_register 7
+ 416 0006 7860     		str	r0, [r7, #4]
+ 417 0008 0B46     		mov	r3, r1
+ 418 000a FB70     		strb	r3, [r7, #3]
+ 737:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     if( ( SMTC_SHIELD_LR11XX_SUBGHZ_FREQ_MIN <= rf_freq_in_hz ) &&
+ 419              		.loc 1 737 7
+ 420 000c 7B68     		ldr	r3, [r7, #4]
+ 421 000e 224A     		ldr	r2, .L9
+ 422 0010 9342     		cmp	r3, r2
+ 423 0012 16D9     		bls	.L2
+ 424              		.loc 1 737 65 discriminator 1
+ 425 0014 7B68     		ldr	r3, [r7, #4]
+ 426 0016 214A     		ldr	r2, .L9+4
+ 427 0018 9342     		cmp	r3, r2
+ 428 001a 12D8     		bhi	.L2
+ 738:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         ( rf_freq_in_hz <= SMTC_SHIELD_LR11XX_SUBGHZ_FREQ_MAX ) )
+ 739:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {
+ 740:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         if( ( SMTC_SHIELD_LR11XX_MIN_PWR <= expected_output_pwr_in_dbm ) &&
+ 429              		.loc 1 740 11
+ 430 001c 97F90330 		ldrsb	r3, [r7, #3]
+ 431 0020 13F1110F 		cmn	r3, #17
+ 432 0024 30DB     		blt	.L8
+ 433              		.loc 1 740 74 discriminator 1
+ 434 0026 97F90330 		ldrsb	r3, [r7, #3]
+ 435 002a 162B     		cmp	r3, #22
+ 436 002c 2CDC     		bgt	.L8
+ 741:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             ( expected_output_pwr_in_dbm <= SMTC_SHIELD_LR11XX_MAX_PWR ) )
+ 742:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         {
+ 743:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             return &( smtc_shield_lr1120mb1gxs_common_pa_pwr_cfg_table[expected_output_pwr_in_dbm -
+ 437              		.loc 1 743 99
+ 438 002e 97F90330 		ldrsb	r3, [r7, #3]
+ 439 0032 03F11102 		add	r2, r3, #17
+ 440              		.loc 1 743 20
+ 441 0036 1346     		mov	r3, r2
+ 442 0038 9B00     		lsls	r3, r3, #2
+ 443 003a 1344     		add	r3, r3, r2
+ 444 003c 184A     		ldr	r2, .L9+8
+ 445 003e 1344     		add	r3, r3, r2
+ 446 0040 24E0     		b	.L4
+ 447              	.L2:
+ 744:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****                                                                        SMTC_SHIELD_LR11XX_MIN_PWR] 
+ 745:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         }
+ 746:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     }
+ 747:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     else if( ( ( SMTC_SHIELD_LR112X_2GHZ_FREQ_MIN <= rf_freq_in_hz ) &&
+ 448              		.loc 1 747 12
+ 449 0042 7B68     		ldr	r3, [r7, #4]
+ 450 0044 174A     		ldr	r2, .L9+12
+ 451 0046 9342     		cmp	r3, r2
+ 452 0048 03D9     		bls	.L6
+ 453              		.loc 1 747 70 discriminator 1
+ 454 004a 7B68     		ldr	r3, [r7, #4]
+ 455 004c 164A     		ldr	r2, .L9+16
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 22
+
+
+ 456 004e 9342     		cmp	r3, r2
+ 457 0050 07D9     		bls	.L7
+ 458              	.L6:
+ 748:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****                ( rf_freq_in_hz <= SMTC_SHIELD_LR112X_2GHZ_FREQ_MAX ) ) ||
+ 459              		.loc 1 748 72
+ 460 0052 7B68     		ldr	r3, [r7, #4]
+ 461 0054 154A     		ldr	r2, .L9+20
+ 462 0056 9342     		cmp	r3, r2
+ 463 0058 17D9     		bls	.L5
+ 749:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****              ( ( SMTC_SHIELD_LR112X_2_4GHZ_FREQ_MIN <= rf_freq_in_hz ) &&
+ 464              		.loc 1 749 72
+ 465 005a 7B68     		ldr	r3, [r7, #4]
+ 466 005c 144A     		ldr	r2, .L9+24
+ 467 005e 9342     		cmp	r3, r2
+ 468 0060 13D8     		bhi	.L5
+ 469              	.L7:
+ 750:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****                ( rf_freq_in_hz <= SMTC_SHIELD_LR112X_2_4GHZ_FREQ_MAX ) ) )
+ 751:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     {
+ 752:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         if( ( SMTC_SHIELD_LR112X_MIN_PWR_HF <= expected_output_pwr_in_dbm ) &&
+ 470              		.loc 1 752 11
+ 471 0062 97F90330 		ldrsb	r3, [r7, #3]
+ 472 0066 13F1120F 		cmn	r3, #18
+ 473 006a 0EDB     		blt	.L5
+ 474              		.loc 1 752 77 discriminator 1
+ 475 006c 97F90330 		ldrsb	r3, [r7, #3]
+ 476 0070 0D2B     		cmp	r3, #13
+ 477 0072 0ADC     		bgt	.L5
+ 753:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             ( expected_output_pwr_in_dbm <= SMTC_SHIELD_LR112X_MAX_PWR_HF ) )
+ 754:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         {
+ 755:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             return &( smtc_shield_lr1120mb1gxs_common_pa_pwr_hf_cfg_table[expected_output_pwr_in_db
+ 478              		.loc 1 755 102
+ 479 0074 97F90330 		ldrsb	r3, [r7, #3]
+ 480 0078 03F11202 		add	r2, r3, #18
+ 481              		.loc 1 755 20
+ 482 007c 1346     		mov	r3, r2
+ 483 007e 9B00     		lsls	r3, r3, #2
+ 484 0080 1344     		add	r3, r3, r2
+ 485 0082 0C4A     		ldr	r2, .L9+28
+ 486 0084 1344     		add	r3, r3, r2
+ 487 0086 01E0     		b	.L4
+ 488              	.L8:
+ 740:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****             ( expected_output_pwr_in_dbm <= SMTC_SHIELD_LR11XX_MAX_PWR ) )
+ 489              		.loc 1 740 11
+ 490 0088 00BF     		nop
+ 491              	.L5:
+ 756:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****                                                                           SMTC_SHIELD_LR112X_MIN_PW
+ 757:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****         }
+ 758:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     }
+ 759:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** 
+ 760:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c ****     return NULL;
+ 492              		.loc 1 760 12
+ 493 008a 0023     		movs	r3, #0
+ 494              	.L4:
+ 761:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1120mb1gxs_common.c **** }
+ 495              		.loc 1 761 1
+ 496 008c 1846     		mov	r0, r3
+ 497 008e 0C37     		adds	r7, r7, #12
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 23
+
+
+ 498              	.LCFI3:
+ 499              		.cfi_def_cfa_offset 4
+ 500 0090 BD46     		mov	sp, r7
+ 501              	.LCFI4:
+ 502              		.cfi_def_cfa_register 13
+ 503              		@ sp needed
+ 504 0092 5DF8047B 		ldr	r7, [sp], #4
+ 505              	.LCFI5:
+ 506              		.cfi_restore 7
+ 507              		.cfi_def_cfa_offset 0
+ 508 0096 7047     		bx	lr
+ 509              	.L10:
+ 510              		.align	2
+ 511              	.L9:
+ 512 0098 7FD1F008 		.word	149999999
+ 513 009c 00703839 		.word	960000000
+ 514 00a0 00000000 		.word	smtc_shield_lr1120mb1gxs_common_pa_pwr_cfg_table
+ 515 00a4 FF933577 		.word	1999999999
+ 516 00a8 00752B7D 		.word	2100000000
+ 517 00ac FF170D8F 		.word	-1894967297
+ 518 00b0 00F90295 		.word	-1794967296
+ 519 00b4 00000000 		.word	smtc_shield_lr1120mb1gxs_common_pa_pwr_hf_cfg_table
+ 520              		.cfi_endproc
+ 521              	.LFE1:
+ 523              		.text
+ 524              	.Letext0:
+ 525              		.file 2 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/machin
+ 526              		.file 3 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys/_s
+ 527              		.file 4 "../../../../lr11xx/lr11xx_driver/src/lr11xx_radio_types.h"
+ 528              		.file 5 "../../../../libs/smtc-shields/lr11xx/inc/smtc_shield_lr11xx_types.h"
+ARM GAS  C:\msys64\tmp\ccaQoeTH.s 			page 24
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 smtc_shield_lr1120mb1gxs_common.c
+C:\msys64\tmp\ccaQoeTH.s:25     .rodata.smtc_shield_lr1120mb1gxs_common_pa_pwr_cfg_table:00000000 smtc_shield_lr1120mb1gxs_common_pa_pwr_cfg_table
+C:\msys64\tmp\ccaQoeTH.s:22     .rodata.smtc_shield_lr1120mb1gxs_common_pa_pwr_cfg_table:00000000 $d
+C:\msys64\tmp\ccaQoeTH.s:231    .rodata.smtc_shield_lr1120mb1gxs_common_pa_pwr_hf_cfg_table:00000000 smtc_shield_lr1120mb1gxs_common_pa_pwr_hf_cfg_table
+C:\msys64\tmp\ccaQoeTH.s:228    .rodata.smtc_shield_lr1120mb1gxs_common_pa_pwr_hf_cfg_table:00000000 $d
+C:\msys64\tmp\ccaQoeTH.s:393    .text.smtc_shield_lr1120mb1gxs_common_get_pa_pwr_cfg:00000000 $t
+C:\msys64\tmp\ccaQoeTH.s:399    .text.smtc_shield_lr1120mb1gxs_common_get_pa_pwr_cfg:00000000 smtc_shield_lr1120mb1gxs_common_get_pa_pwr_cfg
+C:\msys64\tmp\ccaQoeTH.s:512    .text.smtc_shield_lr1120mb1gxs_common_get_pa_pwr_cfg:00000098 $d
+
+NO UNDEFINED SYMBOLS

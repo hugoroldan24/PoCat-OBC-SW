@@ -1,0 +1,821 @@
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lr11xx_hal.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../lr11xx/common/lr11xx_hal.c"
+  20              		.section	.text.lr11xx_hal_reset,"ax",%progbits
+  21              		.align	1
+  22              		.global	lr11xx_hal_reset
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	lr11xx_hal_reset:
+  28              	.LFB237:
+   1:../../../lr11xx/common/lr11xx_hal.c **** /*!
+   2:../../../lr11xx/common/lr11xx_hal.c ****  * \file      lr11xx_hal.c
+   3:../../../lr11xx/common/lr11xx_hal.c ****  *
+   4:../../../lr11xx/common/lr11xx_hal.c ****  * \brief     Implements the lr11xx radio HAL functions
+   5:../../../lr11xx/common/lr11xx_hal.c ****  *
+   6:../../../lr11xx/common/lr11xx_hal.c ****  * The Clear BSD License
+   7:../../../lr11xx/common/lr11xx_hal.c ****  * Copyright Semtech Corporation 2021. All rights reserved.
+   8:../../../lr11xx/common/lr11xx_hal.c ****  *
+   9:../../../lr11xx/common/lr11xx_hal.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../lr11xx/common/lr11xx_hal.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../lr11xx/common/lr11xx_hal.c ****  * below) provided that the following conditions are met:
+  12:../../../lr11xx/common/lr11xx_hal.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../lr11xx/common/lr11xx_hal.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../lr11xx/common/lr11xx_hal.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../lr11xx/common/lr11xx_hal.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../lr11xx/common/lr11xx_hal.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../lr11xx/common/lr11xx_hal.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../lr11xx/common/lr11xx_hal.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../lr11xx/common/lr11xx_hal.c ****  *       derived from this software without specific prior written permission.
+  20:../../../lr11xx/common/lr11xx_hal.c ****  *
+  21:../../../lr11xx/common/lr11xx_hal.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../lr11xx/common/lr11xx_hal.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../lr11xx/common/lr11xx_hal.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../lr11xx/common/lr11xx_hal.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../lr11xx/common/lr11xx_hal.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  26:../../../lr11xx/common/lr11xx_hal.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../lr11xx/common/lr11xx_hal.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../lr11xx/common/lr11xx_hal.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../lr11xx/common/lr11xx_hal.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../lr11xx/common/lr11xx_hal.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 2
+
+
+  31:../../../lr11xx/common/lr11xx_hal.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../lr11xx/common/lr11xx_hal.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../lr11xx/common/lr11xx_hal.c ****  */
+  34:../../../lr11xx/common/lr11xx_hal.c **** 
+  35:../../../lr11xx/common/lr11xx_hal.c **** /*
+  36:../../../lr11xx/common/lr11xx_hal.c ****  * -----------------------------------------------------------------------------
+  37:../../../lr11xx/common/lr11xx_hal.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../lr11xx/common/lr11xx_hal.c ****  */
+  39:../../../lr11xx/common/lr11xx_hal.c **** 
+  40:../../../lr11xx/common/lr11xx_hal.c **** #include <stdint.h>
+  41:../../../lr11xx/common/lr11xx_hal.c **** #include <stdbool.h>
+  42:../../../lr11xx/common/lr11xx_hal.c **** #include <stddef.h>
+  43:../../../lr11xx/common/lr11xx_hal.c **** 
+  44:../../../lr11xx/common/lr11xx_hal.c **** #include "lr11xx_hal.h"
+  45:../../../lr11xx/common/lr11xx_hal.c **** #include "smtc_hal_mcu_spi.h"
+  46:../../../lr11xx/common/lr11xx_hal.c **** #include "smtc_hal_mcu_gpio.h"
+  47:../../../lr11xx/common/lr11xx_hal.c **** 
+  48:../../../lr11xx/common/lr11xx_hal.c **** #include "lr11xx_hal_context.h"
+  49:../../../lr11xx/common/lr11xx_hal.c **** 
+  50:../../../lr11xx/common/lr11xx_hal.c **** /*
+  51:../../../lr11xx/common/lr11xx_hal.c ****  * -----------------------------------------------------------------------------
+  52:../../../lr11xx/common/lr11xx_hal.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  53:../../../lr11xx/common/lr11xx_hal.c ****  */
+  54:../../../lr11xx/common/lr11xx_hal.c **** 
+  55:../../../lr11xx/common/lr11xx_hal.c **** /*
+  56:../../../lr11xx/common/lr11xx_hal.c ****  * -----------------------------------------------------------------------------
+  57:../../../lr11xx/common/lr11xx_hal.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  58:../../../lr11xx/common/lr11xx_hal.c ****  */
+  59:../../../lr11xx/common/lr11xx_hal.c **** 
+  60:../../../lr11xx/common/lr11xx_hal.c **** /*
+  61:../../../lr11xx/common/lr11xx_hal.c ****  * -----------------------------------------------------------------------------
+  62:../../../lr11xx/common/lr11xx_hal.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  63:../../../lr11xx/common/lr11xx_hal.c ****  */
+  64:../../../lr11xx/common/lr11xx_hal.c **** 
+  65:../../../lr11xx/common/lr11xx_hal.c **** /*
+  66:../../../lr11xx/common/lr11xx_hal.c ****  * -----------------------------------------------------------------------------
+  67:../../../lr11xx/common/lr11xx_hal.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+  68:../../../lr11xx/common/lr11xx_hal.c ****  */
+  69:../../../lr11xx/common/lr11xx_hal.c **** 
+  70:../../../lr11xx/common/lr11xx_hal.c **** /*
+  71:../../../lr11xx/common/lr11xx_hal.c ****  * -----------------------------------------------------------------------------
+  72:../../../lr11xx/common/lr11xx_hal.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+  73:../../../lr11xx/common/lr11xx_hal.c ****  */
+  74:../../../lr11xx/common/lr11xx_hal.c **** 
+  75:../../../lr11xx/common/lr11xx_hal.c **** /**
+  76:../../../lr11xx/common/lr11xx_hal.c ****  * @brief Wait until radio busy pin returns to 0
+  77:../../../lr11xx/common/lr11xx_hal.c ****  */
+  78:../../../lr11xx/common/lr11xx_hal.c **** void lr11xx_hal_wait_on_busy( const void* radio );
+  79:../../../lr11xx/common/lr11xx_hal.c **** 
+  80:../../../lr11xx/common/lr11xx_hal.c **** /*
+  81:../../../lr11xx/common/lr11xx_hal.c ****  * -----------------------------------------------------------------------------
+  82:../../../lr11xx/common/lr11xx_hal.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+  83:../../../lr11xx/common/lr11xx_hal.c ****  */
+  84:../../../lr11xx/common/lr11xx_hal.c **** 
+  85:../../../lr11xx/common/lr11xx_hal.c **** lr11xx_hal_status_t lr11xx_hal_reset( const void* context )
+  86:../../../lr11xx/common/lr11xx_hal.c **** {
+  29              		.loc 1 86 1
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 3
+
+
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 16
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 84B0     		sub	sp, sp, #16
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 24
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
+  87:../../../lr11xx/common/lr11xx_hal.c ****     const lr11xx_hal_context_t* lr11xx_context = ( const lr11xx_hal_context_t* ) context;
+  45              		.loc 1 87 33
+  46 0008 7B68     		ldr	r3, [r7, #4]
+  47 000a FB60     		str	r3, [r7, #12]
+  88:../../../lr11xx/common/lr11xx_hal.c **** 
+  89:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->reset.inst, SMTC_HAL_MCU_GPIO_STATE_LOW );
+  48              		.loc 1 89 55
+  49 000c FB68     		ldr	r3, [r7, #12]
+  50 000e DB69     		ldr	r3, [r3, #28]
+  51              		.loc 1 89 5
+  52 0010 0021     		movs	r1, #0
+  53 0012 1846     		mov	r0, r3
+  54 0014 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+  90:../../../lr11xx/common/lr11xx_hal.c ****     LL_mDelay( 1 );
+  55              		.loc 1 90 5
+  56 0018 0120     		movs	r0, #1
+  57 001a FFF7FEFF 		bl	LL_mDelay
+  91:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->reset.inst, SMTC_HAL_MCU_GPIO_STATE_HIGH );
+  58              		.loc 1 91 55
+  59 001e FB68     		ldr	r3, [r7, #12]
+  60 0020 DB69     		ldr	r3, [r3, #28]
+  61              		.loc 1 91 5
+  62 0022 0121     		movs	r1, #1
+  63 0024 1846     		mov	r0, r3
+  64 0026 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+  92:../../../lr11xx/common/lr11xx_hal.c **** 
+  93:../../../lr11xx/common/lr11xx_hal.c ****     return LR11XX_HAL_STATUS_OK;
+  65              		.loc 1 93 12
+  66 002a 0023     		movs	r3, #0
+  94:../../../lr11xx/common/lr11xx_hal.c **** }
+  67              		.loc 1 94 1
+  68 002c 1846     		mov	r0, r3
+  69 002e 1037     		adds	r7, r7, #16
+  70              	.LCFI3:
+  71              		.cfi_def_cfa_offset 8
+  72 0030 BD46     		mov	sp, r7
+  73              	.LCFI4:
+  74              		.cfi_def_cfa_register 13
+  75              		@ sp needed
+  76 0032 80BD     		pop	{r7, pc}
+  77              		.cfi_endproc
+  78              	.LFE237:
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 4
+
+
+  80              		.section	.text.lr11xx_hal_wakeup,"ax",%progbits
+  81              		.align	1
+  82              		.global	lr11xx_hal_wakeup
+  83              		.syntax unified
+  84              		.thumb
+  85              		.thumb_func
+  87              	lr11xx_hal_wakeup:
+  88              	.LFB238:
+  95:../../../lr11xx/common/lr11xx_hal.c **** 
+  96:../../../lr11xx/common/lr11xx_hal.c **** lr11xx_hal_status_t lr11xx_hal_wakeup( const void* context )
+  97:../../../lr11xx/common/lr11xx_hal.c **** {
+  89              		.loc 1 97 1
+  90              		.cfi_startproc
+  91              		@ args = 0, pretend = 0, frame = 16
+  92              		@ frame_needed = 1, uses_anonymous_args = 0
+  93 0000 80B5     		push	{r7, lr}
+  94              	.LCFI5:
+  95              		.cfi_def_cfa_offset 8
+  96              		.cfi_offset 7, -8
+  97              		.cfi_offset 14, -4
+  98 0002 84B0     		sub	sp, sp, #16
+  99              	.LCFI6:
+ 100              		.cfi_def_cfa_offset 24
+ 101 0004 00AF     		add	r7, sp, #0
+ 102              	.LCFI7:
+ 103              		.cfi_def_cfa_register 7
+ 104 0006 7860     		str	r0, [r7, #4]
+  98:../../../lr11xx/common/lr11xx_hal.c ****     const lr11xx_hal_context_t* lr11xx_context = ( const lr11xx_hal_context_t* ) context;
+ 105              		.loc 1 98 33
+ 106 0008 7B68     		ldr	r3, [r7, #4]
+ 107 000a FB60     		str	r3, [r7, #12]
+  99:../../../lr11xx/common/lr11xx_hal.c **** 
+ 100:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_LOW );
+ 108              		.loc 1 100 53
+ 109 000c FB68     		ldr	r3, [r7, #12]
+ 110 000e 1B69     		ldr	r3, [r3, #16]
+ 111              		.loc 1 100 5
+ 112 0010 0021     		movs	r1, #0
+ 113 0012 1846     		mov	r0, r3
+ 114 0014 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 101:../../../lr11xx/common/lr11xx_hal.c ****     LL_mDelay( 1 );
+ 115              		.loc 1 101 5
+ 116 0018 0120     		movs	r0, #1
+ 117 001a FFF7FEFF 		bl	LL_mDelay
+ 102:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_HIGH );
+ 118              		.loc 1 102 53
+ 119 001e FB68     		ldr	r3, [r7, #12]
+ 120 0020 1B69     		ldr	r3, [r3, #16]
+ 121              		.loc 1 102 5
+ 122 0022 0121     		movs	r1, #1
+ 123 0024 1846     		mov	r0, r3
+ 124 0026 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 103:../../../lr11xx/common/lr11xx_hal.c **** 
+ 104:../../../lr11xx/common/lr11xx_hal.c ****     return LR11XX_HAL_STATUS_OK;
+ 125              		.loc 1 104 12
+ 126 002a 0023     		movs	r3, #0
+ 105:../../../lr11xx/common/lr11xx_hal.c **** }
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 5
+
+
+ 127              		.loc 1 105 1
+ 128 002c 1846     		mov	r0, r3
+ 129 002e 1037     		adds	r7, r7, #16
+ 130              	.LCFI8:
+ 131              		.cfi_def_cfa_offset 8
+ 132 0030 BD46     		mov	sp, r7
+ 133              	.LCFI9:
+ 134              		.cfi_def_cfa_register 13
+ 135              		@ sp needed
+ 136 0032 80BD     		pop	{r7, pc}
+ 137              		.cfi_endproc
+ 138              	.LFE238:
+ 140              		.section	.text.lr11xx_hal_abort_blocking_cmd,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	lr11xx_hal_abort_blocking_cmd
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 147              	lr11xx_hal_abort_blocking_cmd:
+ 148              	.LFB239:
+ 106:../../../lr11xx/common/lr11xx_hal.c **** 
+ 107:../../../lr11xx/common/lr11xx_hal.c **** lr11xx_hal_status_t lr11xx_hal_abort_blocking_cmd( const void* context )
+ 108:../../../lr11xx/common/lr11xx_hal.c **** {
+ 149              		.loc 1 108 1
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 16
+ 152              		@ frame_needed = 1, uses_anonymous_args = 0
+ 153 0000 80B5     		push	{r7, lr}
+ 154              	.LCFI10:
+ 155              		.cfi_def_cfa_offset 8
+ 156              		.cfi_offset 7, -8
+ 157              		.cfi_offset 14, -4
+ 158 0002 84B0     		sub	sp, sp, #16
+ 159              	.LCFI11:
+ 160              		.cfi_def_cfa_offset 24
+ 161 0004 00AF     		add	r7, sp, #0
+ 162              	.LCFI12:
+ 163              		.cfi_def_cfa_register 7
+ 164 0006 7860     		str	r0, [r7, #4]
+ 109:../../../lr11xx/common/lr11xx_hal.c ****     const lr11xx_hal_context_t* lr11xx_context = ( const lr11xx_hal_context_t* ) context;
+ 165              		.loc 1 109 33
+ 166 0008 7B68     		ldr	r3, [r7, #4]
+ 167 000a FB60     		str	r3, [r7, #12]
+ 110:../../../lr11xx/common/lr11xx_hal.c ****     uint8_t                     command[4]     = { 0 };
+ 168              		.loc 1 110 33
+ 169 000c 0023     		movs	r3, #0
+ 170 000e BB60     		str	r3, [r7, #8]
+ 111:../../../lr11xx/common/lr11xx_hal.c **** 
+ 112:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_LOW );
+ 171              		.loc 1 112 53
+ 172 0010 FB68     		ldr	r3, [r7, #12]
+ 173 0012 1B69     		ldr	r3, [r3, #16]
+ 174              		.loc 1 112 5
+ 175 0014 0021     		movs	r1, #0
+ 176 0016 1846     		mov	r0, r3
+ 177 0018 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 113:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, command, NULL, 4 );
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 6
+
+
+ 178              		.loc 1 113 52
+ 179 001c FB68     		ldr	r3, [r7, #12]
+ 180 001e 5868     		ldr	r0, [r3, #4]
+ 181              		.loc 1 113 5
+ 182 0020 07F10801 		add	r1, r7, #8
+ 183 0024 0423     		movs	r3, #4
+ 184 0026 0022     		movs	r2, #0
+ 185 0028 FFF7FEFF 		bl	smtc_hal_mcu_spi_rw_buffer
+ 114:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_HIGH );
+ 186              		.loc 1 114 53
+ 187 002c FB68     		ldr	r3, [r7, #12]
+ 188 002e 1B69     		ldr	r3, [r3, #16]
+ 189              		.loc 1 114 5
+ 190 0030 0121     		movs	r1, #1
+ 191 0032 1846     		mov	r0, r3
+ 192 0034 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 115:../../../lr11xx/common/lr11xx_hal.c **** 
+ 116:../../../lr11xx/common/lr11xx_hal.c ****     lr11xx_hal_wait_on_busy( lr11xx_context );
+ 193              		.loc 1 116 5
+ 194 0038 F868     		ldr	r0, [r7, #12]
+ 195 003a FFF7FEFF 		bl	lr11xx_hal_wait_on_busy
+ 117:../../../lr11xx/common/lr11xx_hal.c **** 
+ 118:../../../lr11xx/common/lr11xx_hal.c ****     return LR11XX_HAL_STATUS_OK;
+ 196              		.loc 1 118 12
+ 197 003e 0023     		movs	r3, #0
+ 119:../../../lr11xx/common/lr11xx_hal.c **** }
+ 198              		.loc 1 119 1
+ 199 0040 1846     		mov	r0, r3
+ 200 0042 1037     		adds	r7, r7, #16
+ 201              	.LCFI13:
+ 202              		.cfi_def_cfa_offset 8
+ 203 0044 BD46     		mov	sp, r7
+ 204              	.LCFI14:
+ 205              		.cfi_def_cfa_register 13
+ 206              		@ sp needed
+ 207 0046 80BD     		pop	{r7, pc}
+ 208              		.cfi_endproc
+ 209              	.LFE239:
+ 211              		.section	.text.lr11xx_hal_write,"ax",%progbits
+ 212              		.align	1
+ 213              		.global	lr11xx_hal_write
+ 214              		.syntax unified
+ 215              		.thumb
+ 216              		.thumb_func
+ 218              	lr11xx_hal_write:
+ 219              	.LFB240:
+ 120:../../../lr11xx/common/lr11xx_hal.c **** 
+ 121:../../../lr11xx/common/lr11xx_hal.c **** 
+ 122:../../../lr11xx/common/lr11xx_hal.c **** lr11xx_hal_status_t lr11xx_hal_write( const void* context, const uint8_t* command, const uint16_t c
+ 123:../../../lr11xx/common/lr11xx_hal.c ****                                       const uint8_t* data, const uint16_t data_length )
+ 124:../../../lr11xx/common/lr11xx_hal.c **** {
+ 220              		.loc 1 124 1
+ 221              		.cfi_startproc
+ 222              		@ args = 4, pretend = 0, frame = 24
+ 223              		@ frame_needed = 1, uses_anonymous_args = 0
+ 224 0000 80B5     		push	{r7, lr}
+ 225              	.LCFI15:
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 7
+
+
+ 226              		.cfi_def_cfa_offset 8
+ 227              		.cfi_offset 7, -8
+ 228              		.cfi_offset 14, -4
+ 229 0002 86B0     		sub	sp, sp, #24
+ 230              	.LCFI16:
+ 231              		.cfi_def_cfa_offset 32
+ 232 0004 00AF     		add	r7, sp, #0
+ 233              	.LCFI17:
+ 234              		.cfi_def_cfa_register 7
+ 235 0006 F860     		str	r0, [r7, #12]
+ 236 0008 B960     		str	r1, [r7, #8]
+ 237 000a 3B60     		str	r3, [r7]
+ 238 000c 1346     		mov	r3, r2	@ movhi
+ 239 000e FB80     		strh	r3, [r7, #6]	@ movhi
+ 125:../../../lr11xx/common/lr11xx_hal.c **** #if defined( USE_LR11XX_CRC_OVER_SPI )
+ 126:../../../lr11xx/common/lr11xx_hal.c ****     uint8_t cmd_crc = lr11xx_hal_compute_crc( 0xFF, command, command_length );
+ 127:../../../lr11xx/common/lr11xx_hal.c ****     cmd_crc         = lr11xx_hal_compute_crc( cmd_crc, data, data_length );
+ 128:../../../lr11xx/common/lr11xx_hal.c **** #endif
+ 129:../../../lr11xx/common/lr11xx_hal.c **** 
+ 130:../../../lr11xx/common/lr11xx_hal.c ****     const lr11xx_hal_context_t* lr11xx_context = ( const lr11xx_hal_context_t* ) context;
+ 240              		.loc 1 130 33
+ 241 0010 FB68     		ldr	r3, [r7, #12]
+ 242 0012 7B61     		str	r3, [r7, #20]
+ 131:../../../lr11xx/common/lr11xx_hal.c **** 
+ 132:../../../lr11xx/common/lr11xx_hal.c ****     lr11xx_hal_wait_on_busy( lr11xx_context );
+ 243              		.loc 1 132 5
+ 244 0014 7869     		ldr	r0, [r7, #20]
+ 245 0016 FFF7FEFF 		bl	lr11xx_hal_wait_on_busy
+ 133:../../../lr11xx/common/lr11xx_hal.c **** 
+ 134:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_LOW );
+ 246              		.loc 1 134 53
+ 247 001a 7B69     		ldr	r3, [r7, #20]
+ 248 001c 1B69     		ldr	r3, [r3, #16]
+ 249              		.loc 1 134 5
+ 250 001e 0021     		movs	r1, #0
+ 251 0020 1846     		mov	r0, r3
+ 252 0022 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 135:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, command, NULL, command_length );
+ 253              		.loc 1 135 52
+ 254 0026 7B69     		ldr	r3, [r7, #20]
+ 255 0028 5868     		ldr	r0, [r3, #4]
+ 256              		.loc 1 135 5
+ 257 002a FB88     		ldrh	r3, [r7, #6]
+ 258 002c 0022     		movs	r2, #0
+ 259 002e B968     		ldr	r1, [r7, #8]
+ 260 0030 FFF7FEFF 		bl	smtc_hal_mcu_spi_rw_buffer
+ 136:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, data, NULL, data_length );
+ 261              		.loc 1 136 52
+ 262 0034 7B69     		ldr	r3, [r7, #20]
+ 263 0036 5868     		ldr	r0, [r3, #4]
+ 264              		.loc 1 136 5
+ 265 0038 3B8C     		ldrh	r3, [r7, #32]
+ 266 003a 0022     		movs	r2, #0
+ 267 003c 3968     		ldr	r1, [r7]
+ 268 003e FFF7FEFF 		bl	smtc_hal_mcu_spi_rw_buffer
+ 137:../../../lr11xx/common/lr11xx_hal.c **** #if defined( USE_LR11XX_CRC_OVER_SPI )
+ 138:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, &cmd_crc, NULL, 1 );
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 8
+
+
+ 139:../../../lr11xx/common/lr11xx_hal.c **** #endif
+ 140:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_HIGH );
+ 269              		.loc 1 140 53
+ 270 0042 7B69     		ldr	r3, [r7, #20]
+ 271 0044 1B69     		ldr	r3, [r3, #16]
+ 272              		.loc 1 140 5
+ 273 0046 0121     		movs	r1, #1
+ 274 0048 1846     		mov	r0, r3
+ 275 004a FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 141:../../../lr11xx/common/lr11xx_hal.c **** 
+ 142:../../../lr11xx/common/lr11xx_hal.c ****     return LR11XX_HAL_STATUS_OK;
+ 276              		.loc 1 142 12
+ 277 004e 0023     		movs	r3, #0
+ 143:../../../lr11xx/common/lr11xx_hal.c **** }
+ 278              		.loc 1 143 1
+ 279 0050 1846     		mov	r0, r3
+ 280 0052 1837     		adds	r7, r7, #24
+ 281              	.LCFI18:
+ 282              		.cfi_def_cfa_offset 8
+ 283 0054 BD46     		mov	sp, r7
+ 284              	.LCFI19:
+ 285              		.cfi_def_cfa_register 13
+ 286              		@ sp needed
+ 287 0056 80BD     		pop	{r7, pc}
+ 288              		.cfi_endproc
+ 289              	.LFE240:
+ 291              		.section	.text.lr11xx_hal_read,"ax",%progbits
+ 292              		.align	1
+ 293              		.global	lr11xx_hal_read
+ 294              		.syntax unified
+ 295              		.thumb
+ 296              		.thumb_func
+ 298              	lr11xx_hal_read:
+ 299              	.LFB241:
+ 144:../../../lr11xx/common/lr11xx_hal.c **** 
+ 145:../../../lr11xx/common/lr11xx_hal.c **** lr11xx_hal_status_t lr11xx_hal_read( const void* context, const uint8_t* command, const uint16_t co
+ 146:../../../lr11xx/common/lr11xx_hal.c ****                                      uint8_t* data, const uint16_t data_length )
+ 147:../../../lr11xx/common/lr11xx_hal.c **** {
+ 300              		.loc 1 147 1
+ 301              		.cfi_startproc
+ 302              		@ args = 4, pretend = 0, frame = 24
+ 303              		@ frame_needed = 1, uses_anonymous_args = 0
+ 304 0000 80B5     		push	{r7, lr}
+ 305              	.LCFI20:
+ 306              		.cfi_def_cfa_offset 8
+ 307              		.cfi_offset 7, -8
+ 308              		.cfi_offset 14, -4
+ 309 0002 86B0     		sub	sp, sp, #24
+ 310              	.LCFI21:
+ 311              		.cfi_def_cfa_offset 32
+ 312 0004 00AF     		add	r7, sp, #0
+ 313              	.LCFI22:
+ 314              		.cfi_def_cfa_register 7
+ 315 0006 F860     		str	r0, [r7, #12]
+ 316 0008 B960     		str	r1, [r7, #8]
+ 317 000a 3B60     		str	r3, [r7]
+ 318 000c 1346     		mov	r3, r2	@ movhi
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 9
+
+
+ 319 000e FB80     		strh	r3, [r7, #6]	@ movhi
+ 148:../../../lr11xx/common/lr11xx_hal.c **** #if defined( USE_LR11XX_CRC_OVER_SPI )
+ 149:../../../lr11xx/common/lr11xx_hal.c ****     const uint8_t cmd_crc = lr11xx_hal_compute_crc( 0xFF, command, command_length );
+ 150:../../../lr11xx/common/lr11xx_hal.c **** #endif
+ 151:../../../lr11xx/common/lr11xx_hal.c **** 
+ 152:../../../lr11xx/common/lr11xx_hal.c ****     const lr11xx_hal_context_t* lr11xx_context = ( const lr11xx_hal_context_t* ) context;
+ 320              		.loc 1 152 33
+ 321 0010 FB68     		ldr	r3, [r7, #12]
+ 322 0012 7B61     		str	r3, [r7, #20]
+ 153:../../../lr11xx/common/lr11xx_hal.c ****     const uint8_t               dummy_byte     = LR11XX_NOP;
+ 323              		.loc 1 153 33
+ 324 0014 0023     		movs	r3, #0
+ 325 0016 FB74     		strb	r3, [r7, #19]
+ 154:../../../lr11xx/common/lr11xx_hal.c ****     uint8_t                     dummy_byte_rx  = LR11XX_NOP;
+ 326              		.loc 1 154 33
+ 327 0018 0023     		movs	r3, #0
+ 328 001a BB74     		strb	r3, [r7, #18]
+ 155:../../../lr11xx/common/lr11xx_hal.c **** 
+ 156:../../../lr11xx/common/lr11xx_hal.c ****     lr11xx_hal_wait_on_busy( lr11xx_context );
+ 329              		.loc 1 156 5
+ 330 001c 7869     		ldr	r0, [r7, #20]
+ 331 001e FFF7FEFF 		bl	lr11xx_hal_wait_on_busy
+ 157:../../../lr11xx/common/lr11xx_hal.c **** 
+ 158:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_LOW );
+ 332              		.loc 1 158 53
+ 333 0022 7B69     		ldr	r3, [r7, #20]
+ 334 0024 1B69     		ldr	r3, [r3, #16]
+ 335              		.loc 1 158 5
+ 336 0026 0021     		movs	r1, #0
+ 337 0028 1846     		mov	r0, r3
+ 338 002a FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 159:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, command, NULL, command_length );
+ 339              		.loc 1 159 52
+ 340 002e 7B69     		ldr	r3, [r7, #20]
+ 341 0030 5868     		ldr	r0, [r3, #4]
+ 342              		.loc 1 159 5
+ 343 0032 FB88     		ldrh	r3, [r7, #6]
+ 344 0034 0022     		movs	r2, #0
+ 345 0036 B968     		ldr	r1, [r7, #8]
+ 346 0038 FFF7FEFF 		bl	smtc_hal_mcu_spi_rw_buffer
+ 160:../../../lr11xx/common/lr11xx_hal.c **** #if defined( USE_LR11XX_CRC_OVER_SPI )
+ 161:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, &cmd_crc, NULL, 1 );
+ 162:../../../lr11xx/common/lr11xx_hal.c **** #endif
+ 163:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_HIGH );
+ 347              		.loc 1 163 53
+ 348 003c 7B69     		ldr	r3, [r7, #20]
+ 349 003e 1B69     		ldr	r3, [r3, #16]
+ 350              		.loc 1 163 5
+ 351 0040 0121     		movs	r1, #1
+ 352 0042 1846     		mov	r0, r3
+ 353 0044 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 164:../../../lr11xx/common/lr11xx_hal.c **** 
+ 165:../../../lr11xx/common/lr11xx_hal.c ****     lr11xx_hal_wait_on_busy( lr11xx_context );
+ 354              		.loc 1 165 5
+ 355 0048 7869     		ldr	r0, [r7, #20]
+ 356 004a FFF7FEFF 		bl	lr11xx_hal_wait_on_busy
+ 166:../../../lr11xx/common/lr11xx_hal.c **** 
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 10
+
+
+ 167:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_LOW );
+ 357              		.loc 1 167 53
+ 358 004e 7B69     		ldr	r3, [r7, #20]
+ 359 0050 1B69     		ldr	r3, [r3, #16]
+ 360              		.loc 1 167 5
+ 361 0052 0021     		movs	r1, #0
+ 362 0054 1846     		mov	r0, r3
+ 363 0056 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 168:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, &dummy_byte, &dummy_byte_rx, 1 );
+ 364              		.loc 1 168 52
+ 365 005a 7B69     		ldr	r3, [r7, #20]
+ 366 005c 5868     		ldr	r0, [r3, #4]
+ 367              		.loc 1 168 5
+ 368 005e 07F11202 		add	r2, r7, #18
+ 369 0062 07F11301 		add	r1, r7, #19
+ 370 0066 0123     		movs	r3, #1
+ 371 0068 FFF7FEFF 		bl	smtc_hal_mcu_spi_rw_buffer
+ 169:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, NULL, data, data_length );
+ 372              		.loc 1 169 52
+ 373 006c 7B69     		ldr	r3, [r7, #20]
+ 374 006e 5868     		ldr	r0, [r3, #4]
+ 375              		.loc 1 169 5
+ 376 0070 3B8C     		ldrh	r3, [r7, #32]
+ 377 0072 3A68     		ldr	r2, [r7]
+ 378 0074 0021     		movs	r1, #0
+ 379 0076 FFF7FEFF 		bl	smtc_hal_mcu_spi_rw_buffer
+ 170:../../../lr11xx/common/lr11xx_hal.c **** #if defined( USE_LR11XX_CRC_OVER_SPI )
+ 171:../../../lr11xx/common/lr11xx_hal.c ****     uint8_t crc_rx;
+ 172:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, &dummy_byte, &crc_rx, 1 );
+ 173:../../../lr11xx/common/lr11xx_hal.c **** #endif
+ 174:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_HIGH );
+ 380              		.loc 1 174 53
+ 381 007a 7B69     		ldr	r3, [r7, #20]
+ 382 007c 1B69     		ldr	r3, [r3, #16]
+ 383              		.loc 1 174 5
+ 384 007e 0121     		movs	r1, #1
+ 385 0080 1846     		mov	r0, r3
+ 386 0082 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 175:../../../lr11xx/common/lr11xx_hal.c **** 
+ 176:../../../lr11xx/common/lr11xx_hal.c **** #if defined( USE_LR11XX_CRC_OVER_SPI )
+ 177:../../../lr11xx/common/lr11xx_hal.c ****     uint8_t crc_computed = lr11xx_hal_compute_crc( 0xFF, &dummy, 1 );
+ 178:../../../lr11xx/common/lr11xx_hal.c ****     crc_computed         = lr11xx_hal_compute_crc( crc_computed, data, data_length );
+ 179:../../../lr11xx/common/lr11xx_hal.c ****     if( crc_rx != crc_computed )
+ 180:../../../lr11xx/common/lr11xx_hal.c ****     {
+ 181:../../../lr11xx/common/lr11xx_hal.c ****         return LR11XX_HAL_STATUS_ERROR;
+ 182:../../../lr11xx/common/lr11xx_hal.c ****     }
+ 183:../../../lr11xx/common/lr11xx_hal.c **** #endif
+ 184:../../../lr11xx/common/lr11xx_hal.c **** 
+ 185:../../../lr11xx/common/lr11xx_hal.c ****     return LR11XX_HAL_STATUS_OK;
+ 387              		.loc 1 185 12
+ 388 0086 0023     		movs	r3, #0
+ 186:../../../lr11xx/common/lr11xx_hal.c **** }
+ 389              		.loc 1 186 1
+ 390 0088 1846     		mov	r0, r3
+ 391 008a 1837     		adds	r7, r7, #24
+ 392              	.LCFI23:
+ 393              		.cfi_def_cfa_offset 8
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 11
+
+
+ 394 008c BD46     		mov	sp, r7
+ 395              	.LCFI24:
+ 396              		.cfi_def_cfa_register 13
+ 397              		@ sp needed
+ 398 008e 80BD     		pop	{r7, pc}
+ 399              		.cfi_endproc
+ 400              	.LFE241:
+ 402              		.section	.text.lr11xx_hal_direct_read,"ax",%progbits
+ 403              		.align	1
+ 404              		.global	lr11xx_hal_direct_read
+ 405              		.syntax unified
+ 406              		.thumb
+ 407              		.thumb_func
+ 409              	lr11xx_hal_direct_read:
+ 410              	.LFB242:
+ 187:../../../lr11xx/common/lr11xx_hal.c **** 
+ 188:../../../lr11xx/common/lr11xx_hal.c **** lr11xx_hal_status_t lr11xx_hal_direct_read( const void* radio, uint8_t* data, const uint16_t data_l
+ 189:../../../lr11xx/common/lr11xx_hal.c **** {
+ 411              		.loc 1 189 1
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 24
+ 414              		@ frame_needed = 1, uses_anonymous_args = 0
+ 415 0000 80B5     		push	{r7, lr}
+ 416              	.LCFI25:
+ 417              		.cfi_def_cfa_offset 8
+ 418              		.cfi_offset 7, -8
+ 419              		.cfi_offset 14, -4
+ 420 0002 86B0     		sub	sp, sp, #24
+ 421              	.LCFI26:
+ 422              		.cfi_def_cfa_offset 32
+ 423 0004 00AF     		add	r7, sp, #0
+ 424              	.LCFI27:
+ 425              		.cfi_def_cfa_register 7
+ 426 0006 F860     		str	r0, [r7, #12]
+ 427 0008 B960     		str	r1, [r7, #8]
+ 428 000a 1346     		mov	r3, r2
+ 429 000c FB80     		strh	r3, [r7, #6]	@ movhi
+ 190:../../../lr11xx/common/lr11xx_hal.c ****     const lr11xx_hal_context_t* lr11xx_context = ( const lr11xx_hal_context_t* ) radio;
+ 430              		.loc 1 190 33
+ 431 000e FB68     		ldr	r3, [r7, #12]
+ 432 0010 7B61     		str	r3, [r7, #20]
+ 191:../../../lr11xx/common/lr11xx_hal.c **** 
+ 192:../../../lr11xx/common/lr11xx_hal.c ****     lr11xx_hal_wait_on_busy( lr11xx_context );
+ 433              		.loc 1 192 5
+ 434 0012 7869     		ldr	r0, [r7, #20]
+ 435 0014 FFF7FEFF 		bl	lr11xx_hal_wait_on_busy
+ 193:../../../lr11xx/common/lr11xx_hal.c **** 
+ 194:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_LOW );
+ 436              		.loc 1 194 53
+ 437 0018 7B69     		ldr	r3, [r7, #20]
+ 438 001a 1B69     		ldr	r3, [r3, #16]
+ 439              		.loc 1 194 5
+ 440 001c 0021     		movs	r1, #0
+ 441 001e 1846     		mov	r0, r3
+ 442 0020 FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 195:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, NULL, data, data_length );
+ 443              		.loc 1 195 52
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 12
+
+
+ 444 0024 7B69     		ldr	r3, [r7, #20]
+ 445 0026 5868     		ldr	r0, [r3, #4]
+ 446              		.loc 1 195 5
+ 447 0028 FB88     		ldrh	r3, [r7, #6]
+ 448 002a BA68     		ldr	r2, [r7, #8]
+ 449 002c 0021     		movs	r1, #0
+ 450 002e FFF7FEFF 		bl	smtc_hal_mcu_spi_rw_buffer
+ 196:../../../lr11xx/common/lr11xx_hal.c **** #if defined( USE_LR11XX_CRC_OVER_SPI )
+ 197:../../../lr11xx/common/lr11xx_hal.c ****     uint8_t crc_rx;
+ 198:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_spi_rw_buffer( lr11xx_context->spi.inst, NULL, &crc_rx, 1 );
+ 199:../../../lr11xx/common/lr11xx_hal.c **** #endif
+ 200:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_set_state( lr11xx_context->nss.inst, SMTC_HAL_MCU_GPIO_STATE_HIGH );
+ 451              		.loc 1 200 53
+ 452 0032 7B69     		ldr	r3, [r7, #20]
+ 453 0034 1B69     		ldr	r3, [r3, #16]
+ 454              		.loc 1 200 5
+ 455 0036 0121     		movs	r1, #1
+ 456 0038 1846     		mov	r0, r3
+ 457 003a FFF7FEFF 		bl	smtc_hal_mcu_gpio_set_state
+ 201:../../../lr11xx/common/lr11xx_hal.c **** 
+ 202:../../../lr11xx/common/lr11xx_hal.c **** #if defined( USE_LR11XX_CRC_OVER_SPI )
+ 203:../../../lr11xx/common/lr11xx_hal.c ****     // check crc value
+ 204:../../../lr11xx/common/lr11xx_hal.c ****     uint8_t crc_computed = lr11xx_hal_compute_crc( 0xFF, data, data_length );
+ 205:../../../lr11xx/common/lr11xx_hal.c ****     if( rx_crc != crc_computed )
+ 206:../../../lr11xx/common/lr11xx_hal.c ****     {
+ 207:../../../lr11xx/common/lr11xx_hal.c ****         return LR11XX_HAL_STATUS_ERROR;
+ 208:../../../lr11xx/common/lr11xx_hal.c ****     }
+ 209:../../../lr11xx/common/lr11xx_hal.c **** #endif
+ 210:../../../lr11xx/common/lr11xx_hal.c **** 
+ 211:../../../lr11xx/common/lr11xx_hal.c ****     return LR11XX_HAL_STATUS_OK;
+ 458              		.loc 1 211 12
+ 459 003e 0023     		movs	r3, #0
+ 212:../../../lr11xx/common/lr11xx_hal.c **** }
+ 460              		.loc 1 212 1
+ 461 0040 1846     		mov	r0, r3
+ 462 0042 1837     		adds	r7, r7, #24
+ 463              	.LCFI28:
+ 464              		.cfi_def_cfa_offset 8
+ 465 0044 BD46     		mov	sp, r7
+ 466              	.LCFI29:
+ 467              		.cfi_def_cfa_register 13
+ 468              		@ sp needed
+ 469 0046 80BD     		pop	{r7, pc}
+ 470              		.cfi_endproc
+ 471              	.LFE242:
+ 473              		.section	.text.lr11xx_hal_wait_on_busy,"ax",%progbits
+ 474              		.align	1
+ 475              		.global	lr11xx_hal_wait_on_busy
+ 476              		.syntax unified
+ 477              		.thumb
+ 478              		.thumb_func
+ 480              	lr11xx_hal_wait_on_busy:
+ 481              	.LFB243:
+ 213:../../../lr11xx/common/lr11xx_hal.c **** 
+ 214:../../../lr11xx/common/lr11xx_hal.c **** /*
+ 215:../../../lr11xx/common/lr11xx_hal.c ****  * -----------------------------------------------------------------------------
+ 216:../../../lr11xx/common/lr11xx_hal.c ****  * --- PRIVATE FUNCTIONS DEFINITION --------------------------------------------
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 13
+
+
+ 217:../../../lr11xx/common/lr11xx_hal.c ****  */
+ 218:../../../lr11xx/common/lr11xx_hal.c **** 
+ 219:../../../lr11xx/common/lr11xx_hal.c **** void lr11xx_hal_wait_on_busy( const void* radio )
+ 220:../../../lr11xx/common/lr11xx_hal.c **** {
+ 482              		.loc 1 220 1
+ 483              		.cfi_startproc
+ 484              		@ args = 0, pretend = 0, frame = 16
+ 485              		@ frame_needed = 1, uses_anonymous_args = 0
+ 486 0000 80B5     		push	{r7, lr}
+ 487              	.LCFI30:
+ 488              		.cfi_def_cfa_offset 8
+ 489              		.cfi_offset 7, -8
+ 490              		.cfi_offset 14, -4
+ 491 0002 84B0     		sub	sp, sp, #16
+ 492              	.LCFI31:
+ 493              		.cfi_def_cfa_offset 24
+ 494 0004 00AF     		add	r7, sp, #0
+ 495              	.LCFI32:
+ 496              		.cfi_def_cfa_register 7
+ 497 0006 7860     		str	r0, [r7, #4]
+ 221:../../../lr11xx/common/lr11xx_hal.c ****     const lr11xx_hal_context_t* lr11xx_context = ( const lr11xx_hal_context_t* ) radio;
+ 498              		.loc 1 221 33
+ 499 0008 7B68     		ldr	r3, [r7, #4]
+ 500 000a FB60     		str	r3, [r7, #12]
+ 501              	.L14:
+ 222:../../../lr11xx/common/lr11xx_hal.c ****     smtc_hal_mcu_gpio_state_t   gpio_state;
+ 223:../../../lr11xx/common/lr11xx_hal.c **** 
+ 224:../../../lr11xx/common/lr11xx_hal.c ****     do
+ 225:../../../lr11xx/common/lr11xx_hal.c ****     {
+ 226:../../../lr11xx/common/lr11xx_hal.c ****         smtc_hal_mcu_gpio_get_state( lr11xx_context->busy.inst, &gpio_state );
+ 502              		.loc 1 226 58
+ 503 000c FB68     		ldr	r3, [r7, #12]
+ 504 000e 5B6C     		ldr	r3, [r3, #68]
+ 505              		.loc 1 226 9
+ 506 0010 07F10B02 		add	r2, r7, #11
+ 507 0014 1146     		mov	r1, r2
+ 508 0016 1846     		mov	r0, r3
+ 509 0018 FFF7FEFF 		bl	smtc_hal_mcu_gpio_get_state
+ 227:../../../lr11xx/common/lr11xx_hal.c ****     } while( gpio_state == SMTC_HAL_MCU_GPIO_STATE_HIGH );
+ 510              		.loc 1 227 25 discriminator 1
+ 511 001c FB7A     		ldrb	r3, [r7, #11]	@ zero_extendqisi2
+ 512 001e 012B     		cmp	r3, #1
+ 513 0020 F4D0     		beq	.L14
+ 228:../../../lr11xx/common/lr11xx_hal.c **** }
+ 514              		.loc 1 228 1
+ 515 0022 00BF     		nop
+ 516 0024 00BF     		nop
+ 517 0026 1037     		adds	r7, r7, #16
+ 518              	.LCFI33:
+ 519              		.cfi_def_cfa_offset 8
+ 520 0028 BD46     		mov	sp, r7
+ 521              	.LCFI34:
+ 522              		.cfi_def_cfa_register 13
+ 523              		@ sp needed
+ 524 002a 80BD     		pop	{r7, pc}
+ 525              		.cfi_endproc
+ 526              	.LFE243:
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 14
+
+
+ 528              		.text
+ 529              	.Letext0:
+ 530              		.file 2 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/mac
+ 531              		.file 3 "C:/Users/nilc/Downloads/TTC/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys
+ 532              		.file 4 "../../../lr11xx/lr11xx_driver/src/lr11xx_hal.h"
+ 533              		.file 5 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_status.h"
+ 534              		.file 6 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_spi.h"
+ 535              		.file 7 "../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_gpio.h"
+ 536              		.file 8 "../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_spi_stm32l4.h"
+ 537              		.file 9 "../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_gpio_stm32l4.h"
+ 538              		.file 10 "../../../libs/smtc-hal-mcu-stm32l4/third_party/STM32CubeL4/Drivers/CMSIS/Device/ST/STM32
+ 539              		.file 11 "../../../lr11xx/common/lr11xx_hal_context.h"
+ 540              		.file 12 "../../../libs/smtc-hal-mcu-stm32l4/third_party/STM32CubeL4/Drivers/STM32L4xx_HAL_Driver/
+ARM GAS  C:\msys64\tmp\ccN1W0Kc.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lr11xx_hal.c
+C:\msys64\tmp\ccN1W0Kc.s:21     .text.lr11xx_hal_reset:00000000 $t
+C:\msys64\tmp\ccN1W0Kc.s:27     .text.lr11xx_hal_reset:00000000 lr11xx_hal_reset
+C:\msys64\tmp\ccN1W0Kc.s:81     .text.lr11xx_hal_wakeup:00000000 $t
+C:\msys64\tmp\ccN1W0Kc.s:87     .text.lr11xx_hal_wakeup:00000000 lr11xx_hal_wakeup
+C:\msys64\tmp\ccN1W0Kc.s:141    .text.lr11xx_hal_abort_blocking_cmd:00000000 $t
+C:\msys64\tmp\ccN1W0Kc.s:147    .text.lr11xx_hal_abort_blocking_cmd:00000000 lr11xx_hal_abort_blocking_cmd
+C:\msys64\tmp\ccN1W0Kc.s:480    .text.lr11xx_hal_wait_on_busy:00000000 lr11xx_hal_wait_on_busy
+C:\msys64\tmp\ccN1W0Kc.s:212    .text.lr11xx_hal_write:00000000 $t
+C:\msys64\tmp\ccN1W0Kc.s:218    .text.lr11xx_hal_write:00000000 lr11xx_hal_write
+C:\msys64\tmp\ccN1W0Kc.s:292    .text.lr11xx_hal_read:00000000 $t
+C:\msys64\tmp\ccN1W0Kc.s:298    .text.lr11xx_hal_read:00000000 lr11xx_hal_read
+C:\msys64\tmp\ccN1W0Kc.s:403    .text.lr11xx_hal_direct_read:00000000 $t
+C:\msys64\tmp\ccN1W0Kc.s:409    .text.lr11xx_hal_direct_read:00000000 lr11xx_hal_direct_read
+C:\msys64\tmp\ccN1W0Kc.s:474    .text.lr11xx_hal_wait_on_busy:00000000 $t
+
+UNDEFINED SYMBOLS
+smtc_hal_mcu_gpio_set_state
+LL_mDelay
+smtc_hal_mcu_spi_rw_buffer
+smtc_hal_mcu_gpio_get_state

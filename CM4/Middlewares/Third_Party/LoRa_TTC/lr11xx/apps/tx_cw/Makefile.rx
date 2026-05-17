@@ -1,0 +1,100 @@
+# Makefile para compilar Rx_proximity.c con las librerías PAE
+######################################
+# target
+######################################
+TOP_DIR = ../../..
+
+APP = rx_proximity
+APP_TRACE ?= yes
+
+PROJECTS_COMMON_MAKEFILE = ../../common/apps_common.mk
+
+######################################
+# building variables
+######################################
+# debug build?
+DEBUG ?= 1
+# optimization
+OPT ?= -O0
+
+#######################################
+# paths
+#######################################
+
+# Build path
+BUILD_DIR = ./build_rx
+
+######################################
+# source
+######################################
+
+# C sources
+C_SOURCES = \
+Rx_proximity.c \
+pae_libs/io_sublayer.c \
+pae_libs/frame_sublayer.c
+
+# Initialise empty C_DEFS
+C_DEFS =
+
+# Añadir includes de PAE
+C_INCLUDES += -Ipae_libs
+
+#######################################
+# include
+#######################################
+
+include $(PROJECTS_COMMON_MAKEFILE)
+
+#######################################
+# build the application
+#######################################
+
+.PHONY: all target
+
+all: target
+
+target: $(BUILD_DIR)/$(APP).elf $(BUILD_DIR)/$(APP).bin
+
+.DEFAULT_GOAL:= target
+
+## For the main application
+# list of objects
+OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
+vpath %.c $(sort $(dir $(C_SOURCES)))
+
+# list of ASM program objects
+OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(ASM_SOURCES:.s=.o)))
+vpath %.s $(sort $(dir $(ASM_SOURCES)))
+
+$(BUILD_DIR)/%.o: %.c $(MAKEFILE_LIST) | $(BUILD_DIR)
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+
+$(BUILD_DIR)/%.o: %.s $(MAKEFILE_LIST) | $(BUILD_DIR)
+	$(AS) -c $(CFLAGS) $< -o $@
+
+$(BUILD_DIR)/$(APP).elf: $(OBJECTS) Makefile.rx | $(BUILD_DIR)
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(SZ) $@
+
+$(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
+	$(HEX) $< $@
+	
+$(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
+	$(BIN) $< $@
+	
+$(BUILD_DIR):
+	mkdir $@
+
+print-%  : ; @echo $* = $($*)
+
+#######################################
+# clean up
+#######################################
+clean:
+	rm -fR $(BUILD_DIR)
+
+#######################################
+# dependencies
+#######################################
+-include $(wildcard $(BUILD_DIR)/*.d)

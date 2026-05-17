@@ -14,6 +14,8 @@
 /* ================= TYPE DEFINITIONS ================= */
 /* ================= GLOBAL VARIABLES ================= */
 /* ================= MODULE-LEVEL VARIABLES ================= */
+static TickType_t xLastWakeTime;
+static TickType_t xPeriod;
 /* ================= PRIVATE FUNCTION PROTOTYPES ================= */
 static void setup_eps(void);
 static void process_eps(void);
@@ -37,10 +39,15 @@ static void setup_eps(void)
 {
     printf("Setting up EPS...\n");
     // Apply the default configuration
+    xPeriod = pdMS_TO_TICKS(EPS_PERIOD_MS);
+    xLastWakeTime = xTaskGetTickCount();
 }
 
 static void process_eps(void)
 {
+
+    TaskNotifyValue_t value;
+    wait_for_notification(&value);
 
     EVT_ID_t evt_id[EVT_EVENTS_PER_SLOT] = {EVT_UNDEF};
 
@@ -48,7 +55,7 @@ static void process_eps(void)
 
     (void)obc_send_event_from_task(TASK_EPS_ID, evt_id, 1);
 
-    vTaskDelay(pdMS_TO_TICKS(500));
+    //vTaskDelayUntil(&xLastWakeTime, xPeriod);
     // 1. Checks EPS notifications (DOESN'T BLOCK) to see whether to perform notification actions
             
     // If there are actions to be taken, process them accordingly.

@@ -1,0 +1,3261 @@
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main_ping_pong.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../main_ping_pong.c"
+  20              		.section	.rodata.gfsk_sync_word,"a"
+  21              		.align	2
+  24              	gfsk_sync_word:
+  25 0000 01234567 		.ascii	"\001#Eg\211\253\315\357"
+  25      89ABCDEF 
+  26              		.section	.bss.context,"aw",%nobits
+  27              		.align	2
+  30              	context:
+  31 0000 00000000 		.space	4
+  32              		.section	.bss.rx_mode,"aw",%nobits
+  35              	rx_mode:
+  36 0000 00       		.space	1
+  37              		.section	.data.avaliable,"aw"
+  40              	avaliable:
+  41 0000 01       		.byte	1
+  42              		.global	index
+  43              		.section	.bss.index,"aw",%nobits
+  46              	index:
+  47 0000 00       		.space	1
+  48              		.global	rx_index
+  49              		.section	.bss.rx_index,"aw",%nobits
+  52              	rx_index:
+  53 0000 00       		.space	1
+  54              		.section	.rodata.large_msg,"a"
+  55              		.align	2
+  58              	large_msg:
+  59 0000 00010203 		.ascii	"\000\001\002\003\004\005\006\007\010\011\012\013\014"
+  59      04050607 
+  59      08090A0B 
+  59      0C
+  60 000d 0D0E0F10 		.ascii	"\015\016\017\020\021\022\023\024\025\026\027\030\031"
+  60      11121314 
+  60      15161718 
+  60      19
+  61 001a 1A1B1C1D 		.ascii	"\032\033\034\035\036\037 !\"#$%&'()*+,-./0123456789"
+  61      1E1F2021 
+  61      22232425 
+  61      26272829 
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 2
+
+
+  61      2A2B2C2D 
+  62 003a 3A3B3C3D 		.ascii	":;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijk"
+  62      3E3F4041 
+  62      42434445 
+  62      46474849 
+  62      4A4B4C4D 
+  63 006c 6C6D6E6F 		.ascii	"lmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206"
+  63      70717273 
+  63      74757677 
+  63      78797A7B 
+  63      7C7D7E7F 
+  64 0087 8788898A 		.ascii	"\207\210\211\212\213\214\215\216\217\220\221\222\223"
+  64      8B8C8D8E 
+  64      8F909192 
+  64      93
+  65 0094 94959697 		.ascii	"\224\225\226\227\230\231\232\233\234\235\236\237\240"
+  65      98999A9B 
+  65      9C9D9E9F 
+  65      A0
+  66 00a1 A1A2A3A4 		.ascii	"\241\242\243\244\245\246\247\250\251\252\253\254\255"
+  66      A5A6A7A8 
+  66      A9AAABAC 
+  66      AD
+  67 00ae AEAFB0B1 		.ascii	"\256\257\260\261\262\263\264\265\266\267\270\271\272"
+  67      B2B3B4B5 
+  67      B6B7B8B9 
+  67      BA
+  68 00bb BBBCBDBE 		.ascii	"\273\274\275\276\277\300\301\302\303\304\305\306\307"
+  68      BFC0C1C2 
+  68      C3C4C5C6 
+  68      C7
+  69 00c8 C8       		.ascii	"\310"
+  70              		.section	.bss.rx_message,"aw",%nobits
+  71              		.align	2
+  74              	rx_message:
+  75 0000 00000000 		.space	201
+  75      00000000 
+  75      00000000 
+  75      00000000 
+  75      00000000 
+  76              		.section	.data.large_msg_size,"aw"
+  77              		.align	2
+  80              	large_msg_size:
+  81 0000 C9000000 		.word	201
+  82              		.global	my_variable_global
+  83              		.section	.bss.my_variable_global,"aw",%nobits
+  84              		.align	2
+  87              	my_variable_global:
+  88 0000 00000000 		.space	20
+  88      00000000 
+  88      00000000 
+  88      00000000 
+  88      00000000 
+  89              		.global	my_variable_rx
+  90              		.section	.bss.my_variable_rx,"aw",%nobits
+  91              		.align	2
+  94              	my_variable_rx:
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 3
+
+
+  95 0000 00000000 		.space	20
+  95      00000000 
+  95      00000000 
+  95      00000000 
+  95      00000000 
+  96              		.section	.rodata
+  97              		.align	2
+  98              	.LC0:
+  99 0000 1B5B303B 		.ascii	"\033[0;32m\000"
+  99      33326D00 
+ 100              		.align	2
+ 101              	.LC1:
+ 102 0008 494E464F 		.ascii	"INFO: \000"
+ 102      3A2000
+ 103 000f 00       		.align	2
+ 104              	.LC2:
+ 105 0010 3D3D3D3D 		.ascii	"===== Link communications EXAMPLE =====\012\012\000"
+ 105      3D204C69 
+ 105      6E6B2063 
+ 105      6F6D6D75 
+ 105      6E696361 
+ 106 003a 0000     		.align	2
+ 107              	.LC3:
+ 108 003c 1B5B306D 		.ascii	"\033[0m\000"
+ 108      00
+ 109 0041 000000   		.align	2
+ 110              	.LC4:
+ 111 0044 1B5B303B 		.ascii	"\033[0;31m\000"
+ 111      33316D00 
+ 112              		.align	2
+ 113              	.LC5:
+ 114 004c 4552524F 		.ascii	"ERROR: \000"
+ 114      523A2000 
+ 115              		.align	2
+ 116              	.LC6:
+ 117 0054 2E2E2F6D 		.ascii	"../main_ping_pong.c\000"
+ 117      61696E5F 
+ 117      70696E67 
+ 117      5F706F6E 
+ 117      672E6300 
+ 118              		.align	2
+ 119              	.LC7:
+ 120 0068 496E2025 		.ascii	"In %s - %s (line %d): %s\012\000"
+ 120      73202D20 
+ 120      25732028 
+ 120      6C696E65 
+ 120      20256429 
+ 121 0082 0000     		.align	2
+ 122              	.LC8:
+ 123 0084 4C523131 		.ascii	"LR11XX_STATUS_ERROR\000"
+ 123      58585F53 
+ 123      54415455 
+ 123      535F4552 
+ 123      524F5200 
+ 124              		.section	.text.main,"ax",%progbits
+ 125              		.align	1
+ 126              		.global	main
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 4
+
+
+ 127              		.syntax unified
+ 128              		.thumb
+ 129              		.thumb_func
+ 131              	main:
+ 132              	.LFB241:
+   1:../main_ping_pong.c **** // Include standard input/output library
+   2:../main_ping_pong.c **** #include <stdio.h>
+   3:../main_ping_pong.c **** // Include string manipulation library
+   4:../main_ping_pong.c **** #include <string.h>
+   5:../main_ping_pong.c **** // Include standard library
+   6:../main_ping_pong.c **** #include <stdlib.h>
+   7:../main_ping_pong.c **** 
+   8:../main_ping_pong.c **** // Include application-specific common functions
+   9:../main_ping_pong.c **** #include "apps_common.h"
+  10:../main_ping_pong.c **** // Include application-specific utilities
+  11:../main_ping_pong.c **** #include "apps_utilities.h"
+  12:../main_ping_pong.c **** // Include LR11xx radio driver
+  13:../main_ping_pong.c **** #include "lr11xx_radio.h"
+  14:../main_ping_pong.c **** // Include LR11xx system driver
+  15:../main_ping_pong.c **** #include "lr11xx_system.h"
+  16:../main_ping_pong.c **** // Include LR11xx system types
+  17:../main_ping_pong.c **** #include "lr11xx_system_types.h"
+  18:../main_ping_pong.c **** // Include LR11xx register and memory driver
+  19:../main_ping_pong.c **** #include "lr11xx_regmem.h"
+  20:../main_ping_pong.c **** // Include main header for ping-pong application
+  21:../main_ping_pong.c **** #include "main_ping_pong.h"
+  22:../main_ping_pong.c **** // Include debug trace functionality
+  23:../main_ping_pong.c **** #include "smtc_hal_dbg_trace.h"
+  24:../main_ping_pong.c **** // Include UART initialization functions
+  25:../main_ping_pong.c **** #include "uart_init.h"
+  26:../main_ping_pong.c **** 
+  27:../main_ping_pong.c **** // Define address of the device
+  28:../main_ping_pong.c **** #define ADRSS  1
+  29:../main_ping_pong.c **** // Define destination address
+  30:../main_ping_pong.c **** #define DEST_ADRSS 2
+  31:../main_ping_pong.c **** // Define length of the header
+  32:../main_ping_pong.c **** #define HEADER_LENGTH 4
+  33:../main_ping_pong.c **** // Define delay before packet transmission in milliseconds
+  34:../main_ping_pong.c **** #define DELAY_BEFORE_TX_MS 20
+  35:../main_ping_pong.c **** // Define delay between each ping-pong activity in milliseconds
+  36:../main_ping_pong.c **** #define DELAY_PING_PONG_PACE_MS 200
+  37:../main_ping_pong.c **** // Define LR11xx interrupt mask used by the application
+  38:../main_ping_pong.c **** #define IRQ_MASK                                                                          \
+  39:../main_ping_pong.c ****     ( LR11XX_SYSTEM_IRQ_TX_DONE | LR11XX_SYSTEM_IRQ_RX_DONE | LR11XX_SYSTEM_IRQ_TIMEOUT | \
+  40:../main_ping_pong.c ****       LR11XX_SYSTEM_IRQ_HEADER_ERROR | LR11XX_SYSTEM_IRQ_CRC_ERROR | LR11XX_SYSTEM_IRQ_FSK_LEN_ERRO
+  41:../main_ping_pong.c **** 
+  42:../main_ping_pong.c **** // Define whether the application uses partial sleep mode
+  43:../main_ping_pong.c **** #define APP_PARTIAL_SLEEP true
+  44:../main_ping_pong.c **** // Define maximum payload length excluding header length
+  45:../main_ping_pong.c **** #define MAX_PAYLOAD_LENGTH PAYLOAD_LENGTH-HEADER_LENGTH
+  46:../main_ping_pong.c **** 
+  47:../main_ping_pong.c **** // Declare context for LR11xx HAL
+  48:../main_ping_pong.c **** static lr11xx_hal_context_t* context;
+  49:../main_ping_pong.c **** // Declare flag for receive mode
+  50:../main_ping_pong.c **** static bool    rx_mode = false;
+  51:../main_ping_pong.c **** // Declare flag for availability
+  52:../main_ping_pong.c **** static bool    avaliable = true;
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 5
+
+
+  53:../main_ping_pong.c **** // Declare index for transmission
+  54:../main_ping_pong.c **** uint8_t index = 0;
+  55:../main_ping_pong.c **** // Declare index for reception
+  56:../main_ping_pong.c **** uint8_t rx_index = 0;
+  57:../main_ping_pong.c **** 
+  58:../main_ping_pong.c **** // Define large message to be transmitted
+  59:../main_ping_pong.c **** static const uint8_t large_msg[] = {
+  60:../main_ping_pong.c ****     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 2
+  61:../main_ping_pong.c ****     32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,
+  62:../main_ping_pong.c ****     62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85,
+  63:../main_ping_pong.c ****     92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112
+  64:../main_ping_pong.c ****     118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 
+  65:../main_ping_pong.c ****     142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 
+  66:../main_ping_pong.c ****     166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 
+  67:../main_ping_pong.c ****     190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200};
+  68:../main_ping_pong.c **** // Declare buffer for received message (size matches large_msg)
+  69:../main_ping_pong.c **** static uint8_t rx_message[sizeof( large_msg )];
+  70:../main_ping_pong.c **** // Define size of the large message
+  71:../main_ping_pong.c **** static size_t large_msg_size = sizeof( large_msg );
+  72:../main_ping_pong.c **** 
+  73:../main_ping_pong.c **** // Define frame structure using union
+  74:../main_ping_pong.c **** typedef union {
+  75:../main_ping_pong.c ****     uint8_t raw[PAYLOAD_LENGTH];
+  76:../main_ping_pong.c ****     struct
+  77:../main_ping_pong.c ****     {
+  78:../main_ping_pong.c ****         uint8_t dst_addr; //destination address
+  79:../main_ping_pong.c ****         uint8_t src_addr; //source address
+  80:../main_ping_pong.c ****         uint8_t type;  //if 0x00 is ACK frame if 0x01 is a data frame if  0x02 is a end of tx frame
+  81:../main_ping_pong.c ****                        // if 0x03 is a tx request if 0x04 is a tx acceptance
+  82:../main_ping_pong.c ****         uint8_t length; //length of the data
+  83:../main_ping_pong.c ****         uint8_t data[MAX_PAYLOAD_LENGTH]; //data
+  84:../main_ping_pong.c ****     } frame_t; 
+  85:../main_ping_pong.c **** } frame;
+  86:../main_ping_pong.c **** 
+  87:../main_ping_pong.c **** // Declare global variables for frame
+  88:../main_ping_pong.c **** frame my_variable_global; //to be able to print the data
+  89:../main_ping_pong.c **** frame my_variable_rx;
+  90:../main_ping_pong.c **** 
+  91:../main_ping_pong.c **** /* Forward declarations for functions implemented below but used before their
+  92:../main_ping_pong.c ****     definitions (prevents implicit declaration errors) */
+  93:../main_ping_pong.c **** void tx_request( uint8_t dst );
+  94:../main_ping_pong.c **** void tx_accepted( uint8_t dst );
+  95:../main_ping_pong.c **** void info_tx( uint8_t* large_msg, uint8_t index, uint8_t size, uint8_t dest );
+  96:../main_ping_pong.c **** void end_of_tx( uint8_t dest );
+  97:../main_ping_pong.c **** void ack_tx( uint8_t dest );
+  98:../main_ping_pong.c **** 
+  99:../main_ping_pong.c **** /*
+ 100:../main_ping_pong.c ****  * -----------------------------------------------------------------------------
+ 101:../main_ping_pong.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+ 102:../main_ping_pong.c ****  */
+ 103:../main_ping_pong.c **** 
+ 104:../main_ping_pong.c **** /**
+ 105:../main_ping_pong.c ****  * @brief Handle reception failure for ping-pong example
+ 106:../main_ping_pong.c ****  */
+ 107:../main_ping_pong.c **** static void reception_failure_handling( void );
+ 108:../main_ping_pong.c **** 
+ 109:../main_ping_pong.c **** /*
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 6
+
+
+ 110:../main_ping_pong.c ****  * -----------------------------------------------------------------------------
+ 111:../main_ping_pong.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+ 112:../main_ping_pong.c ****  */
+ 113:../main_ping_pong.c **** 
+ 114:../main_ping_pong.c **** /**
+ 115:../main_ping_pong.c ****  * @brief Main application entry point.
+ 116:../main_ping_pong.c ****  */
+ 117:../main_ping_pong.c **** int main( void )
+ 118:../main_ping_pong.c **** {
+ 133              		.loc 1 118 1
+ 134              		.cfi_startproc
+ 135              		@ args = 0, pretend = 0, frame = 8
+ 136              		@ frame_needed = 1, uses_anonymous_args = 0
+ 137 0000 80B5     		push	{r7, lr}
+ 138              	.LCFI0:
+ 139              		.cfi_def_cfa_offset 8
+ 140              		.cfi_offset 7, -8
+ 141              		.cfi_offset 14, -4
+ 142 0002 84B0     		sub	sp, sp, #16
+ 143              	.LCFI1:
+ 144              		.cfi_def_cfa_offset 24
+ 145 0004 02AF     		add	r7, sp, #8
+ 146              	.LCFI2:
+ 147              		.cfi_def_cfa 7, 16
+ 119:../main_ping_pong.c ****     uint8_t tx_size;
+ 120:../main_ping_pong.c **** 
+ 121:../main_ping_pong.c ****     // Initialize MCU
+ 122:../main_ping_pong.c ****     smtc_hal_mcu_init( );
+ 148              		.loc 1 122 5
+ 149 0006 FFF7FEFF 		bl	smtc_hal_mcu_init
+ 123:../main_ping_pong.c ****     // Initialize shield
+ 124:../main_ping_pong.c ****     apps_common_shield_init( );
+ 150              		.loc 1 124 5
+ 151 000a FFF7FEFF 		bl	apps_common_shield_init
+ 125:../main_ping_pong.c ****     // Initialize UART
+ 126:../main_ping_pong.c ****     uart_init();
+ 152              		.loc 1 126 5
+ 153 000e FFF7FEFF 		bl	uart_init
+ 127:../main_ping_pong.c **** 
+ 128:../main_ping_pong.c ****     // Print initial message
+ 129:../main_ping_pong.c ****     HAL_DBG_TRACE_INFO( "===== Link communications EXAMPLE =====\n\n" );
+ 154              		.loc 1 129 5
+ 155 0012 3748     		ldr	r0, .L5
+ 156 0014 FFF7FEFF 		bl	hal_mcu_trace_print
+ 157              		.loc 1 129 5 is_stmt 0 discriminator 1
+ 158 0018 3648     		ldr	r0, .L5+4
+ 159 001a FFF7FEFF 		bl	hal_mcu_trace_print
+ 160              		.loc 1 129 5 discriminator 2
+ 161 001e 3648     		ldr	r0, .L5+8
+ 162 0020 FFF7FEFF 		bl	hal_mcu_trace_print
+ 163              		.loc 1 129 5 discriminator 3
+ 164 0024 3548     		ldr	r0, .L5+12
+ 165 0026 FFF7FEFF 		bl	hal_mcu_trace_print
+ 130:../main_ping_pong.c ****     // Print SDK driver version
+ 131:../main_ping_pong.c ****     apps_common_print_sdk_driver_version( );
+ 166              		.loc 1 131 5 is_stmt 1
+ 167 002a FFF7FEFF 		bl	apps_common_print_sdk_driver_version
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 7
+
+
+ 132:../main_ping_pong.c **** 
+ 133:../main_ping_pong.c ****     // Get context for LR11xx
+ 134:../main_ping_pong.c ****     context = apps_common_lr11xx_get_context( );
+ 168              		.loc 1 134 15
+ 169 002e FFF7FEFF 		bl	apps_common_lr11xx_get_context
+ 170 0032 0346     		mov	r3, r0
+ 171              		.loc 1 134 13 discriminator 1
+ 172 0034 324A     		ldr	r2, .L5+16
+ 173 0036 1360     		str	r3, [r2]
+ 135:../main_ping_pong.c **** 
+ 136:../main_ping_pong.c ****     // Initialize LR11xx system
+ 137:../main_ping_pong.c ****     apps_common_lr11xx_system_init( ( void* ) context );
+ 174              		.loc 1 137 5
+ 175 0038 314B     		ldr	r3, .L5+16
+ 176 003a 1B68     		ldr	r3, [r3]
+ 177 003c 1846     		mov	r0, r3
+ 178 003e FFF7FEFF 		bl	apps_common_lr11xx_system_init
+ 138:../main_ping_pong.c ****     // Fetch and print LR11xx version
+ 139:../main_ping_pong.c ****     apps_common_lr11xx_fetch_and_print_version( ( void* ) context );
+ 179              		.loc 1 139 5
+ 180 0042 2F4B     		ldr	r3, .L5+16
+ 181 0044 1B68     		ldr	r3, [r3]
+ 182 0046 1846     		mov	r0, r3
+ 183 0048 FFF7FEFF 		bl	apps_common_lr11xx_fetch_and_print_version
+ 140:../main_ping_pong.c ****     // Initialize LR11xx radio
+ 141:../main_ping_pong.c ****     apps_common_lr11xx_radio_init( ( void* ) context );
+ 184              		.loc 1 141 5
+ 185 004c 2C4B     		ldr	r3, .L5+16
+ 186 004e 1B68     		ldr	r3, [r3]
+ 187 0050 1846     		mov	r0, r3
+ 188 0052 FFF7FEFF 		bl	apps_common_lr11xx_radio_init
+ 189              	.LBB2:
+ 142:../main_ping_pong.c **** 
+ 143:../main_ping_pong.c ****     // Set DIO IRQ parameters
+ 144:../main_ping_pong.c ****     ASSERT_LR11XX_RC( lr11xx_system_set_dio_irq_params( context, IRQ_MASK, 0 ) );
+ 190              		.loc 1 144 5
+ 191 0056 2A4B     		ldr	r3, .L5+16
+ 192 0058 1B68     		ldr	r3, [r3]
+ 193 005a 0022     		movs	r2, #0
+ 194 005c 2949     		ldr	r1, .L5+20
+ 195 005e 1846     		mov	r0, r3
+ 196 0060 FFF7FEFF 		bl	lr11xx_system_set_dio_irq_params
+ 197 0064 0346     		mov	r3, r0
+ 198 0066 FB71     		strb	r3, [r7, #7]
+ 199              		.loc 1 144 5 is_stmt 0 discriminator 1
+ 200 0068 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 201 006a 002B     		cmp	r3, #0
+ 202 006c 13D0     		beq	.L2
+ 203 006e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 204 0070 032B     		cmp	r3, #3
+ 205 0072 10D1     		bne	.L2
+ 206              		.loc 1 144 5 discriminator 2
+ 207 0074 2448     		ldr	r0, .L5+24
+ 208 0076 FFF7FEFF 		bl	hal_mcu_trace_print
+ 209              		.loc 1 144 5 discriminator 1
+ 210 007a 2448     		ldr	r0, .L5+28
+ 211 007c FFF7FEFF 		bl	hal_mcu_trace_print
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 8
+
+
+ 212              		.loc 1 144 5 discriminator 2
+ 213 0080 234B     		ldr	r3, .L5+32
+ 214 0082 0093     		str	r3, [sp]
+ 215 0084 9023     		movs	r3, #144
+ 216 0086 234A     		ldr	r2, .L5+36
+ 217 0088 2349     		ldr	r1, .L5+40
+ 218 008a 2448     		ldr	r0, .L5+44
+ 219 008c FFF7FEFF 		bl	hal_mcu_trace_print
+ 220              		.loc 1 144 5 discriminator 3
+ 221 0090 1A48     		ldr	r0, .L5+12
+ 222 0092 FFF7FEFF 		bl	hal_mcu_trace_print
+ 223              	.L2:
+ 224              	.LBE2:
+ 225              	.LBB3:
+ 145:../main_ping_pong.c ****     // Clear IRQ status
+ 146:../main_ping_pong.c ****     ASSERT_LR11XX_RC( lr11xx_system_clear_irq_status( context, LR11XX_SYSTEM_IRQ_ALL_MASK ) );
+ 226              		.loc 1 146 5 is_stmt 1
+ 227 0096 1A4B     		ldr	r3, .L5+16
+ 228 0098 1B68     		ldr	r3, [r3]
+ 229 009a 2149     		ldr	r1, .L5+48
+ 230 009c 1846     		mov	r0, r3
+ 231 009e FFF7FEFF 		bl	lr11xx_system_clear_irq_status
+ 232 00a2 0346     		mov	r3, r0
+ 233 00a4 BB71     		strb	r3, [r7, #6]
+ 234              		.loc 1 146 5 is_stmt 0 discriminator 1
+ 235 00a6 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 236 00a8 002B     		cmp	r3, #0
+ 237 00aa 13D0     		beq	.L3
+ 238 00ac BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 239 00ae 032B     		cmp	r3, #3
+ 240 00b0 10D1     		bne	.L3
+ 241              		.loc 1 146 5 discriminator 2
+ 242 00b2 1548     		ldr	r0, .L5+24
+ 243 00b4 FFF7FEFF 		bl	hal_mcu_trace_print
+ 244              		.loc 1 146 5 discriminator 1
+ 245 00b8 1448     		ldr	r0, .L5+28
+ 246 00ba FFF7FEFF 		bl	hal_mcu_trace_print
+ 247              		.loc 1 146 5 discriminator 2
+ 248 00be 144B     		ldr	r3, .L5+32
+ 249 00c0 0093     		str	r3, [sp]
+ 250 00c2 9223     		movs	r3, #146
+ 251 00c4 134A     		ldr	r2, .L5+36
+ 252 00c6 1449     		ldr	r1, .L5+40
+ 253 00c8 1448     		ldr	r0, .L5+44
+ 254 00ca FFF7FEFF 		bl	hal_mcu_trace_print
+ 255              		.loc 1 146 5 discriminator 3
+ 256 00ce 0B48     		ldr	r0, .L5+12
+ 257 00d0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 258              	.L3:
+ 259              	.LBE3:
+ 147:../main_ping_pong.c **** 
+ 148:../main_ping_pong.c ****     // Initialize random number generator
+ 149:../main_ping_pong.c ****     srand( 10 );
+ 260              		.loc 1 149 5 is_stmt 1
+ 261 00d4 0A20     		movs	r0, #10
+ 262 00d6 FFF7FEFF 		bl	srand
+ 150:../main_ping_pong.c **** 
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 9
+
+
+ 151:../main_ping_pong.c ****     // Send transmission request
+ 152:../main_ping_pong.c ****     tx_request(DEST_ADRSS);
+ 263              		.loc 1 152 5
+ 264 00da 0220     		movs	r0, #2
+ 265 00dc FFF7FEFF 		bl	tx_request
+ 266              	.L4:
+ 153:../main_ping_pong.c **** 
+ 154:../main_ping_pong.c ****     // Main loop
+ 155:../main_ping_pong.c ****     while( true )
+ 156:../main_ping_pong.c ****     {
+ 157:../main_ping_pong.c ****         // Process IRQ
+ 158:../main_ping_pong.c ****         apps_common_lr11xx_irq_process( context, IRQ_MASK );
+ 267              		.loc 1 158 9 discriminator 1
+ 268 00e0 074B     		ldr	r3, .L5+16
+ 269 00e2 1B68     		ldr	r3, [r3]
+ 270 00e4 0749     		ldr	r1, .L5+20
+ 271 00e6 1846     		mov	r0, r3
+ 272 00e8 FFF7FEFF 		bl	apps_common_lr11xx_irq_process
+ 273 00ec F8E7     		b	.L4
+ 274              	.L6:
+ 275 00ee 00BF     		.align	2
+ 276              	.L5:
+ 277 00f0 00000000 		.word	.LC0
+ 278 00f4 08000000 		.word	.LC1
+ 279 00f8 10000000 		.word	.LC2
+ 280 00fc 3C000000 		.word	.LC3
+ 281 0100 00000000 		.word	context
+ 282 0104 CC040001 		.word	16778444
+ 283 0108 44000000 		.word	.LC4
+ 284 010c 4C000000 		.word	.LC5
+ 285 0110 84000000 		.word	.LC8
+ 286 0114 00000000 		.word	__func__.8
+ 287 0118 54000000 		.word	.LC6
+ 288 011c 68000000 		.word	.LC7
+ 289 0120 FCCFFF0B 		.word	201314300
+ 290              		.cfi_endproc
+ 291              	.LFE241:
+ 293              		.section	.rodata
+ 294              		.align	2
+ 295              	.LC9:
+ 296 0098 5472616E 		.ascii	"Transmitted message: \000"
+ 296      736D6974 
+ 296      74656420 
+ 296      6D657373 
+ 296      6167653A 
+ 297 00ae 0000     		.align	2
+ 298              	.LC10:
+ 299 00b0 25303258 		.ascii	"%02X \000"
+ 299      2000
+ 300 00b6 0000     		.align	2
+ 301              	.LC11:
+ 302 00b8 0A00     		.ascii	"\012\000"
+ 303              		.section	.text.on_tx_done,"ax",%progbits
+ 304              		.align	1
+ 305              		.global	on_tx_done
+ 306              		.syntax unified
+ 307              		.thumb
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 10
+
+
+ 308              		.thumb_func
+ 310              	on_tx_done:
+ 311              	.LFB242:
+ 159:../main_ping_pong.c ****     }
+ 160:../main_ping_pong.c **** }
+ 161:../main_ping_pong.c **** 
+ 162:../main_ping_pong.c **** // Function to handle transmission done event
+ 163:../main_ping_pong.c **** void on_tx_done( void )
+ 164:../main_ping_pong.c **** {
+ 312              		.loc 1 164 1
+ 313              		.cfi_startproc
+ 314              		@ args = 0, pretend = 0, frame = 8
+ 315              		@ frame_needed = 1, uses_anonymous_args = 0
+ 316 0000 B0B5     		push	{r4, r5, r7, lr}
+ 317              	.LCFI3:
+ 318              		.cfi_def_cfa_offset 16
+ 319              		.cfi_offset 4, -16
+ 320              		.cfi_offset 5, -12
+ 321              		.cfi_offset 7, -8
+ 322              		.cfi_offset 14, -4
+ 323 0002 84B0     		sub	sp, sp, #16
+ 324              	.LCFI4:
+ 325              		.cfi_def_cfa_offset 32
+ 326 0004 02AF     		add	r7, sp, #8
+ 327              	.LCFI5:
+ 328              		.cfi_def_cfa 7, 24
+ 165:../main_ping_pong.c ****     // Handle post transmission
+ 166:../main_ping_pong.c ****     apps_common_lr11xx_handle_post_tx( );
+ 329              		.loc 1 166 5
+ 330 0006 FFF7FEFF 		bl	apps_common_lr11xx_handle_post_tx
+ 167:../main_ping_pong.c ****     
+ 168:../main_ping_pong.c ****     // Print transmitted message
+ 169:../main_ping_pong.c ****     HAL_DBG_TRACE_INFO("Transmitted message: ");
+ 331              		.loc 1 169 5
+ 332 000a 2D48     		ldr	r0, .L12
+ 333 000c FFF7FEFF 		bl	hal_mcu_trace_print
+ 334              		.loc 1 169 5 is_stmt 0 discriminator 1
+ 335 0010 2C48     		ldr	r0, .L12+4
+ 336 0012 FFF7FEFF 		bl	hal_mcu_trace_print
+ 337              		.loc 1 169 5 discriminator 2
+ 338 0016 2C48     		ldr	r0, .L12+8
+ 339 0018 FFF7FEFF 		bl	hal_mcu_trace_print
+ 340              		.loc 1 169 5 discriminator 3
+ 341 001c 2B48     		ldr	r0, .L12+12
+ 342 001e FFF7FEFF 		bl	hal_mcu_trace_print
+ 343              	.LBB4:
+ 170:../main_ping_pong.c ****     for (int i = 0; i < PAYLOAD_LENGTH; i++) {
+ 344              		.loc 1 170 14 is_stmt 1
+ 345 0022 0023     		movs	r3, #0
+ 346 0024 7B60     		str	r3, [r7, #4]
+ 347              		.loc 1 170 5
+ 348 0026 0AE0     		b	.L8
+ 349              	.L9:
+ 171:../main_ping_pong.c ****         HAL_DBG_TRACE_PRINTF("%02X ", my_variable_global.raw[i]);
+ 350              		.loc 1 171 9
+ 351 0028 294A     		ldr	r2, .L12+16
+ 352 002a 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 11
+
+
+ 353 002c 1344     		add	r3, r3, r2
+ 354 002e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 355 0030 1946     		mov	r1, r3
+ 356 0032 2848     		ldr	r0, .L12+20
+ 357 0034 FFF7FEFF 		bl	hal_mcu_trace_print
+ 170:../main_ping_pong.c ****     for (int i = 0; i < PAYLOAD_LENGTH; i++) {
+ 358              		.loc 1 170 42 discriminator 3
+ 359 0038 7B68     		ldr	r3, [r7, #4]
+ 360 003a 0133     		adds	r3, r3, #1
+ 361 003c 7B60     		str	r3, [r7, #4]
+ 362              	.L8:
+ 170:../main_ping_pong.c ****     for (int i = 0; i < PAYLOAD_LENGTH; i++) {
+ 363              		.loc 1 170 23 discriminator 1
+ 364 003e 7B68     		ldr	r3, [r7, #4]
+ 365 0040 132B     		cmp	r3, #19
+ 366 0042 F1DD     		ble	.L9
+ 367              	.LBE4:
+ 172:../main_ping_pong.c ****     }
+ 173:../main_ping_pong.c ****     HAL_DBG_TRACE_PRINTF("\n");
+ 368              		.loc 1 173 5
+ 369 0044 2448     		ldr	r0, .L12+24
+ 370 0046 FFF7FEFF 		bl	hal_mcu_trace_print
+ 174:../main_ping_pong.c **** 
+ 175:../main_ping_pong.c ****     // Handle pre-reception
+ 176:../main_ping_pong.c ****     apps_common_lr11xx_handle_pre_rx( );
+ 371              		.loc 1 176 5
+ 372 004a FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_rx
+ 373              	.LBB5:
+ 177:../main_ping_pong.c ****     // Set radio to receive mode with random delay
+ 178:../main_ping_pong.c ****     ASSERT_LR11XX_RC( lr11xx_radio_set_rx(context,get_time_on_air_in_ms( ) + RX_TIMEOUT_VALUE + ran
+ 374              		.loc 1 178 5
+ 375 004e 234B     		ldr	r3, .L12+28
+ 376 0050 1C68     		ldr	r4, [r3]
+ 377 0052 FFF7FEFF 		bl	get_time_on_air_in_ms
+ 378 0056 0546     		mov	r5, r0
+ 379              		.loc 1 178 5 is_stmt 0 discriminator 1
+ 380 0058 FFF7FEFF 		bl	rand
+ 381 005c 0346     		mov	r3, r0
+ 382              		.loc 1 178 5 discriminator 2
+ 383 005e 204A     		ldr	r2, .L12+32
+ 384 0060 82FB0312 		smull	r1, r2, r2, r3
+ 385 0064 5111     		asrs	r1, r2, #5
+ 386 0066 DA17     		asrs	r2, r3, #31
+ 387 0068 8A1A     		subs	r2, r1, r2
+ 388 006a 4FF4FA71 		mov	r1, #500
+ 389 006e 01FB02F2 		mul	r2, r1, r2
+ 390 0072 9A1A     		subs	r2, r3, r2
+ 391 0074 1346     		mov	r3, r2
+ 392 0076 2B44     		add	r3, r3, r5
+ 393 0078 03F51673 		add	r3, r3, #600
+ 394 007c 1946     		mov	r1, r3
+ 395 007e 2046     		mov	r0, r4
+ 396 0080 FFF7FEFF 		bl	lr11xx_radio_set_rx
+ 397 0084 0346     		mov	r3, r0
+ 398 0086 FB70     		strb	r3, [r7, #3]
+ 399              		.loc 1 178 5 discriminator 3
+ 400 0088 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 12
+
+
+ 401 008a 002B     		cmp	r3, #0
+ 402 008c 13D0     		beq	.L11
+ 403              		.loc 1 178 5 discriminator 1
+ 404 008e FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 405 0090 032B     		cmp	r3, #3
+ 406 0092 10D1     		bne	.L11
+ 407              		.loc 1 178 5 discriminator 2
+ 408 0094 1348     		ldr	r0, .L12+36
+ 409 0096 FFF7FEFF 		bl	hal_mcu_trace_print
+ 410              		.loc 1 178 5 discriminator 1
+ 411 009a 1348     		ldr	r0, .L12+40
+ 412 009c FFF7FEFF 		bl	hal_mcu_trace_print
+ 413              		.loc 1 178 5 discriminator 2
+ 414 00a0 124B     		ldr	r3, .L12+44
+ 415 00a2 0093     		str	r3, [sp]
+ 416 00a4 B223     		movs	r3, #178
+ 417 00a6 124A     		ldr	r2, .L12+48
+ 418 00a8 1249     		ldr	r1, .L12+52
+ 419 00aa 1348     		ldr	r0, .L12+56
+ 420 00ac FFF7FEFF 		bl	hal_mcu_trace_print
+ 421              		.loc 1 178 5 discriminator 3
+ 422 00b0 0648     		ldr	r0, .L12+12
+ 423 00b2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 424              	.L11:
+ 425              	.LBE5:
+ 179:../main_ping_pong.c ****                                                                                                    
+ 180:../main_ping_pong.c **** }
+ 426              		.loc 1 180 1 is_stmt 1
+ 427 00b6 00BF     		nop
+ 428 00b8 0837     		adds	r7, r7, #8
+ 429              	.LCFI6:
+ 430              		.cfi_def_cfa_offset 16
+ 431 00ba BD46     		mov	sp, r7
+ 432              	.LCFI7:
+ 433              		.cfi_def_cfa_register 13
+ 434              		@ sp needed
+ 435 00bc B0BD     		pop	{r4, r5, r7, pc}
+ 436              	.L13:
+ 437 00be 00BF     		.align	2
+ 438              	.L12:
+ 439 00c0 00000000 		.word	.LC0
+ 440 00c4 08000000 		.word	.LC1
+ 441 00c8 98000000 		.word	.LC9
+ 442 00cc 3C000000 		.word	.LC3
+ 443 00d0 00000000 		.word	my_variable_global
+ 444 00d4 B0000000 		.word	.LC10
+ 445 00d8 B8000000 		.word	.LC11
+ 446 00dc 00000000 		.word	context
+ 447 00e0 D34D6210 		.word	274877907
+ 448 00e4 44000000 		.word	.LC4
+ 449 00e8 4C000000 		.word	.LC5
+ 450 00ec 84000000 		.word	.LC8
+ 451 00f0 00000000 		.word	__func__.7
+ 452 00f4 54000000 		.word	.LC6
+ 453 00f8 68000000 		.word	.LC7
+ 454              		.cfi_endproc
+ 455              	.LFE242:
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 13
+
+
+ 457              		.section	.rodata
+ 458 00ba 0000     		.align	2
+ 459              	.LC12:
+ 460 00bc 52656365 		.ascii	"Received address different: %d != %d\000"
+ 460      69766564 
+ 460      20616464 
+ 460      72657373 
+ 460      20646966 
+ 461 00e1 000000   		.align	2
+ 462              	.LC13:
+ 463 00e4 52656365 		.ascii	"Received size different: %d != %d\000"
+ 463      69766564 
+ 463      2073697A 
+ 463      65206469 
+ 463      66666572 
+ 464 0106 0000     		.align	2
+ 465              	.LC14:
+ 466 0108 54782072 		.ascii	"Tx request received\000"
+ 466      65717565 
+ 466      73742072 
+ 466      65636569 
+ 466      76656400 
+ 467              		.align	2
+ 468              	.LC15:
+ 469 011c 54782061 		.ascii	"Tx acceptance received\000"
+ 469      63636570 
+ 469      74616E63 
+ 469      65207265 
+ 469      63656976 
+ 470 0133 00       		.align	2
+ 471              	.LC16:
+ 472 0134 41434B20 		.ascii	"ACK received\000"
+ 472      72656365 
+ 472      69766564 
+ 472      00
+ 473 0141 000000   		.align	2
+ 474              	.LC17:
+ 475 0144 4E6F2069 		.ascii	"No information to transmit\000"
+ 475      6E666F72 
+ 475      6D617469 
+ 475      6F6E2074 
+ 475      6F207472 
+ 476 015f 00       		.align	2
+ 477              	.LC18:
+ 478 0160 44617461 		.ascii	"Data received\000"
+ 478      20726563 
+ 478      65697665 
+ 478      6400
+ 479 016e 0000     		.align	2
+ 480              	.LC19:
+ 481 0170 456E6420 		.ascii	"End of transmission received\000"
+ 481      6F662074 
+ 481      72616E73 
+ 481      6D697373 
+ 481      696F6E20 
+ 482 018d 000000   		.align	2
+ 483              	.LC20:
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 14
+
+
+ 484 0190 0A0A2046 		.ascii	"\012\012 Full received message: \000"
+ 484      756C6C20 
+ 484      72656365 
+ 484      69766564 
+ 484      206D6573 
+ 485 01ab 00       		.align	2
+ 486              	.LC21:
+ 487 01ac 456E6420 		.ascii	"End of transmission confirmation\000"
+ 487      6F662074 
+ 487      72616E73 
+ 487      6D697373 
+ 487      696F6E20 
+ 488              		.section	.text.on_rx_done,"ax",%progbits
+ 489              		.align	1
+ 490              		.global	on_rx_done
+ 491              		.syntax unified
+ 492              		.thumb
+ 493              		.thumb_func
+ 495              	on_rx_done:
+ 496              	.LFB243:
+ 181:../main_ping_pong.c **** 
+ 182:../main_ping_pong.c **** // Function to handle reception done event
+ 183:../main_ping_pong.c **** void on_rx_done( void )
+ 184:../main_ping_pong.c **** {
+ 497              		.loc 1 184 1
+ 498              		.cfi_startproc
+ 499              		@ args = 0, pretend = 0, frame = 32
+ 500              		@ frame_needed = 1, uses_anonymous_args = 0
+ 501 0000 B0B5     		push	{r4, r5, r7, lr}
+ 502              	.LCFI8:
+ 503              		.cfi_def_cfa_offset 16
+ 504              		.cfi_offset 4, -16
+ 505              		.cfi_offset 5, -12
+ 506              		.cfi_offset 7, -8
+ 507              		.cfi_offset 14, -4
+ 508 0002 8AB0     		sub	sp, sp, #40
+ 509              	.LCFI9:
+ 510              		.cfi_def_cfa_offset 56
+ 511 0004 02AF     		add	r7, sp, #8
+ 512              	.LCFI10:
+ 513              		.cfi_def_cfa 7, 48
+ 185:../main_ping_pong.c ****     uint8_t buffer_rx[PAYLOAD_LENGTH]; // Buffer to store received data
+ 186:../main_ping_pong.c ****     uint8_t size, tx_size; // Variables to store size of received and transmitted data
+ 187:../main_ping_pong.c ****     
+ 188:../main_ping_pong.c ****     // Handle post reception
+ 189:../main_ping_pong.c ****     apps_common_lr11xx_handle_post_rx( );
+ 514              		.loc 1 189 5
+ 515 0006 FFF7FEFF 		bl	apps_common_lr11xx_handle_post_rx
+ 190:../main_ping_pong.c **** 
+ 191:../main_ping_pong.c ****     // Receive data
+ 192:../main_ping_pong.c ****     apps_common_lr11xx_receive( context, buffer_rx, PAYLOAD_LENGTH, &size );
+ 516              		.loc 1 192 5
+ 517 000a 8C4B     		ldr	r3, .L28
+ 518 000c 1868     		ldr	r0, [r3]
+ 519 000e FB1D     		adds	r3, r7, #7
+ 520 0010 07F10801 		add	r1, r7, #8
+ 521 0014 1422     		movs	r2, #20
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 15
+
+
+ 522 0016 FFF7FEFF 		bl	apps_common_lr11xx_receive
+ 193:../main_ping_pong.c ****     // Parse received frame
+ 194:../main_ping_pong.c ****     my_variable_rx.frame_t.dst_addr = buffer_rx[0]; // Destination address
+ 523              		.loc 1 194 48
+ 524 001a 3A7A     		ldrb	r2, [r7, #8]	@ zero_extendqisi2
+ 525              		.loc 1 194 37
+ 526 001c 884B     		ldr	r3, .L28+4
+ 527 001e 1A70     		strb	r2, [r3]
+ 195:../main_ping_pong.c ****     my_variable_rx.frame_t.src_addr = buffer_rx[1]; // Source address
+ 528              		.loc 1 195 48
+ 529 0020 7A7A     		ldrb	r2, [r7, #9]	@ zero_extendqisi2
+ 530              		.loc 1 195 37
+ 531 0022 874B     		ldr	r3, .L28+4
+ 532 0024 5A70     		strb	r2, [r3, #1]
+ 196:../main_ping_pong.c ****     my_variable_rx.frame_t.type = buffer_rx[2]; // Frame type
+ 533              		.loc 1 196 44
+ 534 0026 BA7A     		ldrb	r2, [r7, #10]	@ zero_extendqisi2
+ 535              		.loc 1 196 33
+ 536 0028 854B     		ldr	r3, .L28+4
+ 537 002a 9A70     		strb	r2, [r3, #2]
+ 197:../main_ping_pong.c ****     my_variable_rx.frame_t.length = buffer_rx[3]; // Data length
+ 538              		.loc 1 197 46
+ 539 002c FA7A     		ldrb	r2, [r7, #11]	@ zero_extendqisi2
+ 540              		.loc 1 197 35
+ 541 002e 844B     		ldr	r3, .L28+4
+ 542 0030 DA70     		strb	r2, [r3, #3]
+ 198:../main_ping_pong.c ****     if(my_variable_rx.frame_t.type == 0x01){ // If frame type is data
+ 543              		.loc 1 198 30
+ 544 0032 834B     		ldr	r3, .L28+4
+ 545 0034 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 546              		.loc 1 198 7
+ 547 0036 012B     		cmp	r3, #1
+ 548 0038 09D1     		bne	.L15
+ 199:../main_ping_pong.c ****         memcpy( my_variable_rx.frame_t.data, &buffer_rx[4], my_variable_rx.frame_t.length ); // Cop
+ 549              		.loc 1 199 83
+ 550 003a 814B     		ldr	r3, .L28+4
+ 551 003c DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 552              		.loc 1 199 9
+ 553 003e 1A46     		mov	r2, r3
+ 554 0040 07F10803 		add	r3, r7, #8
+ 555 0044 0433     		adds	r3, r3, #4
+ 556 0046 1946     		mov	r1, r3
+ 557 0048 7E48     		ldr	r0, .L28+8
+ 558 004a FFF7FEFF 		bl	memcpy
+ 559              	.L15:
+ 200:../main_ping_pong.c ****     }
+ 201:../main_ping_pong.c **** 
+ 202:../main_ping_pong.c ****     // Check if received address matches
+ 203:../main_ping_pong.c ****     if(my_variable_rx.frame_t.dst_addr != ADRSS){
+ 560              		.loc 1 203 30
+ 561 004e 7C4B     		ldr	r3, .L28+4
+ 562 0050 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 563              		.loc 1 203 7
+ 564 0052 012B     		cmp	r3, #1
+ 565 0054 12D0     		beq	.L16
+ 204:../main_ping_pong.c ****         HAL_DBG_TRACE_INFO("Received address different: %d != %d", my_variable_rx.frame_t.dst_addr,
+ 566              		.loc 1 204 9
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 16
+
+
+ 567 0056 7C48     		ldr	r0, .L28+12
+ 568 0058 FFF7FEFF 		bl	hal_mcu_trace_print
+ 569              		.loc 1 204 9 is_stmt 0 discriminator 1
+ 570 005c 7B48     		ldr	r0, .L28+16
+ 571 005e FFF7FEFF 		bl	hal_mcu_trace_print
+ 572              		.loc 1 204 9 discriminator 2
+ 573 0062 774B     		ldr	r3, .L28+4
+ 574 0064 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 575 0066 0122     		movs	r2, #1
+ 576 0068 1946     		mov	r1, r3
+ 577 006a 7948     		ldr	r0, .L28+20
+ 578 006c FFF7FEFF 		bl	hal_mcu_trace_print
+ 579              		.loc 1 204 9 discriminator 3
+ 580 0070 7848     		ldr	r0, .L28+24
+ 581 0072 FFF7FEFF 		bl	hal_mcu_trace_print
+ 205:../main_ping_pong.c ****         reception_failure_handling( ); // Handle reception failure
+ 582              		.loc 1 205 9 is_stmt 1
+ 583 0076 FFF7FEFF 		bl	reception_failure_handling
+ 206:../main_ping_pong.c ****     } else {
+ 207:../main_ping_pong.c ****         // Check if received size matches
+ 208:../main_ping_pong.c ****         if(size != PAYLOAD_LENGTH){
+ 209:../main_ping_pong.c ****             HAL_DBG_TRACE_INFO( "Received size different: %d != %d", size, PAYLOAD_LENGTH); // Log 
+ 210:../main_ping_pong.c ****             reception_failure_handling( ); // Handle reception failure
+ 211:../main_ping_pong.c ****         } else {    
+ 212:../main_ping_pong.c ****             // Handle different frame types
+ 213:../main_ping_pong.c ****             if(my_variable_rx.frame_t.type == 0x03){ // If frame type is tx request
+ 214:../main_ping_pong.c ****                 HAL_DBG_TRACE_INFO("Tx request received"); // Log tx request
+ 215:../main_ping_pong.c ****                 if(avaliable ){
+ 216:../main_ping_pong.c ****                     avaliable = false; // Set availability to false
+ 217:../main_ping_pong.c ****                     rx_mode=true; // Set receive mode to true
+ 218:../main_ping_pong.c ****                     tx_accepted(my_variable_rx.frame_t.src_addr); // Transmit acceptance
+ 219:../main_ping_pong.c ****                 }
+ 220:../main_ping_pong.c ****             }
+ 221:../main_ping_pong.c ****             if(my_variable_rx.frame_t.type == 0x04) // If frame type is tx acceptance
+ 222:../main_ping_pong.c ****             {
+ 223:../main_ping_pong.c ****                 HAL_DBG_TRACE_INFO("Tx acceptance received"); // Log tx acceptance
+ 224:../main_ping_pong.c ****                 avaliable = false; // Set availability to false
+ 225:../main_ping_pong.c ****                 tx_size = (large_msg_size - index < MAX_PAYLOAD_LENGTH ) ? large_msg_size - index :
+ 226:../main_ping_pong.c ****                 info_tx(large_msg, index, tx_size, my_variable_rx.frame_t.src_addr); // Transmit in
+ 227:../main_ping_pong.c ****             }
+ 228:../main_ping_pong.c **** 
+ 229:../main_ping_pong.c ****             if( my_variable_rx.frame_t.type == 0x00) // If frame type is ack
+ 230:../main_ping_pong.c ****             {
+ 231:../main_ping_pong.c ****                 HAL_DBG_TRACE_INFO("ACK received"); // Log ack
+ 232:../main_ping_pong.c ****                 if(rx_mode){ // This is the case of the ACK of an end of transmission
+ 233:../main_ping_pong.c ****                     rx_mode=false; // Set receive mode to false
+ 234:../main_ping_pong.c ****                     avaliable=true; // Set availability to true
+ 235:../main_ping_pong.c ****                     if(index < large_msg_size ){
+ 236:../main_ping_pong.c ****                         tx_request(DEST_ADRSS); // Transmit request
+ 237:../main_ping_pong.c ****                     } else {
+ 238:../main_ping_pong.c ****                         HAL_DBG_TRACE_INFO("No information to transmit"); // Log no information to 
+ 239:../main_ping_pong.c ****                         apps_common_lr11xx_handle_pre_rx( ); // Handle pre-reception
+ 240:../main_ping_pong.c ****                         ASSERT_LR11XX_RC( lr11xx_radio_set_rx(context,get_time_on_air_in_ms( ) + RX
+ 241:../main_ping_pong.c ****                     }
+ 242:../main_ping_pong.c ****                 } else { // This is the case of the ACK of a data transmission
+ 243:../main_ping_pong.c ****                     index += MAX_PAYLOAD_LENGTH; // Increment index
+ 244:../main_ping_pong.c ****                     if( index < large_msg_size )
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 17
+
+
+ 245:../main_ping_pong.c ****                     {                
+ 246:../main_ping_pong.c ****                         tx_size = (large_msg_size - index < MAX_PAYLOAD_LENGTH ) ? large_msg_size -
+ 247:../main_ping_pong.c ****                         info_tx(large_msg, index, tx_size,my_variable_rx.frame_t.src_addr); // Tran
+ 248:../main_ping_pong.c ****                     } else {
+ 249:../main_ping_pong.c ****                         end_of_tx(my_variable_rx.frame_t.src_addr); // Transmit end of tx
+ 250:../main_ping_pong.c ****                     }
+ 251:../main_ping_pong.c ****                 }
+ 252:../main_ping_pong.c ****             }
+ 253:../main_ping_pong.c **** 
+ 254:../main_ping_pong.c ****             if (my_variable_rx.frame_t.type == 0x01) // If frame type is data
+ 255:../main_ping_pong.c ****             {
+ 256:../main_ping_pong.c ****                 HAL_DBG_TRACE_INFO("Data received"); // Log data received
+ 257:../main_ping_pong.c ****                 memcpy( &rx_message[rx_index], my_variable_rx.frame_t.data, my_variable_rx.frame_t.
+ 258:../main_ping_pong.c ****                 rx_index += my_variable_rx.frame_t.length; // Increment rx index
+ 259:../main_ping_pong.c ****                 ack_tx(my_variable_rx.frame_t.src_addr); // Transmit acknowledgment
+ 260:../main_ping_pong.c ****             }
+ 261:../main_ping_pong.c ****             if (my_variable_rx.frame_t.type == 0x02) // If frame type is end of transmission
+ 262:../main_ping_pong.c ****             {
+ 263:../main_ping_pong.c ****                 if(rx_mode){
+ 264:../main_ping_pong.c ****                     HAL_DBG_TRACE_INFO("End of transmission received"); // Log end of transmission 
+ 265:../main_ping_pong.c ****                     end_of_tx(my_variable_rx.frame_t.src_addr); // Transmit end of tx
+ 266:../main_ping_pong.c ****                     HAL_DBG_TRACE_INFO("\n\n Full received message: "); // Log full received messag
+ 267:../main_ping_pong.c ****                 } else {
+ 268:../main_ping_pong.c ****                     HAL_DBG_TRACE_INFO("End of transmission confirmation"); // Log end of transmiss
+ 269:../main_ping_pong.c ****                     avaliable=true; // Set availability to true
+ 270:../main_ping_pong.c ****                     ack_tx(my_variable_rx.frame_t.src_addr); // Transmit acknowledgment
+ 271:../main_ping_pong.c ****                 }
+ 272:../main_ping_pong.c ****             }
+ 273:../main_ping_pong.c ****         }
+ 274:../main_ping_pong.c ****     }
+ 275:../main_ping_pong.c **** }
+ 584              		.loc 1 275 1
+ 585 007a 76E1     		b	.L27
+ 586              	.L16:
+ 208:../main_ping_pong.c ****             HAL_DBG_TRACE_INFO( "Received size different: %d != %d", size, PAYLOAD_LENGTH); // Log 
+ 587              		.loc 1 208 17
+ 588 007c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 208:../main_ping_pong.c ****             HAL_DBG_TRACE_INFO( "Received size different: %d != %d", size, PAYLOAD_LENGTH); // Log 
+ 589              		.loc 1 208 11
+ 590 007e 142B     		cmp	r3, #20
+ 591 0080 11D0     		beq	.L18
+ 209:../main_ping_pong.c ****             reception_failure_handling( ); // Handle reception failure
+ 592              		.loc 1 209 13
+ 593 0082 7148     		ldr	r0, .L28+12
+ 594 0084 FFF7FEFF 		bl	hal_mcu_trace_print
+ 209:../main_ping_pong.c ****             reception_failure_handling( ); // Handle reception failure
+ 595              		.loc 1 209 13 is_stmt 0 discriminator 1
+ 596 0088 7048     		ldr	r0, .L28+16
+ 597 008a FFF7FEFF 		bl	hal_mcu_trace_print
+ 209:../main_ping_pong.c ****             reception_failure_handling( ); // Handle reception failure
+ 598              		.loc 1 209 13 discriminator 2
+ 599 008e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 600 0090 1422     		movs	r2, #20
+ 601 0092 1946     		mov	r1, r3
+ 602 0094 7048     		ldr	r0, .L28+28
+ 603 0096 FFF7FEFF 		bl	hal_mcu_trace_print
+ 209:../main_ping_pong.c ****             reception_failure_handling( ); // Handle reception failure
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 18
+
+
+ 604              		.loc 1 209 13 discriminator 3
+ 605 009a 6E48     		ldr	r0, .L28+24
+ 606 009c FFF7FEFF 		bl	hal_mcu_trace_print
+ 210:../main_ping_pong.c ****         } else {    
+ 607              		.loc 1 210 13 is_stmt 1
+ 608 00a0 FFF7FEFF 		bl	reception_failure_handling
+ 609              		.loc 1 275 1
+ 610 00a4 61E1     		b	.L27
+ 611              	.L18:
+ 213:../main_ping_pong.c ****                 HAL_DBG_TRACE_INFO("Tx request received"); // Log tx request
+ 612              		.loc 1 213 38
+ 613 00a6 664B     		ldr	r3, .L28+4
+ 614 00a8 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 213:../main_ping_pong.c ****                 HAL_DBG_TRACE_INFO("Tx request received"); // Log tx request
+ 615              		.loc 1 213 15
+ 616 00aa 032B     		cmp	r3, #3
+ 617 00ac 1AD1     		bne	.L19
+ 214:../main_ping_pong.c ****                 if(avaliable ){
+ 618              		.loc 1 214 17
+ 619 00ae 6648     		ldr	r0, .L28+12
+ 620 00b0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 214:../main_ping_pong.c ****                 if(avaliable ){
+ 621              		.loc 1 214 17 is_stmt 0 discriminator 1
+ 622 00b4 6548     		ldr	r0, .L28+16
+ 623 00b6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 214:../main_ping_pong.c ****                 if(avaliable ){
+ 624              		.loc 1 214 17 discriminator 2
+ 625 00ba 6848     		ldr	r0, .L28+32
+ 626 00bc FFF7FEFF 		bl	hal_mcu_trace_print
+ 214:../main_ping_pong.c ****                 if(avaliable ){
+ 627              		.loc 1 214 17 discriminator 3
+ 628 00c0 6448     		ldr	r0, .L28+24
+ 629 00c2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 215:../main_ping_pong.c ****                     avaliable = false; // Set availability to false
+ 630              		.loc 1 215 20 is_stmt 1
+ 631 00c6 664B     		ldr	r3, .L28+36
+ 632 00c8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 215:../main_ping_pong.c ****                     avaliable = false; // Set availability to false
+ 633              		.loc 1 215 19
+ 634 00ca 002B     		cmp	r3, #0
+ 635 00cc 0AD0     		beq	.L19
+ 216:../main_ping_pong.c ****                     rx_mode=true; // Set receive mode to true
+ 636              		.loc 1 216 31
+ 637 00ce 644B     		ldr	r3, .L28+36
+ 638 00d0 0022     		movs	r2, #0
+ 639 00d2 1A70     		strb	r2, [r3]
+ 217:../main_ping_pong.c ****                     tx_accepted(my_variable_rx.frame_t.src_addr); // Transmit acceptance
+ 640              		.loc 1 217 28
+ 641 00d4 634B     		ldr	r3, .L28+40
+ 642 00d6 0122     		movs	r2, #1
+ 643 00d8 1A70     		strb	r2, [r3]
+ 218:../main_ping_pong.c ****                 }
+ 644              		.loc 1 218 21
+ 645 00da 594B     		ldr	r3, .L28+4
+ 646 00dc 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 647 00de 1846     		mov	r0, r3
+ 648 00e0 FFF7FEFF 		bl	tx_accepted
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 19
+
+
+ 649              	.L19:
+ 221:../main_ping_pong.c ****             {
+ 650              		.loc 1 221 38
+ 651 00e4 564B     		ldr	r3, .L28+4
+ 652 00e6 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 221:../main_ping_pong.c ****             {
+ 653              		.loc 1 221 15
+ 654 00e8 042B     		cmp	r3, #4
+ 655 00ea 1FD1     		bne	.L20
+ 223:../main_ping_pong.c ****                 avaliable = false; // Set availability to false
+ 656              		.loc 1 223 17
+ 657 00ec 5648     		ldr	r0, .L28+12
+ 658 00ee FFF7FEFF 		bl	hal_mcu_trace_print
+ 223:../main_ping_pong.c ****                 avaliable = false; // Set availability to false
+ 659              		.loc 1 223 17 is_stmt 0 discriminator 1
+ 660 00f2 5648     		ldr	r0, .L28+16
+ 661 00f4 FFF7FEFF 		bl	hal_mcu_trace_print
+ 223:../main_ping_pong.c ****                 avaliable = false; // Set availability to false
+ 662              		.loc 1 223 17 discriminator 2
+ 663 00f8 5B48     		ldr	r0, .L28+44
+ 664 00fa FFF7FEFF 		bl	hal_mcu_trace_print
+ 223:../main_ping_pong.c ****                 avaliable = false; // Set availability to false
+ 665              		.loc 1 223 17 discriminator 3
+ 666 00fe 5548     		ldr	r0, .L28+24
+ 667 0100 FFF7FEFF 		bl	hal_mcu_trace_print
+ 224:../main_ping_pong.c ****                 tx_size = (large_msg_size - index < MAX_PAYLOAD_LENGTH ) ? large_msg_size - index :
+ 668              		.loc 1 224 27 is_stmt 1
+ 669 0104 564B     		ldr	r3, .L28+36
+ 670 0106 0022     		movs	r2, #0
+ 671 0108 1A70     		strb	r2, [r3]
+ 225:../main_ping_pong.c ****                 info_tx(large_msg, index, tx_size, my_variable_rx.frame_t.src_addr); // Transmit in
+ 672              		.loc 1 225 43
+ 673 010a 584B     		ldr	r3, .L28+48
+ 674 010c 1B68     		ldr	r3, [r3]
+ 675 010e 584A     		ldr	r2, .L28+52
+ 676 0110 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 677 0112 9B1A     		subs	r3, r3, r2
+ 225:../main_ping_pong.c ****                 info_tx(large_msg, index, tx_size, my_variable_rx.frame_t.src_addr); // Transmit in
+ 678              		.loc 1 225 99
+ 679 0114 102B     		cmp	r3, #16
+ 680 0116 28BF     		it	cs
+ 681 0118 1023     		movcs	r3, #16
+ 225:../main_ping_pong.c ****                 info_tx(large_msg, index, tx_size, my_variable_rx.frame_t.src_addr); // Transmit in
+ 682              		.loc 1 225 25
+ 683 011a FB77     		strb	r3, [r7, #31]
+ 226:../main_ping_pong.c ****             }
+ 684              		.loc 1 226 17
+ 685 011c 544B     		ldr	r3, .L28+52
+ 686 011e 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 687 0120 474B     		ldr	r3, .L28+4
+ 688 0122 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 689 0124 FA7F     		ldrb	r2, [r7, #31]	@ zero_extendqisi2
+ 690 0126 5348     		ldr	r0, .L28+56
+ 691 0128 FFF7FEFF 		bl	info_tx
+ 692              	.L20:
+ 229:../main_ping_pong.c ****             {
+ 693              		.loc 1 229 39
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 20
+
+
+ 694 012c 444B     		ldr	r3, .L28+4
+ 695 012e 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 229:../main_ping_pong.c ****             {
+ 696              		.loc 1 229 15
+ 697 0130 002B     		cmp	r3, #0
+ 698 0132 40F0B880 		bne	.L21
+ 231:../main_ping_pong.c ****                 if(rx_mode){ // This is the case of the ACK of an end of transmission
+ 699              		.loc 1 231 17
+ 700 0136 4448     		ldr	r0, .L28+12
+ 701 0138 FFF7FEFF 		bl	hal_mcu_trace_print
+ 231:../main_ping_pong.c ****                 if(rx_mode){ // This is the case of the ACK of an end of transmission
+ 702              		.loc 1 231 17 is_stmt 0 discriminator 1
+ 703 013c 4348     		ldr	r0, .L28+16
+ 704 013e FFF7FEFF 		bl	hal_mcu_trace_print
+ 231:../main_ping_pong.c ****                 if(rx_mode){ // This is the case of the ACK of an end of transmission
+ 705              		.loc 1 231 17 discriminator 2
+ 706 0142 4D48     		ldr	r0, .L28+60
+ 707 0144 FFF7FEFF 		bl	hal_mcu_trace_print
+ 231:../main_ping_pong.c ****                 if(rx_mode){ // This is the case of the ACK of an end of transmission
+ 708              		.loc 1 231 17 discriminator 3
+ 709 0148 4248     		ldr	r0, .L28+24
+ 710 014a FFF7FEFF 		bl	hal_mcu_trace_print
+ 232:../main_ping_pong.c ****                     rx_mode=false; // Set receive mode to false
+ 711              		.loc 1 232 20 is_stmt 1
+ 712 014e 454B     		ldr	r3, .L28+40
+ 713 0150 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 232:../main_ping_pong.c ****                     rx_mode=false; // Set receive mode to false
+ 714              		.loc 1 232 19
+ 715 0152 002B     		cmp	r3, #0
+ 716 0154 53D0     		beq	.L22
+ 233:../main_ping_pong.c ****                     avaliable=true; // Set availability to true
+ 717              		.loc 1 233 28
+ 718 0156 434B     		ldr	r3, .L28+40
+ 719 0158 0022     		movs	r2, #0
+ 720 015a 1A70     		strb	r2, [r3]
+ 234:../main_ping_pong.c ****                     if(index < large_msg_size ){
+ 721              		.loc 1 234 30
+ 722 015c 404B     		ldr	r3, .L28+36
+ 723 015e 0122     		movs	r2, #1
+ 724 0160 1A70     		strb	r2, [r3]
+ 235:../main_ping_pong.c ****                         tx_request(DEST_ADRSS); // Transmit request
+ 725              		.loc 1 235 30
+ 726 0162 434B     		ldr	r3, .L28+52
+ 727 0164 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 728 0166 1A46     		mov	r2, r3
+ 729 0168 404B     		ldr	r3, .L28+48
+ 730 016a 1B68     		ldr	r3, [r3]
+ 235:../main_ping_pong.c ****                         tx_request(DEST_ADRSS); // Transmit request
+ 731              		.loc 1 235 23
+ 732 016c 9A42     		cmp	r2, r3
+ 733 016e 03D2     		bcs	.L23
+ 236:../main_ping_pong.c ****                     } else {
+ 734              		.loc 1 236 25
+ 735 0170 0220     		movs	r0, #2
+ 736 0172 FFF7FEFF 		bl	tx_request
+ 737 0176 96E0     		b	.L21
+ 738              	.L23:
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 21
+
+
+ 238:../main_ping_pong.c ****                         apps_common_lr11xx_handle_pre_rx( ); // Handle pre-reception
+ 739              		.loc 1 238 25
+ 740 0178 3348     		ldr	r0, .L28+12
+ 741 017a FFF7FEFF 		bl	hal_mcu_trace_print
+ 238:../main_ping_pong.c ****                         apps_common_lr11xx_handle_pre_rx( ); // Handle pre-reception
+ 742              		.loc 1 238 25 is_stmt 0 discriminator 1
+ 743 017e 3348     		ldr	r0, .L28+16
+ 744 0180 FFF7FEFF 		bl	hal_mcu_trace_print
+ 238:../main_ping_pong.c ****                         apps_common_lr11xx_handle_pre_rx( ); // Handle pre-reception
+ 745              		.loc 1 238 25 discriminator 2
+ 746 0184 3D48     		ldr	r0, .L28+64
+ 747 0186 FFF7FEFF 		bl	hal_mcu_trace_print
+ 238:../main_ping_pong.c ****                         apps_common_lr11xx_handle_pre_rx( ); // Handle pre-reception
+ 748              		.loc 1 238 25 discriminator 3
+ 749 018a 3248     		ldr	r0, .L28+24
+ 750 018c FFF7FEFF 		bl	hal_mcu_trace_print
+ 239:../main_ping_pong.c ****                         ASSERT_LR11XX_RC( lr11xx_radio_set_rx(context,get_time_on_air_in_ms( ) + RX
+ 751              		.loc 1 239 25 is_stmt 1
+ 752 0190 FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_rx
+ 753              	.LBB6:
+ 240:../main_ping_pong.c ****                     }
+ 754              		.loc 1 240 25
+ 755 0194 294B     		ldr	r3, .L28
+ 756 0196 1C68     		ldr	r4, [r3]
+ 757 0198 FFF7FEFF 		bl	get_time_on_air_in_ms
+ 758 019c 0546     		mov	r5, r0
+ 240:../main_ping_pong.c ****                     }
+ 759              		.loc 1 240 25 is_stmt 0 discriminator 1
+ 760 019e FFF7FEFF 		bl	rand
+ 761 01a2 0346     		mov	r3, r0
+ 240:../main_ping_pong.c ****                     }
+ 762              		.loc 1 240 25 discriminator 2
+ 763 01a4 364A     		ldr	r2, .L28+68
+ 764 01a6 82FB0312 		smull	r1, r2, r2, r3
+ 765 01aa 5111     		asrs	r1, r2, #5
+ 766 01ac DA17     		asrs	r2, r3, #31
+ 767 01ae 8A1A     		subs	r2, r1, r2
+ 768 01b0 4FF4FA71 		mov	r1, #500
+ 769 01b4 01FB02F2 		mul	r2, r1, r2
+ 770 01b8 9A1A     		subs	r2, r3, r2
+ 771 01ba 1346     		mov	r3, r2
+ 772 01bc 2B44     		add	r3, r3, r5
+ 773 01be 03F51673 		add	r3, r3, #600
+ 774 01c2 1946     		mov	r1, r3
+ 775 01c4 2046     		mov	r0, r4
+ 776 01c6 FFF7FEFF 		bl	lr11xx_radio_set_rx
+ 777 01ca 0346     		mov	r3, r0
+ 778 01cc BB77     		strb	r3, [r7, #30]
+ 240:../main_ping_pong.c ****                     }
+ 779              		.loc 1 240 25 discriminator 3
+ 780 01ce BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 781 01d0 002B     		cmp	r3, #0
+ 782 01d2 68D0     		beq	.L21
+ 240:../main_ping_pong.c ****                     }
+ 783              		.loc 1 240 25 discriminator 1
+ 784 01d4 BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 785 01d6 032B     		cmp	r3, #3
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 22
+
+
+ 786 01d8 65D1     		bne	.L21
+ 240:../main_ping_pong.c ****                     }
+ 787              		.loc 1 240 25 discriminator 2
+ 788 01da 2A48     		ldr	r0, .L28+72
+ 789 01dc FFF7FEFF 		bl	hal_mcu_trace_print
+ 240:../main_ping_pong.c ****                     }
+ 790              		.loc 1 240 25 discriminator 1
+ 791 01e0 2948     		ldr	r0, .L28+76
+ 792 01e2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 240:../main_ping_pong.c ****                     }
+ 793              		.loc 1 240 25 discriminator 2
+ 794 01e6 294B     		ldr	r3, .L28+80
+ 795 01e8 0093     		str	r3, [sp]
+ 796 01ea F023     		movs	r3, #240
+ 797 01ec 284A     		ldr	r2, .L28+84
+ 798 01ee 2949     		ldr	r1, .L28+88
+ 799 01f0 2948     		ldr	r0, .L28+92
+ 800 01f2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 240:../main_ping_pong.c ****                     }
+ 801              		.loc 1 240 25 discriminator 3
+ 802 01f6 1748     		ldr	r0, .L28+24
+ 803 01f8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 804 01fc 53E0     		b	.L21
+ 805              	.L22:
+ 806              	.LBE6:
+ 243:../main_ping_pong.c ****                     if( index < large_msg_size )
+ 807              		.loc 1 243 27 is_stmt 1
+ 808 01fe 1C4B     		ldr	r3, .L28+52
+ 809 0200 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 810 0202 1033     		adds	r3, r3, #16
+ 811 0204 DAB2     		uxtb	r2, r3
+ 812 0206 1A4B     		ldr	r3, .L28+52
+ 813 0208 1A70     		strb	r2, [r3]
+ 244:../main_ping_pong.c ****                     {                
+ 814              		.loc 1 244 31
+ 815 020a 194B     		ldr	r3, .L28+52
+ 816 020c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 817 020e 1A46     		mov	r2, r3
+ 818 0210 164B     		ldr	r3, .L28+48
+ 819 0212 1B68     		ldr	r3, [r3]
+ 244:../main_ping_pong.c ****                     {                
+ 820              		.loc 1 244 23
+ 821 0214 9A42     		cmp	r2, r3
+ 822 0216 41D2     		bcs	.L24
+ 246:../main_ping_pong.c ****                         info_tx(large_msg, index, tx_size,my_variable_rx.frame_t.src_addr); // Tran
+ 823              		.loc 1 246 51
+ 824 0218 144B     		ldr	r3, .L28+48
+ 825 021a 1B68     		ldr	r3, [r3]
+ 826 021c 144A     		ldr	r2, .L28+52
+ 827 021e 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 828 0220 9B1A     		subs	r3, r3, r2
+ 246:../main_ping_pong.c ****                         info_tx(large_msg, index, tx_size,my_variable_rx.frame_t.src_addr); // Tran
+ 829              		.loc 1 246 107
+ 830 0222 102B     		cmp	r3, #16
+ 831 0224 28BF     		it	cs
+ 832 0226 1023     		movcs	r3, #16
+ 246:../main_ping_pong.c ****                         info_tx(large_msg, index, tx_size,my_variable_rx.frame_t.src_addr); // Tran
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 23
+
+
+ 833              		.loc 1 246 33
+ 834 0228 FB77     		strb	r3, [r7, #31]
+ 247:../main_ping_pong.c ****                     } else {
+ 835              		.loc 1 247 25
+ 836 022a 114B     		ldr	r3, .L28+52
+ 837 022c 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 838 022e 044B     		ldr	r3, .L28+4
+ 839 0230 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 840 0232 FA7F     		ldrb	r2, [r7, #31]	@ zero_extendqisi2
+ 841 0234 0F48     		ldr	r0, .L28+56
+ 842 0236 FFF7FEFF 		bl	info_tx
+ 843 023a 34E0     		b	.L21
+ 844              	.L29:
+ 845              		.align	2
+ 846              	.L28:
+ 847 023c 00000000 		.word	context
+ 848 0240 00000000 		.word	my_variable_rx
+ 849 0244 04000000 		.word	my_variable_rx+4
+ 850 0248 00000000 		.word	.LC0
+ 851 024c 08000000 		.word	.LC1
+ 852 0250 BC000000 		.word	.LC12
+ 853 0254 3C000000 		.word	.LC3
+ 854 0258 E4000000 		.word	.LC13
+ 855 025c 08010000 		.word	.LC14
+ 856 0260 00000000 		.word	avaliable
+ 857 0264 00000000 		.word	rx_mode
+ 858 0268 1C010000 		.word	.LC15
+ 859 026c 00000000 		.word	large_msg_size
+ 860 0270 00000000 		.word	index
+ 861 0274 00000000 		.word	large_msg
+ 862 0278 34010000 		.word	.LC16
+ 863 027c 44010000 		.word	.LC17
+ 864 0280 D34D6210 		.word	274877907
+ 865 0284 44000000 		.word	.LC4
+ 866 0288 4C000000 		.word	.LC5
+ 867 028c 84000000 		.word	.LC8
+ 868 0290 00000000 		.word	__func__.6
+ 869 0294 54000000 		.word	.LC6
+ 870 0298 68000000 		.word	.LC7
+ 871              	.L24:
+ 249:../main_ping_pong.c ****                     }
+ 872              		.loc 1 249 25
+ 873 029c 354B     		ldr	r3, .L30
+ 874 029e 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 875 02a0 1846     		mov	r0, r3
+ 876 02a2 FFF7FEFF 		bl	end_of_tx
+ 877              	.L21:
+ 254:../main_ping_pong.c ****             {
+ 878              		.loc 1 254 39
+ 879 02a6 334B     		ldr	r3, .L30
+ 880 02a8 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 254:../main_ping_pong.c ****             {
+ 881              		.loc 1 254 16
+ 882 02aa 012B     		cmp	r3, #1
+ 883 02ac 23D1     		bne	.L25
+ 256:../main_ping_pong.c ****                 memcpy( &rx_message[rx_index], my_variable_rx.frame_t.data, my_variable_rx.frame_t.
+ 884              		.loc 1 256 17
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 24
+
+
+ 885 02ae 3248     		ldr	r0, .L30+4
+ 886 02b0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 256:../main_ping_pong.c ****                 memcpy( &rx_message[rx_index], my_variable_rx.frame_t.data, my_variable_rx.frame_t.
+ 887              		.loc 1 256 17 is_stmt 0 discriminator 1
+ 888 02b4 3148     		ldr	r0, .L30+8
+ 889 02b6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 256:../main_ping_pong.c ****                 memcpy( &rx_message[rx_index], my_variable_rx.frame_t.data, my_variable_rx.frame_t.
+ 890              		.loc 1 256 17 discriminator 2
+ 891 02ba 3148     		ldr	r0, .L30+12
+ 892 02bc FFF7FEFF 		bl	hal_mcu_trace_print
+ 256:../main_ping_pong.c ****                 memcpy( &rx_message[rx_index], my_variable_rx.frame_t.data, my_variable_rx.frame_t.
+ 893              		.loc 1 256 17 discriminator 3
+ 894 02c0 3048     		ldr	r0, .L30+16
+ 895 02c2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 257:../main_ping_pong.c ****                 rx_index += my_variable_rx.frame_t.length; // Increment rx index
+ 896              		.loc 1 257 36 is_stmt 1
+ 897 02c6 304B     		ldr	r3, .L30+20
+ 898 02c8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 899 02ca 1A46     		mov	r2, r3
+ 257:../main_ping_pong.c ****                 rx_index += my_variable_rx.frame_t.length; // Increment rx index
+ 900              		.loc 1 257 25
+ 901 02cc 2F4B     		ldr	r3, .L30+24
+ 902 02ce 1344     		add	r3, r3, r2
+ 257:../main_ping_pong.c ****                 rx_index += my_variable_rx.frame_t.length; // Increment rx index
+ 903              		.loc 1 257 99
+ 904 02d0 284A     		ldr	r2, .L30
+ 905 02d2 D278     		ldrb	r2, [r2, #3]	@ zero_extendqisi2
+ 257:../main_ping_pong.c ****                 rx_index += my_variable_rx.frame_t.length; // Increment rx index
+ 906              		.loc 1 257 17
+ 907 02d4 2E49     		ldr	r1, .L30+28
+ 908 02d6 1846     		mov	r0, r3
+ 909 02d8 FFF7FEFF 		bl	memcpy
+ 258:../main_ping_pong.c ****                 ack_tx(my_variable_rx.frame_t.src_addr); // Transmit acknowledgment
+ 910              		.loc 1 258 51
+ 911 02dc 254B     		ldr	r3, .L30
+ 912 02de DA78     		ldrb	r2, [r3, #3]	@ zero_extendqisi2
+ 258:../main_ping_pong.c ****                 ack_tx(my_variable_rx.frame_t.src_addr); // Transmit acknowledgment
+ 913              		.loc 1 258 26
+ 914 02e0 294B     		ldr	r3, .L30+20
+ 915 02e2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 916 02e4 1344     		add	r3, r3, r2
+ 917 02e6 DAB2     		uxtb	r2, r3
+ 918 02e8 274B     		ldr	r3, .L30+20
+ 919 02ea 1A70     		strb	r2, [r3]
+ 259:../main_ping_pong.c ****             }
+ 920              		.loc 1 259 17
+ 921 02ec 214B     		ldr	r3, .L30
+ 922 02ee 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 923 02f0 1846     		mov	r0, r3
+ 924 02f2 FFF7FEFF 		bl	ack_tx
+ 925              	.L25:
+ 261:../main_ping_pong.c ****             {
+ 926              		.loc 1 261 39
+ 927 02f6 1F4B     		ldr	r3, .L30
+ 928 02f8 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 261:../main_ping_pong.c ****             {
+ 929              		.loc 1 261 16
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 25
+
+
+ 930 02fa 022B     		cmp	r3, #2
+ 931 02fc 35D1     		bne	.L27
+ 263:../main_ping_pong.c ****                     HAL_DBG_TRACE_INFO("End of transmission received"); // Log end of transmission 
+ 932              		.loc 1 263 20
+ 933 02fe 254B     		ldr	r3, .L30+32
+ 934 0300 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 263:../main_ping_pong.c ****                     HAL_DBG_TRACE_INFO("End of transmission received"); // Log end of transmission 
+ 935              		.loc 1 263 19
+ 936 0302 002B     		cmp	r3, #0
+ 937 0304 1DD0     		beq	.L26
+ 264:../main_ping_pong.c ****                     end_of_tx(my_variable_rx.frame_t.src_addr); // Transmit end of tx
+ 938              		.loc 1 264 21
+ 939 0306 1C48     		ldr	r0, .L30+4
+ 940 0308 FFF7FEFF 		bl	hal_mcu_trace_print
+ 264:../main_ping_pong.c ****                     end_of_tx(my_variable_rx.frame_t.src_addr); // Transmit end of tx
+ 941              		.loc 1 264 21 is_stmt 0 discriminator 1
+ 942 030c 1B48     		ldr	r0, .L30+8
+ 943 030e FFF7FEFF 		bl	hal_mcu_trace_print
+ 264:../main_ping_pong.c ****                     end_of_tx(my_variable_rx.frame_t.src_addr); // Transmit end of tx
+ 944              		.loc 1 264 21 discriminator 2
+ 945 0312 2148     		ldr	r0, .L30+36
+ 946 0314 FFF7FEFF 		bl	hal_mcu_trace_print
+ 264:../main_ping_pong.c ****                     end_of_tx(my_variable_rx.frame_t.src_addr); // Transmit end of tx
+ 947              		.loc 1 264 21 discriminator 3
+ 948 0318 1A48     		ldr	r0, .L30+16
+ 949 031a FFF7FEFF 		bl	hal_mcu_trace_print
+ 265:../main_ping_pong.c ****                     HAL_DBG_TRACE_INFO("\n\n Full received message: "); // Log full received messag
+ 950              		.loc 1 265 21 is_stmt 1
+ 951 031e 154B     		ldr	r3, .L30
+ 952 0320 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 953 0322 1846     		mov	r0, r3
+ 954 0324 FFF7FEFF 		bl	end_of_tx
+ 266:../main_ping_pong.c ****                 } else {
+ 955              		.loc 1 266 21
+ 956 0328 1348     		ldr	r0, .L30+4
+ 957 032a FFF7FEFF 		bl	hal_mcu_trace_print
+ 266:../main_ping_pong.c ****                 } else {
+ 958              		.loc 1 266 21 is_stmt 0 discriminator 1
+ 959 032e 1348     		ldr	r0, .L30+8
+ 960 0330 FFF7FEFF 		bl	hal_mcu_trace_print
+ 266:../main_ping_pong.c ****                 } else {
+ 961              		.loc 1 266 21 discriminator 2
+ 962 0334 1948     		ldr	r0, .L30+40
+ 963 0336 FFF7FEFF 		bl	hal_mcu_trace_print
+ 266:../main_ping_pong.c ****                 } else {
+ 964              		.loc 1 266 21 discriminator 3
+ 965 033a 1248     		ldr	r0, .L30+16
+ 966 033c FFF7FEFF 		bl	hal_mcu_trace_print
+ 967              		.loc 1 275 1 is_stmt 1
+ 968 0340 13E0     		b	.L27
+ 969              	.L26:
+ 268:../main_ping_pong.c ****                     avaliable=true; // Set availability to true
+ 970              		.loc 1 268 21
+ 971 0342 0D48     		ldr	r0, .L30+4
+ 972 0344 FFF7FEFF 		bl	hal_mcu_trace_print
+ 268:../main_ping_pong.c ****                     avaliable=true; // Set availability to true
+ 973              		.loc 1 268 21 is_stmt 0 discriminator 1
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 26
+
+
+ 974 0348 0C48     		ldr	r0, .L30+8
+ 975 034a FFF7FEFF 		bl	hal_mcu_trace_print
+ 268:../main_ping_pong.c ****                     avaliable=true; // Set availability to true
+ 976              		.loc 1 268 21 discriminator 2
+ 977 034e 1448     		ldr	r0, .L30+44
+ 978 0350 FFF7FEFF 		bl	hal_mcu_trace_print
+ 268:../main_ping_pong.c ****                     avaliable=true; // Set availability to true
+ 979              		.loc 1 268 21 discriminator 3
+ 980 0354 0B48     		ldr	r0, .L30+16
+ 981 0356 FFF7FEFF 		bl	hal_mcu_trace_print
+ 269:../main_ping_pong.c ****                     ack_tx(my_variable_rx.frame_t.src_addr); // Transmit acknowledgment
+ 982              		.loc 1 269 30 is_stmt 1
+ 983 035a 124B     		ldr	r3, .L30+48
+ 984 035c 0122     		movs	r2, #1
+ 985 035e 1A70     		strb	r2, [r3]
+ 270:../main_ping_pong.c ****                 }
+ 986              		.loc 1 270 21
+ 987 0360 044B     		ldr	r3, .L30
+ 988 0362 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 989 0364 1846     		mov	r0, r3
+ 990 0366 FFF7FEFF 		bl	ack_tx
+ 991              	.L27:
+ 992              		.loc 1 275 1
+ 993 036a 00BF     		nop
+ 994 036c 2037     		adds	r7, r7, #32
+ 995              	.LCFI11:
+ 996              		.cfi_def_cfa_offset 16
+ 997 036e BD46     		mov	sp, r7
+ 998              	.LCFI12:
+ 999              		.cfi_def_cfa_register 13
+ 1000              		@ sp needed
+ 1001 0370 B0BD     		pop	{r4, r5, r7, pc}
+ 1002              	.L31:
+ 1003 0372 00BF     		.align	2
+ 1004              	.L30:
+ 1005 0374 00000000 		.word	my_variable_rx
+ 1006 0378 00000000 		.word	.LC0
+ 1007 037c 08000000 		.word	.LC1
+ 1008 0380 60010000 		.word	.LC18
+ 1009 0384 3C000000 		.word	.LC3
+ 1010 0388 00000000 		.word	rx_index
+ 1011 038c 00000000 		.word	rx_message
+ 1012 0390 04000000 		.word	my_variable_rx+4
+ 1013 0394 00000000 		.word	rx_mode
+ 1014 0398 70010000 		.word	.LC19
+ 1015 039c 90010000 		.word	.LC20
+ 1016 03a0 AC010000 		.word	.LC21
+ 1017 03a4 00000000 		.word	avaliable
+ 1018              		.cfi_endproc
+ 1019              	.LFE243:
+ 1021              		.section	.text.on_rx_timeout,"ax",%progbits
+ 1022              		.align	1
+ 1023              		.global	on_rx_timeout
+ 1024              		.syntax unified
+ 1025              		.thumb
+ 1026              		.thumb_func
+ 1028              	on_rx_timeout:
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 27
+
+
+ 1029              	.LFB244:
+ 276:../main_ping_pong.c **** 
+ 277:../main_ping_pong.c **** // Function to handle reception timeout event
+ 278:../main_ping_pong.c **** void on_rx_timeout( void )
+ 279:../main_ping_pong.c **** {
+ 1030              		.loc 1 279 1
+ 1031              		.cfi_startproc
+ 1032              		@ args = 0, pretend = 0, frame = 0
+ 1033              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1034 0000 80B5     		push	{r7, lr}
+ 1035              	.LCFI13:
+ 1036              		.cfi_def_cfa_offset 8
+ 1037              		.cfi_offset 7, -8
+ 1038              		.cfi_offset 14, -4
+ 1039 0002 00AF     		add	r7, sp, #0
+ 1040              	.LCFI14:
+ 1041              		.cfi_def_cfa_register 7
+ 280:../main_ping_pong.c ****     reception_failure_handling( );
+ 1042              		.loc 1 280 5
+ 1043 0004 FFF7FEFF 		bl	reception_failure_handling
+ 281:../main_ping_pong.c **** }
+ 1044              		.loc 1 281 1
+ 1045 0008 00BF     		nop
+ 1046 000a 80BD     		pop	{r7, pc}
+ 1047              		.cfi_endproc
+ 1048              	.LFE244:
+ 1050              		.section	.text.on_rx_crc_error,"ax",%progbits
+ 1051              		.align	1
+ 1052              		.global	on_rx_crc_error
+ 1053              		.syntax unified
+ 1054              		.thumb
+ 1055              		.thumb_func
+ 1057              	on_rx_crc_error:
+ 1058              	.LFB245:
+ 282:../main_ping_pong.c **** 
+ 283:../main_ping_pong.c **** // Function to handle CRC error event
+ 284:../main_ping_pong.c **** void on_rx_crc_error( void )
+ 285:../main_ping_pong.c **** {
+ 1059              		.loc 1 285 1
+ 1060              		.cfi_startproc
+ 1061              		@ args = 0, pretend = 0, frame = 0
+ 1062              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1063 0000 80B5     		push	{r7, lr}
+ 1064              	.LCFI15:
+ 1065              		.cfi_def_cfa_offset 8
+ 1066              		.cfi_offset 7, -8
+ 1067              		.cfi_offset 14, -4
+ 1068 0002 00AF     		add	r7, sp, #0
+ 1069              	.LCFI16:
+ 1070              		.cfi_def_cfa_register 7
+ 286:../main_ping_pong.c ****     reception_failure_handling( );
+ 1071              		.loc 1 286 5
+ 1072 0004 FFF7FEFF 		bl	reception_failure_handling
+ 287:../main_ping_pong.c **** }
+ 1073              		.loc 1 287 1
+ 1074 0008 00BF     		nop
+ 1075 000a 80BD     		pop	{r7, pc}
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 28
+
+
+ 1076              		.cfi_endproc
+ 1077              	.LFE245:
+ 1079              		.section	.text.on_fsk_len_error,"ax",%progbits
+ 1080              		.align	1
+ 1081              		.global	on_fsk_len_error
+ 1082              		.syntax unified
+ 1083              		.thumb
+ 1084              		.thumb_func
+ 1086              	on_fsk_len_error:
+ 1087              	.LFB246:
+ 288:../main_ping_pong.c **** 
+ 289:../main_ping_pong.c **** // Function to handle FSK length error event
+ 290:../main_ping_pong.c **** void on_fsk_len_error( void )
+ 291:../main_ping_pong.c **** {
+ 1088              		.loc 1 291 1
+ 1089              		.cfi_startproc
+ 1090              		@ args = 0, pretend = 0, frame = 0
+ 1091              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1092 0000 80B5     		push	{r7, lr}
+ 1093              	.LCFI17:
+ 1094              		.cfi_def_cfa_offset 8
+ 1095              		.cfi_offset 7, -8
+ 1096              		.cfi_offset 14, -4
+ 1097 0002 00AF     		add	r7, sp, #0
+ 1098              	.LCFI18:
+ 1099              		.cfi_def_cfa_register 7
+ 292:../main_ping_pong.c ****     reception_failure_handling( );
+ 1100              		.loc 1 292 5
+ 1101 0004 FFF7FEFF 		bl	reception_failure_handling
+ 293:../main_ping_pong.c **** }
+ 1102              		.loc 1 293 1
+ 1103 0008 00BF     		nop
+ 1104 000a 80BD     		pop	{r7, pc}
+ 1105              		.cfi_endproc
+ 1106              	.LFE246:
+ 1108              		.section	.rodata
+ 1109 01cd 000000   		.align	2
+ 1110              	.LC22:
+ 1111 01d0 52657472 		.ascii	"Retransmission\012\012\000"
+ 1111      616E736D 
+ 1111      69737369 
+ 1111      6F6E0A0A 
+ 1111      00
+ 1112 01e1 000000   		.align	2
+ 1113              	.LC23:
+ 1114 01e4 456E6420 		.ascii	"End of transmission retransmission, ACK needed\000"
+ 1114      6F662074 
+ 1114      72616E73 
+ 1114      6D697373 
+ 1114      696F6E20 
+ 1115              		.section	.text.reception_failure_handling,"ax",%progbits
+ 1116              		.align	1
+ 1117              		.syntax unified
+ 1118              		.thumb
+ 1119              		.thumb_func
+ 1121              	reception_failure_handling:
+ 1122              	.LFB247:
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 29
+
+
+ 294:../main_ping_pong.c **** 
+ 295:../main_ping_pong.c **** // Function to handle reception failure
+ 296:../main_ping_pong.c **** /**
+ 297:../main_ping_pong.c ****  * @brief Handles the reception failure scenario.
+ 298:../main_ping_pong.c ****  *
+ 299:../main_ping_pong.c ****  * This function is called when a reception failure occurs. It performs the necessary
+ 300:../main_ping_pong.c ****  * actions to handle the failure, including retransmission and setting up the receiver
+ 301:../main_ping_pong.c ****  * for the next attempt.
+ 302:../main_ping_pong.c ****  *
+ 303:../main_ping_pong.c ****  * The function performs the following steps:
+ 304:../main_ping_pong.c ****  * 1. Calls `apps_common_lr11xx_handle_post_rx` to handle post-reception tasks.
+ 305:../main_ping_pong.c ****  * 2. Checks if data is available and if the current index is less than the size of the large messa
+ 306:../main_ping_pong.c ****  *    - If true, it requests transmission to the destination address.
+ 307:../main_ping_pong.c ****  *    - Otherwise, it prepares for the next reception by calling `apps_common_lr11xx_handle_pre_rx`
+ 308:../main_ping_pong.c ****  *      setting the receiver with a timeout.
+ 309:../main_ping_pong.c ****  * 3. If data is not available and the receiver is not in receive mode:
+ 310:../main_ping_pong.c ****  *    - Logs a retransmission message.
+ 311:../main_ping_pong.c ****  *    - If the current index is less than the size of the large message, it calculates the transmis
+ 312:../main_ping_pong.c ****  *      and calls `info_tx` to transmit the data.
+ 313:../main_ping_pong.c ****  *    - Otherwise, it calls `end_of_tx` to signal the end of transmission.
+ 314:../main_ping_pong.c ****  * 4. If the receiver is in receive mode:
+ 315:../main_ping_pong.c ****  *    - Checks if the received frame type is 0x02 (ACK confirmation lost).
+ 316:../main_ping_pong.c ****  *      - If true, logs a message and calls `end_of_tx` to retransmit the end of transmission.
+ 317:../main_ping_pong.c ****  *    - Prepares for the next reception by calling `apps_common_lr11xx_handle_pre_rx` and setting t
+ 318:../main_ping_pong.c ****  *      with a timeout.
+ 319:../main_ping_pong.c ****  */
+ 320:../main_ping_pong.c **** static void reception_failure_handling( void )
+ 321:../main_ping_pong.c **** {
+ 1123              		.loc 1 321 1
+ 1124              		.cfi_startproc
+ 1125              		@ args = 0, pretend = 0, frame = 8
+ 1126              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1127 0000 B0B5     		push	{r4, r5, r7, lr}
+ 1128              	.LCFI19:
+ 1129              		.cfi_def_cfa_offset 16
+ 1130              		.cfi_offset 4, -16
+ 1131              		.cfi_offset 5, -12
+ 1132              		.cfi_offset 7, -8
+ 1133              		.cfi_offset 14, -4
+ 1134 0002 84B0     		sub	sp, sp, #16
+ 1135              	.LCFI20:
+ 1136              		.cfi_def_cfa_offset 32
+ 1137 0004 02AF     		add	r7, sp, #8
+ 1138              	.LCFI21:
+ 1139              		.cfi_def_cfa 7, 24
+ 322:../main_ping_pong.c ****     uint8_t tx_size;
+ 323:../main_ping_pong.c ****     // Handle post reception
+ 324:../main_ping_pong.c ****     apps_common_lr11xx_handle_post_rx( );
+ 1140              		.loc 1 324 5
+ 1141 0006 FFF7FEFF 		bl	apps_common_lr11xx_handle_post_rx
+ 325:../main_ping_pong.c ****     if(avaliable==true){
+ 1142              		.loc 1 325 17
+ 1143 000a 654B     		ldr	r3, .L43
+ 1144 000c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1145              		.loc 1 325 7
+ 1146 000e 002B     		cmp	r3, #0
+ 1147 0010 44D0     		beq	.L36
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 30
+
+
+ 326:../main_ping_pong.c ****         if(index < large_msg_size ){
+ 1148              		.loc 1 326 18
+ 1149 0012 644B     		ldr	r3, .L43+4
+ 1150 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1151 0016 1A46     		mov	r2, r3
+ 1152 0018 634B     		ldr	r3, .L43+8
+ 1153 001a 1B68     		ldr	r3, [r3]
+ 1154              		.loc 1 326 11
+ 1155 001c 9A42     		cmp	r2, r3
+ 1156 001e 03D2     		bcs	.L37
+ 327:../main_ping_pong.c ****             tx_request(DEST_ADRSS);
+ 1157              		.loc 1 327 13
+ 1158 0020 0220     		movs	r0, #2
+ 1159 0022 FFF7FEFF 		bl	tx_request
+ 328:../main_ping_pong.c ****         } else {
+ 329:../main_ping_pong.c ****             apps_common_lr11xx_handle_pre_rx( );
+ 330:../main_ping_pong.c ****             ASSERT_LR11XX_RC( lr11xx_radio_set_rx(context,get_time_on_air_in_ms( ) + RX_TIMEOUT_VAL
+ 331:../main_ping_pong.c ****         }
+ 332:../main_ping_pong.c ****     } else {
+ 333:../main_ping_pong.c ****         if(!rx_mode){
+ 334:../main_ping_pong.c ****             HAL_DBG_TRACE_INFO( "Retransmission\n\n" );
+ 335:../main_ping_pong.c ****             if( index < large_msg_size )
+ 336:../main_ping_pong.c ****             {                
+ 337:../main_ping_pong.c ****                 tx_size = (large_msg_size - index < MAX_PAYLOAD_LENGTH ) ? large_msg_size - index :
+ 338:../main_ping_pong.c ****                 info_tx(large_msg, index, tx_size,my_variable_rx.frame_t.src_addr);
+ 339:../main_ping_pong.c ****             } else {
+ 340:../main_ping_pong.c ****                 end_of_tx(my_variable_rx.frame_t.src_addr); 
+ 341:../main_ping_pong.c ****             }
+ 342:../main_ping_pong.c ****         } else {
+ 343:../main_ping_pong.c ****             if(my_variable_rx.frame_t.type == 0x02){    //if the ACK confirmation is lost, the end 
+ 344:../main_ping_pong.c ****                 HAL_DBG_TRACE_INFO("End of transmission retransmission, ACK needed");
+ 345:../main_ping_pong.c ****                 end_of_tx(my_variable_rx.frame_t.src_addr);
+ 346:../main_ping_pong.c ****             }
+ 347:../main_ping_pong.c ****             apps_common_lr11xx_handle_pre_rx( );
+ 348:../main_ping_pong.c ****             ASSERT_LR11XX_RC( lr11xx_radio_set_rx(context,get_time_on_air_in_ms( ) + RX_TIMEOUT_VAL
+ 349:../main_ping_pong.c ****         }
+ 350:../main_ping_pong.c ****     }
+ 351:../main_ping_pong.c **** }
+ 1160              		.loc 1 351 1
+ 1161 0026 B7E0     		b	.L42
+ 1162              	.L37:
+ 329:../main_ping_pong.c ****             ASSERT_LR11XX_RC( lr11xx_radio_set_rx(context,get_time_on_air_in_ms( ) + RX_TIMEOUT_VAL
+ 1163              		.loc 1 329 13
+ 1164 0028 FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_rx
+ 1165              	.LBB7:
+ 330:../main_ping_pong.c ****         }
+ 1166              		.loc 1 330 13
+ 1167 002c 5F4B     		ldr	r3, .L43+12
+ 1168 002e 1C68     		ldr	r4, [r3]
+ 1169 0030 FFF7FEFF 		bl	get_time_on_air_in_ms
+ 1170 0034 0546     		mov	r5, r0
+ 330:../main_ping_pong.c ****         }
+ 1171              		.loc 1 330 13 is_stmt 0 discriminator 1
+ 1172 0036 FFF7FEFF 		bl	rand
+ 1173 003a 0346     		mov	r3, r0
+ 330:../main_ping_pong.c ****         }
+ 1174              		.loc 1 330 13 discriminator 2
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 31
+
+
+ 1175 003c 5C4A     		ldr	r2, .L43+16
+ 1176 003e 82FB0312 		smull	r1, r2, r2, r3
+ 1177 0042 5111     		asrs	r1, r2, #5
+ 1178 0044 DA17     		asrs	r2, r3, #31
+ 1179 0046 8A1A     		subs	r2, r1, r2
+ 1180 0048 4FF4FA71 		mov	r1, #500
+ 1181 004c 01FB02F2 		mul	r2, r1, r2
+ 1182 0050 9A1A     		subs	r2, r3, r2
+ 1183 0052 1346     		mov	r3, r2
+ 1184 0054 2B44     		add	r3, r3, r5
+ 1185 0056 03F51673 		add	r3, r3, #600
+ 1186 005a 1946     		mov	r1, r3
+ 1187 005c 2046     		mov	r0, r4
+ 1188 005e FFF7FEFF 		bl	lr11xx_radio_set_rx
+ 1189 0062 0346     		mov	r3, r0
+ 1190 0064 7B71     		strb	r3, [r7, #5]
+ 330:../main_ping_pong.c ****         }
+ 1191              		.loc 1 330 13 discriminator 3
+ 1192 0066 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 1193 0068 002B     		cmp	r3, #0
+ 1194 006a 00F09580 		beq	.L42
+ 330:../main_ping_pong.c ****         }
+ 1195              		.loc 1 330 13 discriminator 1
+ 1196 006e 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 1197 0070 032B     		cmp	r3, #3
+ 1198 0072 40F09180 		bne	.L42
+ 330:../main_ping_pong.c ****         }
+ 1199              		.loc 1 330 13 discriminator 2
+ 1200 0076 4F48     		ldr	r0, .L43+20
+ 1201 0078 FFF7FEFF 		bl	hal_mcu_trace_print
+ 330:../main_ping_pong.c ****         }
+ 1202              		.loc 1 330 13 discriminator 1
+ 1203 007c 4E48     		ldr	r0, .L43+24
+ 1204 007e FFF7FEFF 		bl	hal_mcu_trace_print
+ 330:../main_ping_pong.c ****         }
+ 1205              		.loc 1 330 13 discriminator 2
+ 1206 0082 4E4B     		ldr	r3, .L43+28
+ 1207 0084 0093     		str	r3, [sp]
+ 1208 0086 4FF4A573 		mov	r3, #330
+ 1209 008a 4D4A     		ldr	r2, .L43+32
+ 1210 008c 4D49     		ldr	r1, .L43+36
+ 1211 008e 4E48     		ldr	r0, .L43+40
+ 1212 0090 FFF7FEFF 		bl	hal_mcu_trace_print
+ 330:../main_ping_pong.c ****         }
+ 1213              		.loc 1 330 13 discriminator 3
+ 1214 0094 4D48     		ldr	r0, .L43+44
+ 1215 0096 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1216              	.LBE7:
+ 1217              		.loc 1 351 1 is_stmt 1
+ 1218 009a 7DE0     		b	.L42
+ 1219              	.L36:
+ 333:../main_ping_pong.c ****             HAL_DBG_TRACE_INFO( "Retransmission\n\n" );
+ 1220              		.loc 1 333 12
+ 1221 009c 4C4B     		ldr	r3, .L43+48
+ 1222 009e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1223 00a0 83F00103 		eor	r3, r3, #1
+ 1224 00a4 DBB2     		uxtb	r3, r3
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 32
+
+
+ 333:../main_ping_pong.c ****             HAL_DBG_TRACE_INFO( "Retransmission\n\n" );
+ 1225              		.loc 1 333 11
+ 1226 00a6 002B     		cmp	r3, #0
+ 1227 00a8 2AD0     		beq	.L39
+ 334:../main_ping_pong.c ****             if( index < large_msg_size )
+ 1228              		.loc 1 334 13
+ 1229 00aa 4A48     		ldr	r0, .L43+52
+ 1230 00ac FFF7FEFF 		bl	hal_mcu_trace_print
+ 334:../main_ping_pong.c ****             if( index < large_msg_size )
+ 1231              		.loc 1 334 13 is_stmt 0 discriminator 1
+ 1232 00b0 4948     		ldr	r0, .L43+56
+ 1233 00b2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 334:../main_ping_pong.c ****             if( index < large_msg_size )
+ 1234              		.loc 1 334 13 discriminator 2
+ 1235 00b6 4948     		ldr	r0, .L43+60
+ 1236 00b8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 334:../main_ping_pong.c ****             if( index < large_msg_size )
+ 1237              		.loc 1 334 13 discriminator 3
+ 1238 00bc 4348     		ldr	r0, .L43+44
+ 1239 00be FFF7FEFF 		bl	hal_mcu_trace_print
+ 335:../main_ping_pong.c ****             {                
+ 1240              		.loc 1 335 23 is_stmt 1
+ 1241 00c2 384B     		ldr	r3, .L43+4
+ 1242 00c4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1243 00c6 1A46     		mov	r2, r3
+ 1244 00c8 374B     		ldr	r3, .L43+8
+ 1245 00ca 1B68     		ldr	r3, [r3]
+ 335:../main_ping_pong.c ****             {                
+ 1246              		.loc 1 335 15
+ 1247 00cc 9A42     		cmp	r2, r3
+ 1248 00ce 11D2     		bcs	.L40
+ 337:../main_ping_pong.c ****                 info_tx(large_msg, index, tx_size,my_variable_rx.frame_t.src_addr);
+ 1249              		.loc 1 337 43
+ 1250 00d0 354B     		ldr	r3, .L43+8
+ 1251 00d2 1B68     		ldr	r3, [r3]
+ 1252 00d4 334A     		ldr	r2, .L43+4
+ 1253 00d6 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 1254 00d8 9B1A     		subs	r3, r3, r2
+ 337:../main_ping_pong.c ****                 info_tx(large_msg, index, tx_size,my_variable_rx.frame_t.src_addr);
+ 1255              		.loc 1 337 99
+ 1256 00da 102B     		cmp	r3, #16
+ 1257 00dc 28BF     		it	cs
+ 1258 00de 1023     		movcs	r3, #16
+ 337:../main_ping_pong.c ****                 info_tx(large_msg, index, tx_size,my_variable_rx.frame_t.src_addr);
+ 1259              		.loc 1 337 25
+ 1260 00e0 BB71     		strb	r3, [r7, #6]
+ 338:../main_ping_pong.c ****             } else {
+ 1261              		.loc 1 338 17
+ 1262 00e2 304B     		ldr	r3, .L43+4
+ 1263 00e4 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1264 00e6 3E4B     		ldr	r3, .L43+64
+ 1265 00e8 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1266 00ea BA79     		ldrb	r2, [r7, #6]	@ zero_extendqisi2
+ 1267 00ec 3D48     		ldr	r0, .L43+68
+ 1268 00ee FFF7FEFF 		bl	info_tx
+ 1269              		.loc 1 351 1
+ 1270 00f2 51E0     		b	.L42
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 33
+
+
+ 1271              	.L40:
+ 340:../main_ping_pong.c ****             }
+ 1272              		.loc 1 340 17
+ 1273 00f4 3A4B     		ldr	r3, .L43+64
+ 1274 00f6 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1275 00f8 1846     		mov	r0, r3
+ 1276 00fa FFF7FEFF 		bl	end_of_tx
+ 1277              		.loc 1 351 1
+ 1278 00fe 4BE0     		b	.L42
+ 1279              	.L39:
+ 343:../main_ping_pong.c ****                 HAL_DBG_TRACE_INFO("End of transmission retransmission, ACK needed");
+ 1280              		.loc 1 343 38
+ 1281 0100 374B     		ldr	r3, .L43+64
+ 1282 0102 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 343:../main_ping_pong.c ****                 HAL_DBG_TRACE_INFO("End of transmission retransmission, ACK needed");
+ 1283              		.loc 1 343 15
+ 1284 0104 022B     		cmp	r3, #2
+ 1285 0106 10D1     		bne	.L41
+ 344:../main_ping_pong.c ****                 end_of_tx(my_variable_rx.frame_t.src_addr);
+ 1286              		.loc 1 344 17
+ 1287 0108 3248     		ldr	r0, .L43+52
+ 1288 010a FFF7FEFF 		bl	hal_mcu_trace_print
+ 344:../main_ping_pong.c ****                 end_of_tx(my_variable_rx.frame_t.src_addr);
+ 1289              		.loc 1 344 17 is_stmt 0 discriminator 1
+ 1290 010e 3248     		ldr	r0, .L43+56
+ 1291 0110 FFF7FEFF 		bl	hal_mcu_trace_print
+ 344:../main_ping_pong.c ****                 end_of_tx(my_variable_rx.frame_t.src_addr);
+ 1292              		.loc 1 344 17 discriminator 2
+ 1293 0114 3448     		ldr	r0, .L43+72
+ 1294 0116 FFF7FEFF 		bl	hal_mcu_trace_print
+ 344:../main_ping_pong.c ****                 end_of_tx(my_variable_rx.frame_t.src_addr);
+ 1295              		.loc 1 344 17 discriminator 3
+ 1296 011a 2C48     		ldr	r0, .L43+44
+ 1297 011c FFF7FEFF 		bl	hal_mcu_trace_print
+ 345:../main_ping_pong.c ****             }
+ 1298              		.loc 1 345 17 is_stmt 1
+ 1299 0120 2F4B     		ldr	r3, .L43+64
+ 1300 0122 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1301 0124 1846     		mov	r0, r3
+ 1302 0126 FFF7FEFF 		bl	end_of_tx
+ 1303              	.L41:
+ 347:../main_ping_pong.c ****             ASSERT_LR11XX_RC( lr11xx_radio_set_rx(context,get_time_on_air_in_ms( ) + RX_TIMEOUT_VAL
+ 1304              		.loc 1 347 13
+ 1305 012a FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_rx
+ 1306              	.LBB8:
+ 348:../main_ping_pong.c ****         }
+ 1307              		.loc 1 348 13
+ 1308 012e 1F4B     		ldr	r3, .L43+12
+ 1309 0130 1C68     		ldr	r4, [r3]
+ 1310 0132 FFF7FEFF 		bl	get_time_on_air_in_ms
+ 1311 0136 0546     		mov	r5, r0
+ 348:../main_ping_pong.c ****         }
+ 1312              		.loc 1 348 13 is_stmt 0 discriminator 1
+ 1313 0138 FFF7FEFF 		bl	rand
+ 1314 013c 0346     		mov	r3, r0
+ 348:../main_ping_pong.c ****         }
+ 1315              		.loc 1 348 13 discriminator 2
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 34
+
+
+ 1316 013e 1C4A     		ldr	r2, .L43+16
+ 1317 0140 82FB0312 		smull	r1, r2, r2, r3
+ 1318 0144 5111     		asrs	r1, r2, #5
+ 1319 0146 DA17     		asrs	r2, r3, #31
+ 1320 0148 8A1A     		subs	r2, r1, r2
+ 1321 014a 4FF4FA71 		mov	r1, #500
+ 1322 014e 01FB02F2 		mul	r2, r1, r2
+ 1323 0152 9A1A     		subs	r2, r3, r2
+ 1324 0154 1346     		mov	r3, r2
+ 1325 0156 2B44     		add	r3, r3, r5
+ 1326 0158 03F51673 		add	r3, r3, #600
+ 1327 015c 1946     		mov	r1, r3
+ 1328 015e 2046     		mov	r0, r4
+ 1329 0160 FFF7FEFF 		bl	lr11xx_radio_set_rx
+ 1330 0164 0346     		mov	r3, r0
+ 1331 0166 FB71     		strb	r3, [r7, #7]
+ 348:../main_ping_pong.c ****         }
+ 1332              		.loc 1 348 13 discriminator 3
+ 1333 0168 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1334 016a 002B     		cmp	r3, #0
+ 1335 016c 14D0     		beq	.L42
+ 348:../main_ping_pong.c ****         }
+ 1336              		.loc 1 348 13 discriminator 1
+ 1337 016e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1338 0170 032B     		cmp	r3, #3
+ 1339 0172 11D1     		bne	.L42
+ 348:../main_ping_pong.c ****         }
+ 1340              		.loc 1 348 13 discriminator 2
+ 1341 0174 0F48     		ldr	r0, .L43+20
+ 1342 0176 FFF7FEFF 		bl	hal_mcu_trace_print
+ 348:../main_ping_pong.c ****         }
+ 1343              		.loc 1 348 13 discriminator 1
+ 1344 017a 0F48     		ldr	r0, .L43+24
+ 1345 017c FFF7FEFF 		bl	hal_mcu_trace_print
+ 348:../main_ping_pong.c ****         }
+ 1346              		.loc 1 348 13 discriminator 2
+ 1347 0180 0E4B     		ldr	r3, .L43+28
+ 1348 0182 0093     		str	r3, [sp]
+ 1349 0184 4FF4AE73 		mov	r3, #348
+ 1350 0188 0D4A     		ldr	r2, .L43+32
+ 1351 018a 0E49     		ldr	r1, .L43+36
+ 1352 018c 0E48     		ldr	r0, .L43+40
+ 1353 018e FFF7FEFF 		bl	hal_mcu_trace_print
+ 348:../main_ping_pong.c ****         }
+ 1354              		.loc 1 348 13 discriminator 3
+ 1355 0192 0E48     		ldr	r0, .L43+44
+ 1356 0194 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1357              	.L42:
+ 1358              	.LBE8:
+ 1359              		.loc 1 351 1 is_stmt 1
+ 1360 0198 00BF     		nop
+ 1361 019a 0837     		adds	r7, r7, #8
+ 1362              	.LCFI22:
+ 1363              		.cfi_def_cfa_offset 16
+ 1364 019c BD46     		mov	sp, r7
+ 1365              	.LCFI23:
+ 1366              		.cfi_def_cfa_register 13
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 35
+
+
+ 1367              		@ sp needed
+ 1368 019e B0BD     		pop	{r4, r5, r7, pc}
+ 1369              	.L44:
+ 1370              		.align	2
+ 1371              	.L43:
+ 1372 01a0 00000000 		.word	avaliable
+ 1373 01a4 00000000 		.word	index
+ 1374 01a8 00000000 		.word	large_msg_size
+ 1375 01ac 00000000 		.word	context
+ 1376 01b0 D34D6210 		.word	274877907
+ 1377 01b4 44000000 		.word	.LC4
+ 1378 01b8 4C000000 		.word	.LC5
+ 1379 01bc 84000000 		.word	.LC8
+ 1380 01c0 00000000 		.word	__func__.5
+ 1381 01c4 54000000 		.word	.LC6
+ 1382 01c8 68000000 		.word	.LC7
+ 1383 01cc 3C000000 		.word	.LC3
+ 1384 01d0 00000000 		.word	rx_mode
+ 1385 01d4 00000000 		.word	.LC0
+ 1386 01d8 08000000 		.word	.LC1
+ 1387 01dc D0010000 		.word	.LC22
+ 1388 01e0 00000000 		.word	my_variable_rx
+ 1389 01e4 00000000 		.word	large_msg
+ 1390 01e8 E4010000 		.word	.LC23
+ 1391              		.cfi_endproc
+ 1392              	.LFE247:
+ 1394              		.section	.rodata
+ 1395 0213 00       		.align	2
+ 1396              	.LC24:
+ 1397 0214 496E666F 		.ascii	"Info transmission\012\012\000"
+ 1397      20747261 
+ 1397      6E736D69 
+ 1397      7373696F 
+ 1397      6E0A0A00 
+ 1398              		.section	.text.info_tx,"ax",%progbits
+ 1399              		.align	1
+ 1400              		.global	info_tx
+ 1401              		.syntax unified
+ 1402              		.thumb
+ 1403              		.thumb_func
+ 1405              	info_tx:
+ 1406              	.LFB248:
+ 352:../main_ping_pong.c **** 
+ 353:../main_ping_pong.c **** // Function to transmit information
+ 354:../main_ping_pong.c **** void info_tx(uint8_t* large_msg, uint8_t index, uint8_t size, uint8_t dest){
+ 1407              		.loc 1 354 76
+ 1408              		.cfi_startproc
+ 1409              		@ args = 0, pretend = 0, frame = 40
+ 1410              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1411 0000 B0B5     		push	{r4, r5, r7, lr}
+ 1412              	.LCFI24:
+ 1413              		.cfi_def_cfa_offset 16
+ 1414              		.cfi_offset 4, -16
+ 1415              		.cfi_offset 5, -12
+ 1416              		.cfi_offset 7, -8
+ 1417              		.cfi_offset 14, -4
+ 1418 0002 8CB0     		sub	sp, sp, #48
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 36
+
+
+ 1419              	.LCFI25:
+ 1420              		.cfi_def_cfa_offset 64
+ 1421 0004 02AF     		add	r7, sp, #8
+ 1422              	.LCFI26:
+ 1423              		.cfi_def_cfa 7, 56
+ 1424 0006 7860     		str	r0, [r7, #4]
+ 1425 0008 0846     		mov	r0, r1
+ 1426 000a 1146     		mov	r1, r2
+ 1427 000c 1A46     		mov	r2, r3
+ 1428 000e 0346     		mov	r3, r0
+ 1429 0010 FB70     		strb	r3, [r7, #3]
+ 1430 0012 0B46     		mov	r3, r1
+ 1431 0014 BB70     		strb	r3, [r7, #2]
+ 1432 0016 1346     		mov	r3, r2
+ 1433 0018 7B70     		strb	r3, [r7, #1]
+ 355:../main_ping_pong.c ****     frame my_variable;
+ 356:../main_ping_pong.c ****     my_variable.frame_t.src_addr = ADRSS;
+ 1434              		.loc 1 356 34
+ 1435 001a 0123     		movs	r3, #1
+ 1436 001c 7B73     		strb	r3, [r7, #13]
+ 357:../main_ping_pong.c ****     my_variable.frame_t.dst_addr = dest;
+ 1437              		.loc 1 357 34
+ 1438 001e 7B78     		ldrb	r3, [r7, #1]
+ 1439 0020 3B73     		strb	r3, [r7, #12]
+ 358:../main_ping_pong.c ****     my_variable.frame_t.type = 1;
+ 1440              		.loc 1 358 30
+ 1441 0022 0123     		movs	r3, #1
+ 1442 0024 BB73     		strb	r3, [r7, #14]
+ 359:../main_ping_pong.c ****     my_variable.frame_t.length = size;
+ 1443              		.loc 1 359 32
+ 1444 0026 BB78     		ldrb	r3, [r7, #2]
+ 1445 0028 FB73     		strb	r3, [r7, #15]
+ 1446              	.LBB9:
+ 360:../main_ping_pong.c ****     for(int i = 0; i < size; i++){
+ 1447              		.loc 1 360 13
+ 1448 002a 0023     		movs	r3, #0
+ 1449 002c 7B62     		str	r3, [r7, #36]
+ 1450              		.loc 1 360 5
+ 1451 002e 0FE0     		b	.L46
+ 1452              	.L47:
+ 361:../main_ping_pong.c ****         my_variable.frame_t.data[i] = large_msg[index + i];
+ 1453              		.loc 1 361 55
+ 1454 0030 FA78     		ldrb	r2, [r7, #3]	@ zero_extendqisi2
+ 1455 0032 7B6A     		ldr	r3, [r7, #36]
+ 1456 0034 1344     		add	r3, r3, r2
+ 1457 0036 1A46     		mov	r2, r3
+ 1458              		.loc 1 361 48
+ 1459 0038 7B68     		ldr	r3, [r7, #4]
+ 1460 003a 1344     		add	r3, r3, r2
+ 1461 003c 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1462              		.loc 1 361 37
+ 1463 003e 07F11002 		add	r2, r7, #16
+ 1464 0042 7B6A     		ldr	r3, [r7, #36]
+ 1465 0044 1344     		add	r3, r3, r2
+ 1466 0046 0A46     		mov	r2, r1
+ 1467 0048 1A70     		strb	r2, [r3]
+ 360:../main_ping_pong.c ****     for(int i = 0; i < size; i++){
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 37
+
+
+ 1468              		.loc 1 360 31 discriminator 3
+ 1469 004a 7B6A     		ldr	r3, [r7, #36]
+ 1470 004c 0133     		adds	r3, r3, #1
+ 1471 004e 7B62     		str	r3, [r7, #36]
+ 1472              	.L46:
+ 360:../main_ping_pong.c ****     for(int i = 0; i < size; i++){
+ 1473              		.loc 1 360 22 discriminator 1
+ 1474 0050 BB78     		ldrb	r3, [r7, #2]	@ zero_extendqisi2
+ 1475 0052 7A6A     		ldr	r2, [r7, #36]
+ 1476 0054 9A42     		cmp	r2, r3
+ 1477 0056 EBDB     		blt	.L47
+ 1478              	.LBE9:
+ 362:../main_ping_pong.c ****     }
+ 363:../main_ping_pong.c ****     
+ 364:../main_ping_pong.c ****     my_variable_global=my_variable;
+ 1479              		.loc 1 364 23
+ 1480 0058 304B     		ldr	r3, .L51
+ 1481 005a 1D46     		mov	r5, r3
+ 1482 005c 07F10C04 		add	r4, r7, #12
+ 1483 0060 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 1484 0062 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 1485 0064 2368     		ldr	r3, [r4]
+ 1486 0066 2B60     		str	r3, [r5]
+ 365:../main_ping_pong.c ****     HAL_DBG_TRACE_INFO( "Info transmission\n\n" );
+ 1487              		.loc 1 365 5
+ 1488 0068 2D48     		ldr	r0, .L51+4
+ 1489 006a FFF7FEFF 		bl	hal_mcu_trace_print
+ 1490              		.loc 1 365 5 is_stmt 0 discriminator 1
+ 1491 006e 2D48     		ldr	r0, .L51+8
+ 1492 0070 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1493              		.loc 1 365 5 discriminator 2
+ 1494 0074 2C48     		ldr	r0, .L51+12
+ 1495 0076 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1496              		.loc 1 365 5 discriminator 3
+ 1497 007a 2C48     		ldr	r0, .L51+16
+ 1498 007c FFF7FEFF 		bl	hal_mcu_trace_print
+ 1499              	.LBB10:
+ 366:../main_ping_pong.c ****     ASSERT_LR11XX_RC(lr11xx_regmem_write_buffer8(context, my_variable.raw, PAYLOAD_LENGTH) );
+ 1500              		.loc 1 366 5 is_stmt 1
+ 1501 0080 2B4B     		ldr	r3, .L51+20
+ 1502 0082 1B68     		ldr	r3, [r3]
+ 1503 0084 07F10C01 		add	r1, r7, #12
+ 1504 0088 1422     		movs	r2, #20
+ 1505 008a 1846     		mov	r0, r3
+ 1506 008c FFF7FEFF 		bl	lr11xx_regmem_write_buffer8
+ 1507 0090 0346     		mov	r3, r0
+ 1508 0092 87F82330 		strb	r3, [r7, #35]
+ 1509              		.loc 1 366 5 is_stmt 0 discriminator 1
+ 1510 0096 97F82330 		ldrb	r3, [r7, #35]	@ zero_extendqisi2
+ 1511 009a 002B     		cmp	r3, #0
+ 1512 009c 15D0     		beq	.L48
+ 1513 009e 97F82330 		ldrb	r3, [r7, #35]	@ zero_extendqisi2
+ 1514 00a2 032B     		cmp	r3, #3
+ 1515 00a4 11D1     		bne	.L48
+ 1516              		.loc 1 366 5 discriminator 2
+ 1517 00a6 2348     		ldr	r0, .L51+24
+ 1518 00a8 FFF7FEFF 		bl	hal_mcu_trace_print
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 38
+
+
+ 1519              		.loc 1 366 5 discriminator 1
+ 1520 00ac 2248     		ldr	r0, .L51+28
+ 1521 00ae FFF7FEFF 		bl	hal_mcu_trace_print
+ 1522              		.loc 1 366 5 discriminator 2
+ 1523 00b2 224B     		ldr	r3, .L51+32
+ 1524 00b4 0093     		str	r3, [sp]
+ 1525 00b6 4FF4B773 		mov	r3, #366
+ 1526 00ba 214A     		ldr	r2, .L51+36
+ 1527 00bc 2149     		ldr	r1, .L51+40
+ 1528 00be 2248     		ldr	r0, .L51+44
+ 1529 00c0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1530              		.loc 1 366 5 discriminator 3
+ 1531 00c4 1948     		ldr	r0, .L51+16
+ 1532 00c6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1533              	.L48:
+ 1534              	.LBE10:
+ 367:../main_ping_pong.c ****     apps_common_lr11xx_handle_pre_tx( );
+ 1535              		.loc 1 367 5 is_stmt 1
+ 1536 00ca FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_tx
+ 1537              	.LBB11:
+ 368:../main_ping_pong.c ****     ASSERT_LR11XX_RC( lr11xx_radio_set_tx( context, 0 ) );
+ 1538              		.loc 1 368 5
+ 1539 00ce 184B     		ldr	r3, .L51+20
+ 1540 00d0 1B68     		ldr	r3, [r3]
+ 1541 00d2 0021     		movs	r1, #0
+ 1542 00d4 1846     		mov	r0, r3
+ 1543 00d6 FFF7FEFF 		bl	lr11xx_radio_set_tx
+ 1544 00da 0346     		mov	r3, r0
+ 1545 00dc 87F82230 		strb	r3, [r7, #34]
+ 1546              		.loc 1 368 5 is_stmt 0 discriminator 1
+ 1547 00e0 97F82230 		ldrb	r3, [r7, #34]	@ zero_extendqisi2
+ 1548 00e4 002B     		cmp	r3, #0
+ 1549 00e6 15D0     		beq	.L50
+ 1550 00e8 97F82230 		ldrb	r3, [r7, #34]	@ zero_extendqisi2
+ 1551 00ec 032B     		cmp	r3, #3
+ 1552 00ee 11D1     		bne	.L50
+ 1553              		.loc 1 368 5 discriminator 2
+ 1554 00f0 1048     		ldr	r0, .L51+24
+ 1555 00f2 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1556              		.loc 1 368 5 discriminator 1
+ 1557 00f6 1048     		ldr	r0, .L51+28
+ 1558 00f8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1559              		.loc 1 368 5 discriminator 2
+ 1560 00fc 0F4B     		ldr	r3, .L51+32
+ 1561 00fe 0093     		str	r3, [sp]
+ 1562 0100 4FF4B873 		mov	r3, #368
+ 1563 0104 0E4A     		ldr	r2, .L51+36
+ 1564 0106 0F49     		ldr	r1, .L51+40
+ 1565 0108 0F48     		ldr	r0, .L51+44
+ 1566 010a FFF7FEFF 		bl	hal_mcu_trace_print
+ 1567              		.loc 1 368 5 discriminator 3
+ 1568 010e 0748     		ldr	r0, .L51+16
+ 1569 0110 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1570              	.L50:
+ 1571              	.LBE11:
+ 369:../main_ping_pong.c **** }
+ 1572              		.loc 1 369 1 is_stmt 1
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 39
+
+
+ 1573 0114 00BF     		nop
+ 1574 0116 2837     		adds	r7, r7, #40
+ 1575              	.LCFI27:
+ 1576              		.cfi_def_cfa_offset 16
+ 1577 0118 BD46     		mov	sp, r7
+ 1578              	.LCFI28:
+ 1579              		.cfi_def_cfa_register 13
+ 1580              		@ sp needed
+ 1581 011a B0BD     		pop	{r4, r5, r7, pc}
+ 1582              	.L52:
+ 1583              		.align	2
+ 1584              	.L51:
+ 1585 011c 00000000 		.word	my_variable_global
+ 1586 0120 00000000 		.word	.LC0
+ 1587 0124 08000000 		.word	.LC1
+ 1588 0128 14020000 		.word	.LC24
+ 1589 012c 3C000000 		.word	.LC3
+ 1590 0130 00000000 		.word	context
+ 1591 0134 44000000 		.word	.LC4
+ 1592 0138 4C000000 		.word	.LC5
+ 1593 013c 84000000 		.word	.LC8
+ 1594 0140 00000000 		.word	__func__.4
+ 1595 0144 54000000 		.word	.LC6
+ 1596 0148 68000000 		.word	.LC7
+ 1597              		.cfi_endproc
+ 1598              	.LFE248:
+ 1600              		.section	.rodata
+ 1601              		.align	2
+ 1602              	.LC25:
+ 1603 0228 41434B20 		.ascii	"ACK transmission\012\012\000"
+ 1603      7472616E 
+ 1603      736D6973 
+ 1603      73696F6E 
+ 1603      0A0A00
+ 1604              		.section	.text.ack_tx,"ax",%progbits
+ 1605              		.align	1
+ 1606              		.global	ack_tx
+ 1607              		.syntax unified
+ 1608              		.thumb
+ 1609              		.thumb_func
+ 1611              	ack_tx:
+ 1612              	.LFB249:
+ 370:../main_ping_pong.c **** 
+ 371:../main_ping_pong.c **** // Function to transmit acknowledgment
+ 372:../main_ping_pong.c **** void ack_tx(uint8_t dest){
+ 1613              		.loc 1 372 26
+ 1614              		.cfi_startproc
+ 1615              		@ args = 0, pretend = 0, frame = 32
+ 1616              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1617 0000 B0B5     		push	{r4, r5, r7, lr}
+ 1618              	.LCFI29:
+ 1619              		.cfi_def_cfa_offset 16
+ 1620              		.cfi_offset 4, -16
+ 1621              		.cfi_offset 5, -12
+ 1622              		.cfi_offset 7, -8
+ 1623              		.cfi_offset 14, -4
+ 1624 0002 8AB0     		sub	sp, sp, #40
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 40
+
+
+ 1625              	.LCFI30:
+ 1626              		.cfi_def_cfa_offset 56
+ 1627 0004 02AF     		add	r7, sp, #8
+ 1628              	.LCFI31:
+ 1629              		.cfi_def_cfa 7, 48
+ 1630 0006 0346     		mov	r3, r0
+ 1631 0008 FB71     		strb	r3, [r7, #7]
+ 373:../main_ping_pong.c ****     frame my_variable;
+ 374:../main_ping_pong.c ****     my_variable.frame_t.src_addr = ADRSS;
+ 1632              		.loc 1 374 34
+ 1633 000a 0123     		movs	r3, #1
+ 1634 000c 7B72     		strb	r3, [r7, #9]
+ 375:../main_ping_pong.c ****     my_variable.frame_t.dst_addr = dest;
+ 1635              		.loc 1 375 34
+ 1636 000e FB79     		ldrb	r3, [r7, #7]
+ 1637 0010 3B72     		strb	r3, [r7, #8]
+ 376:../main_ping_pong.c ****     my_variable.frame_t.type = 0;
+ 1638              		.loc 1 376 30
+ 1639 0012 0023     		movs	r3, #0
+ 1640 0014 BB72     		strb	r3, [r7, #10]
+ 377:../main_ping_pong.c ****     my_variable.frame_t.length = 0;
+ 1641              		.loc 1 377 32
+ 1642 0016 0023     		movs	r3, #0
+ 1643 0018 FB72     		strb	r3, [r7, #11]
+ 378:../main_ping_pong.c ****     my_variable_global=my_variable;
+ 1644              		.loc 1 378 23
+ 1645 001a 2E4B     		ldr	r3, .L57
+ 1646 001c 1D46     		mov	r5, r3
+ 1647 001e 07F10804 		add	r4, r7, #8
+ 1648 0022 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 1649 0024 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 1650 0026 2368     		ldr	r3, [r4]
+ 1651 0028 2B60     		str	r3, [r5]
+ 379:../main_ping_pong.c ****     HAL_DBG_TRACE_INFO( "ACK transmission\n\n" );
+ 1652              		.loc 1 379 5
+ 1653 002a 2B48     		ldr	r0, .L57+4
+ 1654 002c FFF7FEFF 		bl	hal_mcu_trace_print
+ 1655              		.loc 1 379 5 is_stmt 0 discriminator 1
+ 1656 0030 2A48     		ldr	r0, .L57+8
+ 1657 0032 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1658              		.loc 1 379 5 discriminator 2
+ 1659 0036 2A48     		ldr	r0, .L57+12
+ 1660 0038 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1661              		.loc 1 379 5 discriminator 3
+ 1662 003c 2948     		ldr	r0, .L57+16
+ 1663 003e FFF7FEFF 		bl	hal_mcu_trace_print
+ 1664              	.LBB12:
+ 380:../main_ping_pong.c ****     ASSERT_LR11XX_RC(lr11xx_regmem_write_buffer8(context, my_variable.raw, HEADER_LENGTH) );
+ 1665              		.loc 1 380 5 is_stmt 1
+ 1666 0042 294B     		ldr	r3, .L57+20
+ 1667 0044 1B68     		ldr	r3, [r3]
+ 1668 0046 07F10801 		add	r1, r7, #8
+ 1669 004a 0422     		movs	r2, #4
+ 1670 004c 1846     		mov	r0, r3
+ 1671 004e FFF7FEFF 		bl	lr11xx_regmem_write_buffer8
+ 1672 0052 0346     		mov	r3, r0
+ 1673 0054 FB77     		strb	r3, [r7, #31]
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 41
+
+
+ 1674              		.loc 1 380 5 is_stmt 0 discriminator 1
+ 1675 0056 FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 1676 0058 002B     		cmp	r3, #0
+ 1677 005a 14D0     		beq	.L54
+ 1678 005c FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 1679 005e 032B     		cmp	r3, #3
+ 1680 0060 11D1     		bne	.L54
+ 1681              		.loc 1 380 5 discriminator 2
+ 1682 0062 2248     		ldr	r0, .L57+24
+ 1683 0064 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1684              		.loc 1 380 5 discriminator 1
+ 1685 0068 2148     		ldr	r0, .L57+28
+ 1686 006a FFF7FEFF 		bl	hal_mcu_trace_print
+ 1687              		.loc 1 380 5 discriminator 2
+ 1688 006e 214B     		ldr	r3, .L57+32
+ 1689 0070 0093     		str	r3, [sp]
+ 1690 0072 4FF4BE73 		mov	r3, #380
+ 1691 0076 204A     		ldr	r2, .L57+36
+ 1692 0078 2049     		ldr	r1, .L57+40
+ 1693 007a 2148     		ldr	r0, .L57+44
+ 1694 007c FFF7FEFF 		bl	hal_mcu_trace_print
+ 1695              		.loc 1 380 5 discriminator 3
+ 1696 0080 1848     		ldr	r0, .L57+16
+ 1697 0082 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1698              	.L54:
+ 1699              	.LBE12:
+ 381:../main_ping_pong.c ****     apps_common_lr11xx_handle_pre_tx( );
+ 1700              		.loc 1 381 5 is_stmt 1
+ 1701 0086 FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_tx
+ 1702              	.LBB13:
+ 382:../main_ping_pong.c ****     ASSERT_LR11XX_RC( lr11xx_radio_set_tx( context, 0 ) );
+ 1703              		.loc 1 382 5
+ 1704 008a 174B     		ldr	r3, .L57+20
+ 1705 008c 1B68     		ldr	r3, [r3]
+ 1706 008e 0021     		movs	r1, #0
+ 1707 0090 1846     		mov	r0, r3
+ 1708 0092 FFF7FEFF 		bl	lr11xx_radio_set_tx
+ 1709 0096 0346     		mov	r3, r0
+ 1710 0098 BB77     		strb	r3, [r7, #30]
+ 1711              		.loc 1 382 5 is_stmt 0 discriminator 1
+ 1712 009a BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 1713 009c 002B     		cmp	r3, #0
+ 1714 009e 14D0     		beq	.L56
+ 1715 00a0 BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 1716 00a2 032B     		cmp	r3, #3
+ 1717 00a4 11D1     		bne	.L56
+ 1718              		.loc 1 382 5 discriminator 2
+ 1719 00a6 1148     		ldr	r0, .L57+24
+ 1720 00a8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1721              		.loc 1 382 5 discriminator 1
+ 1722 00ac 1048     		ldr	r0, .L57+28
+ 1723 00ae FFF7FEFF 		bl	hal_mcu_trace_print
+ 1724              		.loc 1 382 5 discriminator 2
+ 1725 00b2 104B     		ldr	r3, .L57+32
+ 1726 00b4 0093     		str	r3, [sp]
+ 1727 00b6 4FF4BF73 		mov	r3, #382
+ 1728 00ba 0F4A     		ldr	r2, .L57+36
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 42
+
+
+ 1729 00bc 0F49     		ldr	r1, .L57+40
+ 1730 00be 1048     		ldr	r0, .L57+44
+ 1731 00c0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1732              		.loc 1 382 5 discriminator 3
+ 1733 00c4 0748     		ldr	r0, .L57+16
+ 1734 00c6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1735              	.L56:
+ 1736              	.LBE13:
+ 383:../main_ping_pong.c **** }
+ 1737              		.loc 1 383 1 is_stmt 1
+ 1738 00ca 00BF     		nop
+ 1739 00cc 2037     		adds	r7, r7, #32
+ 1740              	.LCFI32:
+ 1741              		.cfi_def_cfa_offset 16
+ 1742 00ce BD46     		mov	sp, r7
+ 1743              	.LCFI33:
+ 1744              		.cfi_def_cfa_register 13
+ 1745              		@ sp needed
+ 1746 00d0 B0BD     		pop	{r4, r5, r7, pc}
+ 1747              	.L58:
+ 1748 00d2 00BF     		.align	2
+ 1749              	.L57:
+ 1750 00d4 00000000 		.word	my_variable_global
+ 1751 00d8 00000000 		.word	.LC0
+ 1752 00dc 08000000 		.word	.LC1
+ 1753 00e0 28020000 		.word	.LC25
+ 1754 00e4 3C000000 		.word	.LC3
+ 1755 00e8 00000000 		.word	context
+ 1756 00ec 44000000 		.word	.LC4
+ 1757 00f0 4C000000 		.word	.LC5
+ 1758 00f4 84000000 		.word	.LC8
+ 1759 00f8 00000000 		.word	__func__.3
+ 1760 00fc 54000000 		.word	.LC6
+ 1761 0100 68000000 		.word	.LC7
+ 1762              		.cfi_endproc
+ 1763              	.LFE249:
+ 1765              		.section	.rodata
+ 1766 023b 00       		.align	2
+ 1767              	.LC26:
+ 1768 023c 456E6420 		.ascii	"End of tx transmission\012\012\000"
+ 1768      6F662074 
+ 1768      78207472 
+ 1768      616E736D 
+ 1768      69737369 
+ 1769              		.section	.text.end_of_tx,"ax",%progbits
+ 1770              		.align	1
+ 1771              		.global	end_of_tx
+ 1772              		.syntax unified
+ 1773              		.thumb
+ 1774              		.thumb_func
+ 1776              	end_of_tx:
+ 1777              	.LFB250:
+ 384:../main_ping_pong.c **** 
+ 385:../main_ping_pong.c **** // Function to transmit end of transmission
+ 386:../main_ping_pong.c **** void end_of_tx(uint8_t dest){
+ 1778              		.loc 1 386 29
+ 1779              		.cfi_startproc
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 43
+
+
+ 1780              		@ args = 0, pretend = 0, frame = 32
+ 1781              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1782 0000 B0B5     		push	{r4, r5, r7, lr}
+ 1783              	.LCFI34:
+ 1784              		.cfi_def_cfa_offset 16
+ 1785              		.cfi_offset 4, -16
+ 1786              		.cfi_offset 5, -12
+ 1787              		.cfi_offset 7, -8
+ 1788              		.cfi_offset 14, -4
+ 1789 0002 8AB0     		sub	sp, sp, #40
+ 1790              	.LCFI35:
+ 1791              		.cfi_def_cfa_offset 56
+ 1792 0004 02AF     		add	r7, sp, #8
+ 1793              	.LCFI36:
+ 1794              		.cfi_def_cfa 7, 48
+ 1795 0006 0346     		mov	r3, r0
+ 1796 0008 FB71     		strb	r3, [r7, #7]
+ 387:../main_ping_pong.c ****     frame my_variable;
+ 388:../main_ping_pong.c ****     my_variable.frame_t.src_addr = ADRSS;
+ 1797              		.loc 1 388 34
+ 1798 000a 0123     		movs	r3, #1
+ 1799 000c 7B72     		strb	r3, [r7, #9]
+ 389:../main_ping_pong.c ****     my_variable.frame_t.dst_addr = dest;
+ 1800              		.loc 1 389 34
+ 1801 000e FB79     		ldrb	r3, [r7, #7]
+ 1802 0010 3B72     		strb	r3, [r7, #8]
+ 390:../main_ping_pong.c ****     my_variable.frame_t.type = 2;
+ 1803              		.loc 1 390 30
+ 1804 0012 0223     		movs	r3, #2
+ 1805 0014 BB72     		strb	r3, [r7, #10]
+ 391:../main_ping_pong.c ****     my_variable.frame_t.length = 0;
+ 1806              		.loc 1 391 32
+ 1807 0016 0023     		movs	r3, #0
+ 1808 0018 FB72     		strb	r3, [r7, #11]
+ 392:../main_ping_pong.c ****     my_variable_global=my_variable;
+ 1809              		.loc 1 392 23
+ 1810 001a 2E4B     		ldr	r3, .L63
+ 1811 001c 1D46     		mov	r5, r3
+ 1812 001e 07F10804 		add	r4, r7, #8
+ 1813 0022 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 1814 0024 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 1815 0026 2368     		ldr	r3, [r4]
+ 1816 0028 2B60     		str	r3, [r5]
+ 393:../main_ping_pong.c ****     HAL_DBG_TRACE_INFO( "End of tx transmission\n\n");
+ 1817              		.loc 1 393 5
+ 1818 002a 2B48     		ldr	r0, .L63+4
+ 1819 002c FFF7FEFF 		bl	hal_mcu_trace_print
+ 1820              		.loc 1 393 5 is_stmt 0 discriminator 1
+ 1821 0030 2A48     		ldr	r0, .L63+8
+ 1822 0032 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1823              		.loc 1 393 5 discriminator 2
+ 1824 0036 2A48     		ldr	r0, .L63+12
+ 1825 0038 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1826              		.loc 1 393 5 discriminator 3
+ 1827 003c 2948     		ldr	r0, .L63+16
+ 1828 003e FFF7FEFF 		bl	hal_mcu_trace_print
+ 1829              	.LBB14:
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 44
+
+
+ 394:../main_ping_pong.c ****     ASSERT_LR11XX_RC(lr11xx_regmem_write_buffer8(context, my_variable.raw, HEADER_LENGTH) );
+ 1830              		.loc 1 394 5 is_stmt 1
+ 1831 0042 294B     		ldr	r3, .L63+20
+ 1832 0044 1B68     		ldr	r3, [r3]
+ 1833 0046 07F10801 		add	r1, r7, #8
+ 1834 004a 0422     		movs	r2, #4
+ 1835 004c 1846     		mov	r0, r3
+ 1836 004e FFF7FEFF 		bl	lr11xx_regmem_write_buffer8
+ 1837 0052 0346     		mov	r3, r0
+ 1838 0054 FB77     		strb	r3, [r7, #31]
+ 1839              		.loc 1 394 5 is_stmt 0 discriminator 1
+ 1840 0056 FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 1841 0058 002B     		cmp	r3, #0
+ 1842 005a 14D0     		beq	.L60
+ 1843 005c FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 1844 005e 032B     		cmp	r3, #3
+ 1845 0060 11D1     		bne	.L60
+ 1846              		.loc 1 394 5 discriminator 2
+ 1847 0062 2248     		ldr	r0, .L63+24
+ 1848 0064 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1849              		.loc 1 394 5 discriminator 1
+ 1850 0068 2148     		ldr	r0, .L63+28
+ 1851 006a FFF7FEFF 		bl	hal_mcu_trace_print
+ 1852              		.loc 1 394 5 discriminator 2
+ 1853 006e 214B     		ldr	r3, .L63+32
+ 1854 0070 0093     		str	r3, [sp]
+ 1855 0072 4FF4C573 		mov	r3, #394
+ 1856 0076 204A     		ldr	r2, .L63+36
+ 1857 0078 2049     		ldr	r1, .L63+40
+ 1858 007a 2148     		ldr	r0, .L63+44
+ 1859 007c FFF7FEFF 		bl	hal_mcu_trace_print
+ 1860              		.loc 1 394 5 discriminator 3
+ 1861 0080 1848     		ldr	r0, .L63+16
+ 1862 0082 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1863              	.L60:
+ 1864              	.LBE14:
+ 395:../main_ping_pong.c ****     apps_common_lr11xx_handle_pre_tx( );
+ 1865              		.loc 1 395 5 is_stmt 1
+ 1866 0086 FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_tx
+ 1867              	.LBB15:
+ 396:../main_ping_pong.c ****     ASSERT_LR11XX_RC( lr11xx_radio_set_tx( context, 0 ) );
+ 1868              		.loc 1 396 5
+ 1869 008a 174B     		ldr	r3, .L63+20
+ 1870 008c 1B68     		ldr	r3, [r3]
+ 1871 008e 0021     		movs	r1, #0
+ 1872 0090 1846     		mov	r0, r3
+ 1873 0092 FFF7FEFF 		bl	lr11xx_radio_set_tx
+ 1874 0096 0346     		mov	r3, r0
+ 1875 0098 BB77     		strb	r3, [r7, #30]
+ 1876              		.loc 1 396 5 is_stmt 0 discriminator 1
+ 1877 009a BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 1878 009c 002B     		cmp	r3, #0
+ 1879 009e 14D0     		beq	.L62
+ 1880 00a0 BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 1881 00a2 032B     		cmp	r3, #3
+ 1882 00a4 11D1     		bne	.L62
+ 1883              		.loc 1 396 5 discriminator 2
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 45
+
+
+ 1884 00a6 1148     		ldr	r0, .L63+24
+ 1885 00a8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1886              		.loc 1 396 5 discriminator 1
+ 1887 00ac 1048     		ldr	r0, .L63+28
+ 1888 00ae FFF7FEFF 		bl	hal_mcu_trace_print
+ 1889              		.loc 1 396 5 discriminator 2
+ 1890 00b2 104B     		ldr	r3, .L63+32
+ 1891 00b4 0093     		str	r3, [sp]
+ 1892 00b6 4FF4C673 		mov	r3, #396
+ 1893 00ba 0F4A     		ldr	r2, .L63+36
+ 1894 00bc 0F49     		ldr	r1, .L63+40
+ 1895 00be 1048     		ldr	r0, .L63+44
+ 1896 00c0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1897              		.loc 1 396 5 discriminator 3
+ 1898 00c4 0748     		ldr	r0, .L63+16
+ 1899 00c6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1900              	.L62:
+ 1901              	.LBE15:
+ 397:../main_ping_pong.c **** }
+ 1902              		.loc 1 397 1 is_stmt 1
+ 1903 00ca 00BF     		nop
+ 1904 00cc 2037     		adds	r7, r7, #32
+ 1905              	.LCFI37:
+ 1906              		.cfi_def_cfa_offset 16
+ 1907 00ce BD46     		mov	sp, r7
+ 1908              	.LCFI38:
+ 1909              		.cfi_def_cfa_register 13
+ 1910              		@ sp needed
+ 1911 00d0 B0BD     		pop	{r4, r5, r7, pc}
+ 1912              	.L64:
+ 1913 00d2 00BF     		.align	2
+ 1914              	.L63:
+ 1915 00d4 00000000 		.word	my_variable_global
+ 1916 00d8 00000000 		.word	.LC0
+ 1917 00dc 08000000 		.word	.LC1
+ 1918 00e0 3C020000 		.word	.LC26
+ 1919 00e4 3C000000 		.word	.LC3
+ 1920 00e8 00000000 		.word	context
+ 1921 00ec 44000000 		.word	.LC4
+ 1922 00f0 4C000000 		.word	.LC5
+ 1923 00f4 84000000 		.word	.LC8
+ 1924 00f8 00000000 		.word	__func__.2
+ 1925 00fc 54000000 		.word	.LC6
+ 1926 0100 68000000 		.word	.LC7
+ 1927              		.cfi_endproc
+ 1928              	.LFE250:
+ 1930              		.section	.rodata
+ 1931 0255 000000   		.align	2
+ 1932              	.LC27:
+ 1933 0258 54782072 		.ascii	"Tx request transmission\012\012\000"
+ 1933      65717565 
+ 1933      73742074 
+ 1933      72616E73 
+ 1933      6D697373 
+ 1934              		.section	.text.tx_request,"ax",%progbits
+ 1935              		.align	1
+ 1936              		.global	tx_request
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 46
+
+
+ 1937              		.syntax unified
+ 1938              		.thumb
+ 1939              		.thumb_func
+ 1941              	tx_request:
+ 1942              	.LFB251:
+ 398:../main_ping_pong.c **** 
+ 399:../main_ping_pong.c **** // Function to transmit request
+ 400:../main_ping_pong.c **** void tx_request(uint8_t dst){
+ 1943              		.loc 1 400 29
+ 1944              		.cfi_startproc
+ 1945              		@ args = 0, pretend = 0, frame = 32
+ 1946              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1947 0000 B0B5     		push	{r4, r5, r7, lr}
+ 1948              	.LCFI39:
+ 1949              		.cfi_def_cfa_offset 16
+ 1950              		.cfi_offset 4, -16
+ 1951              		.cfi_offset 5, -12
+ 1952              		.cfi_offset 7, -8
+ 1953              		.cfi_offset 14, -4
+ 1954 0002 8AB0     		sub	sp, sp, #40
+ 1955              	.LCFI40:
+ 1956              		.cfi_def_cfa_offset 56
+ 1957 0004 02AF     		add	r7, sp, #8
+ 1958              	.LCFI41:
+ 1959              		.cfi_def_cfa 7, 48
+ 1960 0006 0346     		mov	r3, r0
+ 1961 0008 FB71     		strb	r3, [r7, #7]
+ 401:../main_ping_pong.c ****     frame my_variable;
+ 402:../main_ping_pong.c ****     my_variable.frame_t.src_addr =ADRSS;
+ 1962              		.loc 1 402 34
+ 1963 000a 0123     		movs	r3, #1
+ 1964 000c 7B72     		strb	r3, [r7, #9]
+ 403:../main_ping_pong.c ****     my_variable.frame_t.dst_addr = dst;
+ 1965              		.loc 1 403 34
+ 1966 000e FB79     		ldrb	r3, [r7, #7]
+ 1967 0010 3B72     		strb	r3, [r7, #8]
+ 404:../main_ping_pong.c ****     my_variable.frame_t.type = 3;
+ 1968              		.loc 1 404 30
+ 1969 0012 0323     		movs	r3, #3
+ 1970 0014 BB72     		strb	r3, [r7, #10]
+ 405:../main_ping_pong.c ****     my_variable.frame_t.length = 0;
+ 1971              		.loc 1 405 32
+ 1972 0016 0023     		movs	r3, #0
+ 1973 0018 FB72     		strb	r3, [r7, #11]
+ 406:../main_ping_pong.c ****     my_variable_global=my_variable;
+ 1974              		.loc 1 406 23
+ 1975 001a 2E4B     		ldr	r3, .L69
+ 1976 001c 1D46     		mov	r5, r3
+ 1977 001e 07F10804 		add	r4, r7, #8
+ 1978 0022 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 1979 0024 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 1980 0026 2368     		ldr	r3, [r4]
+ 1981 0028 2B60     		str	r3, [r5]
+ 407:../main_ping_pong.c ****     HAL_DBG_TRACE_INFO( "Tx request transmission\n\n" );
+ 1982              		.loc 1 407 5
+ 1983 002a 2B48     		ldr	r0, .L69+4
+ 1984 002c FFF7FEFF 		bl	hal_mcu_trace_print
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 47
+
+
+ 1985              		.loc 1 407 5 is_stmt 0 discriminator 1
+ 1986 0030 2A48     		ldr	r0, .L69+8
+ 1987 0032 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1988              		.loc 1 407 5 discriminator 2
+ 1989 0036 2A48     		ldr	r0, .L69+12
+ 1990 0038 FFF7FEFF 		bl	hal_mcu_trace_print
+ 1991              		.loc 1 407 5 discriminator 3
+ 1992 003c 2948     		ldr	r0, .L69+16
+ 1993 003e FFF7FEFF 		bl	hal_mcu_trace_print
+ 1994              	.LBB16:
+ 408:../main_ping_pong.c ****     ASSERT_LR11XX_RC(lr11xx_regmem_write_buffer8(context, my_variable.raw , HEADER_LENGTH) );
+ 1995              		.loc 1 408 5 is_stmt 1
+ 1996 0042 294B     		ldr	r3, .L69+20
+ 1997 0044 1B68     		ldr	r3, [r3]
+ 1998 0046 07F10801 		add	r1, r7, #8
+ 1999 004a 0422     		movs	r2, #4
+ 2000 004c 1846     		mov	r0, r3
+ 2001 004e FFF7FEFF 		bl	lr11xx_regmem_write_buffer8
+ 2002 0052 0346     		mov	r3, r0
+ 2003 0054 FB77     		strb	r3, [r7, #31]
+ 2004              		.loc 1 408 5 is_stmt 0 discriminator 1
+ 2005 0056 FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 2006 0058 002B     		cmp	r3, #0
+ 2007 005a 14D0     		beq	.L66
+ 2008 005c FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 2009 005e 032B     		cmp	r3, #3
+ 2010 0060 11D1     		bne	.L66
+ 2011              		.loc 1 408 5 discriminator 2
+ 2012 0062 2248     		ldr	r0, .L69+24
+ 2013 0064 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2014              		.loc 1 408 5 discriminator 1
+ 2015 0068 2148     		ldr	r0, .L69+28
+ 2016 006a FFF7FEFF 		bl	hal_mcu_trace_print
+ 2017              		.loc 1 408 5 discriminator 2
+ 2018 006e 214B     		ldr	r3, .L69+32
+ 2019 0070 0093     		str	r3, [sp]
+ 2020 0072 4FF4CC73 		mov	r3, #408
+ 2021 0076 204A     		ldr	r2, .L69+36
+ 2022 0078 2049     		ldr	r1, .L69+40
+ 2023 007a 2148     		ldr	r0, .L69+44
+ 2024 007c FFF7FEFF 		bl	hal_mcu_trace_print
+ 2025              		.loc 1 408 5 discriminator 3
+ 2026 0080 1848     		ldr	r0, .L69+16
+ 2027 0082 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2028              	.L66:
+ 2029              	.LBE16:
+ 409:../main_ping_pong.c ****     apps_common_lr11xx_handle_pre_tx( );
+ 2030              		.loc 1 409 5 is_stmt 1
+ 2031 0086 FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_tx
+ 2032              	.LBB17:
+ 410:../main_ping_pong.c ****     ASSERT_LR11XX_RC( lr11xx_radio_set_tx( context, 0 ) );
+ 2033              		.loc 1 410 5
+ 2034 008a 174B     		ldr	r3, .L69+20
+ 2035 008c 1B68     		ldr	r3, [r3]
+ 2036 008e 0021     		movs	r1, #0
+ 2037 0090 1846     		mov	r0, r3
+ 2038 0092 FFF7FEFF 		bl	lr11xx_radio_set_tx
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 48
+
+
+ 2039 0096 0346     		mov	r3, r0
+ 2040 0098 BB77     		strb	r3, [r7, #30]
+ 2041              		.loc 1 410 5 is_stmt 0 discriminator 1
+ 2042 009a BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 2043 009c 002B     		cmp	r3, #0
+ 2044 009e 14D0     		beq	.L68
+ 2045 00a0 BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 2046 00a2 032B     		cmp	r3, #3
+ 2047 00a4 11D1     		bne	.L68
+ 2048              		.loc 1 410 5 discriminator 2
+ 2049 00a6 1148     		ldr	r0, .L69+24
+ 2050 00a8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2051              		.loc 1 410 5 discriminator 1
+ 2052 00ac 1048     		ldr	r0, .L69+28
+ 2053 00ae FFF7FEFF 		bl	hal_mcu_trace_print
+ 2054              		.loc 1 410 5 discriminator 2
+ 2055 00b2 104B     		ldr	r3, .L69+32
+ 2056 00b4 0093     		str	r3, [sp]
+ 2057 00b6 4FF4CD73 		mov	r3, #410
+ 2058 00ba 0F4A     		ldr	r2, .L69+36
+ 2059 00bc 0F49     		ldr	r1, .L69+40
+ 2060 00be 1048     		ldr	r0, .L69+44
+ 2061 00c0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2062              		.loc 1 410 5 discriminator 3
+ 2063 00c4 0748     		ldr	r0, .L69+16
+ 2064 00c6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2065              	.L68:
+ 2066              	.LBE17:
+ 411:../main_ping_pong.c **** }
+ 2067              		.loc 1 411 1 is_stmt 1
+ 2068 00ca 00BF     		nop
+ 2069 00cc 2037     		adds	r7, r7, #32
+ 2070              	.LCFI42:
+ 2071              		.cfi_def_cfa_offset 16
+ 2072 00ce BD46     		mov	sp, r7
+ 2073              	.LCFI43:
+ 2074              		.cfi_def_cfa_register 13
+ 2075              		@ sp needed
+ 2076 00d0 B0BD     		pop	{r4, r5, r7, pc}
+ 2077              	.L70:
+ 2078 00d2 00BF     		.align	2
+ 2079              	.L69:
+ 2080 00d4 00000000 		.word	my_variable_global
+ 2081 00d8 00000000 		.word	.LC0
+ 2082 00dc 08000000 		.word	.LC1
+ 2083 00e0 58020000 		.word	.LC27
+ 2084 00e4 3C000000 		.word	.LC3
+ 2085 00e8 00000000 		.word	context
+ 2086 00ec 44000000 		.word	.LC4
+ 2087 00f0 4C000000 		.word	.LC5
+ 2088 00f4 84000000 		.word	.LC8
+ 2089 00f8 00000000 		.word	__func__.1
+ 2090 00fc 54000000 		.word	.LC6
+ 2091 0100 68000000 		.word	.LC7
+ 2092              		.cfi_endproc
+ 2093              	.LFE251:
+ 2095              		.section	.rodata
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 49
+
+
+ 2096 0272 0000     		.align	2
+ 2097              	.LC28:
+ 2098 0274 54782061 		.ascii	"Tx acceptance transmission\012\012\000"
+ 2098      63636570 
+ 2098      74616E63 
+ 2098      65207472 
+ 2098      616E736D 
+ 2099              		.section	.text.tx_accepted,"ax",%progbits
+ 2100              		.align	1
+ 2101              		.global	tx_accepted
+ 2102              		.syntax unified
+ 2103              		.thumb
+ 2104              		.thumb_func
+ 2106              	tx_accepted:
+ 2107              	.LFB252:
+ 412:../main_ping_pong.c **** 
+ 413:../main_ping_pong.c **** // Function to transmit acceptance
+ 414:../main_ping_pong.c **** void tx_accepted(uint8_t dst){
+ 2108              		.loc 1 414 30
+ 2109              		.cfi_startproc
+ 2110              		@ args = 0, pretend = 0, frame = 32
+ 2111              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2112 0000 B0B5     		push	{r4, r5, r7, lr}
+ 2113              	.LCFI44:
+ 2114              		.cfi_def_cfa_offset 16
+ 2115              		.cfi_offset 4, -16
+ 2116              		.cfi_offset 5, -12
+ 2117              		.cfi_offset 7, -8
+ 2118              		.cfi_offset 14, -4
+ 2119 0002 8AB0     		sub	sp, sp, #40
+ 2120              	.LCFI45:
+ 2121              		.cfi_def_cfa_offset 56
+ 2122 0004 02AF     		add	r7, sp, #8
+ 2123              	.LCFI46:
+ 2124              		.cfi_def_cfa 7, 48
+ 2125 0006 0346     		mov	r3, r0
+ 2126 0008 FB71     		strb	r3, [r7, #7]
+ 415:../main_ping_pong.c ****     frame my_variable;
+ 416:../main_ping_pong.c ****     my_variable.frame_t.src_addr = ADRSS;
+ 2127              		.loc 1 416 34
+ 2128 000a 0123     		movs	r3, #1
+ 2129 000c 7B72     		strb	r3, [r7, #9]
+ 417:../main_ping_pong.c ****     my_variable.frame_t.dst_addr = dst;
+ 2130              		.loc 1 417 34
+ 2131 000e FB79     		ldrb	r3, [r7, #7]
+ 2132 0010 3B72     		strb	r3, [r7, #8]
+ 418:../main_ping_pong.c ****     my_variable.frame_t.type = 4;
+ 2133              		.loc 1 418 30
+ 2134 0012 0423     		movs	r3, #4
+ 2135 0014 BB72     		strb	r3, [r7, #10]
+ 419:../main_ping_pong.c ****     my_variable.frame_t.length = 0;
+ 2136              		.loc 1 419 32
+ 2137 0016 0023     		movs	r3, #0
+ 2138 0018 FB72     		strb	r3, [r7, #11]
+ 420:../main_ping_pong.c ****     my_variable_global=my_variable;
+ 2139              		.loc 1 420 23
+ 2140 001a 2E4B     		ldr	r3, .L75
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 50
+
+
+ 2141 001c 1D46     		mov	r5, r3
+ 2142 001e 07F10804 		add	r4, r7, #8
+ 2143 0022 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 2144 0024 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 2145 0026 2368     		ldr	r3, [r4]
+ 2146 0028 2B60     		str	r3, [r5]
+ 421:../main_ping_pong.c ****     HAL_DBG_TRACE_INFO( "Tx acceptance transmission\n\n" );
+ 2147              		.loc 1 421 5
+ 2148 002a 2B48     		ldr	r0, .L75+4
+ 2149 002c FFF7FEFF 		bl	hal_mcu_trace_print
+ 2150              		.loc 1 421 5 is_stmt 0 discriminator 1
+ 2151 0030 2A48     		ldr	r0, .L75+8
+ 2152 0032 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2153              		.loc 1 421 5 discriminator 2
+ 2154 0036 2A48     		ldr	r0, .L75+12
+ 2155 0038 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2156              		.loc 1 421 5 discriminator 3
+ 2157 003c 2948     		ldr	r0, .L75+16
+ 2158 003e FFF7FEFF 		bl	hal_mcu_trace_print
+ 2159              	.LBB18:
+ 422:../main_ping_pong.c ****     ASSERT_LR11XX_RC(lr11xx_regmem_write_buffer8(context, my_variable.raw, HEADER_LENGTH) );
+ 2160              		.loc 1 422 5 is_stmt 1
+ 2161 0042 294B     		ldr	r3, .L75+20
+ 2162 0044 1B68     		ldr	r3, [r3]
+ 2163 0046 07F10801 		add	r1, r7, #8
+ 2164 004a 0422     		movs	r2, #4
+ 2165 004c 1846     		mov	r0, r3
+ 2166 004e FFF7FEFF 		bl	lr11xx_regmem_write_buffer8
+ 2167 0052 0346     		mov	r3, r0
+ 2168 0054 FB77     		strb	r3, [r7, #31]
+ 2169              		.loc 1 422 5 is_stmt 0 discriminator 1
+ 2170 0056 FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 2171 0058 002B     		cmp	r3, #0
+ 2172 005a 14D0     		beq	.L72
+ 2173 005c FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 2174 005e 032B     		cmp	r3, #3
+ 2175 0060 11D1     		bne	.L72
+ 2176              		.loc 1 422 5 discriminator 2
+ 2177 0062 2248     		ldr	r0, .L75+24
+ 2178 0064 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2179              		.loc 1 422 5 discriminator 1
+ 2180 0068 2148     		ldr	r0, .L75+28
+ 2181 006a FFF7FEFF 		bl	hal_mcu_trace_print
+ 2182              		.loc 1 422 5 discriminator 2
+ 2183 006e 214B     		ldr	r3, .L75+32
+ 2184 0070 0093     		str	r3, [sp]
+ 2185 0072 4FF4D373 		mov	r3, #422
+ 2186 0076 204A     		ldr	r2, .L75+36
+ 2187 0078 2049     		ldr	r1, .L75+40
+ 2188 007a 2148     		ldr	r0, .L75+44
+ 2189 007c FFF7FEFF 		bl	hal_mcu_trace_print
+ 2190              		.loc 1 422 5 discriminator 3
+ 2191 0080 1848     		ldr	r0, .L75+16
+ 2192 0082 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2193              	.L72:
+ 2194              	.LBE18:
+ 423:../main_ping_pong.c ****     apps_common_lr11xx_handle_pre_tx( );
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 51
+
+
+ 2195              		.loc 1 423 5 is_stmt 1
+ 2196 0086 FFF7FEFF 		bl	apps_common_lr11xx_handle_pre_tx
+ 2197              	.LBB19:
+ 424:../main_ping_pong.c ****     ASSERT_LR11XX_RC( lr11xx_radio_set_tx( context, 0 ) );
+ 2198              		.loc 1 424 5
+ 2199 008a 174B     		ldr	r3, .L75+20
+ 2200 008c 1B68     		ldr	r3, [r3]
+ 2201 008e 0021     		movs	r1, #0
+ 2202 0090 1846     		mov	r0, r3
+ 2203 0092 FFF7FEFF 		bl	lr11xx_radio_set_tx
+ 2204 0096 0346     		mov	r3, r0
+ 2205 0098 BB77     		strb	r3, [r7, #30]
+ 2206              		.loc 1 424 5 is_stmt 0 discriminator 1
+ 2207 009a BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 2208 009c 002B     		cmp	r3, #0
+ 2209 009e 14D0     		beq	.L74
+ 2210 00a0 BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 2211 00a2 032B     		cmp	r3, #3
+ 2212 00a4 11D1     		bne	.L74
+ 2213              		.loc 1 424 5 discriminator 2
+ 2214 00a6 1148     		ldr	r0, .L75+24
+ 2215 00a8 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2216              		.loc 1 424 5 discriminator 1
+ 2217 00ac 1048     		ldr	r0, .L75+28
+ 2218 00ae FFF7FEFF 		bl	hal_mcu_trace_print
+ 2219              		.loc 1 424 5 discriminator 2
+ 2220 00b2 104B     		ldr	r3, .L75+32
+ 2221 00b4 0093     		str	r3, [sp]
+ 2222 00b6 4FF4D473 		mov	r3, #424
+ 2223 00ba 0F4A     		ldr	r2, .L75+36
+ 2224 00bc 0F49     		ldr	r1, .L75+40
+ 2225 00be 1048     		ldr	r0, .L75+44
+ 2226 00c0 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2227              		.loc 1 424 5 discriminator 3
+ 2228 00c4 0748     		ldr	r0, .L75+16
+ 2229 00c6 FFF7FEFF 		bl	hal_mcu_trace_print
+ 2230              	.L74:
+ 2231              	.LBE19:
+ 425:../main_ping_pong.c **** }...
+ 2232              		.loc 1 425 1 is_stmt 1
+ 2233 00ca 00BF     		nop
+ 2234 00cc 2037     		adds	r7, r7, #32
+ 2235              	.LCFI47:
+ 2236              		.cfi_def_cfa_offset 16
+ 2237 00ce BD46     		mov	sp, r7
+ 2238              	.LCFI48:
+ 2239              		.cfi_def_cfa_register 13
+ 2240              		@ sp needed
+ 2241 00d0 B0BD     		pop	{r4, r5, r7, pc}
+ 2242              	.L76:
+ 2243 00d2 00BF     		.align	2
+ 2244              	.L75:
+ 2245 00d4 00000000 		.word	my_variable_global
+ 2246 00d8 00000000 		.word	.LC0
+ 2247 00dc 08000000 		.word	.LC1
+ 2248 00e0 74020000 		.word	.LC28
+ 2249 00e4 3C000000 		.word	.LC3
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 52
+
+
+ 2250 00e8 00000000 		.word	context
+ 2251 00ec 44000000 		.word	.LC4
+ 2252 00f0 4C000000 		.word	.LC5
+ 2253 00f4 84000000 		.word	.LC8
+ 2254 00f8 00000000 		.word	__func__.0
+ 2255 00fc 54000000 		.word	.LC6
+ 2256 0100 68000000 		.word	.LC7
+ 2257              		.cfi_endproc
+ 2258              	.LFE252:
+ 2260              		.section	.rodata.__func__.8,"a"
+ 2261              		.align	2
+ 2264              	__func__.8:
+ 2265 0000 6D61696E 		.ascii	"main\000"
+ 2265      00
+ 2266              		.section	.rodata.__func__.7,"a"
+ 2267              		.align	2
+ 2270              	__func__.7:
+ 2271 0000 6F6E5F74 		.ascii	"on_tx_done\000"
+ 2271      785F646F 
+ 2271      6E6500
+ 2272              		.section	.rodata.__func__.6,"a"
+ 2273              		.align	2
+ 2276              	__func__.6:
+ 2277 0000 6F6E5F72 		.ascii	"on_rx_done\000"
+ 2277      785F646F 
+ 2277      6E6500
+ 2278              		.section	.rodata.__func__.5,"a"
+ 2279              		.align	2
+ 2282              	__func__.5:
+ 2283 0000 72656365 		.ascii	"reception_failure_handling\000"
+ 2283      7074696F 
+ 2283      6E5F6661 
+ 2283      696C7572 
+ 2283      655F6861 
+ 2284              		.section	.rodata.__func__.4,"a"
+ 2285              		.align	2
+ 2288              	__func__.4:
+ 2289 0000 696E666F 		.ascii	"info_tx\000"
+ 2289      5F747800 
+ 2290              		.section	.rodata.__func__.3,"a"
+ 2291              		.align	2
+ 2294              	__func__.3:
+ 2295 0000 61636B5F 		.ascii	"ack_tx\000"
+ 2295      747800
+ 2296              		.section	.rodata.__func__.2,"a"
+ 2297              		.align	2
+ 2300              	__func__.2:
+ 2301 0000 656E645F 		.ascii	"end_of_tx\000"
+ 2301      6F665F74 
+ 2301      7800
+ 2302              		.section	.rodata.__func__.1,"a"
+ 2303              		.align	2
+ 2306              	__func__.1:
+ 2307 0000 74785F72 		.ascii	"tx_request\000"
+ 2307      65717565 
+ 2307      737400
+ 2308              		.section	.rodata.__func__.0,"a"
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 53
+
+
+ 2309              		.align	2
+ 2312              	__func__.0:
+ 2313 0000 74785F61 		.ascii	"tx_accepted\000"
+ 2313      63636570 
+ 2313      74656400 
+ 2314              		.text
+ 2315              	.Letext0:
+ 2316              		.file 2 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/machin
+ 2317              		.file 3 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/lib/gcc/arm-none-eabi/14.2.1
+ 2318              		.file 4 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys/_s
+ 2319              		.file 5 "../../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_status.h"
+ 2320              		.file 6 "../../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_spi.h"
+ 2321              		.file 7 "../../../../libs/smtc-hal-mcu-stm32l4/third_party/STM32CubeL4/Drivers/CMSIS/Device/ST/STM
+ 2322              		.file 8 "../../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_spi_stm32l4.h"
+ 2323              		.file 9 "../../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu_gpio.h"
+ 2324              		.file 10 "../../../../libs/smtc-hal-mcu-stm32l4/inc/smtc_hal_mcu_gpio_stm32l4.h"
+ 2325              		.file 11 "../../../../lr11xx/common/lr11xx_hal_context.h"
+ 2326              		.file 12 "../../../../lr11xx/lr11xx_driver/src/lr11xx_system_types.h"
+ 2327              		.file 13 "../../../../lr11xx/lr11xx_driver/src/lr11xx_types.h"
+ 2328              		.file 14 "../../../../lr11xx/common/apps_configuration.h"
+ 2329              		.file 15 "../../../../lr11xx/lr11xx_driver/src/lr11xx_radio.h"
+ 2330              		.file 16 "../../../../lr11xx/lr11xx_driver/src/lr11xx_regmem.h"
+ 2331              		.file 17 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/strin
+ 2332              		.file 18 "../../../../lr11xx/common/apps_common.h"
+ 2333              		.file 19 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/stdli
+ 2334              		.file 20 "../../../../lr11xx/lr11xx_driver/src/lr11xx_system.h"
+ 2335              		.file 21 "../../../../common/inc/smtc_hal_dbg_trace.h"
+ 2336              		.file 22 "../../../../common/inc/uart_init.h"
+ 2337              		.file 23 "../../../../libs/smtc-hal-mcu/inc/smtc_hal_mcu.h"
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 54
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main_ping_pong.c
+C:\msys64\tmp\cc05WZtM.s:21     .rodata.gfsk_sync_word:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:24     .rodata.gfsk_sync_word:00000000 gfsk_sync_word
+C:\msys64\tmp\cc05WZtM.s:27     .bss.context:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:30     .bss.context:00000000 context
+C:\msys64\tmp\cc05WZtM.s:35     .bss.rx_mode:00000000 rx_mode
+C:\msys64\tmp\cc05WZtM.s:36     .bss.rx_mode:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:40     .data.avaliable:00000000 avaliable
+C:\msys64\tmp\cc05WZtM.s:46     .bss.index:00000000 index
+C:\msys64\tmp\cc05WZtM.s:47     .bss.index:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:52     .bss.rx_index:00000000 rx_index
+C:\msys64\tmp\cc05WZtM.s:53     .bss.rx_index:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:55     .rodata.large_msg:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:58     .rodata.large_msg:00000000 large_msg
+C:\msys64\tmp\cc05WZtM.s:71     .bss.rx_message:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:74     .bss.rx_message:00000000 rx_message
+C:\msys64\tmp\cc05WZtM.s:77     .data.large_msg_size:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:80     .data.large_msg_size:00000000 large_msg_size
+C:\msys64\tmp\cc05WZtM.s:87     .bss.my_variable_global:00000000 my_variable_global
+C:\msys64\tmp\cc05WZtM.s:84     .bss.my_variable_global:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:94     .bss.my_variable_rx:00000000 my_variable_rx
+C:\msys64\tmp\cc05WZtM.s:91     .bss.my_variable_rx:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:97     .rodata:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:125    .text.main:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:131    .text.main:00000000 main
+C:\msys64\tmp\cc05WZtM.s:1941   .text.tx_request:00000000 tx_request
+C:\msys64\tmp\cc05WZtM.s:277    .text.main:000000f0 $d
+C:\msys64\tmp\cc05WZtM.s:2264   .rodata.__func__.8:00000000 __func__.8
+C:\msys64\tmp\cc05WZtM.s:304    .text.on_tx_done:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:310    .text.on_tx_done:00000000 on_tx_done
+C:\msys64\tmp\cc05WZtM.s:439    .text.on_tx_done:000000c0 $d
+C:\msys64\tmp\cc05WZtM.s:2270   .rodata.__func__.7:00000000 __func__.7
+C:\msys64\tmp\cc05WZtM.s:489    .text.on_rx_done:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:495    .text.on_rx_done:00000000 on_rx_done
+C:\msys64\tmp\cc05WZtM.s:1121   .text.reception_failure_handling:00000000 reception_failure_handling
+C:\msys64\tmp\cc05WZtM.s:2106   .text.tx_accepted:00000000 tx_accepted
+C:\msys64\tmp\cc05WZtM.s:1405   .text.info_tx:00000000 info_tx
+C:\msys64\tmp\cc05WZtM.s:847    .text.on_rx_done:0000023c $d
+C:\msys64\tmp\cc05WZtM.s:2276   .rodata.__func__.6:00000000 __func__.6
+C:\msys64\tmp\cc05WZtM.s:873    .text.on_rx_done:0000029c $t
+C:\msys64\tmp\cc05WZtM.s:1776   .text.end_of_tx:00000000 end_of_tx
+C:\msys64\tmp\cc05WZtM.s:1611   .text.ack_tx:00000000 ack_tx
+C:\msys64\tmp\cc05WZtM.s:1005   .text.on_rx_done:00000374 $d
+C:\msys64\tmp\cc05WZtM.s:1022   .text.on_rx_timeout:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:1028   .text.on_rx_timeout:00000000 on_rx_timeout
+C:\msys64\tmp\cc05WZtM.s:1051   .text.on_rx_crc_error:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:1057   .text.on_rx_crc_error:00000000 on_rx_crc_error
+C:\msys64\tmp\cc05WZtM.s:1080   .text.on_fsk_len_error:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:1086   .text.on_fsk_len_error:00000000 on_fsk_len_error
+C:\msys64\tmp\cc05WZtM.s:1116   .text.reception_failure_handling:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:1372   .text.reception_failure_handling:000001a0 $d
+C:\msys64\tmp\cc05WZtM.s:2282   .rodata.__func__.5:00000000 __func__.5
+C:\msys64\tmp\cc05WZtM.s:1399   .text.info_tx:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:1585   .text.info_tx:0000011c $d
+C:\msys64\tmp\cc05WZtM.s:2288   .rodata.__func__.4:00000000 __func__.4
+C:\msys64\tmp\cc05WZtM.s:1605   .text.ack_tx:00000000 $t
+ARM GAS  C:\msys64\tmp\cc05WZtM.s 			page 55
+
+
+C:\msys64\tmp\cc05WZtM.s:1750   .text.ack_tx:000000d4 $d
+C:\msys64\tmp\cc05WZtM.s:2294   .rodata.__func__.3:00000000 __func__.3
+C:\msys64\tmp\cc05WZtM.s:1770   .text.end_of_tx:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:1915   .text.end_of_tx:000000d4 $d
+C:\msys64\tmp\cc05WZtM.s:2300   .rodata.__func__.2:00000000 __func__.2
+C:\msys64\tmp\cc05WZtM.s:1935   .text.tx_request:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:2080   .text.tx_request:000000d4 $d
+C:\msys64\tmp\cc05WZtM.s:2306   .rodata.__func__.1:00000000 __func__.1
+C:\msys64\tmp\cc05WZtM.s:2100   .text.tx_accepted:00000000 $t
+C:\msys64\tmp\cc05WZtM.s:2245   .text.tx_accepted:000000d4 $d
+C:\msys64\tmp\cc05WZtM.s:2312   .rodata.__func__.0:00000000 __func__.0
+C:\msys64\tmp\cc05WZtM.s:2261   .rodata.__func__.8:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:2267   .rodata.__func__.7:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:2273   .rodata.__func__.6:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:2279   .rodata.__func__.5:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:2285   .rodata.__func__.4:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:2291   .rodata.__func__.3:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:2297   .rodata.__func__.2:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:2303   .rodata.__func__.1:00000000 $d
+C:\msys64\tmp\cc05WZtM.s:2309   .rodata.__func__.0:00000000 $d
+
+UNDEFINED SYMBOLS
+smtc_hal_mcu_init
+apps_common_shield_init
+uart_init
+hal_mcu_trace_print
+apps_common_print_sdk_driver_version
+apps_common_lr11xx_get_context
+apps_common_lr11xx_system_init
+apps_common_lr11xx_fetch_and_print_version
+apps_common_lr11xx_radio_init
+lr11xx_system_set_dio_irq_params
+lr11xx_system_clear_irq_status
+srand
+apps_common_lr11xx_irq_process
+apps_common_lr11xx_handle_post_tx
+apps_common_lr11xx_handle_pre_rx
+get_time_on_air_in_ms
+rand
+lr11xx_radio_set_rx
+apps_common_lr11xx_handle_post_rx
+apps_common_lr11xx_receive
+memcpy
+lr11xx_regmem_write_buffer8
+apps_common_lr11xx_handle_pre_tx
+lr11xx_radio_set_tx

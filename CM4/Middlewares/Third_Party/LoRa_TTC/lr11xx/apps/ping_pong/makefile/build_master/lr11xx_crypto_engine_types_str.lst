@@ -1,0 +1,1063 @@
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lr11xx_crypto_engine_types_str.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c"
+  20              		.section	.rodata
+  21              		.align	2
+  22              	.LC0:
+  23 0000 4C523131 		.ascii	"LR11XX_CRYPTO_ELEMENT_CRYPTO_ENGINE\000"
+  23      58585F43 
+  23      52595054 
+  23      4F5F454C 
+  23      454D454E 
+  24              		.align	2
+  25              	.LC1:
+  26 0024 4C523131 		.ascii	"LR11XX_CRYPTO_ELEMENT_SECURE_ELEMENT\000"
+  26      58585F43 
+  26      52595054 
+  26      4F5F454C 
+  26      454D454E 
+  27 0049 000000   		.align	2
+  28              	.LC2:
+  29 004c 556E6B6E 		.ascii	"Unknown\000"
+  29      6F776E00 
+  30              		.section	.text.lr11xx_crypto_element_to_str,"ax",%progbits
+  31              		.align	1
+  32              		.global	lr11xx_crypto_element_to_str
+  33              		.syntax unified
+  34              		.thumb
+  35              		.thumb_func
+  37              	lr11xx_crypto_element_to_str:
+  38              	.LFB0:
+   1:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** /*!
+   2:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * @file      lr11xx_crypto_engine_types_str.c
+   3:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *
+   4:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * @brief     Printer helper functions for LR11xx crypto engine types
+   5:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *
+   6:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * @copyright
+   7:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * The Clear BSD License
+   8:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   9:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *
+  10:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * Redistribution and use in source and binary forms, with or without
+  11:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 2
+
+
+  12:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * below) provided that the following conditions are met:
+  13:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *     * Redistributions of source code must retain the above copyright
+  14:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *       notice, this list of conditions and the following disclaimer.
+  15:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  16:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *       notice, this list of conditions and the following disclaimer in the
+  17:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *       documentation and/or other materials provided with the distribution.
+  18:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *     * Neither the name of the Semtech corporation nor the
+  19:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *       names of its contributors may be used to endorse or promote products
+  20:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *       derived from this software without specific prior written permission.
+  21:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  *
+  22:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  23:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  24:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  25:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  26:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  27:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  28:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  29:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  30:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  31:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  32:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  33:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  34:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****  */
+  35:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  36:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** #include "lr11xx_crypto_engine_types_str.h"
+  37:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  38:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** const char* lr11xx_crypto_element_to_str( const lr11xx_crypto_element_t value )
+  39:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** {
+  39              		.loc 1 39 1
+  40              		.cfi_startproc
+  41              		@ args = 0, pretend = 0, frame = 8
+  42              		@ frame_needed = 1, uses_anonymous_args = 0
+  43              		@ link register save eliminated.
+  44 0000 80B4     		push	{r7}
+  45              	.LCFI0:
+  46              		.cfi_def_cfa_offset 4
+  47              		.cfi_offset 7, -4
+  48 0002 83B0     		sub	sp, sp, #12
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 16
+  51 0004 00AF     		add	r7, sp, #0
+  52              	.LCFI2:
+  53              		.cfi_def_cfa_register 7
+  54 0006 0346     		mov	r3, r0
+  55 0008 FB71     		strb	r3, [r7, #7]
+  40:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     switch( value )
+  56              		.loc 1 40 5
+  57 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  58 000c 002B     		cmp	r3, #0
+  59 000e 02D0     		beq	.L2
+  60 0010 012B     		cmp	r3, #1
+  61 0012 02D0     		beq	.L3
+  62 0014 03E0     		b	.L6
+  63              	.L2:
+  41:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  42:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_ELEMENT_CRYPTO_ENGINE:
+  43:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 3
+
+
+  44:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_ELEMENT_CRYPTO_ENGINE";
+  64              		.loc 1 44 16
+  65 0016 054B     		ldr	r3, .L7
+  66 0018 02E0     		b	.L5
+  67              	.L3:
+  45:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  46:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  47:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_ELEMENT_SECURE_ELEMENT:
+  48:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  49:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_ELEMENT_SECURE_ELEMENT";
+  68              		.loc 1 49 16
+  69 001a 054B     		ldr	r3, .L7+4
+  70 001c 00E0     		b	.L5
+  71              	.L6:
+  50:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  51:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  52:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     default:
+  53:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  54:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "Unknown";
+  72              		.loc 1 54 16
+  73 001e 054B     		ldr	r3, .L7+8
+  74              	.L5:
+  55:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  56:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  57:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** }
+  75              		.loc 1 57 1
+  76 0020 1846     		mov	r0, r3
+  77 0022 0C37     		adds	r7, r7, #12
+  78              	.LCFI3:
+  79              		.cfi_def_cfa_offset 4
+  80 0024 BD46     		mov	sp, r7
+  81              	.LCFI4:
+  82              		.cfi_def_cfa_register 13
+  83              		@ sp needed
+  84 0026 5DF8047B 		ldr	r7, [sp], #4
+  85              	.LCFI5:
+  86              		.cfi_restore 7
+  87              		.cfi_def_cfa_offset 0
+  88 002a 7047     		bx	lr
+  89              	.L8:
+  90              		.align	2
+  91              	.L7:
+  92 002c 00000000 		.word	.LC0
+  93 0030 24000000 		.word	.LC1
+  94 0034 4C000000 		.word	.LC2
+  95              		.cfi_endproc
+  96              	.LFE0:
+  98              		.section	.rodata
+  99              		.align	2
+ 100              	.LC3:
+ 101 0054 4C523131 		.ascii	"LR11XX_CRYPTO_STATUS_SUCCESS\000"
+ 101      58585F43 
+ 101      52595054 
+ 101      4F5F5354 
+ 101      41545553 
+ 102 0071 000000   		.align	2
+ 103              	.LC4:
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 4
+
+
+ 104 0074 4C523131 		.ascii	"LR11XX_CRYPTO_STATUS_ERROR_FAIL_CMAC\000"
+ 104      58585F43 
+ 104      52595054 
+ 104      4F5F5354 
+ 104      41545553 
+ 105 0099 000000   		.align	2
+ 106              	.LC5:
+ 107 009c 4C523131 		.ascii	"LR11XX_CRYPTO_STATUS_ERROR_INVALID_KEY_ID\000"
+ 107      58585F43 
+ 107      52595054 
+ 107      4F5F5354 
+ 107      41545553 
+ 108 00c6 0000     		.align	2
+ 109              	.LC6:
+ 110 00c8 4C523131 		.ascii	"LR11XX_CRYPTO_STATUS_ERROR_BUFFER_SIZE\000"
+ 110      58585F43 
+ 110      52595054 
+ 110      4F5F5354 
+ 110      41545553 
+ 111 00ef 00       		.align	2
+ 112              	.LC7:
+ 113 00f0 4C523131 		.ascii	"LR11XX_CRYPTO_STATUS_ERROR\000"
+ 113      58585F43 
+ 113      52595054 
+ 113      4F5F5354 
+ 113      41545553 
+ 114              		.section	.text.lr11xx_crypto_status_to_str,"ax",%progbits
+ 115              		.align	1
+ 116              		.global	lr11xx_crypto_status_to_str
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 121              	lr11xx_crypto_status_to_str:
+ 122              	.LFB1:
+  58:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  59:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** const char* lr11xx_crypto_status_to_str( const lr11xx_crypto_status_t value )
+  60:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** {
+ 123              		.loc 1 60 1
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 8
+ 126              		@ frame_needed = 1, uses_anonymous_args = 0
+ 127              		@ link register save eliminated.
+ 128 0000 80B4     		push	{r7}
+ 129              	.LCFI6:
+ 130              		.cfi_def_cfa_offset 4
+ 131              		.cfi_offset 7, -4
+ 132 0002 83B0     		sub	sp, sp, #12
+ 133              	.LCFI7:
+ 134              		.cfi_def_cfa_offset 16
+ 135 0004 00AF     		add	r7, sp, #0
+ 136              	.LCFI8:
+ 137              		.cfi_def_cfa_register 7
+ 138 0006 0346     		mov	r3, r0
+ 139 0008 FB71     		strb	r3, [r7, #7]
+  61:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     switch( value )
+ 140              		.loc 1 61 5
+ 141 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 5
+
+
+ 142 000c 062B     		cmp	r3, #6
+ 143 000e 1BD8     		bhi	.L10
+ 144 0010 01A2     		adr	r2, .L12
+ 145 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 146 0016 00BF     		.p2align 2
+ 147              	.L12:
+ 148 0018 35000000 		.word	.L16+1
+ 149 001c 39000000 		.word	.L15+1
+ 150 0020 49000000 		.word	.L10+1
+ 151 0024 3D000000 		.word	.L14+1
+ 152 0028 49000000 		.word	.L10+1
+ 153 002c 41000000 		.word	.L13+1
+ 154 0030 45000000 		.word	.L11+1
+ 155              		.p2align 1
+ 156              	.L16:
+  62:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  63:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_STATUS_SUCCESS:
+  64:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  65:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_STATUS_SUCCESS";
+ 157              		.loc 1 65 16
+ 158 0034 084B     		ldr	r3, .L18
+ 159 0036 08E0     		b	.L17
+ 160              	.L15:
+  66:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  67:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  68:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_STATUS_ERROR_FAIL_CMAC:
+  69:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  70:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_STATUS_ERROR_FAIL_CMAC";
+ 161              		.loc 1 70 16
+ 162 0038 084B     		ldr	r3, .L18+4
+ 163 003a 06E0     		b	.L17
+ 164              	.L14:
+  71:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  72:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  73:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_STATUS_ERROR_INVALID_KEY_ID:
+  74:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  75:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_STATUS_ERROR_INVALID_KEY_ID";
+ 165              		.loc 1 75 16
+ 166 003c 084B     		ldr	r3, .L18+8
+ 167 003e 04E0     		b	.L17
+ 168              	.L13:
+  76:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  77:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  78:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_STATUS_ERROR_BUFFER_SIZE:
+  79:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  80:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_STATUS_ERROR_BUFFER_SIZE";
+ 169              		.loc 1 80 16
+ 170 0040 084B     		ldr	r3, .L18+12
+ 171 0042 02E0     		b	.L17
+ 172              	.L11:
+  81:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  82:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  83:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_STATUS_ERROR:
+  84:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  85:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_STATUS_ERROR";
+ 173              		.loc 1 85 16
+ 174 0044 084B     		ldr	r3, .L18+16
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 6
+
+
+ 175 0046 00E0     		b	.L17
+ 176              	.L10:
+  86:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  87:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  88:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     default:
+  89:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  90:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "Unknown";
+ 177              		.loc 1 90 16
+ 178 0048 084B     		ldr	r3, .L18+20
+ 179              	.L17:
+  91:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  92:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+  93:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** }
+ 180              		.loc 1 93 1
+ 181 004a 1846     		mov	r0, r3
+ 182 004c 0C37     		adds	r7, r7, #12
+ 183              	.LCFI9:
+ 184              		.cfi_def_cfa_offset 4
+ 185 004e BD46     		mov	sp, r7
+ 186              	.LCFI10:
+ 187              		.cfi_def_cfa_register 13
+ 188              		@ sp needed
+ 189 0050 5DF8047B 		ldr	r7, [sp], #4
+ 190              	.LCFI11:
+ 191              		.cfi_restore 7
+ 192              		.cfi_def_cfa_offset 0
+ 193 0054 7047     		bx	lr
+ 194              	.L19:
+ 195 0056 00BF     		.align	2
+ 196              	.L18:
+ 197 0058 54000000 		.word	.LC3
+ 198 005c 74000000 		.word	.LC4
+ 199 0060 9C000000 		.word	.LC5
+ 200 0064 C8000000 		.word	.LC6
+ 201 0068 F0000000 		.word	.LC7
+ 202 006c 4C000000 		.word	.LC2
+ 203              		.cfi_endproc
+ 204              	.LFE1:
+ 206              		.section	.rodata
+ 207 010b 00       		.align	2
+ 208              	.LC8:
+ 209 010c 4C523131 		.ascii	"LR11XX_CRYPTO_LORAWAN_VERSION_1_0_X\000"
+ 209      58585F43 
+ 209      52595054 
+ 209      4F5F4C4F 
+ 209      52415741 
+ 210              		.align	2
+ 211              	.LC9:
+ 212 0130 4C523131 		.ascii	"LR11XX_CRYPTO_LORAWAN_VERSION_1_1_X\000"
+ 212      58585F43 
+ 212      52595054 
+ 212      4F5F4C4F 
+ 212      52415741 
+ 213              		.section	.text.lr11xx_crypto_lorawan_version_to_str,"ax",%progbits
+ 214              		.align	1
+ 215              		.global	lr11xx_crypto_lorawan_version_to_str
+ 216              		.syntax unified
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 7
+
+
+ 217              		.thumb
+ 218              		.thumb_func
+ 220              	lr11xx_crypto_lorawan_version_to_str:
+ 221              	.LFB2:
+  94:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+  95:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** const char* lr11xx_crypto_lorawan_version_to_str( const lr11xx_crypto_lorawan_version_t value )
+  96:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** {
+ 222              		.loc 1 96 1
+ 223              		.cfi_startproc
+ 224              		@ args = 0, pretend = 0, frame = 8
+ 225              		@ frame_needed = 1, uses_anonymous_args = 0
+ 226              		@ link register save eliminated.
+ 227 0000 80B4     		push	{r7}
+ 228              	.LCFI12:
+ 229              		.cfi_def_cfa_offset 4
+ 230              		.cfi_offset 7, -4
+ 231 0002 83B0     		sub	sp, sp, #12
+ 232              	.LCFI13:
+ 233              		.cfi_def_cfa_offset 16
+ 234 0004 00AF     		add	r7, sp, #0
+ 235              	.LCFI14:
+ 236              		.cfi_def_cfa_register 7
+ 237 0006 0346     		mov	r3, r0
+ 238 0008 FB71     		strb	r3, [r7, #7]
+  97:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     switch( value )
+ 239              		.loc 1 97 5
+ 240 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 241 000c 002B     		cmp	r3, #0
+ 242 000e 02D0     		beq	.L21
+ 243 0010 012B     		cmp	r3, #1
+ 244 0012 02D0     		beq	.L22
+ 245 0014 03E0     		b	.L25
+ 246              	.L21:
+  98:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+  99:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_LORAWAN_VERSION_1_0_X:
+ 100:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 101:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_LORAWAN_VERSION_1_0_X";
+ 247              		.loc 1 101 16
+ 248 0016 054B     		ldr	r3, .L26
+ 249 0018 02E0     		b	.L24
+ 250              	.L22:
+ 102:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 103:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 104:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_LORAWAN_VERSION_1_1_X:
+ 105:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 106:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_LORAWAN_VERSION_1_1_X";
+ 251              		.loc 1 106 16
+ 252 001a 054B     		ldr	r3, .L26+4
+ 253 001c 00E0     		b	.L24
+ 254              	.L25:
+ 107:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 108:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 109:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     default:
+ 110:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 111:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "Unknown";
+ 255              		.loc 1 111 16
+ 256 001e 054B     		ldr	r3, .L26+8
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 8
+
+
+ 257              	.L24:
+ 112:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 113:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 114:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** }
+ 258              		.loc 1 114 1
+ 259 0020 1846     		mov	r0, r3
+ 260 0022 0C37     		adds	r7, r7, #12
+ 261              	.LCFI15:
+ 262              		.cfi_def_cfa_offset 4
+ 263 0024 BD46     		mov	sp, r7
+ 264              	.LCFI16:
+ 265              		.cfi_def_cfa_register 13
+ 266              		@ sp needed
+ 267 0026 5DF8047B 		ldr	r7, [sp], #4
+ 268              	.LCFI17:
+ 269              		.cfi_restore 7
+ 270              		.cfi_def_cfa_offset 0
+ 271 002a 7047     		bx	lr
+ 272              	.L27:
+ 273              		.align	2
+ 274              	.L26:
+ 275 002c 0C010000 		.word	.LC8
+ 276 0030 30010000 		.word	.LC9
+ 277 0034 4C000000 		.word	.LC2
+ 278              		.cfi_endproc
+ 279              	.LFE2:
+ 281              		.section	.rodata
+ 282              		.align	2
+ 283              	.LC10:
+ 284 0154 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_MOTHER_KEY\000"
+ 284      58585F43 
+ 284      52595054 
+ 284      4F5F4B45 
+ 284      59535F49 
+ 285 0176 0000     		.align	2
+ 286              	.LC11:
+ 287 0178 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_NWK_KEY\000"
+ 287      58585F43 
+ 287      52595054 
+ 287      4F5F4B45 
+ 287      59535F49 
+ 288 0197 00       		.align	2
+ 289              	.LC12:
+ 290 0198 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_APP_KEY\000"
+ 290      58585F43 
+ 290      52595054 
+ 290      4F5F4B45 
+ 290      59535F49 
+ 291 01b7 00       		.align	2
+ 292              	.LC13:
+ 293 01b8 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_J_S_ENC_KEY\000"
+ 293      58585F43 
+ 293      52595054 
+ 293      4F5F4B45 
+ 293      59535F49 
+ 294 01db 00       		.align	2
+ 295              	.LC14:
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 9
+
+
+ 296 01dc 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_J_S_INT_KEY\000"
+ 296      58585F43 
+ 296      52595054 
+ 296      4F5F4B45 
+ 296      59535F49 
+ 297 01ff 00       		.align	2
+ 298              	.LC15:
+ 299 0200 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_0\000"
+ 299      58585F43 
+ 299      52595054 
+ 299      4F5F4B45 
+ 299      59535F49 
+ 300 0223 00       		.align	2
+ 301              	.LC16:
+ 302 0224 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_1\000"
+ 302      58585F43 
+ 302      52595054 
+ 302      4F5F4B45 
+ 302      59535F49 
+ 303 0247 00       		.align	2
+ 304              	.LC17:
+ 305 0248 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_2\000"
+ 305      58585F43 
+ 305      52595054 
+ 305      4F5F4B45 
+ 305      59535F49 
+ 306 026b 00       		.align	2
+ 307              	.LC18:
+ 308 026c 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_3\000"
+ 308      58585F43 
+ 308      52595054 
+ 308      4F5F4B45 
+ 308      59535F49 
+ 309 028f 00       		.align	2
+ 310              	.LC19:
+ 311 0290 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_4\000"
+ 311      58585F43 
+ 311      52595054 
+ 311      4F5F4B45 
+ 311      59535F49 
+ 312 02b3 00       		.align	2
+ 313              	.LC20:
+ 314 02b4 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_5\000"
+ 314      58585F43 
+ 314      52595054 
+ 314      4F5F4B45 
+ 314      59535F49 
+ 315 02d7 00       		.align	2
+ 316              	.LC21:
+ 317 02d8 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_APP_S_KEY\000"
+ 317      58585F43 
+ 317      52595054 
+ 317      4F5F4B45 
+ 317      59535F49 
+ 318 02f9 000000   		.align	2
+ 319              	.LC22:
+ 320 02fc 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_F_NWK_S_INT_KEY\000"
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 10
+
+
+ 320      58585F43 
+ 320      52595054 
+ 320      4F5F4B45 
+ 320      59535F49 
+ 321 0323 00       		.align	2
+ 322              	.LC23:
+ 323 0324 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_S_NWK_S_INT_KEY\000"
+ 323      58585F43 
+ 323      52595054 
+ 323      4F5F4B45 
+ 323      59535F49 
+ 324 034b 00       		.align	2
+ 325              	.LC24:
+ 326 034c 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_NWK_S_ENC_KEY\000"
+ 326      58585F43 
+ 326      52595054 
+ 326      4F5F4B45 
+ 326      59535F49 
+ 327 0371 000000   		.align	2
+ 328              	.LC25:
+ 329 0374 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_RFU_0\000"
+ 329      58585F43 
+ 329      52595054 
+ 329      4F5F4B45 
+ 329      59535F49 
+ 330 0391 000000   		.align	2
+ 331              	.LC26:
+ 332 0394 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_RFU_1\000"
+ 332      58585F43 
+ 332      52595054 
+ 332      4F5F4B45 
+ 332      59535F49 
+ 333 03b1 000000   		.align	2
+ 334              	.LC27:
+ 335 03b4 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_0\000"
+ 335      58585F43 
+ 335      52595054 
+ 335      4F5F4B45 
+ 335      59535F49 
+ 336 03da 0000     		.align	2
+ 337              	.LC28:
+ 338 03dc 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_1\000"
+ 338      58585F43 
+ 338      52595054 
+ 338      4F5F4B45 
+ 338      59535F49 
+ 339 0402 0000     		.align	2
+ 340              	.LC29:
+ 341 0404 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_2\000"
+ 341      58585F43 
+ 341      52595054 
+ 341      4F5F4B45 
+ 341      59535F49 
+ 342 042a 0000     		.align	2
+ 343              	.LC30:
+ 344 042c 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_3\000"
+ 344      58585F43 
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 11
+
+
+ 344      52595054 
+ 344      4F5F4B45 
+ 344      59535F49 
+ 345 0452 0000     		.align	2
+ 346              	.LC31:
+ 347 0454 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_0\000"
+ 347      58585F43 
+ 347      52595054 
+ 347      4F5F4B45 
+ 347      59535F49 
+ 348 047a 0000     		.align	2
+ 349              	.LC32:
+ 350 047c 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_1\000"
+ 350      58585F43 
+ 350      52595054 
+ 350      4F5F4B45 
+ 350      59535F49 
+ 351 04a2 0000     		.align	2
+ 352              	.LC33:
+ 353 04a4 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_2\000"
+ 353      58585F43 
+ 353      52595054 
+ 353      4F5F4B45 
+ 353      59535F49 
+ 354 04ca 0000     		.align	2
+ 355              	.LC34:
+ 356 04cc 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_3\000"
+ 356      58585F43 
+ 356      52595054 
+ 356      4F5F4B45 
+ 356      59535F49 
+ 357 04f2 0000     		.align	2
+ 358              	.LC35:
+ 359 04f4 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_GP0\000"
+ 359      58585F43 
+ 359      52595054 
+ 359      4F5F4B45 
+ 359      59535F49 
+ 360 050f 00       		.align	2
+ 361              	.LC36:
+ 362 0510 4C523131 		.ascii	"LR11XX_CRYPTO_KEYS_IDX_GP1\000"
+ 362      58585F43 
+ 362      52595054 
+ 362      4F5F4B45 
+ 362      59535F49 
+ 363              		.section	.text.lr11xx_crypto_keys_idx_to_str,"ax",%progbits
+ 364              		.align	1
+ 365              		.global	lr11xx_crypto_keys_idx_to_str
+ 366              		.syntax unified
+ 367              		.thumb
+ 368              		.thumb_func
+ 370              	lr11xx_crypto_keys_idx_to_str:
+ 371              	.LFB3:
+ 115:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 116:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** const char* lr11xx_crypto_keys_idx_to_str( const lr11xx_crypto_keys_idx_t value )
+ 117:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** {
+ 372              		.loc 1 117 1
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 12
+
+
+ 373              		.cfi_startproc
+ 374              		@ args = 0, pretend = 0, frame = 8
+ 375              		@ frame_needed = 1, uses_anonymous_args = 0
+ 376              		@ link register save eliminated.
+ 377 0000 80B4     		push	{r7}
+ 378              	.LCFI18:
+ 379              		.cfi_def_cfa_offset 4
+ 380              		.cfi_offset 7, -4
+ 381 0002 83B0     		sub	sp, sp, #12
+ 382              	.LCFI19:
+ 383              		.cfi_def_cfa_offset 16
+ 384 0004 00AF     		add	r7, sp, #0
+ 385              	.LCFI20:
+ 386              		.cfi_def_cfa_register 7
+ 387 0006 0346     		mov	r3, r0
+ 388 0008 FB71     		strb	r3, [r7, #7]
+ 118:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     switch( value )
+ 389              		.loc 1 118 5
+ 390 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 391 000c 013B     		subs	r3, r3, #1
+ 392 000e 1A2B     		cmp	r3, #26
+ 393 0010 6ED8     		bhi	.L29
+ 394 0012 01A2     		adr	r2, .L31
+ 395 0014 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 396              		.p2align 2
+ 397              	.L31:
+ 398 0018 85000000 		.word	.L57+1
+ 399 001c 89000000 		.word	.L56+1
+ 400 0020 8D000000 		.word	.L55+1
+ 401 0024 91000000 		.word	.L54+1
+ 402 0028 95000000 		.word	.L53+1
+ 403 002c 99000000 		.word	.L52+1
+ 404 0030 9D000000 		.word	.L51+1
+ 405 0034 A1000000 		.word	.L50+1
+ 406 0038 A5000000 		.word	.L49+1
+ 407 003c A9000000 		.word	.L48+1
+ 408 0040 AD000000 		.word	.L47+1
+ 409 0044 B1000000 		.word	.L46+1
+ 410 0048 B5000000 		.word	.L45+1
+ 411 004c B9000000 		.word	.L44+1
+ 412 0050 BD000000 		.word	.L43+1
+ 413 0054 C1000000 		.word	.L42+1
+ 414 0058 C5000000 		.word	.L41+1
+ 415 005c C9000000 		.word	.L40+1
+ 416 0060 CD000000 		.word	.L39+1
+ 417 0064 D1000000 		.word	.L38+1
+ 418 0068 D5000000 		.word	.L37+1
+ 419 006c D9000000 		.word	.L36+1
+ 420 0070 DD000000 		.word	.L35+1
+ 421 0074 E1000000 		.word	.L34+1
+ 422 0078 E5000000 		.word	.L33+1
+ 423 007c E9000000 		.word	.L32+1
+ 424 0080 ED000000 		.word	.L30+1
+ 425              		.p2align 1
+ 426              	.L57:
+ 119:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 120:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_MOTHER_KEY:
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 13
+
+
+ 121:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 122:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_MOTHER_KEY";
+ 427              		.loc 1 122 16
+ 428 0084 1E4B     		ldr	r3, .L59
+ 429 0086 34E0     		b	.L58
+ 430              	.L56:
+ 123:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 124:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 125:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_NWK_KEY:
+ 126:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 127:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_NWK_KEY";
+ 431              		.loc 1 127 16
+ 432 0088 1E4B     		ldr	r3, .L59+4
+ 433 008a 32E0     		b	.L58
+ 434              	.L55:
+ 128:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 129:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 130:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_APP_KEY:
+ 131:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 132:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_APP_KEY";
+ 435              		.loc 1 132 16
+ 436 008c 1E4B     		ldr	r3, .L59+8
+ 437 008e 30E0     		b	.L58
+ 438              	.L54:
+ 133:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 134:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 135:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_J_S_ENC_KEY:
+ 136:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 137:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_J_S_ENC_KEY";
+ 439              		.loc 1 137 16
+ 440 0090 1E4B     		ldr	r3, .L59+12
+ 441 0092 2EE0     		b	.L58
+ 442              	.L53:
+ 138:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 139:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 140:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_J_S_INT_KEY:
+ 141:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 142:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_J_S_INT_KEY";
+ 443              		.loc 1 142 16
+ 444 0094 1E4B     		ldr	r3, .L59+16
+ 445 0096 2CE0     		b	.L58
+ 446              	.L52:
+ 143:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 144:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 145:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_0:
+ 146:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 147:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_0";
+ 447              		.loc 1 147 16
+ 448 0098 1E4B     		ldr	r3, .L59+20
+ 449 009a 2AE0     		b	.L58
+ 450              	.L51:
+ 148:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 149:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 150:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_1:
+ 151:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 152:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_1";
+ 451              		.loc 1 152 16
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 14
+
+
+ 452 009c 1E4B     		ldr	r3, .L59+24
+ 453 009e 28E0     		b	.L58
+ 454              	.L50:
+ 153:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 154:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 155:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_2:
+ 156:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 157:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_2";
+ 455              		.loc 1 157 16
+ 456 00a0 1E4B     		ldr	r3, .L59+28
+ 457 00a2 26E0     		b	.L58
+ 458              	.L49:
+ 158:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 159:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 160:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_3:
+ 161:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 162:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_3";
+ 459              		.loc 1 162 16
+ 460 00a4 1E4B     		ldr	r3, .L59+32
+ 461 00a6 24E0     		b	.L58
+ 462              	.L48:
+ 163:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 164:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 165:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_4:
+ 166:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 167:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_4";
+ 463              		.loc 1 167 16
+ 464 00a8 1E4B     		ldr	r3, .L59+36
+ 465 00aa 22E0     		b	.L58
+ 466              	.L47:
+ 168:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 169:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 170:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_5:
+ 171:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 172:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_GP_KE_KEY_5";
+ 467              		.loc 1 172 16
+ 468 00ac 1E4B     		ldr	r3, .L59+40
+ 469 00ae 20E0     		b	.L58
+ 470              	.L46:
+ 173:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 174:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 175:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_APP_S_KEY:
+ 176:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 177:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_APP_S_KEY";
+ 471              		.loc 1 177 16
+ 472 00b0 1E4B     		ldr	r3, .L59+44
+ 473 00b2 1EE0     		b	.L58
+ 474              	.L45:
+ 178:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 179:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 180:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_F_NWK_S_INT_KEY:
+ 181:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 182:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_F_NWK_S_INT_KEY";
+ 475              		.loc 1 182 16
+ 476 00b4 1E4B     		ldr	r3, .L59+48
+ 477 00b6 1CE0     		b	.L58
+ 478              	.L44:
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 15
+
+
+ 183:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 184:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 185:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_S_NWK_S_INT_KEY:
+ 186:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 187:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_S_NWK_S_INT_KEY";
+ 479              		.loc 1 187 16
+ 480 00b8 1E4B     		ldr	r3, .L59+52
+ 481 00ba 1AE0     		b	.L58
+ 482              	.L43:
+ 188:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 189:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 190:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_NWK_S_ENC_KEY:
+ 191:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 192:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_NWK_S_ENC_KEY";
+ 483              		.loc 1 192 16
+ 484 00bc 1E4B     		ldr	r3, .L59+56
+ 485 00be 18E0     		b	.L58
+ 486              	.L42:
+ 193:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 194:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 195:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_RFU_0:
+ 196:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 197:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_RFU_0";
+ 487              		.loc 1 197 16
+ 488 00c0 1E4B     		ldr	r3, .L59+60
+ 489 00c2 16E0     		b	.L58
+ 490              	.L41:
+ 198:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 199:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 200:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_RFU_1:
+ 201:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 202:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_RFU_1";
+ 491              		.loc 1 202 16
+ 492 00c4 1E4B     		ldr	r3, .L59+64
+ 493 00c6 14E0     		b	.L58
+ 494              	.L40:
+ 203:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 204:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 205:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_0:
+ 206:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 207:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_0";
+ 495              		.loc 1 207 16
+ 496 00c8 1E4B     		ldr	r3, .L59+68
+ 497 00ca 12E0     		b	.L58
+ 498              	.L39:
+ 208:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 209:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 210:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_1:
+ 211:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 212:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_1";
+ 499              		.loc 1 212 16
+ 500 00cc 1E4B     		ldr	r3, .L59+72
+ 501 00ce 10E0     		b	.L58
+ 502              	.L38:
+ 213:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 214:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 215:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_2:
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 16
+
+
+ 216:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 217:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_2";
+ 503              		.loc 1 217 16
+ 504 00d0 1E4B     		ldr	r3, .L59+76
+ 505 00d2 0EE0     		b	.L58
+ 506              	.L37:
+ 218:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 219:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 220:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_3:
+ 221:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 222:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_MC_APP_S_KEY_3";
+ 507              		.loc 1 222 16
+ 508 00d4 1E4B     		ldr	r3, .L59+80
+ 509 00d6 0CE0     		b	.L58
+ 510              	.L36:
+ 223:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 224:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 225:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_0:
+ 226:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 227:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_0";
+ 511              		.loc 1 227 16
+ 512 00d8 1E4B     		ldr	r3, .L59+84
+ 513 00da 0AE0     		b	.L58
+ 514              	.L35:
+ 228:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 229:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 230:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_1:
+ 231:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 232:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_1";
+ 515              		.loc 1 232 16
+ 516 00dc 1E4B     		ldr	r3, .L59+88
+ 517 00de 08E0     		b	.L58
+ 518              	.L34:
+ 233:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 234:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 235:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_2:
+ 236:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 237:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_2";
+ 519              		.loc 1 237 16
+ 520 00e0 1E4B     		ldr	r3, .L59+92
+ 521 00e2 06E0     		b	.L58
+ 522              	.L33:
+ 238:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 239:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 240:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_3:
+ 241:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 242:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_MC_NWK_S_KEY_3";
+ 523              		.loc 1 242 16
+ 524 00e4 1E4B     		ldr	r3, .L59+96
+ 525 00e6 04E0     		b	.L58
+ 526              	.L32:
+ 243:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 244:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 245:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_GP0:
+ 246:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 247:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_GP0";
+ 527              		.loc 1 247 16
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 17
+
+
+ 528 00e8 1E4B     		ldr	r3, .L59+100
+ 529 00ea 02E0     		b	.L58
+ 530              	.L30:
+ 248:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 249:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 250:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     case LR11XX_CRYPTO_KEYS_IDX_GP1:
+ 251:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 252:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "LR11XX_CRYPTO_KEYS_IDX_GP1";
+ 531              		.loc 1 252 16
+ 532 00ec 1E4B     		ldr	r3, .L59+104
+ 533 00ee 00E0     		b	.L58
+ 534              	.L29:
+ 253:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 254:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** 
+ 255:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     default:
+ 256:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     {
+ 257:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****         return ( const char* ) "Unknown";
+ 535              		.loc 1 257 16
+ 536 00f0 1E4B     		ldr	r3, .L59+108
+ 537              	.L58:
+ 258:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 259:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c ****     }
+ 260:../../../../lr11xx/common/printers/lr11xx_crypto_engine_types_str.c **** }
+ 538              		.loc 1 260 1
+ 539 00f2 1846     		mov	r0, r3
+ 540 00f4 0C37     		adds	r7, r7, #12
+ 541              	.LCFI21:
+ 542              		.cfi_def_cfa_offset 4
+ 543 00f6 BD46     		mov	sp, r7
+ 544              	.LCFI22:
+ 545              		.cfi_def_cfa_register 13
+ 546              		@ sp needed
+ 547 00f8 5DF8047B 		ldr	r7, [sp], #4
+ 548              	.LCFI23:
+ 549              		.cfi_restore 7
+ 550              		.cfi_def_cfa_offset 0
+ 551 00fc 7047     		bx	lr
+ 552              	.L60:
+ 553 00fe 00BF     		.align	2
+ 554              	.L59:
+ 555 0100 54010000 		.word	.LC10
+ 556 0104 78010000 		.word	.LC11
+ 557 0108 98010000 		.word	.LC12
+ 558 010c B8010000 		.word	.LC13
+ 559 0110 DC010000 		.word	.LC14
+ 560 0114 00020000 		.word	.LC15
+ 561 0118 24020000 		.word	.LC16
+ 562 011c 48020000 		.word	.LC17
+ 563 0120 6C020000 		.word	.LC18
+ 564 0124 90020000 		.word	.LC19
+ 565 0128 B4020000 		.word	.LC20
+ 566 012c D8020000 		.word	.LC21
+ 567 0130 FC020000 		.word	.LC22
+ 568 0134 24030000 		.word	.LC23
+ 569 0138 4C030000 		.word	.LC24
+ 570 013c 74030000 		.word	.LC25
+ 571 0140 94030000 		.word	.LC26
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 18
+
+
+ 572 0144 B4030000 		.word	.LC27
+ 573 0148 DC030000 		.word	.LC28
+ 574 014c 04040000 		.word	.LC29
+ 575 0150 2C040000 		.word	.LC30
+ 576 0154 54040000 		.word	.LC31
+ 577 0158 7C040000 		.word	.LC32
+ 578 015c A4040000 		.word	.LC33
+ 579 0160 CC040000 		.word	.LC34
+ 580 0164 F4040000 		.word	.LC35
+ 581 0168 10050000 		.word	.LC36
+ 582 016c 4C000000 		.word	.LC2
+ 583              		.cfi_endproc
+ 584              	.LFE3:
+ 586              		.text
+ 587              	.Letext0:
+ 588              		.file 2 "../../../../lr11xx/lr11xx_driver/src/lr11xx_crypto_engine_types.h"
+ARM GAS  C:\msys64\tmp\ccIxykP1.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lr11xx_crypto_engine_types_str.c
+C:\msys64\tmp\ccIxykP1.s:21     .rodata:00000000 $d
+C:\msys64\tmp\ccIxykP1.s:31     .text.lr11xx_crypto_element_to_str:00000000 $t
+C:\msys64\tmp\ccIxykP1.s:37     .text.lr11xx_crypto_element_to_str:00000000 lr11xx_crypto_element_to_str
+C:\msys64\tmp\ccIxykP1.s:92     .text.lr11xx_crypto_element_to_str:0000002c $d
+C:\msys64\tmp\ccIxykP1.s:115    .text.lr11xx_crypto_status_to_str:00000000 $t
+C:\msys64\tmp\ccIxykP1.s:121    .text.lr11xx_crypto_status_to_str:00000000 lr11xx_crypto_status_to_str
+C:\msys64\tmp\ccIxykP1.s:148    .text.lr11xx_crypto_status_to_str:00000018 $d
+C:\msys64\tmp\ccIxykP1.s:155    .text.lr11xx_crypto_status_to_str:00000034 $t
+C:\msys64\tmp\ccIxykP1.s:197    .text.lr11xx_crypto_status_to_str:00000058 $d
+C:\msys64\tmp\ccIxykP1.s:214    .text.lr11xx_crypto_lorawan_version_to_str:00000000 $t
+C:\msys64\tmp\ccIxykP1.s:220    .text.lr11xx_crypto_lorawan_version_to_str:00000000 lr11xx_crypto_lorawan_version_to_str
+C:\msys64\tmp\ccIxykP1.s:275    .text.lr11xx_crypto_lorawan_version_to_str:0000002c $d
+C:\msys64\tmp\ccIxykP1.s:364    .text.lr11xx_crypto_keys_idx_to_str:00000000 $t
+C:\msys64\tmp\ccIxykP1.s:370    .text.lr11xx_crypto_keys_idx_to_str:00000000 lr11xx_crypto_keys_idx_to_str
+C:\msys64\tmp\ccIxykP1.s:398    .text.lr11xx_crypto_keys_idx_to_str:00000018 $d
+C:\msys64\tmp\ccIxykP1.s:425    .text.lr11xx_crypto_keys_idx_to_str:00000084 $t
+C:\msys64\tmp\ccIxykP1.s:555    .text.lr11xx_crypto_keys_idx_to_str:00000100 $d
+
+NO UNDEFINED SYMBOLS

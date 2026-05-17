@@ -29,7 +29,7 @@
 
 #define EVT_OFFSET_TYPE       (EVT_OFFSET_DATA + EVT_BITS_DATA * 3u) /* 3 simultaneous events */
 
-#define EVT_OFFSET_NUM_EVENTS (EVT_OFFSET_TYPE    + EVT_BITS_TYPE)
+#define EVT_OFFSET_NUM_EVENTS (EVT_OFFSET_TYPE + EVT_BITS_TYPE)
 
 
 /* ============================================================
@@ -76,8 +76,8 @@ ReturnCode_t evt_encode(EVT_Type_t type, EVT_ID_t *val, uint32_t num_events, uin
 
    for(uint32_t i = 0u; i < num_events; i++)
    {    
-      l_mask   = (l_mask << (EVT_BITS_DATA * i));
-      l_offset = (l_offset + (EVT_BITS_DATA * i));
+      l_mask   = (EVT_MASK_DATA << (EVT_BITS_DATA * i));
+      l_offset = (EVT_OFFSET_DATA + (EVT_BITS_DATA * i));
       l_encoded_val |= evt_set_field(val[i], l_mask, l_offset);           
    }
       
@@ -107,8 +107,8 @@ ReturnCode_t evt_decode(uint32_t val, EVT_Decoded_t *decoded_events, uint32_t *n
 
    for(uint32_t i = 0u; i < l_num_events; i++)
    {
-       l_mask   = (l_mask   << (EVT_BITS_DATA * i));
-       l_offset = (l_offset +  (EVT_BITS_DATA * i));
+       l_mask   = (EVT_MASK_DATA << (EVT_BITS_DATA * i));
+       l_offset = (EVT_OFFSET_DATA + (EVT_BITS_DATA * i));
        decoded_events->id[i] = (EVT_ID_t)evt_get_field(val, l_mask, l_offset);   
    }
    

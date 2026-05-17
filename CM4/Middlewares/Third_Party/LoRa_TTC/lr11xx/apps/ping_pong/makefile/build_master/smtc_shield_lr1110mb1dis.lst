@@ -1,0 +1,421 @@
+ARM GAS  C:\msys64\tmp\ccNqsbrr.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"smtc_shield_lr1110mb1dis.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c"
+  20              		.section	.text.smtc_shield_lr1110mb1dis_get_pa_pwr_cfg,"ax",%progbits
+  21              		.align	1
+  22              		.global	smtc_shield_lr1110mb1dis_get_pa_pwr_cfg
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	smtc_shield_lr1110mb1dis_get_pa_pwr_cfg:
+  28              	.LFB1:
+   1:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** /*!
+   2:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * @file      smtc_shield_lr1110mb1dis.c
+   3:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *
+   4:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * @brief     Implementation specific to LR1110MB1DIS shield
+   5:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *
+   6:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * The Clear BSD License
+   7:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * Copyright Semtech Corporation 2022. All rights reserved.
+   8:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *
+   9:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * below) provided that the following conditions are met:
+  12:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *       derived from this software without specific prior written permission.
+  20:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  *
+  21:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  26:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARM GAS  C:\msys64\tmp\ccNqsbrr.s 			page 2
+
+
+  31:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  */
+  34:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  35:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** /*
+  36:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * -----------------------------------------------------------------------------
+  37:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  */
+  39:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  40:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** #include <stddef.h>
+  41:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** #include <stdbool.h>
+  42:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** #include <stdint.h>
+  43:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** #include "smtc_shield_lr11xx_types.h"
+  44:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** #include "smtc_shield_lr1110mb1dxs_common.h"
+  45:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** #include "smtc_shield_lr11xx_common.h"
+  46:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** #include "smtc_shield_lr11x0_common.h"
+  47:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  48:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** /*
+  49:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * -----------------------------------------------------------------------------
+  50:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  51:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  */
+  52:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  53:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** /*
+  54:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * -----------------------------------------------------------------------------
+  55:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  56:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  */
+  57:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  58:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** /*
+  59:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * -----------------------------------------------------------------------------
+  60:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  61:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  */
+  62:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  63:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** /*
+  64:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * -----------------------------------------------------------------------------
+  65:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+  66:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  */
+  67:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  68:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** /*
+  69:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * -----------------------------------------------------------------------------
+  70:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+  71:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  */
+  72:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  73:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** /*
+  74:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * -----------------------------------------------------------------------------
+  75:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * --- PUBLIC VARIABLES --------------------------------------------------------
+  76:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  */
+  77:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  78:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** /*
+  79:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * -----------------------------------------------------------------------------
+  80:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+  81:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****  */
+  82:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  83:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** const smtc_shield_lr11xx_pa_pwr_cfg_t* smtc_shield_lr1110mb1dis_get_pa_pwr_cfg( const uint32_t rf_f
+  84:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****                                                                                 int8_t expected_out
+  85:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** {
+  29              		.loc 1 85 1
+  30              		.cfi_startproc
+ARM GAS  C:\msys64\tmp\ccNqsbrr.s 			page 3
+
+
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 82B0     		sub	sp, sp, #8
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 16
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
+  45 0008 0B46     		mov	r3, r1
+  46 000a FB70     		strb	r3, [r7, #3]
+  86:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****     return smtc_shield_lr1110mb1dxs_common_get_pa_pwr_cfg( rf_freq_in_hz, expected_output_pwr_in_db
+  47              		.loc 1 86 12
+  48 000c 97F90330 		ldrsb	r3, [r7, #3]
+  49 0010 1946     		mov	r1, r3
+  50 0012 7868     		ldr	r0, [r7, #4]
+  51 0014 FFF7FEFF 		bl	smtc_shield_lr1110mb1dxs_common_get_pa_pwr_cfg
+  52 0018 0346     		mov	r3, r0
+  87:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** }
+  53              		.loc 1 87 1
+  54 001a 1846     		mov	r0, r3
+  55 001c 0837     		adds	r7, r7, #8
+  56              	.LCFI3:
+  57              		.cfi_def_cfa_offset 8
+  58 001e BD46     		mov	sp, r7
+  59              	.LCFI4:
+  60              		.cfi_def_cfa_register 13
+  61              		@ sp needed
+  62 0020 80BD     		pop	{r7, pc}
+  63              		.cfi_endproc
+  64              	.LFE1:
+  66              		.section	.text.smtc_shield_lr1110mb1dis_get_rssi_calibration_table,"ax",%progbits
+  67              		.align	1
+  68              		.global	smtc_shield_lr1110mb1dis_get_rssi_calibration_table
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+  73              	smtc_shield_lr1110mb1dis_get_rssi_calibration_table:
+  74              	.LFB2:
+  88:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  89:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** const lr11xx_radio_rssi_calibration_table_t* smtc_shield_lr1110mb1dis_get_rssi_calibration_table(
+  90:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****     const uint32_t rf_freq_in_hz )
+  91:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** {
+  75              		.loc 1 91 1
+  76              		.cfi_startproc
+  77              		@ args = 0, pretend = 0, frame = 8
+  78              		@ frame_needed = 1, uses_anonymous_args = 0
+  79 0000 80B5     		push	{r7, lr}
+  80              	.LCFI5:
+  81              		.cfi_def_cfa_offset 8
+  82              		.cfi_offset 7, -8
+  83              		.cfi_offset 14, -4
+ARM GAS  C:\msys64\tmp\ccNqsbrr.s 			page 4
+
+
+  84 0002 82B0     		sub	sp, sp, #8
+  85              	.LCFI6:
+  86              		.cfi_def_cfa_offset 16
+  87 0004 00AF     		add	r7, sp, #0
+  88              	.LCFI7:
+  89              		.cfi_def_cfa_register 7
+  90 0006 7860     		str	r0, [r7, #4]
+  92:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****     return smtc_shield_lr11xx_get_rssi_calibration_table( rf_freq_in_hz );
+  91              		.loc 1 92 12
+  92 0008 7868     		ldr	r0, [r7, #4]
+  93 000a FFF7FEFF 		bl	smtc_shield_lr11xx_get_rssi_calibration_table
+  94 000e 0346     		mov	r3, r0
+  93:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** }
+  95              		.loc 1 93 1
+  96 0010 1846     		mov	r0, r3
+  97 0012 0837     		adds	r7, r7, #8
+  98              	.LCFI8:
+  99              		.cfi_def_cfa_offset 8
+ 100 0014 BD46     		mov	sp, r7
+ 101              	.LCFI9:
+ 102              		.cfi_def_cfa_register 13
+ 103              		@ sp needed
+ 104 0016 80BD     		pop	{r7, pc}
+ 105              		.cfi_endproc
+ 106              	.LFE2:
+ 108              		.section	.text.smtc_shield_lr1110mb1dis_get_rf_switch_cfg,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	smtc_shield_lr1110mb1dis_get_rf_switch_cfg
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	smtc_shield_lr1110mb1dis_get_rf_switch_cfg:
+ 116              	.LFB3:
+  94:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+  95:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** const lr11xx_system_rfswitch_cfg_t* smtc_shield_lr1110mb1dis_get_rf_switch_cfg( void )
+  96:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** {
+ 117              		.loc 1 96 1
+ 118              		.cfi_startproc
+ 119              		@ args = 0, pretend = 0, frame = 0
+ 120              		@ frame_needed = 1, uses_anonymous_args = 0
+ 121 0000 80B5     		push	{r7, lr}
+ 122              	.LCFI10:
+ 123              		.cfi_def_cfa_offset 8
+ 124              		.cfi_offset 7, -8
+ 125              		.cfi_offset 14, -4
+ 126 0002 00AF     		add	r7, sp, #0
+ 127              	.LCFI11:
+ 128              		.cfi_def_cfa_register 7
+  97:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****     return smtc_shield_lr11xx_common_get_rf_switch_cfg( );
+ 129              		.loc 1 97 12
+ 130 0004 FFF7FEFF 		bl	smtc_shield_lr11xx_common_get_rf_switch_cfg
+ 131 0008 0346     		mov	r3, r0
+  98:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** }
+ 132              		.loc 1 98 1
+ 133 000a 1846     		mov	r0, r3
+ 134 000c 80BD     		pop	{r7, pc}
+ 135              		.cfi_endproc
+ARM GAS  C:\msys64\tmp\ccNqsbrr.s 			page 5
+
+
+ 136              	.LFE3:
+ 138              		.section	.text.smtc_shield_lr1110mb1dis_get_reg_mode,"ax",%progbits
+ 139              		.align	1
+ 140              		.global	smtc_shield_lr1110mb1dis_get_reg_mode
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ 145              	smtc_shield_lr1110mb1dis_get_reg_mode:
+ 146              	.LFB4:
+  99:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+ 100:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** lr11xx_system_reg_mode_t smtc_shield_lr1110mb1dis_get_reg_mode( void )
+ 101:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** {
+ 147              		.loc 1 101 1
+ 148              		.cfi_startproc
+ 149              		@ args = 0, pretend = 0, frame = 0
+ 150              		@ frame_needed = 1, uses_anonymous_args = 0
+ 151 0000 80B5     		push	{r7, lr}
+ 152              	.LCFI12:
+ 153              		.cfi_def_cfa_offset 8
+ 154              		.cfi_offset 7, -8
+ 155              		.cfi_offset 14, -4
+ 156 0002 00AF     		add	r7, sp, #0
+ 157              	.LCFI13:
+ 158              		.cfi_def_cfa_register 7
+ 102:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****     return smtc_shield_lr11xx_common_get_reg_mode( );
+ 159              		.loc 1 102 12
+ 160 0004 FFF7FEFF 		bl	smtc_shield_lr11xx_common_get_reg_mode
+ 161 0008 0346     		mov	r3, r0
+ 103:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** }
+ 162              		.loc 1 103 1
+ 163 000a 1846     		mov	r0, r3
+ 164 000c 80BD     		pop	{r7, pc}
+ 165              		.cfi_endproc
+ 166              	.LFE4:
+ 168              		.section	.text.smtc_shield_lr1110mb1dis_get_xosc_cfg,"ax",%progbits
+ 169              		.align	1
+ 170              		.global	smtc_shield_lr1110mb1dis_get_xosc_cfg
+ 171              		.syntax unified
+ 172              		.thumb
+ 173              		.thumb_func
+ 175              	smtc_shield_lr1110mb1dis_get_xosc_cfg:
+ 176              	.LFB5:
+ 104:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+ 105:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** const smtc_shield_lr11xx_xosc_cfg_t* smtc_shield_lr1110mb1dis_get_xosc_cfg( void )
+ 106:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** {
+ 177              		.loc 1 106 1
+ 178              		.cfi_startproc
+ 179              		@ args = 0, pretend = 0, frame = 0
+ 180              		@ frame_needed = 1, uses_anonymous_args = 0
+ 181 0000 80B5     		push	{r7, lr}
+ 182              	.LCFI14:
+ 183              		.cfi_def_cfa_offset 8
+ 184              		.cfi_offset 7, -8
+ 185              		.cfi_offset 14, -4
+ 186 0002 00AF     		add	r7, sp, #0
+ 187              	.LCFI15:
+ 188              		.cfi_def_cfa_register 7
+ARM GAS  C:\msys64\tmp\ccNqsbrr.s 			page 6
+
+
+ 107:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****     return smtc_shield_lr11x0_common_get_xosc_cfg( );
+ 189              		.loc 1 107 12
+ 190 0004 FFF7FEFF 		bl	smtc_shield_lr11x0_common_get_xosc_cfg
+ 191 0008 0346     		mov	r3, r0
+ 108:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** }
+ 192              		.loc 1 108 1
+ 193 000a 1846     		mov	r0, r3
+ 194 000c 80BD     		pop	{r7, pc}
+ 195              		.cfi_endproc
+ 196              	.LFE5:
+ 198              		.section	.text.smtc_shield_lr1110mb1dis_get_lfclk_cfg,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	smtc_shield_lr1110mb1dis_get_lfclk_cfg
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 205              	smtc_shield_lr1110mb1dis_get_lfclk_cfg:
+ 206              	.LFB6:
+ 109:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+ 110:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** const smtc_shield_lr11xx_lfclk_cfg_t* smtc_shield_lr1110mb1dis_get_lfclk_cfg( void )
+ 111:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** {
+ 207              		.loc 1 111 1
+ 208              		.cfi_startproc
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 1, uses_anonymous_args = 0
+ 211 0000 80B5     		push	{r7, lr}
+ 212              	.LCFI16:
+ 213              		.cfi_def_cfa_offset 8
+ 214              		.cfi_offset 7, -8
+ 215              		.cfi_offset 14, -4
+ 216 0002 00AF     		add	r7, sp, #0
+ 217              	.LCFI17:
+ 218              		.cfi_def_cfa_register 7
+ 112:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****     return smtc_shield_lr11xx_common_get_lfclk_cfg( );
+ 219              		.loc 1 112 12
+ 220 0004 FFF7FEFF 		bl	smtc_shield_lr11xx_common_get_lfclk_cfg
+ 221 0008 0346     		mov	r3, r0
+ 113:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** }
+ 222              		.loc 1 113 1
+ 223 000a 1846     		mov	r0, r3
+ 224 000c 80BD     		pop	{r7, pc}
+ 225              		.cfi_endproc
+ 226              	.LFE6:
+ 228              		.section	.text.smtc_shield_lr1110mb1dis_get_pinout,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	smtc_shield_lr1110mb1dis_get_pinout
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 235              	smtc_shield_lr1110mb1dis_get_pinout:
+ 236              	.LFB7:
+ 114:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** 
+ 115:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** const smtc_shield_lr11xx_pinout_t* smtc_shield_lr1110mb1dis_get_pinout( void )
+ 116:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** {
+ 237              		.loc 1 116 1
+ 238              		.cfi_startproc
+ 239              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\msys64\tmp\ccNqsbrr.s 			page 7
+
+
+ 240              		@ frame_needed = 1, uses_anonymous_args = 0
+ 241 0000 80B5     		push	{r7, lr}
+ 242              	.LCFI18:
+ 243              		.cfi_def_cfa_offset 8
+ 244              		.cfi_offset 7, -8
+ 245              		.cfi_offset 14, -4
+ 246 0002 00AF     		add	r7, sp, #0
+ 247              	.LCFI19:
+ 248              		.cfi_def_cfa_register 7
+ 117:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c ****     return smtc_shield_lr11xx_common_get_pinout( );
+ 249              		.loc 1 117 12
+ 250 0004 FFF7FEFF 		bl	smtc_shield_lr11xx_common_get_pinout
+ 251 0008 0346     		mov	r3, r0
+ 118:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr1110mb1dis.c **** }
+ 252              		.loc 1 118 1
+ 253 000a 1846     		mov	r0, r3
+ 254 000c 80BD     		pop	{r7, pc}
+ 255              		.cfi_endproc
+ 256              	.LFE7:
+ 258              		.text
+ 259              	.Letext0:
+ 260              		.file 2 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/machin
+ 261              		.file 3 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys/_s
+ 262              		.file 4 "../../../../libs/smtc-shields/common/inc/smtc_shield_pinout.h"
+ 263              		.file 5 "../../../../lr11xx/lr11xx_driver/src/lr11xx_system_types.h"
+ 264              		.file 6 "../../../../lr11xx/lr11xx_driver/src/lr11xx_radio_types.h"
+ 265              		.file 7 "../../../../libs/smtc-shields/lr11xx/inc/smtc_shield_lr11xx_types.h"
+ 266              		.file 8 "../../../../libs/smtc-shields/lr11xx/inc/smtc_shield_lr11xx_common.h"
+ 267              		.file 9 "../../../../libs/smtc-shields/lr11xx/inc/smtc_shield_lr11x0_common.h"
+ 268              		.file 10 "../../../../libs/smtc-shields/lr11xx/inc/smtc_shield_lr1110mb1dxs_common.h"
+ARM GAS  C:\msys64\tmp\ccNqsbrr.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 smtc_shield_lr1110mb1dis.c
+C:\msys64\tmp\ccNqsbrr.s:21     .text.smtc_shield_lr1110mb1dis_get_pa_pwr_cfg:00000000 $t
+C:\msys64\tmp\ccNqsbrr.s:27     .text.smtc_shield_lr1110mb1dis_get_pa_pwr_cfg:00000000 smtc_shield_lr1110mb1dis_get_pa_pwr_cfg
+C:\msys64\tmp\ccNqsbrr.s:67     .text.smtc_shield_lr1110mb1dis_get_rssi_calibration_table:00000000 $t
+C:\msys64\tmp\ccNqsbrr.s:73     .text.smtc_shield_lr1110mb1dis_get_rssi_calibration_table:00000000 smtc_shield_lr1110mb1dis_get_rssi_calibration_table
+C:\msys64\tmp\ccNqsbrr.s:109    .text.smtc_shield_lr1110mb1dis_get_rf_switch_cfg:00000000 $t
+C:\msys64\tmp\ccNqsbrr.s:115    .text.smtc_shield_lr1110mb1dis_get_rf_switch_cfg:00000000 smtc_shield_lr1110mb1dis_get_rf_switch_cfg
+C:\msys64\tmp\ccNqsbrr.s:139    .text.smtc_shield_lr1110mb1dis_get_reg_mode:00000000 $t
+C:\msys64\tmp\ccNqsbrr.s:145    .text.smtc_shield_lr1110mb1dis_get_reg_mode:00000000 smtc_shield_lr1110mb1dis_get_reg_mode
+C:\msys64\tmp\ccNqsbrr.s:169    .text.smtc_shield_lr1110mb1dis_get_xosc_cfg:00000000 $t
+C:\msys64\tmp\ccNqsbrr.s:175    .text.smtc_shield_lr1110mb1dis_get_xosc_cfg:00000000 smtc_shield_lr1110mb1dis_get_xosc_cfg
+C:\msys64\tmp\ccNqsbrr.s:199    .text.smtc_shield_lr1110mb1dis_get_lfclk_cfg:00000000 $t
+C:\msys64\tmp\ccNqsbrr.s:205    .text.smtc_shield_lr1110mb1dis_get_lfclk_cfg:00000000 smtc_shield_lr1110mb1dis_get_lfclk_cfg
+C:\msys64\tmp\ccNqsbrr.s:229    .text.smtc_shield_lr1110mb1dis_get_pinout:00000000 $t
+C:\msys64\tmp\ccNqsbrr.s:235    .text.smtc_shield_lr1110mb1dis_get_pinout:00000000 smtc_shield_lr1110mb1dis_get_pinout
+
+UNDEFINED SYMBOLS
+smtc_shield_lr1110mb1dxs_common_get_pa_pwr_cfg
+smtc_shield_lr11xx_get_rssi_calibration_table
+smtc_shield_lr11xx_common_get_rf_switch_cfg
+smtc_shield_lr11xx_common_get_reg_mode
+smtc_shield_lr11x0_common_get_xosc_cfg
+smtc_shield_lr11xx_common_get_lfclk_cfg
+smtc_shield_lr11xx_common_get_pinout

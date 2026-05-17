@@ -13,3 +13,33 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-04-27 23:42:59.953
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2026-05-15 21:40:31.584 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\34684\Desktop\PAE\Nanosat\Software\Project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-05-15 21:40:35.367
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-05-15 21:40:35.370
+!MESSAGE Log4j2 initialized with config file C:\Users\34684\Desktop\PAE\Nanosat\Software\Project\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-05-15 21:40:37.692
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2026-05-15 21:44:40.955 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/C:/Users/34684/Desktop/PAE/Nanosat/Software/Project/
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-05-15 21:44:44.742
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-05-15 21:44:44.743
+!MESSAGE Log4j2 initialized with config file C:\Users\34684\Desktop\PAE\Nanosat\Software\Project\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-05-15 21:44:47.126
+!MESSAGE Started RMI Server, listening on port 41337

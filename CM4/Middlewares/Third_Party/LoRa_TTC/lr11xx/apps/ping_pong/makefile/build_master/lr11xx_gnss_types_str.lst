@@ -1,0 +1,3131 @@
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lr11xx_gnss_types_str.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c"
+  20              		.section	.rodata
+  21              		.align	2
+  22              	.LC0:
+  23 0000 4C523131 		.ascii	"LR11XX_GNSS_GPS_MASK\000"
+  23      58585F47 
+  23      4E53535F 
+  23      4750535F 
+  23      4D41534B 
+  24 0015 000000   		.align	2
+  25              	.LC1:
+  26 0018 4C523131 		.ascii	"LR11XX_GNSS_BEIDOU_MASK\000"
+  26      58585F47 
+  26      4E53535F 
+  26      42454944 
+  26      4F555F4D 
+  27              		.align	2
+  28              	.LC2:
+  29 0030 556E6B6E 		.ascii	"Unknown\000"
+  29      6F776E00 
+  30              		.section	.text.lr11xx_gnss_constellation_to_str,"ax",%progbits
+  31              		.align	1
+  32              		.global	lr11xx_gnss_constellation_to_str
+  33              		.syntax unified
+  34              		.thumb
+  35              		.thumb_func
+  37              	lr11xx_gnss_constellation_to_str:
+  38              	.LFB0:
+   1:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** /*!
+   2:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * @file      lr11xx_gnss_types_str.c
+   3:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *
+   4:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * @brief     Printer helper functions for LR11xx GNSS types
+   5:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *
+   6:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * @copyright
+   7:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * The Clear BSD License
+   8:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   9:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *
+  10:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * Redistribution and use in source and binary forms, with or without
+  11:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 2
+
+
+  12:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * below) provided that the following conditions are met:
+  13:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *     * Redistributions of source code must retain the above copyright
+  14:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *       notice, this list of conditions and the following disclaimer.
+  15:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  16:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *       notice, this list of conditions and the following disclaimer in the
+  17:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *       documentation and/or other materials provided with the distribution.
+  18:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *     * Neither the name of the Semtech corporation nor the
+  19:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *       names of its contributors may be used to endorse or promote products
+  20:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *       derived from this software without specific prior written permission.
+  21:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  *
+  22:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  23:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  24:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  25:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  26:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  27:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  28:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  29:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  30:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  31:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  32:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  33:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  34:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****  */
+  35:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  36:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** #include "lr11xx_gnss_types_str.h"
+  37:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  38:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_constellation_to_str( const lr11xx_gnss_constellation_t value )
+  39:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+  39              		.loc 1 39 1
+  40              		.cfi_startproc
+  41              		@ args = 0, pretend = 0, frame = 8
+  42              		@ frame_needed = 1, uses_anonymous_args = 0
+  43              		@ link register save eliminated.
+  44 0000 80B4     		push	{r7}
+  45              	.LCFI0:
+  46              		.cfi_def_cfa_offset 4
+  47              		.cfi_offset 7, -4
+  48 0002 83B0     		sub	sp, sp, #12
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 16
+  51 0004 00AF     		add	r7, sp, #0
+  52              	.LCFI2:
+  53              		.cfi_def_cfa_register 7
+  54 0006 0346     		mov	r3, r0
+  55 0008 FB71     		strb	r3, [r7, #7]
+  40:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+  56              		.loc 1 40 5
+  57 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  58 000c 012B     		cmp	r3, #1
+  59 000e 02D0     		beq	.L2
+  60 0010 022B     		cmp	r3, #2
+  61 0012 02D0     		beq	.L3
+  62 0014 03E0     		b	.L6
+  63              	.L2:
+  41:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  42:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_GPS_MASK:
+  43:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 3
+
+
+  44:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_GPS_MASK";
+  64              		.loc 1 44 16
+  65 0016 054B     		ldr	r3, .L7
+  66 0018 02E0     		b	.L5
+  67              	.L3:
+  45:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  46:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  47:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_BEIDOU_MASK:
+  48:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  49:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_BEIDOU_MASK";
+  68              		.loc 1 49 16
+  69 001a 054B     		ldr	r3, .L7+4
+  70 001c 00E0     		b	.L5
+  71              	.L6:
+  50:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  51:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  52:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+  53:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  54:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+  72              		.loc 1 54 16
+  73 001e 054B     		ldr	r3, .L7+8
+  74              	.L5:
+  55:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  56:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  57:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+  75              		.loc 1 57 1
+  76 0020 1846     		mov	r0, r3
+  77 0022 0C37     		adds	r7, r7, #12
+  78              	.LCFI3:
+  79              		.cfi_def_cfa_offset 4
+  80 0024 BD46     		mov	sp, r7
+  81              	.LCFI4:
+  82              		.cfi_def_cfa_register 13
+  83              		@ sp needed
+  84 0026 5DF8047B 		ldr	r7, [sp], #4
+  85              	.LCFI5:
+  86              		.cfi_restore 7
+  87              		.cfi_def_cfa_offset 0
+  88 002a 7047     		bx	lr
+  89              	.L8:
+  90              		.align	2
+  91              	.L7:
+  92 002c 00000000 		.word	.LC0
+  93 0030 18000000 		.word	.LC1
+  94 0034 30000000 		.word	.LC2
+  95              		.cfi_endproc
+  96              	.LFE0:
+  98              		.section	.rodata
+  99              		.align	2
+ 100              	.LC3:
+ 101 0038 4C523131 		.ascii	"LR11XX_GNSS_OPTION_LOW_EFFORT\000"
+ 101      58585F47 
+ 101      4E53535F 
+ 101      4F505449 
+ 101      4F4E5F4C 
+ 102 0056 0000     		.align	2
+ 103              	.LC4:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 4
+
+
+ 104 0058 4C523131 		.ascii	"LR11XX_GNSS_OPTION_MID_EFFORT\000"
+ 104      58585F47 
+ 104      4E53535F 
+ 104      4F505449 
+ 104      4F4E5F4D 
+ 105 0076 0000     		.align	2
+ 106              	.LC5:
+ 107 0078 4C523131 		.ascii	"LR11XX_GNSS_OPTION_HIGH_EFFORT\000"
+ 107      58585F47 
+ 107      4E53535F 
+ 107      4F505449 
+ 107      4F4E5F48 
+ 108              		.section	.text.lr11xx_gnss_search_mode_to_str,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	lr11xx_gnss_search_mode_to_str
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	lr11xx_gnss_search_mode_to_str:
+ 116              	.LFB1:
+  58:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  59:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_search_mode_to_str( const lr11xx_gnss_search_mode_t value )
+  60:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 117              		.loc 1 60 1
+ 118              		.cfi_startproc
+ 119              		@ args = 0, pretend = 0, frame = 8
+ 120              		@ frame_needed = 1, uses_anonymous_args = 0
+ 121              		@ link register save eliminated.
+ 122 0000 80B4     		push	{r7}
+ 123              	.LCFI6:
+ 124              		.cfi_def_cfa_offset 4
+ 125              		.cfi_offset 7, -4
+ 126 0002 83B0     		sub	sp, sp, #12
+ 127              	.LCFI7:
+ 128              		.cfi_def_cfa_offset 16
+ 129 0004 00AF     		add	r7, sp, #0
+ 130              	.LCFI8:
+ 131              		.cfi_def_cfa_register 7
+ 132 0006 0346     		mov	r3, r0
+ 133 0008 FB71     		strb	r3, [r7, #7]
+  61:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 134              		.loc 1 61 5
+ 135 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 136 000c 022B     		cmp	r3, #2
+ 137 000e 0AD0     		beq	.L10
+ 138 0010 022B     		cmp	r3, #2
+ 139 0012 0ADC     		bgt	.L11
+ 140 0014 002B     		cmp	r3, #0
+ 141 0016 02D0     		beq	.L12
+ 142 0018 012B     		cmp	r3, #1
+ 143 001a 02D0     		beq	.L13
+ 144 001c 05E0     		b	.L11
+ 145              	.L12:
+  62:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  63:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_OPTION_LOW_EFFORT:
+  64:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  65:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_OPTION_LOW_EFFORT";
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 5
+
+
+ 146              		.loc 1 65 16
+ 147 001e 064B     		ldr	r3, .L15
+ 148 0020 04E0     		b	.L14
+ 149              	.L13:
+  66:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  67:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  68:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_OPTION_MID_EFFORT:
+  69:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  70:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_OPTION_MID_EFFORT";
+ 150              		.loc 1 70 16
+ 151 0022 064B     		ldr	r3, .L15+4
+ 152 0024 02E0     		b	.L14
+ 153              	.L10:
+  71:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  72:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  73:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_OPTION_HIGH_EFFORT:
+  74:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  75:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_OPTION_HIGH_EFFORT";
+ 154              		.loc 1 75 16
+ 155 0026 064B     		ldr	r3, .L15+8
+ 156 0028 00E0     		b	.L14
+ 157              	.L11:
+  76:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  77:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  78:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+  79:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  80:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 158              		.loc 1 80 16
+ 159 002a 064B     		ldr	r3, .L15+12
+ 160              	.L14:
+  81:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  82:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  83:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 161              		.loc 1 83 1
+ 162 002c 1846     		mov	r0, r3
+ 163 002e 0C37     		adds	r7, r7, #12
+ 164              	.LCFI9:
+ 165              		.cfi_def_cfa_offset 4
+ 166 0030 BD46     		mov	sp, r7
+ 167              	.LCFI10:
+ 168              		.cfi_def_cfa_register 13
+ 169              		@ sp needed
+ 170 0032 5DF8047B 		ldr	r7, [sp], #4
+ 171              	.LCFI11:
+ 172              		.cfi_restore 7
+ 173              		.cfi_def_cfa_offset 0
+ 174 0036 7047     		bx	lr
+ 175              	.L16:
+ 176              		.align	2
+ 177              	.L15:
+ 178 0038 38000000 		.word	.LC3
+ 179 003c 58000000 		.word	.LC4
+ 180 0040 78000000 		.word	.LC5
+ 181 0044 30000000 		.word	.LC2
+ 182              		.cfi_endproc
+ 183              	.LFE1:
+ 185              		.section	.rodata
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 6
+
+
+ 186 0097 00       		.align	2
+ 187              	.LC6:
+ 188 0098 4C523131 		.ascii	"LR11XX_GNSS_DESTINATION_HOST\000"
+ 188      58585F47 
+ 188      4E53535F 
+ 188      44455354 
+ 188      494E4154 
+ 189 00b5 000000   		.align	2
+ 190              	.LC7:
+ 191 00b8 4C523131 		.ascii	"LR11XX_GNSS_DESTINATION_SOLVER\000"
+ 191      58585F47 
+ 191      4E53535F 
+ 191      44455354 
+ 191      494E4154 
+ 192 00d7 00       		.align	2
+ 193              	.LC8:
+ 194 00d8 4C523131 		.ascii	"LR11XX_GNSS_DESTINATION_DMC\000"
+ 194      58585F47 
+ 194      4E53535F 
+ 194      44455354 
+ 194      494E4154 
+ 195              		.section	.text.lr11xx_gnss_destination_to_str,"ax",%progbits
+ 196              		.align	1
+ 197              		.global	lr11xx_gnss_destination_to_str
+ 198              		.syntax unified
+ 199              		.thumb
+ 200              		.thumb_func
+ 202              	lr11xx_gnss_destination_to_str:
+ 203              	.LFB2:
+  84:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  85:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_destination_to_str( const lr11xx_gnss_destination_t value )
+  86:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 204              		.loc 1 86 1
+ 205              		.cfi_startproc
+ 206              		@ args = 0, pretend = 0, frame = 8
+ 207              		@ frame_needed = 1, uses_anonymous_args = 0
+ 208              		@ link register save eliminated.
+ 209 0000 80B4     		push	{r7}
+ 210              	.LCFI12:
+ 211              		.cfi_def_cfa_offset 4
+ 212              		.cfi_offset 7, -4
+ 213 0002 83B0     		sub	sp, sp, #12
+ 214              	.LCFI13:
+ 215              		.cfi_def_cfa_offset 16
+ 216 0004 00AF     		add	r7, sp, #0
+ 217              	.LCFI14:
+ 218              		.cfi_def_cfa_register 7
+ 219 0006 0346     		mov	r3, r0
+ 220 0008 FB71     		strb	r3, [r7, #7]
+  87:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 221              		.loc 1 87 5
+ 222 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 223 000c 022B     		cmp	r3, #2
+ 224 000e 0AD0     		beq	.L18
+ 225 0010 022B     		cmp	r3, #2
+ 226 0012 0ADC     		bgt	.L19
+ 227 0014 002B     		cmp	r3, #0
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 7
+
+
+ 228 0016 02D0     		beq	.L20
+ 229 0018 012B     		cmp	r3, #1
+ 230 001a 02D0     		beq	.L21
+ 231 001c 05E0     		b	.L19
+ 232              	.L20:
+  88:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  89:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DESTINATION_HOST:
+  90:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  91:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DESTINATION_HOST";
+ 233              		.loc 1 91 16
+ 234 001e 064B     		ldr	r3, .L23
+ 235 0020 04E0     		b	.L22
+ 236              	.L21:
+  92:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  93:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  94:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DESTINATION_SOLVER:
+  95:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+  96:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DESTINATION_SOLVER";
+ 237              		.loc 1 96 16
+ 238 0022 064B     		ldr	r3, .L23+4
+ 239 0024 02E0     		b	.L22
+ 240              	.L18:
+  97:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+  98:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+  99:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DESTINATION_DMC:
+ 100:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 101:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DESTINATION_DMC";
+ 241              		.loc 1 101 16
+ 242 0026 064B     		ldr	r3, .L23+8
+ 243 0028 00E0     		b	.L22
+ 244              	.L19:
+ 102:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 103:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 104:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 105:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 106:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 245              		.loc 1 106 16
+ 246 002a 064B     		ldr	r3, .L23+12
+ 247              	.L22:
+ 107:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 108:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 109:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 248              		.loc 1 109 1
+ 249 002c 1846     		mov	r0, r3
+ 250 002e 0C37     		adds	r7, r7, #12
+ 251              	.LCFI15:
+ 252              		.cfi_def_cfa_offset 4
+ 253 0030 BD46     		mov	sp, r7
+ 254              	.LCFI16:
+ 255              		.cfi_def_cfa_register 13
+ 256              		@ sp needed
+ 257 0032 5DF8047B 		ldr	r7, [sp], #4
+ 258              	.LCFI17:
+ 259              		.cfi_restore 7
+ 260              		.cfi_def_cfa_offset 0
+ 261 0036 7047     		bx	lr
+ 262              	.L24:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 8
+
+
+ 263              		.align	2
+ 264              	.L23:
+ 265 0038 98000000 		.word	.LC6
+ 266 003c B8000000 		.word	.LC7
+ 267 0040 D8000000 		.word	.LC8
+ 268 0044 30000000 		.word	.LC2
+ 269              		.cfi_endproc
+ 270              	.LFE2:
+ 272              		.section	.rodata
+ 273              		.align	2
+ 274              	.LC9:
+ 275 00f4 4C523131 		.ascii	"LR11XX_GNSS_HOST_OK\000"
+ 275      58585F47 
+ 275      4E53535F 
+ 275      484F5354 
+ 275      5F4F4B00 
+ 276              		.align	2
+ 277              	.LC10:
+ 278 0108 4C523131 		.ascii	"LR11XX_GNSS_HOST_UNEXPECTED_CMD\000"
+ 278      58585F47 
+ 278      4E53535F 
+ 278      484F5354 
+ 278      5F554E45 
+ 279              		.align	2
+ 280              	.LC11:
+ 281 0128 4C523131 		.ascii	"LR11XX_GNSS_HOST_UNIMPLEMENTED_CMD\000"
+ 281      58585F47 
+ 281      4E53535F 
+ 281      484F5354 
+ 281      5F554E49 
+ 282 014b 00       		.align	2
+ 283              	.LC12:
+ 284 014c 4C523131 		.ascii	"LR11XX_GNSS_HOST_INVALID_PARAMETERS\000"
+ 284      58585F47 
+ 284      4E53535F 
+ 284      484F5354 
+ 284      5F494E56 
+ 285              		.align	2
+ 286              	.LC13:
+ 287 0170 4C523131 		.ascii	"LR11XX_GNSS_HOST_MESSAGE_SANITY_CHECK_ERROR\000"
+ 287      58585F47 
+ 287      4E53535F 
+ 287      484F5354 
+ 287      5F4D4553 
+ 288              		.align	2
+ 289              	.LC14:
+ 290 019c 4C523131 		.ascii	"LR11XX_GNSS_HOST_IQ_CAPTURE_FAILS\000"
+ 290      58585F47 
+ 290      4E53535F 
+ 290      484F5354 
+ 290      5F49515F 
+ 291 01be 0000     		.align	2
+ 292              	.LC15:
+ 293 01c0 4C523131 		.ascii	"LR11XX_GNSS_HOST_NO_TIME\000"
+ 293      58585F47 
+ 293      4E53535F 
+ 293      484F5354 
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 9
+
+
+ 293      5F4E4F5F 
+ 294 01d9 000000   		.align	2
+ 295              	.LC16:
+ 296 01dc 4C523131 		.ascii	"LR11XX_GNSS_HOST_NO_SATELLITE_DETECTED\000"
+ 296      58585F47 
+ 296      4E53535F 
+ 296      484F5354 
+ 296      5F4E4F5F 
+ 297 0203 00       		.align	2
+ 298              	.LC17:
+ 299 0204 4C523131 		.ascii	"LR11XX_GNSS_HOST_ALMANAC_IN_FLASH_TOO_OLD\000"
+ 299      58585F47 
+ 299      4E53535F 
+ 299      484F5354 
+ 299      5F414C4D 
+ 300 022e 0000     		.align	2
+ 301              	.LC18:
+ 302 0230 4C523131 		.ascii	"LR11XX_GNSS_HOST_ALMANAC_UPDATE_FAILS_CRC_ERROR\000"
+ 302      58585F47 
+ 302      4E53535F 
+ 302      484F5354 
+ 302      5F414C4D 
+ 303              		.align	2
+ 304              	.LC19:
+ 305 0260 4C523131 		.ascii	"LR11XX_GNSS_HOST_ALMANAC_UPDATE_FAILS_FLASH_INTEGRI"
+ 305      58585F47 
+ 305      4E53535F 
+ 305      484F5354 
+ 305      5F414C4D 
+ 306 0293 54595F45 		.ascii	"TY_ERROR\000"
+ 306      52524F52 
+ 306      00
+ 307              		.align	2
+ 308              	.LC20:
+ 309 029c 4C523131 		.ascii	"LR11XX_GNSS_HOST_ALMANAC_UPDATE_NOT_ALLOWED\000"
+ 309      58585F47 
+ 309      4E53535F 
+ 309      484F5354 
+ 309      5F414C4D 
+ 310              		.align	2
+ 311              	.LC21:
+ 312 02c8 4C523131 		.ascii	"LR11XX_GNSS_HOST_ALMANAC_CRC_ERROR\000"
+ 312      58585F47 
+ 312      4E53535F 
+ 312      484F5354 
+ 312      5F414C4D 
+ 313 02eb 00       		.align	2
+ 314              	.LC22:
+ 315 02ec 4C523131 		.ascii	"LR11XX_GNSS_HOST_ALMANAC_VERSION_NOT_SUPPORTED\000"
+ 315      58585F47 
+ 315      4E53535F 
+ 315      484F5354 
+ 315      5F414C4D 
+ 316 031b 00       		.align	2
+ 317              	.LC23:
+ 318 031c 4C523131 		.ascii	"LR11XX_GNSS_HOST_NOT_ENOUGH_SV_DETECTED_TO_BUILD_A_"
+ 318      58585F47 
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 10
+
+
+ 318      4E53535F 
+ 318      484F5354 
+ 318      5F4E4F54 
+ 319 034f 4E41565F 		.ascii	"NAV_MESSAGE\000"
+ 319      4D455353 
+ 319      41474500 
+ 320              		.section	.text.lr11xx_gnss_message_host_status_to_str,"ax",%progbits
+ 321              		.align	1
+ 322              		.global	lr11xx_gnss_message_host_status_to_str
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 327              	lr11xx_gnss_message_host_status_to_str:
+ 328              	.LFB3:
+ 110:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 111:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_message_host_status_to_str( const lr11xx_gnss_message_host_status_t value )
+ 112:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 329              		.loc 1 112 1
+ 330              		.cfi_startproc
+ 331              		@ args = 0, pretend = 0, frame = 8
+ 332              		@ frame_needed = 1, uses_anonymous_args = 0
+ 333              		@ link register save eliminated.
+ 334 0000 80B4     		push	{r7}
+ 335              	.LCFI18:
+ 336              		.cfi_def_cfa_offset 4
+ 337              		.cfi_offset 7, -4
+ 338 0002 83B0     		sub	sp, sp, #12
+ 339              	.LCFI19:
+ 340              		.cfi_def_cfa_offset 16
+ 341 0004 00AF     		add	r7, sp, #0
+ 342              	.LCFI20:
+ 343              		.cfi_def_cfa_register 7
+ 344 0006 0346     		mov	r3, r0
+ 345 0008 FB71     		strb	r3, [r7, #7]
+ 113:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 346              		.loc 1 113 5
+ 347 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 348 000c 102B     		cmp	r3, #16
+ 349 000e 43D8     		bhi	.L26
+ 350 0010 01A2     		adr	r2, .L28
+ 351 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 352 0016 00BF     		.p2align 2
+ 353              	.L28:
+ 354 0018 5D000000 		.word	.L42+1
+ 355 001c 61000000 		.word	.L41+1
+ 356 0020 65000000 		.word	.L40+1
+ 357 0024 69000000 		.word	.L39+1
+ 358 0028 6D000000 		.word	.L38+1
+ 359 002c 71000000 		.word	.L37+1
+ 360 0030 75000000 		.word	.L36+1
+ 361 0034 79000000 		.word	.L35+1
+ 362 0038 7D000000 		.word	.L34+1
+ 363 003c 81000000 		.word	.L33+1
+ 364 0040 85000000 		.word	.L32+1
+ 365 0044 99000000 		.word	.L26+1
+ 366 0048 89000000 		.word	.L31+1
+ 367 004c 8D000000 		.word	.L30+1
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 11
+
+
+ 368 0050 91000000 		.word	.L29+1
+ 369 0054 99000000 		.word	.L26+1
+ 370 0058 95000000 		.word	.L27+1
+ 371              		.p2align 1
+ 372              	.L42:
+ 114:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 115:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_OK:
+ 116:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 117:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_OK";
+ 373              		.loc 1 117 16
+ 374 005c 124B     		ldr	r3, .L44
+ 375 005e 1CE0     		b	.L43
+ 376              	.L41:
+ 118:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 119:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 120:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_UNEXPECTED_CMD:
+ 121:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 122:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_UNEXPECTED_CMD";
+ 377              		.loc 1 122 16
+ 378 0060 124B     		ldr	r3, .L44+4
+ 379 0062 1AE0     		b	.L43
+ 380              	.L40:
+ 123:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 124:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 125:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_UNIMPLEMENTED_CMD:
+ 126:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 127:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_UNIMPLEMENTED_CMD";
+ 381              		.loc 1 127 16
+ 382 0064 124B     		ldr	r3, .L44+8
+ 383 0066 18E0     		b	.L43
+ 384              	.L39:
+ 128:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 129:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 130:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_INVALID_PARAMETERS:
+ 131:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 132:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_INVALID_PARAMETERS";
+ 385              		.loc 1 132 16
+ 386 0068 124B     		ldr	r3, .L44+12
+ 387 006a 16E0     		b	.L43
+ 388              	.L38:
+ 133:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 134:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 135:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_MESSAGE_SANITY_CHECK_ERROR:
+ 136:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 137:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_MESSAGE_SANITY_CHECK_ERROR";
+ 389              		.loc 1 137 16
+ 390 006c 124B     		ldr	r3, .L44+16
+ 391 006e 14E0     		b	.L43
+ 392              	.L37:
+ 138:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 139:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 140:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_IQ_CAPTURE_FAILS:
+ 141:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 142:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_IQ_CAPTURE_FAILS";
+ 393              		.loc 1 142 16
+ 394 0070 124B     		ldr	r3, .L44+20
+ 395 0072 12E0     		b	.L43
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 12
+
+
+ 396              	.L36:
+ 143:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 144:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 145:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_NO_TIME:
+ 146:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 147:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_NO_TIME";
+ 397              		.loc 1 147 16
+ 398 0074 124B     		ldr	r3, .L44+24
+ 399 0076 10E0     		b	.L43
+ 400              	.L35:
+ 148:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 149:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 150:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_NO_SATELLITE_DETECTED:
+ 151:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 152:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_NO_SATELLITE_DETECTED";
+ 401              		.loc 1 152 16
+ 402 0078 124B     		ldr	r3, .L44+28
+ 403 007a 0EE0     		b	.L43
+ 404              	.L34:
+ 153:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 154:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 155:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_ALMANAC_IN_FLASH_TOO_OLD:
+ 156:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 157:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_ALMANAC_IN_FLASH_TOO_OLD";
+ 405              		.loc 1 157 16
+ 406 007c 124B     		ldr	r3, .L44+32
+ 407 007e 0CE0     		b	.L43
+ 408              	.L33:
+ 158:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 159:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 160:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_ALMANAC_UPDATE_FAILS_CRC_ERROR:
+ 161:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 162:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_ALMANAC_UPDATE_FAILS_CRC_ERROR";
+ 409              		.loc 1 162 16
+ 410 0080 124B     		ldr	r3, .L44+36
+ 411 0082 0AE0     		b	.L43
+ 412              	.L32:
+ 163:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 164:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 165:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_ALMANAC_UPDATE_FAILS_FLASH_INTEGRITY_ERROR:
+ 166:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 167:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_ALMANAC_UPDATE_FAILS_FLASH_INTEGRITY_ERROR";
+ 413              		.loc 1 167 16
+ 414 0084 124B     		ldr	r3, .L44+40
+ 415 0086 08E0     		b	.L43
+ 416              	.L31:
+ 168:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 169:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 170:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_ALMANAC_UPDATE_NOT_ALLOWED:
+ 171:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 172:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_ALMANAC_UPDATE_NOT_ALLOWED";
+ 417              		.loc 1 172 16
+ 418 0088 124B     		ldr	r3, .L44+44
+ 419 008a 06E0     		b	.L43
+ 420              	.L30:
+ 173:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 174:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 13
+
+
+ 175:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_ALMANAC_CRC_ERROR:
+ 176:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 177:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_ALMANAC_CRC_ERROR";
+ 421              		.loc 1 177 16
+ 422 008c 124B     		ldr	r3, .L44+48
+ 423 008e 04E0     		b	.L43
+ 424              	.L29:
+ 178:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 179:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 180:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_ALMANAC_VERSION_NOT_SUPPORTED:
+ 181:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 182:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_ALMANAC_VERSION_NOT_SUPPORTED";
+ 425              		.loc 1 182 16
+ 426 0090 124B     		ldr	r3, .L44+52
+ 427 0092 02E0     		b	.L43
+ 428              	.L27:
+ 183:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 184:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 185:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HOST_NOT_ENOUGH_SV_DETECTED_TO_BUILD_A_NAV_MESSAGE:
+ 186:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 187:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HOST_NOT_ENOUGH_SV_DETECTED_TO_BUILD_A_NAV_MESSAGE";
+ 429              		.loc 1 187 16
+ 430 0094 124B     		ldr	r3, .L44+56
+ 431 0096 00E0     		b	.L43
+ 432              	.L26:
+ 188:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 189:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 190:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 191:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 192:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 433              		.loc 1 192 16
+ 434 0098 124B     		ldr	r3, .L44+60
+ 435              	.L43:
+ 193:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 194:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 195:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 436              		.loc 1 195 1
+ 437 009a 1846     		mov	r0, r3
+ 438 009c 0C37     		adds	r7, r7, #12
+ 439              	.LCFI21:
+ 440              		.cfi_def_cfa_offset 4
+ 441 009e BD46     		mov	sp, r7
+ 442              	.LCFI22:
+ 443              		.cfi_def_cfa_register 13
+ 444              		@ sp needed
+ 445 00a0 5DF8047B 		ldr	r7, [sp], #4
+ 446              	.LCFI23:
+ 447              		.cfi_restore 7
+ 448              		.cfi_def_cfa_offset 0
+ 449 00a4 7047     		bx	lr
+ 450              	.L45:
+ 451 00a6 00BF     		.align	2
+ 452              	.L44:
+ 453 00a8 F4000000 		.word	.LC9
+ 454 00ac 08010000 		.word	.LC10
+ 455 00b0 28010000 		.word	.LC11
+ 456 00b4 4C010000 		.word	.LC12
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 14
+
+
+ 457 00b8 70010000 		.word	.LC13
+ 458 00bc 9C010000 		.word	.LC14
+ 459 00c0 C0010000 		.word	.LC15
+ 460 00c4 DC010000 		.word	.LC16
+ 461 00c8 04020000 		.word	.LC17
+ 462 00cc 30020000 		.word	.LC18
+ 463 00d0 60020000 		.word	.LC19
+ 464 00d4 9C020000 		.word	.LC20
+ 465 00d8 C8020000 		.word	.LC21
+ 466 00dc EC020000 		.word	.LC22
+ 467 00e0 1C030000 		.word	.LC23
+ 468 00e4 30000000 		.word	.LC2
+ 469              		.cfi_endproc
+ 470              	.LFE3:
+ 472              		.section	.rodata
+ 473 035b 00       		.align	2
+ 474              	.LC24:
+ 475 035c 4C523131 		.ascii	"LR11XX_GNSS_DMC_STATUS\000"
+ 475      58585F47 
+ 475      4E53535F 
+ 475      444D435F 
+ 475      53544154 
+ 476              		.section	.text.lr11xx_gnss_message_dmc_opcode_to_str,"ax",%progbits
+ 477              		.align	1
+ 478              		.global	lr11xx_gnss_message_dmc_opcode_to_str
+ 479              		.syntax unified
+ 480              		.thumb
+ 481              		.thumb_func
+ 483              	lr11xx_gnss_message_dmc_opcode_to_str:
+ 484              	.LFB4:
+ 196:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 197:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_message_dmc_opcode_to_str( const lr11xx_gnss_message_dmc_opcode_t value )
+ 198:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 485              		.loc 1 198 1
+ 486              		.cfi_startproc
+ 487              		@ args = 0, pretend = 0, frame = 8
+ 488              		@ frame_needed = 1, uses_anonymous_args = 0
+ 489              		@ link register save eliminated.
+ 490 0000 80B4     		push	{r7}
+ 491              	.LCFI24:
+ 492              		.cfi_def_cfa_offset 4
+ 493              		.cfi_offset 7, -4
+ 494 0002 83B0     		sub	sp, sp, #12
+ 495              	.LCFI25:
+ 496              		.cfi_def_cfa_offset 16
+ 497 0004 00AF     		add	r7, sp, #0
+ 498              	.LCFI26:
+ 499              		.cfi_def_cfa_register 7
+ 500 0006 0346     		mov	r3, r0
+ 501 0008 FB71     		strb	r3, [r7, #7]
+ 199:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 502              		.loc 1 199 5
+ 503 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 504 000c 182B     		cmp	r3, #24
+ 505 000e 01D1     		bne	.L47
+ 200:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 201:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DMC_STATUS:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 15
+
+
+ 202:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 203:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DMC_STATUS";
+ 506              		.loc 1 203 16
+ 507 0010 044B     		ldr	r3, .L49
+ 508 0012 00E0     		b	.L48
+ 509              	.L47:
+ 204:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 205:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 206:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 207:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 208:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 510              		.loc 1 208 16
+ 511 0014 044B     		ldr	r3, .L49+4
+ 512              	.L48:
+ 209:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 210:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 211:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 513              		.loc 1 211 1
+ 514 0016 1846     		mov	r0, r3
+ 515 0018 0C37     		adds	r7, r7, #12
+ 516              	.LCFI27:
+ 517              		.cfi_def_cfa_offset 4
+ 518 001a BD46     		mov	sp, r7
+ 519              	.LCFI28:
+ 520              		.cfi_def_cfa_register 13
+ 521              		@ sp needed
+ 522 001c 5DF8047B 		ldr	r7, [sp], #4
+ 523              	.LCFI29:
+ 524              		.cfi_restore 7
+ 525              		.cfi_def_cfa_offset 0
+ 526 0020 7047     		bx	lr
+ 527              	.L50:
+ 528 0022 00BF     		.align	2
+ 529              	.L49:
+ 530 0024 5C030000 		.word	.LC24
+ 531 0028 30000000 		.word	.LC2
+ 532              		.cfi_endproc
+ 533              	.LFE4:
+ 535              		.section	.rodata
+ 536 0373 00       		.align	2
+ 537              	.LC25:
+ 538 0374 4C523131 		.ascii	"LR11XX_GNSS_SCAN_MODE_0_SINGLE_SCAN_LEGACY\000"
+ 538      58585F47 
+ 538      4E53535F 
+ 538      5343414E 
+ 538      5F4D4F44 
+ 539 039f 00       		.align	2
+ 540              	.LC26:
+ 541 03a0 4C523131 		.ascii	"LR11XX_GNSS_SCAN_MODE_3_SINGLE_SCAN_AND_5_FAST_SCAN"
+ 541      58585F47 
+ 541      4E53535F 
+ 541      5343414E 
+ 541      5F4D4F44 
+ 542 03d3 5300     		.ascii	"S\000"
+ 543              		.section	.text.lr11xx_gnss_scan_mode_to_str,"ax",%progbits
+ 544              		.align	1
+ 545              		.global	lr11xx_gnss_scan_mode_to_str
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 16
+
+
+ 546              		.syntax unified
+ 547              		.thumb
+ 548              		.thumb_func
+ 550              	lr11xx_gnss_scan_mode_to_str:
+ 551              	.LFB5:
+ 212:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 213:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_scan_mode_to_str( const lr11xx_gnss_scan_mode_t value )
+ 214:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 552              		.loc 1 214 1
+ 553              		.cfi_startproc
+ 554              		@ args = 0, pretend = 0, frame = 8
+ 555              		@ frame_needed = 1, uses_anonymous_args = 0
+ 556              		@ link register save eliminated.
+ 557 0000 80B4     		push	{r7}
+ 558              	.LCFI30:
+ 559              		.cfi_def_cfa_offset 4
+ 560              		.cfi_offset 7, -4
+ 561 0002 83B0     		sub	sp, sp, #12
+ 562              	.LCFI31:
+ 563              		.cfi_def_cfa_offset 16
+ 564 0004 00AF     		add	r7, sp, #0
+ 565              	.LCFI32:
+ 566              		.cfi_def_cfa_register 7
+ 567 0006 0346     		mov	r3, r0
+ 568 0008 FB71     		strb	r3, [r7, #7]
+ 215:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 569              		.loc 1 215 5
+ 570 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 571 000c 002B     		cmp	r3, #0
+ 572 000e 02D0     		beq	.L52
+ 573 0010 032B     		cmp	r3, #3
+ 574 0012 02D0     		beq	.L53
+ 575 0014 03E0     		b	.L56
+ 576              	.L52:
+ 216:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 217:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_SCAN_MODE_0_SINGLE_SCAN_LEGACY:
+ 218:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 219:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_SCAN_MODE_0_SINGLE_SCAN_LEGACY";
+ 577              		.loc 1 219 16
+ 578 0016 054B     		ldr	r3, .L57
+ 579 0018 02E0     		b	.L55
+ 580              	.L53:
+ 220:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 221:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 222:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_SCAN_MODE_3_SINGLE_SCAN_AND_5_FAST_SCANS:
+ 223:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 224:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_SCAN_MODE_3_SINGLE_SCAN_AND_5_FAST_SCANS";
+ 581              		.loc 1 224 16
+ 582 001a 054B     		ldr	r3, .L57+4
+ 583 001c 00E0     		b	.L55
+ 584              	.L56:
+ 225:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 226:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 227:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 228:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 229:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 585              		.loc 1 229 16
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 17
+
+
+ 586 001e 054B     		ldr	r3, .L57+8
+ 587              	.L55:
+ 230:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 231:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 232:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 588              		.loc 1 232 1
+ 589 0020 1846     		mov	r0, r3
+ 590 0022 0C37     		adds	r7, r7, #12
+ 591              	.LCFI33:
+ 592              		.cfi_def_cfa_offset 4
+ 593 0024 BD46     		mov	sp, r7
+ 594              	.LCFI34:
+ 595              		.cfi_def_cfa_register 13
+ 596              		@ sp needed
+ 597 0026 5DF8047B 		ldr	r7, [sp], #4
+ 598              	.LCFI35:
+ 599              		.cfi_restore 7
+ 600              		.cfi_def_cfa_offset 0
+ 601 002a 7047     		bx	lr
+ 602              	.L58:
+ 603              		.align	2
+ 604              	.L57:
+ 605 002c 74030000 		.word	.LC25
+ 606 0030 A0030000 		.word	.LC26
+ 607 0034 30000000 		.word	.LC2
+ 608              		.cfi_endproc
+ 609              	.LFE5:
+ 611              		.section	.rodata
+ 612 03d5 000000   		.align	2
+ 613              	.LC27:
+ 614 03d8 4C523131 		.ascii	"LR11XX_GNSS_NO_ERROR\000"
+ 614      58585F47 
+ 614      4E53535F 
+ 614      4E4F5F45 
+ 614      52524F52 
+ 615 03ed 000000   		.align	2
+ 616              	.LC28:
+ 617 03f0 4C523131 		.ascii	"LR11XX_GNSS_ERROR_ALMANAC_TOO_OLD\000"
+ 617      58585F47 
+ 617      4E53535F 
+ 617      4552524F 
+ 617      525F414C 
+ 618 0412 0000     		.align	2
+ 619              	.LC29:
+ 620 0414 4C523131 		.ascii	"LR11XX_GNSS_ERROR_UPDATE_CRC_MISMATCH\000"
+ 620      58585F47 
+ 620      4E53535F 
+ 620      4552524F 
+ 620      525F5550 
+ 621 043a 0000     		.align	2
+ 622              	.LC30:
+ 623 043c 4C523131 		.ascii	"LR11XX_GNSS_ERROR_UPDATE_FLASH_MEMORY_INTEGRITY\000"
+ 623      58585F47 
+ 623      4E53535F 
+ 623      4552524F 
+ 623      525F5550 
+ 624              		.align	2
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 18
+
+
+ 625              	.LC31:
+ 626 046c 4C523131 		.ascii	"LR11XX_GNSS_ERROR_ALMANAC_UPDATE_NOT_ALLOWED\000"
+ 626      58585F47 
+ 626      4E53535F 
+ 626      4552524F 
+ 626      525F414C 
+ 627              		.section	.text.lr11xx_gnss_error_code_to_str,"ax",%progbits
+ 628              		.align	1
+ 629              		.global	lr11xx_gnss_error_code_to_str
+ 630              		.syntax unified
+ 631              		.thumb
+ 632              		.thumb_func
+ 634              	lr11xx_gnss_error_code_to_str:
+ 635              	.LFB6:
+ 233:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 234:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_error_code_to_str( const lr11xx_gnss_error_code_t value )
+ 235:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 636              		.loc 1 235 1
+ 637              		.cfi_startproc
+ 638              		@ args = 0, pretend = 0, frame = 8
+ 639              		@ frame_needed = 1, uses_anonymous_args = 0
+ 640              		@ link register save eliminated.
+ 641 0000 80B4     		push	{r7}
+ 642              	.LCFI36:
+ 643              		.cfi_def_cfa_offset 4
+ 644              		.cfi_offset 7, -4
+ 645 0002 83B0     		sub	sp, sp, #12
+ 646              	.LCFI37:
+ 647              		.cfi_def_cfa_offset 16
+ 648 0004 00AF     		add	r7, sp, #0
+ 649              	.LCFI38:
+ 650              		.cfi_def_cfa_register 7
+ 651 0006 0346     		mov	r3, r0
+ 652 0008 FB71     		strb	r3, [r7, #7]
+ 236:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 653              		.loc 1 236 5
+ 654 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 655 000c 042B     		cmp	r3, #4
+ 656 000e 17D8     		bhi	.L60
+ 657 0010 01A2     		adr	r2, .L62
+ 658 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 659 0016 00BF     		.p2align 2
+ 660              	.L62:
+ 661 0018 2D000000 		.word	.L66+1
+ 662 001c 31000000 		.word	.L65+1
+ 663 0020 35000000 		.word	.L64+1
+ 664 0024 39000000 		.word	.L63+1
+ 665 0028 3D000000 		.word	.L61+1
+ 666              		.p2align 1
+ 667              	.L66:
+ 237:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 238:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_ERROR:
+ 239:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 240:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_ERROR";
+ 668              		.loc 1 240 16
+ 669 002c 084B     		ldr	r3, .L68
+ 670 002e 08E0     		b	.L67
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 19
+
+
+ 671              	.L65:
+ 241:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 242:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 243:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_ERROR_ALMANAC_TOO_OLD:
+ 244:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 245:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_ERROR_ALMANAC_TOO_OLD";
+ 672              		.loc 1 245 16
+ 673 0030 084B     		ldr	r3, .L68+4
+ 674 0032 06E0     		b	.L67
+ 675              	.L64:
+ 246:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 247:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 248:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_ERROR_UPDATE_CRC_MISMATCH:
+ 249:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 250:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_ERROR_UPDATE_CRC_MISMATCH";
+ 676              		.loc 1 250 16
+ 677 0034 084B     		ldr	r3, .L68+8
+ 678 0036 04E0     		b	.L67
+ 679              	.L63:
+ 251:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 252:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 253:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_ERROR_UPDATE_FLASH_MEMORY_INTEGRITY:
+ 254:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 255:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_ERROR_UPDATE_FLASH_MEMORY_INTEGRITY";
+ 680              		.loc 1 255 16
+ 681 0038 084B     		ldr	r3, .L68+12
+ 682 003a 02E0     		b	.L67
+ 683              	.L61:
+ 256:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 257:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 258:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_ERROR_ALMANAC_UPDATE_NOT_ALLOWED:
+ 259:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 260:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_ERROR_ALMANAC_UPDATE_NOT_ALLOWED";
+ 684              		.loc 1 260 16
+ 685 003c 084B     		ldr	r3, .L68+16
+ 686 003e 00E0     		b	.L67
+ 687              	.L60:
+ 261:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 262:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 263:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 264:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 265:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 688              		.loc 1 265 16
+ 689 0040 084B     		ldr	r3, .L68+20
+ 690              	.L67:
+ 266:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 267:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 268:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 691              		.loc 1 268 1
+ 692 0042 1846     		mov	r0, r3
+ 693 0044 0C37     		adds	r7, r7, #12
+ 694              	.LCFI39:
+ 695              		.cfi_def_cfa_offset 4
+ 696 0046 BD46     		mov	sp, r7
+ 697              	.LCFI40:
+ 698              		.cfi_def_cfa_register 13
+ 699              		@ sp needed
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 20
+
+
+ 700 0048 5DF8047B 		ldr	r7, [sp], #4
+ 701              	.LCFI41:
+ 702              		.cfi_restore 7
+ 703              		.cfi_def_cfa_offset 0
+ 704 004c 7047     		bx	lr
+ 705              	.L69:
+ 706 004e 00BF     		.align	2
+ 707              	.L68:
+ 708 0050 D8030000 		.word	.LC27
+ 709 0054 F0030000 		.word	.LC28
+ 710 0058 14040000 		.word	.LC29
+ 711 005c 3C040000 		.word	.LC30
+ 712 0060 6C040000 		.word	.LC31
+ 713 0064 30000000 		.word	.LC2
+ 714              		.cfi_endproc
+ 715              	.LFE6:
+ 717              		.section	.rodata
+ 718 0499 000000   		.align	2
+ 719              	.LC32:
+ 720 049c 4C523131 		.ascii	"LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_250_HZ\000"
+ 720      58585F47 
+ 720      4E53535F 
+ 720      46524551 
+ 720      55454E43 
+ 721 04c6 0000     		.align	2
+ 722              	.LC33:
+ 723 04c8 4C523131 		.ascii	"LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_500_HZ\000"
+ 723      58585F47 
+ 723      4E53535F 
+ 723      46524551 
+ 723      55454E43 
+ 724 04f2 0000     		.align	2
+ 725              	.LC34:
+ 726 04f4 4C523131 		.ascii	"LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_1_KHZ\000"
+ 726      58585F47 
+ 726      4E53535F 
+ 726      46524551 
+ 726      55454E43 
+ 727 051d 000000   		.align	2
+ 728              	.LC35:
+ 729 0520 4C523131 		.ascii	"LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_2_KHZ\000"
+ 729      58585F47 
+ 729      4E53535F 
+ 729      46524551 
+ 729      55454E43 
+ 730              		.section	.text.lr11xx_gnss_freq_search_space_to_str,"ax",%progbits
+ 731              		.align	1
+ 732              		.global	lr11xx_gnss_freq_search_space_to_str
+ 733              		.syntax unified
+ 734              		.thumb
+ 735              		.thumb_func
+ 737              	lr11xx_gnss_freq_search_space_to_str:
+ 738              	.LFB7:
+ 269:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 270:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_freq_search_space_to_str( const lr11xx_gnss_freq_search_space_t value )
+ 271:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 739              		.loc 1 271 1
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 21
+
+
+ 740              		.cfi_startproc
+ 741              		@ args = 0, pretend = 0, frame = 8
+ 742              		@ frame_needed = 1, uses_anonymous_args = 0
+ 743              		@ link register save eliminated.
+ 744 0000 80B4     		push	{r7}
+ 745              	.LCFI42:
+ 746              		.cfi_def_cfa_offset 4
+ 747              		.cfi_offset 7, -4
+ 748 0002 83B0     		sub	sp, sp, #12
+ 749              	.LCFI43:
+ 750              		.cfi_def_cfa_offset 16
+ 751 0004 00AF     		add	r7, sp, #0
+ 752              	.LCFI44:
+ 753              		.cfi_def_cfa_register 7
+ 754 0006 0346     		mov	r3, r0
+ 755 0008 FB71     		strb	r3, [r7, #7]
+ 272:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 756              		.loc 1 272 5
+ 757 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 758 000c 032B     		cmp	r3, #3
+ 759 000e 13D8     		bhi	.L71
+ 760 0010 01A2     		adr	r2, .L73
+ 761 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 762 0016 00BF     		.p2align 2
+ 763              	.L73:
+ 764 0018 29000000 		.word	.L76+1
+ 765 001c 2D000000 		.word	.L75+1
+ 766 0020 31000000 		.word	.L74+1
+ 767 0024 35000000 		.word	.L72+1
+ 768              		.p2align 1
+ 769              	.L76:
+ 273:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 274:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_250_HZ:
+ 275:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 276:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_250_HZ";
+ 770              		.loc 1 276 16
+ 771 0028 074B     		ldr	r3, .L78
+ 772 002a 06E0     		b	.L77
+ 773              	.L75:
+ 277:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 278:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 279:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_500_HZ:
+ 280:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 281:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_500_HZ";
+ 774              		.loc 1 281 16
+ 775 002c 074B     		ldr	r3, .L78+4
+ 776 002e 04E0     		b	.L77
+ 777              	.L74:
+ 282:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 283:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 284:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_1_KHZ:
+ 285:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 286:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_1_KHZ";
+ 778              		.loc 1 286 16
+ 779 0030 074B     		ldr	r3, .L78+8
+ 780 0032 02E0     		b	.L77
+ 781              	.L72:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 22
+
+
+ 287:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 288:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 289:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_2_KHZ:
+ 290:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 291:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_FREQUENCY_SEARCH_SPACE_2_KHZ";
+ 782              		.loc 1 291 16
+ 783 0034 074B     		ldr	r3, .L78+12
+ 784 0036 00E0     		b	.L77
+ 785              	.L71:
+ 292:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 293:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 294:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 295:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 296:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 786              		.loc 1 296 16
+ 787 0038 074B     		ldr	r3, .L78+16
+ 788              	.L77:
+ 297:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 298:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 299:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 789              		.loc 1 299 1
+ 790 003a 1846     		mov	r0, r3
+ 791 003c 0C37     		adds	r7, r7, #12
+ 792              	.LCFI45:
+ 793              		.cfi_def_cfa_offset 4
+ 794 003e BD46     		mov	sp, r7
+ 795              	.LCFI46:
+ 796              		.cfi_def_cfa_register 13
+ 797              		@ sp needed
+ 798 0040 5DF8047B 		ldr	r7, [sp], #4
+ 799              	.LCFI47:
+ 800              		.cfi_restore 7
+ 801              		.cfi_def_cfa_offset 0
+ 802 0044 7047     		bx	lr
+ 803              	.L79:
+ 804 0046 00BF     		.align	2
+ 805              	.L78:
+ 806 0048 9C040000 		.word	.LC32
+ 807 004c C8040000 		.word	.LC33
+ 808 0050 F4040000 		.word	.LC34
+ 809 0054 20050000 		.word	.LC35
+ 810 0058 30000000 		.word	.LC2
+ 811              		.cfi_endproc
+ 812              	.LFE7:
+ 814              		.section	.rodata
+ 815 0549 000000   		.align	2
+ 816              	.LC36:
+ 817 054c 4C523131 		.ascii	"LR11XX_GNSS_SEARCH_TOW\000"
+ 817      58585F47 
+ 817      4E53535F 
+ 817      53454152 
+ 817      43485F54 
+ 818 0563 00       		.align	2
+ 819              	.LC37:
+ 820 0564 4C523131 		.ascii	"LR11XX_GNSS_SEARCH_TOW_WN\000"
+ 820      58585F47 
+ 820      4E53535F 
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 23
+
+
+ 820      53454152 
+ 820      43485F54 
+ 821 057e 0000     		.align	2
+ 822              	.LC38:
+ 823 0580 4C523131 		.ascii	"LR11XX_GNSS_SEARCH_TOW_WN_ROLLOVER\000"
+ 823      58585F47 
+ 823      4E53535F 
+ 823      53454152 
+ 823      43485F54 
+ 824              		.section	.text.lr11xx_gnss_fetch_time_option_to_str,"ax",%progbits
+ 825              		.align	1
+ 826              		.global	lr11xx_gnss_fetch_time_option_to_str
+ 827              		.syntax unified
+ 828              		.thumb
+ 829              		.thumb_func
+ 831              	lr11xx_gnss_fetch_time_option_to_str:
+ 832              	.LFB8:
+ 300:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 301:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_fetch_time_option_to_str( const lr11xx_gnss_fetch_time_option_t value )
+ 302:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 833              		.loc 1 302 1
+ 834              		.cfi_startproc
+ 835              		@ args = 0, pretend = 0, frame = 8
+ 836              		@ frame_needed = 1, uses_anonymous_args = 0
+ 837              		@ link register save eliminated.
+ 838 0000 80B4     		push	{r7}
+ 839              	.LCFI48:
+ 840              		.cfi_def_cfa_offset 4
+ 841              		.cfi_offset 7, -4
+ 842 0002 83B0     		sub	sp, sp, #12
+ 843              	.LCFI49:
+ 844              		.cfi_def_cfa_offset 16
+ 845 0004 00AF     		add	r7, sp, #0
+ 846              	.LCFI50:
+ 847              		.cfi_def_cfa_register 7
+ 848 0006 0346     		mov	r3, r0
+ 849 0008 FB71     		strb	r3, [r7, #7]
+ 303:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 850              		.loc 1 303 5
+ 851 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 852 000c 022B     		cmp	r3, #2
+ 853 000e 0AD0     		beq	.L81
+ 854 0010 022B     		cmp	r3, #2
+ 855 0012 0ADC     		bgt	.L82
+ 856 0014 002B     		cmp	r3, #0
+ 857 0016 02D0     		beq	.L83
+ 858 0018 012B     		cmp	r3, #1
+ 859 001a 02D0     		beq	.L84
+ 860 001c 05E0     		b	.L82
+ 861              	.L83:
+ 304:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 305:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_SEARCH_TOW:
+ 306:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 307:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_SEARCH_TOW";
+ 862              		.loc 1 307 16
+ 863 001e 064B     		ldr	r3, .L86
+ 864 0020 04E0     		b	.L85
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 24
+
+
+ 865              	.L84:
+ 308:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 309:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 310:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_SEARCH_TOW_WN:
+ 311:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 312:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_SEARCH_TOW_WN";
+ 866              		.loc 1 312 16
+ 867 0022 064B     		ldr	r3, .L86+4
+ 868 0024 02E0     		b	.L85
+ 869              	.L81:
+ 313:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 314:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 315:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_SEARCH_TOW_WN_ROLLOVER:
+ 316:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 317:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_SEARCH_TOW_WN_ROLLOVER";
+ 870              		.loc 1 317 16
+ 871 0026 064B     		ldr	r3, .L86+8
+ 872 0028 00E0     		b	.L85
+ 873              	.L82:
+ 318:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 319:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 320:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 321:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 322:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 874              		.loc 1 322 16
+ 875 002a 064B     		ldr	r3, .L86+12
+ 876              	.L85:
+ 323:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 324:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 325:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 877              		.loc 1 325 1
+ 878 002c 1846     		mov	r0, r3
+ 879 002e 0C37     		adds	r7, r7, #12
+ 880              	.LCFI51:
+ 881              		.cfi_def_cfa_offset 4
+ 882 0030 BD46     		mov	sp, r7
+ 883              	.LCFI52:
+ 884              		.cfi_def_cfa_register 13
+ 885              		@ sp needed
+ 886 0032 5DF8047B 		ldr	r7, [sp], #4
+ 887              	.LCFI53:
+ 888              		.cfi_restore 7
+ 889              		.cfi_def_cfa_offset 0
+ 890 0036 7047     		bx	lr
+ 891              	.L87:
+ 892              		.align	2
+ 893              	.L86:
+ 894 0038 4C050000 		.word	.LC36
+ 895 003c 64050000 		.word	.LC37
+ 896 0040 80050000 		.word	.LC38
+ 897 0044 30000000 		.word	.LC2
+ 898              		.cfi_endproc
+ 899              	.LFE8:
+ 901              		.section	.rodata
+ 902 05a3 00       		.align	2
+ 903              	.LC39:
+ 904 05a4 4C523131 		.ascii	"LR11XX_GNSS_READ_TIME_STATUS_NO_ERROR\000"
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 25
+
+
+ 904      58585F47 
+ 904      4E53535F 
+ 904      52454144 
+ 904      5F54494D 
+ 905 05ca 0000     		.align	2
+ 906              	.LC40:
+ 907 05cc 4C523131 		.ascii	"LR11XX_GNSS_READ_TIME_STATUS_32K_STOPPED\000"
+ 907      58585F47 
+ 907      4E53535F 
+ 907      52454144 
+ 907      5F54494D 
+ 908 05f5 000000   		.align	2
+ 909              	.LC41:
+ 910 05f8 4C523131 		.ascii	"LR11XX_GNSS_READ_TIME_STATUS_WN_TOW_NOT_SET\000"
+ 910      58585F47 
+ 910      4E53535F 
+ 910      52454144 
+ 910      5F54494D 
+ 911              		.section	.text.lr11xx_gnss_read_time_status_to_str,"ax",%progbits
+ 912              		.align	1
+ 913              		.global	lr11xx_gnss_read_time_status_to_str
+ 914              		.syntax unified
+ 915              		.thumb
+ 916              		.thumb_func
+ 918              	lr11xx_gnss_read_time_status_to_str:
+ 919              	.LFB9:
+ 326:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 327:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_read_time_status_to_str( const lr11xx_gnss_read_time_status_t value )
+ 328:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 920              		.loc 1 328 1
+ 921              		.cfi_startproc
+ 922              		@ args = 0, pretend = 0, frame = 8
+ 923              		@ frame_needed = 1, uses_anonymous_args = 0
+ 924              		@ link register save eliminated.
+ 925 0000 80B4     		push	{r7}
+ 926              	.LCFI54:
+ 927              		.cfi_def_cfa_offset 4
+ 928              		.cfi_offset 7, -4
+ 929 0002 83B0     		sub	sp, sp, #12
+ 930              	.LCFI55:
+ 931              		.cfi_def_cfa_offset 16
+ 932 0004 00AF     		add	r7, sp, #0
+ 933              	.LCFI56:
+ 934              		.cfi_def_cfa_register 7
+ 935 0006 0346     		mov	r3, r0
+ 936 0008 FB71     		strb	r3, [r7, #7]
+ 329:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 937              		.loc 1 329 5
+ 938 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 939 000c 022B     		cmp	r3, #2
+ 940 000e 0AD0     		beq	.L89
+ 941 0010 022B     		cmp	r3, #2
+ 942 0012 0ADC     		bgt	.L90
+ 943 0014 002B     		cmp	r3, #0
+ 944 0016 02D0     		beq	.L91
+ 945 0018 012B     		cmp	r3, #1
+ 946 001a 02D0     		beq	.L92
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 26
+
+
+ 947 001c 05E0     		b	.L90
+ 948              	.L91:
+ 330:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 331:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_READ_TIME_STATUS_NO_ERROR:
+ 332:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 333:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_READ_TIME_STATUS_NO_ERROR";
+ 949              		.loc 1 333 16
+ 950 001e 064B     		ldr	r3, .L94
+ 951 0020 04E0     		b	.L93
+ 952              	.L92:
+ 334:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 335:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 336:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_READ_TIME_STATUS_32K_STOPPED:
+ 337:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 338:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_READ_TIME_STATUS_32K_STOPPED";
+ 953              		.loc 1 338 16
+ 954 0022 064B     		ldr	r3, .L94+4
+ 955 0024 02E0     		b	.L93
+ 956              	.L89:
+ 339:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 340:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 341:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_READ_TIME_STATUS_WN_TOW_NOT_SET:
+ 342:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 343:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_READ_TIME_STATUS_WN_TOW_NOT_SET";
+ 957              		.loc 1 343 16
+ 958 0026 064B     		ldr	r3, .L94+8
+ 959 0028 00E0     		b	.L93
+ 960              	.L90:
+ 344:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 345:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 346:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 347:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 348:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 961              		.loc 1 348 16
+ 962 002a 064B     		ldr	r3, .L94+12
+ 963              	.L93:
+ 349:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 350:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 351:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 964              		.loc 1 351 1
+ 965 002c 1846     		mov	r0, r3
+ 966 002e 0C37     		adds	r7, r7, #12
+ 967              	.LCFI57:
+ 968              		.cfi_def_cfa_offset 4
+ 969 0030 BD46     		mov	sp, r7
+ 970              	.LCFI58:
+ 971              		.cfi_def_cfa_register 13
+ 972              		@ sp needed
+ 973 0032 5DF8047B 		ldr	r7, [sp], #4
+ 974              	.LCFI59:
+ 975              		.cfi_restore 7
+ 976              		.cfi_def_cfa_offset 0
+ 977 0036 7047     		bx	lr
+ 978              	.L95:
+ 979              		.align	2
+ 980              	.L94:
+ 981 0038 A4050000 		.word	.LC39
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 27
+
+
+ 982 003c CC050000 		.word	.LC40
+ 983 0040 F8050000 		.word	.LC41
+ 984 0044 30000000 		.word	.LC2
+ 985              		.cfi_endproc
+ 986              	.LFE9:
+ 988              		.section	.rodata
+ 989              		.align	2
+ 990              	.LC42:
+ 991 0624 4C523131 		.ascii	"LR11XX_GNSS_WN_ROLLOVER_ROLLOVER_NEVER_SET\000"
+ 991      58585F47 
+ 991      4E53535F 
+ 991      574E5F52 
+ 991      4F4C4C4F 
+ 992 064f 00       		.align	2
+ 993              	.LC43:
+ 994 0650 4C523131 		.ascii	"LR11XX_GNSS_WN_ROLLOVER_ROLLOVER_SET_BY_SCAN\000"
+ 994      58585F47 
+ 994      4E53535F 
+ 994      574E5F52 
+ 994      4F4C4C4F 
+ 995              		.section	.text.lr11xx_gnss_week_number_rollover_status_to_str,"ax",%progbits
+ 996              		.align	1
+ 997              		.global	lr11xx_gnss_week_number_rollover_status_to_str
+ 998              		.syntax unified
+ 999              		.thumb
+ 1000              		.thumb_func
+ 1002              	lr11xx_gnss_week_number_rollover_status_to_str:
+ 1003              	.LFB10:
+ 352:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 353:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_week_number_rollover_status_to_str( const lr11xx_gnss_week_number_rollover_
+ 354:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 1004              		.loc 1 354 1
+ 1005              		.cfi_startproc
+ 1006              		@ args = 0, pretend = 0, frame = 8
+ 1007              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1008              		@ link register save eliminated.
+ 1009 0000 80B4     		push	{r7}
+ 1010              	.LCFI60:
+ 1011              		.cfi_def_cfa_offset 4
+ 1012              		.cfi_offset 7, -4
+ 1013 0002 83B0     		sub	sp, sp, #12
+ 1014              	.LCFI61:
+ 1015              		.cfi_def_cfa_offset 16
+ 1016 0004 00AF     		add	r7, sp, #0
+ 1017              	.LCFI62:
+ 1018              		.cfi_def_cfa_register 7
+ 1019 0006 0346     		mov	r3, r0
+ 1020 0008 FB71     		strb	r3, [r7, #7]
+ 355:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 1021              		.loc 1 355 5
+ 1022 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1023 000c 002B     		cmp	r3, #0
+ 1024 000e 02D0     		beq	.L97
+ 1025 0010 012B     		cmp	r3, #1
+ 1026 0012 02D0     		beq	.L98
+ 1027 0014 03E0     		b	.L101
+ 1028              	.L97:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 28
+
+
+ 356:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 357:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WN_ROLLOVER_ROLLOVER_NEVER_SET:
+ 358:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 359:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WN_ROLLOVER_ROLLOVER_NEVER_SET";
+ 1029              		.loc 1 359 16
+ 1030 0016 054B     		ldr	r3, .L102
+ 1031 0018 02E0     		b	.L100
+ 1032              	.L98:
+ 360:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 361:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 362:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WN_ROLLOVER_ROLLOVER_SET_BY_SCAN:
+ 363:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 364:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WN_ROLLOVER_ROLLOVER_SET_BY_SCAN";
+ 1033              		.loc 1 364 16
+ 1034 001a 054B     		ldr	r3, .L102+4
+ 1035 001c 00E0     		b	.L100
+ 1036              	.L101:
+ 365:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 366:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 367:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 368:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 369:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 1037              		.loc 1 369 16
+ 1038 001e 054B     		ldr	r3, .L102+8
+ 1039              	.L100:
+ 370:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 371:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 372:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 1040              		.loc 1 372 1
+ 1041 0020 1846     		mov	r0, r3
+ 1042 0022 0C37     		adds	r7, r7, #12
+ 1043              	.LCFI63:
+ 1044              		.cfi_def_cfa_offset 4
+ 1045 0024 BD46     		mov	sp, r7
+ 1046              	.LCFI64:
+ 1047              		.cfi_def_cfa_register 13
+ 1048              		@ sp needed
+ 1049 0026 5DF8047B 		ldr	r7, [sp], #4
+ 1050              	.LCFI65:
+ 1051              		.cfi_restore 7
+ 1052              		.cfi_def_cfa_offset 0
+ 1053 002a 7047     		bx	lr
+ 1054              	.L103:
+ 1055              		.align	2
+ 1056              	.L102:
+ 1057 002c 24060000 		.word	.LC42
+ 1058 0030 50060000 		.word	.LC43
+ 1059 0034 30000000 		.word	.LC2
+ 1060              		.cfi_endproc
+ 1061              	.LFE10:
+ 1063              		.section	.rodata
+ 1064 067d 000000   		.align	2
+ 1065              	.LC44:
+ 1066 0680 4C523131 		.ascii	"LR11XX_GNSS_NO_DEMOD_BDS_ALMANAC_SV31_43\000"
+ 1066      58585F47 
+ 1066      4E53535F 
+ 1066      4E4F5F44 
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 29
+
+
+ 1066      454D4F44 
+ 1067 06a9 000000   		.align	2
+ 1068              	.LC45:
+ 1069 06ac 4C523131 		.ascii	"LR11XX_GNSS_SV_SELECTED_FOR_DEMOD_LOST\000"
+ 1069      58585F47 
+ 1069      4E53535F 
+ 1069      53565F53 
+ 1069      454C4543 
+ 1070 06d3 00       		.align	2
+ 1071              	.LC46:
+ 1072 06d4 4C523131 		.ascii	"LR11XX_GNSS_ALMANAC_DEMOD_ERROR\000"
+ 1072      58585F47 
+ 1072      4E53535F 
+ 1072      414C4D41 
+ 1072      4E41435F 
+ 1073              		.align	2
+ 1074              	.LC47:
+ 1075 06f4 4C523131 		.ascii	"LR11XX_GNSS_WAKE_UP_AFTER_PREAMBLE\000"
+ 1075      58585F47 
+ 1075      4E53535F 
+ 1075      57414B45 
+ 1075      5F55505F 
+ 1076 0717 00       		.align	2
+ 1077              	.LC48:
+ 1078 0718 4C523131 		.ascii	"LR11XX_GNSS_20MS_REAL_TIME_FAILURE\000"
+ 1078      58585F47 
+ 1078      4E53535F 
+ 1078      32304D53 
+ 1078      5F524541 
+ 1079 073b 00       		.align	2
+ 1080              	.LC49:
+ 1081 073c 4C523131 		.ascii	"LR11XX_GNSS_WAKE_UP_SYNC_FAILURE\000"
+ 1081      58585F47 
+ 1081      4E53535F 
+ 1081      57414B45 
+ 1081      5F55505F 
+ 1082 075d 000000   		.align	2
+ 1083              	.LC50:
+ 1084 0760 4C523131 		.ascii	"LR11XX_GNSS_WEEK_NUMBER_NOT_VALIDATED\000"
+ 1084      58585F47 
+ 1084      4E53535F 
+ 1084      5745454B 
+ 1084      5F4E554D 
+ 1085 0786 0000     		.align	2
+ 1086              	.LC51:
+ 1087 0788 4C523131 		.ascii	"LR11XX_GNSS_NO_ACTIVATED_SAT_IN_SV_LIST\000"
+ 1087      58585F47 
+ 1087      4E53535F 
+ 1087      4E4F5F41 
+ 1087      43544956 
+ 1088              		.align	2
+ 1089              	.LC52:
+ 1090 07b0 4C523131 		.ascii	"LR11XX_GNSS_SLEEP_TIME_TOO_LONG\000"
+ 1090      58585F47 
+ 1090      4E53535F 
+ 1090      534C4545 
+ 1090      505F5449 
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 30
+
+
+ 1091              		.align	2
+ 1092              	.LC53:
+ 1093 07d0 4C523131 		.ascii	"LR11XX_GNSS_WRONG_TIME_OF_WEEK_DEMOD\000"
+ 1093      58585F47 
+ 1093      4E53535F 
+ 1093      57524F4E 
+ 1093      475F5449 
+ 1094 07f5 000000   		.align	2
+ 1095              	.LC54:
+ 1096 07f8 4C523131 		.ascii	"LR11XX_GNSS_PREAMBLE_NOT_VALIDATED\000"
+ 1096      58585F47 
+ 1096      4E53535F 
+ 1096      50524541 
+ 1096      4D424C45 
+ 1097 081b 00       		.align	2
+ 1098              	.LC55:
+ 1099 081c 4C523131 		.ascii	"LR11XX_GNSS_DEMOD_DISABLE\000"
+ 1099      58585F47 
+ 1099      4E53535F 
+ 1099      44454D4F 
+ 1099      445F4449 
+ 1100 0836 0000     		.align	2
+ 1101              	.LC56:
+ 1102 0838 4C523131 		.ascii	"LR11XX_GNSS_DEMOD_EXTRACTION_FAILURE\000"
+ 1102      58585F47 
+ 1102      4E53535F 
+ 1102      44454D4F 
+ 1102      445F4558 
+ 1103 085d 000000   		.align	2
+ 1104              	.LC57:
+ 1105 0860 4C523131 		.ascii	"LR11XX_GNSS_NO_BIT_CHANGE_FOUND_DURING_START_DEMOD\000"
+ 1105      58585F47 
+ 1105      4E53535F 
+ 1105      4E4F5F42 
+ 1105      49545F43 
+ 1106 0893 00       		.align	2
+ 1107              	.LC58:
+ 1108 0894 4C523131 		.ascii	"LR11XX_GNSS_NO_BIT_CHANGE_FOUND_DURING_MULTISCAN\000"
+ 1108      58585F47 
+ 1108      4E53535F 
+ 1108      4E4F5F42 
+ 1108      49545F43 
+ 1109 08c5 000000   		.align	2
+ 1110              	.LC59:
+ 1111 08c8 4C523131 		.ascii	"LR11XX_GNSS_NO_SAT_FOUND\000"
+ 1111      58585F47 
+ 1111      4E53535F 
+ 1111      4E4F5F53 
+ 1111      41545F46 
+ 1112 08e1 000000   		.align	2
+ 1113              	.LC60:
+ 1114 08e4 4C523131 		.ascii	"LR11XX_GNSS_WORD_SYNC_LOST\000"
+ 1114      58585F47 
+ 1114      4E53535F 
+ 1114      574F5244 
+ 1114      5F53594E 
+ 1115 08ff 00       		.align	2
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 31
+
+
+ 1116              	.LC61:
+ 1117 0900 4C523131 		.ascii	"LR11XX_GNSS_NOT_ENOUGH_PARITY_CHECK_FOUND\000"
+ 1117      58585F47 
+ 1117      4E53535F 
+ 1117      4E4F545F 
+ 1117      454E4F55 
+ 1118 092a 0000     		.align	2
+ 1119              	.LC62:
+ 1120 092c 4C523131 		.ascii	"LR11XX_GNSS_TOO_MANY_PARITY_CHECK_FOUND\000"
+ 1120      58585F47 
+ 1120      4E53535F 
+ 1120      544F4F5F 
+ 1120      4D414E59 
+ 1121              		.align	2
+ 1122              	.LC63:
+ 1123 0954 4C523131 		.ascii	"LR11XX_GNSS_NO_PARITY_CHECK_FOUND\000"
+ 1123      58585F47 
+ 1123      4E53535F 
+ 1123      4E4F5F50 
+ 1123      41524954 
+ 1124 0976 0000     		.align	2
+ 1125              	.LC64:
+ 1126 0978 4C523131 		.ascii	"LR11XX_GNSS_WORD_SYNC_SEARCH_NOT_STARTED\000"
+ 1126      58585F47 
+ 1126      4E53535F 
+ 1126      574F5244 
+ 1126      5F53594E 
+ 1127 09a1 000000   		.align	2
+ 1128              	.LC65:
+ 1129 09a4 4C523131 		.ascii	"LR11XX_GNSS_WORD_SYNC_POTENTIALLY_FOUND\000"
+ 1129      58585F47 
+ 1129      4E53535F 
+ 1129      574F5244 
+ 1129      5F53594E 
+ 1130              		.align	2
+ 1131              	.LC66:
+ 1132 09cc 4C523131 		.ascii	"LR11XX_GNSS_WORD_SYNC_FOUND\000"
+ 1132      58585F47 
+ 1132      4E53535F 
+ 1132      574F5244 
+ 1132      5F53594E 
+ 1133              		.align	2
+ 1134              	.LC67:
+ 1135 09e8 4C523131 		.ascii	"LR11XX_GNSS_TIME_OF_WEEK_FOUND\000"
+ 1135      58585F47 
+ 1135      4E53535F 
+ 1135      54494D45 
+ 1135      5F4F465F 
+ 1136 0a07 00       		.align	2
+ 1137              	.LC68:
+ 1138 0a08 4C523131 		.ascii	"LR11XX_GNSS_WEEK_NUMBER_FOUND\000"
+ 1138      58585F47 
+ 1138      4E53535F 
+ 1138      5745454B 
+ 1138      5F4E554D 
+ 1139 0a26 0000     		.align	2
+ 1140              	.LC69:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 32
+
+
+ 1141 0a28 4C523131 		.ascii	"LR11XX_GNSS_ALMANAC_FOUND_BUT_NO_SAVED\000"
+ 1141      58585F47 
+ 1141      4E53535F 
+ 1141      414C4D41 
+ 1141      4E41435F 
+ 1142 0a4f 00       		.align	2
+ 1143              	.LC70:
+ 1144 0a50 4C523131 		.ascii	"LR11XX_GNSS_HALF_ALMANAC_FOUND_AND_SAVED\000"
+ 1144      58585F47 
+ 1144      4E53535F 
+ 1144      48414C46 
+ 1144      5F414C4D 
+ 1145 0a79 000000   		.align	2
+ 1146              	.LC71:
+ 1147 0a7c 4C523131 		.ascii	"LR11XX_GNSS_ALMANAC_FOUND_AND_SAVED\000"
+ 1147      58585F47 
+ 1147      4E53535F 
+ 1147      414C4D41 
+ 1147      4E41435F 
+ 1148              		.section	.text.lr11xx_gnss_demod_status_to_str,"ax",%progbits
+ 1149              		.align	1
+ 1150              		.global	lr11xx_gnss_demod_status_to_str
+ 1151              		.syntax unified
+ 1152              		.thumb
+ 1153              		.thumb_func
+ 1155              	lr11xx_gnss_demod_status_to_str:
+ 1156              	.LFB11:
+ 373:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 374:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_demod_status_to_str( const lr11xx_gnss_demod_status_t value )
+ 375:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 1157              		.loc 1 375 1
+ 1158              		.cfi_startproc
+ 1159              		@ args = 0, pretend = 0, frame = 8
+ 1160              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1161              		@ link register save eliminated.
+ 1162 0000 80B4     		push	{r7}
+ 1163              	.LCFI66:
+ 1164              		.cfi_def_cfa_offset 4
+ 1165              		.cfi_offset 7, -4
+ 1166 0002 83B0     		sub	sp, sp, #12
+ 1167              	.LCFI67:
+ 1168              		.cfi_def_cfa_offset 16
+ 1169 0004 00AF     		add	r7, sp, #0
+ 1170              	.LCFI68:
+ 1171              		.cfi_def_cfa_register 7
+ 1172 0006 0346     		mov	r3, r0
+ 1173 0008 FB71     		strb	r3, [r7, #7]
+ 376:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 1174              		.loc 1 376 5
+ 1175 000a 97F90730 		ldrsb	r3, [r7, #7]
+ 1176 000e 1533     		adds	r3, r3, #21
+ 1177 0010 1C2B     		cmp	r3, #28
+ 1178 0012 75D8     		bhi	.L105
+ 1179 0014 01A2     		adr	r2, .L107
+ 1180 0016 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 1181 001a 00BF     		.p2align 2
+ 1182              	.L107:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 33
+
+
+ 1183 001c 91000000 		.word	.L134+1
+ 1184 0020 95000000 		.word	.L133+1
+ 1185 0024 99000000 		.word	.L132+1
+ 1186 0028 9D000000 		.word	.L131+1
+ 1187 002c A1000000 		.word	.L130+1
+ 1188 0030 A5000000 		.word	.L129+1
+ 1189 0034 A9000000 		.word	.L128+1
+ 1190 0038 AD000000 		.word	.L127+1
+ 1191 003c B1000000 		.word	.L126+1
+ 1192 0040 B5000000 		.word	.L125+1
+ 1193 0044 B9000000 		.word	.L124+1
+ 1194 0048 BD000000 		.word	.L123+1
+ 1195 004c C1000000 		.word	.L122+1
+ 1196 0050 C5000000 		.word	.L121+1
+ 1197 0054 C9000000 		.word	.L120+1
+ 1198 0058 CD000000 		.word	.L119+1
+ 1199 005c D1000000 		.word	.L118+1
+ 1200 0060 01010000 		.word	.L105+1
+ 1201 0064 D5000000 		.word	.L117+1
+ 1202 0068 D9000000 		.word	.L116+1
+ 1203 006c DD000000 		.word	.L115+1
+ 1204 0070 E1000000 		.word	.L114+1
+ 1205 0074 E5000000 		.word	.L113+1
+ 1206 0078 E9000000 		.word	.L112+1
+ 1207 007c ED000000 		.word	.L111+1
+ 1208 0080 F1000000 		.word	.L110+1
+ 1209 0084 F5000000 		.word	.L109+1
+ 1210 0088 F9000000 		.word	.L108+1
+ 1211 008c FD000000 		.word	.L106+1
+ 1212              		.p2align 1
+ 1213              	.L134:
+ 377:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 378:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_DEMOD_BDS_ALMANAC_SV31_43:
+ 379:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 380:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_DEMOD_BDS_ALMANAC_SV31_43";
+ 1214              		.loc 1 380 16
+ 1215 0090 1F4B     		ldr	r3, .L136
+ 1216 0092 36E0     		b	.L135
+ 1217              	.L133:
+ 381:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 382:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 383:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_SV_SELECTED_FOR_DEMOD_LOST:
+ 384:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 385:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_SV_SELECTED_FOR_DEMOD_LOST";
+ 1218              		.loc 1 385 16
+ 1219 0094 1F4B     		ldr	r3, .L136+4
+ 1220 0096 34E0     		b	.L135
+ 1221              	.L132:
+ 386:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 387:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 388:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_ALMANAC_DEMOD_ERROR:
+ 389:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 390:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_ALMANAC_DEMOD_ERROR";
+ 1222              		.loc 1 390 16
+ 1223 0098 1F4B     		ldr	r3, .L136+8
+ 1224 009a 32E0     		b	.L135
+ 1225              	.L131:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 34
+
+
+ 391:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 392:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 393:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WAKE_UP_AFTER_PREAMBLE:
+ 394:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 395:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WAKE_UP_AFTER_PREAMBLE";
+ 1226              		.loc 1 395 16
+ 1227 009c 1F4B     		ldr	r3, .L136+12
+ 1228 009e 30E0     		b	.L135
+ 1229              	.L130:
+ 396:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 397:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 398:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_20MS_REAL_TIME_FAILURE:
+ 399:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 400:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_20MS_REAL_TIME_FAILURE";
+ 1230              		.loc 1 400 16
+ 1231 00a0 1F4B     		ldr	r3, .L136+16
+ 1232 00a2 2EE0     		b	.L135
+ 1233              	.L129:
+ 401:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 402:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 403:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WAKE_UP_SYNC_FAILURE:
+ 404:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 405:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WAKE_UP_SYNC_FAILURE";
+ 1234              		.loc 1 405 16
+ 1235 00a4 1F4B     		ldr	r3, .L136+20
+ 1236 00a6 2CE0     		b	.L135
+ 1237              	.L128:
+ 406:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 407:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 408:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WEEK_NUMBER_NOT_VALIDATED:
+ 409:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 410:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WEEK_NUMBER_NOT_VALIDATED";
+ 1238              		.loc 1 410 16
+ 1239 00a8 1F4B     		ldr	r3, .L136+24
+ 1240 00aa 2AE0     		b	.L135
+ 1241              	.L127:
+ 411:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 412:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 413:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_ACTIVATED_SAT_IN_SV_LIST:
+ 414:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 415:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_ACTIVATED_SAT_IN_SV_LIST";
+ 1242              		.loc 1 415 16
+ 1243 00ac 1F4B     		ldr	r3, .L136+28
+ 1244 00ae 28E0     		b	.L135
+ 1245              	.L126:
+ 416:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 417:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 418:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_SLEEP_TIME_TOO_LONG:
+ 419:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 420:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_SLEEP_TIME_TOO_LONG";
+ 1246              		.loc 1 420 16
+ 1247 00b0 1F4B     		ldr	r3, .L136+32
+ 1248 00b2 26E0     		b	.L135
+ 1249              	.L125:
+ 421:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 422:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 423:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WRONG_TIME_OF_WEEK_DEMOD:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 35
+
+
+ 424:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 425:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WRONG_TIME_OF_WEEK_DEMOD";
+ 1250              		.loc 1 425 16
+ 1251 00b4 1F4B     		ldr	r3, .L136+36
+ 1252 00b6 24E0     		b	.L135
+ 1253              	.L124:
+ 426:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 427:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 428:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_PREAMBLE_NOT_VALIDATED:
+ 429:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 430:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_PREAMBLE_NOT_VALIDATED";
+ 1254              		.loc 1 430 16
+ 1255 00b8 1F4B     		ldr	r3, .L136+40
+ 1256 00ba 22E0     		b	.L135
+ 1257              	.L123:
+ 431:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 432:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 433:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DEMOD_DISABLE:
+ 434:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 435:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DEMOD_DISABLE";
+ 1258              		.loc 1 435 16
+ 1259 00bc 1F4B     		ldr	r3, .L136+44
+ 1260 00be 20E0     		b	.L135
+ 1261              	.L122:
+ 436:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 437:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 438:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DEMOD_EXTRACTION_FAILURE:
+ 439:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 440:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DEMOD_EXTRACTION_FAILURE";
+ 1262              		.loc 1 440 16
+ 1263 00c0 1F4B     		ldr	r3, .L136+48
+ 1264 00c2 1EE0     		b	.L135
+ 1265              	.L121:
+ 441:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 442:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 443:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_BIT_CHANGE_FOUND_DURING_START_DEMOD:
+ 444:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 445:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_BIT_CHANGE_FOUND_DURING_START_DEMOD";
+ 1266              		.loc 1 445 16
+ 1267 00c4 1F4B     		ldr	r3, .L136+52
+ 1268 00c6 1CE0     		b	.L135
+ 1269              	.L120:
+ 446:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 447:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 448:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_BIT_CHANGE_FOUND_DURING_MULTISCAN:
+ 449:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 450:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_BIT_CHANGE_FOUND_DURING_MULTISCAN";
+ 1270              		.loc 1 450 16
+ 1271 00c8 1F4B     		ldr	r3, .L136+56
+ 1272 00ca 1AE0     		b	.L135
+ 1273              	.L119:
+ 451:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 452:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 453:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_SAT_FOUND:
+ 454:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 455:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_SAT_FOUND";
+ 1274              		.loc 1 455 16
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 36
+
+
+ 1275 00cc 1F4B     		ldr	r3, .L136+60
+ 1276 00ce 18E0     		b	.L135
+ 1277              	.L118:
+ 456:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 457:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 458:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WORD_SYNC_LOST:
+ 459:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 460:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WORD_SYNC_LOST";
+ 1278              		.loc 1 460 16
+ 1279 00d0 1F4B     		ldr	r3, .L136+64
+ 1280 00d2 16E0     		b	.L135
+ 1281              	.L117:
+ 461:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 462:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 463:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NOT_ENOUGH_PARITY_CHECK_FOUND:
+ 464:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 465:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NOT_ENOUGH_PARITY_CHECK_FOUND";
+ 1282              		.loc 1 465 16
+ 1283 00d4 1F4B     		ldr	r3, .L136+68
+ 1284 00d6 14E0     		b	.L135
+ 1285              	.L116:
+ 466:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 467:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 468:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_TOO_MANY_PARITY_CHECK_FOUND:
+ 469:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 470:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_TOO_MANY_PARITY_CHECK_FOUND";
+ 1286              		.loc 1 470 16
+ 1287 00d8 1F4B     		ldr	r3, .L136+72
+ 1288 00da 12E0     		b	.L135
+ 1289              	.L115:
+ 471:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 472:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 473:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_PARITY_CHECK_FOUND:
+ 474:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 475:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_PARITY_CHECK_FOUND";
+ 1290              		.loc 1 475 16
+ 1291 00dc 1F4B     		ldr	r3, .L136+76
+ 1292 00de 10E0     		b	.L135
+ 1293              	.L114:
+ 476:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 477:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 478:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WORD_SYNC_SEARCH_NOT_STARTED:
+ 479:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 480:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WORD_SYNC_SEARCH_NOT_STARTED";
+ 1294              		.loc 1 480 16
+ 1295 00e0 1F4B     		ldr	r3, .L136+80
+ 1296 00e2 0EE0     		b	.L135
+ 1297              	.L113:
+ 481:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 482:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 483:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WORD_SYNC_POTENTIALLY_FOUND:
+ 484:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 485:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WORD_SYNC_POTENTIALLY_FOUND";
+ 1298              		.loc 1 485 16
+ 1299 00e4 1F4B     		ldr	r3, .L136+84
+ 1300 00e6 0CE0     		b	.L135
+ 1301              	.L112:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 37
+
+
+ 486:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 487:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 488:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WORD_SYNC_FOUND:
+ 489:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 490:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WORD_SYNC_FOUND";
+ 1302              		.loc 1 490 16
+ 1303 00e8 1F4B     		ldr	r3, .L136+88
+ 1304 00ea 0AE0     		b	.L135
+ 1305              	.L111:
+ 491:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 492:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 493:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_TIME_OF_WEEK_FOUND:
+ 494:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 495:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_TIME_OF_WEEK_FOUND";
+ 1306              		.loc 1 495 16
+ 1307 00ec 1F4B     		ldr	r3, .L136+92
+ 1308 00ee 08E0     		b	.L135
+ 1309              	.L110:
+ 496:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 497:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 498:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_WEEK_NUMBER_FOUND:
+ 499:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 500:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_WEEK_NUMBER_FOUND";
+ 1310              		.loc 1 500 16
+ 1311 00f0 1F4B     		ldr	r3, .L136+96
+ 1312 00f2 06E0     		b	.L135
+ 1313              	.L109:
+ 501:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 502:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 503:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_ALMANAC_FOUND_BUT_NO_SAVED:
+ 504:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 505:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_ALMANAC_FOUND_BUT_NO_SAVED";
+ 1314              		.loc 1 505 16
+ 1315 00f4 1F4B     		ldr	r3, .L136+100
+ 1316 00f6 04E0     		b	.L135
+ 1317              	.L108:
+ 506:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 507:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 508:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_HALF_ALMANAC_FOUND_AND_SAVED:
+ 509:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 510:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_HALF_ALMANAC_FOUND_AND_SAVED";
+ 1318              		.loc 1 510 16
+ 1319 00f8 1F4B     		ldr	r3, .L136+104
+ 1320 00fa 02E0     		b	.L135
+ 1321              	.L106:
+ 511:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 512:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 513:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_ALMANAC_FOUND_AND_SAVED:
+ 514:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 515:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_ALMANAC_FOUND_AND_SAVED";
+ 1322              		.loc 1 515 16
+ 1323 00fc 1F4B     		ldr	r3, .L136+108
+ 1324 00fe 00E0     		b	.L135
+ 1325              	.L105:
+ 516:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 517:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 518:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 38
+
+
+ 519:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 520:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 1326              		.loc 1 520 16
+ 1327 0100 1F4B     		ldr	r3, .L136+112
+ 1328              	.L135:
+ 521:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 522:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 523:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 1329              		.loc 1 523 1
+ 1330 0102 1846     		mov	r0, r3
+ 1331 0104 0C37     		adds	r7, r7, #12
+ 1332              	.LCFI69:
+ 1333              		.cfi_def_cfa_offset 4
+ 1334 0106 BD46     		mov	sp, r7
+ 1335              	.LCFI70:
+ 1336              		.cfi_def_cfa_register 13
+ 1337              		@ sp needed
+ 1338 0108 5DF8047B 		ldr	r7, [sp], #4
+ 1339              	.LCFI71:
+ 1340              		.cfi_restore 7
+ 1341              		.cfi_def_cfa_offset 0
+ 1342 010c 7047     		bx	lr
+ 1343              	.L137:
+ 1344 010e 00BF     		.align	2
+ 1345              	.L136:
+ 1346 0110 80060000 		.word	.LC44
+ 1347 0114 AC060000 		.word	.LC45
+ 1348 0118 D4060000 		.word	.LC46
+ 1349 011c F4060000 		.word	.LC47
+ 1350 0120 18070000 		.word	.LC48
+ 1351 0124 3C070000 		.word	.LC49
+ 1352 0128 60070000 		.word	.LC50
+ 1353 012c 88070000 		.word	.LC51
+ 1354 0130 B0070000 		.word	.LC52
+ 1355 0134 D0070000 		.word	.LC53
+ 1356 0138 F8070000 		.word	.LC54
+ 1357 013c 1C080000 		.word	.LC55
+ 1358 0140 38080000 		.word	.LC56
+ 1359 0144 60080000 		.word	.LC57
+ 1360 0148 94080000 		.word	.LC58
+ 1361 014c C8080000 		.word	.LC59
+ 1362 0150 E4080000 		.word	.LC60
+ 1363 0154 00090000 		.word	.LC61
+ 1364 0158 2C090000 		.word	.LC62
+ 1365 015c 54090000 		.word	.LC63
+ 1366 0160 78090000 		.word	.LC64
+ 1367 0164 A4090000 		.word	.LC65
+ 1368 0168 CC090000 		.word	.LC66
+ 1369 016c E8090000 		.word	.LC67
+ 1370 0170 080A0000 		.word	.LC68
+ 1371 0174 280A0000 		.word	.LC69
+ 1372 0178 500A0000 		.word	.LC70
+ 1373 017c 7C0A0000 		.word	.LC71
+ 1374 0180 30000000 		.word	.LC2
+ 1375              		.cfi_endproc
+ 1376              	.LFE11:
+ 1378              		.section	.rodata
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 39
+
+
+ 1379              		.align	2
+ 1380              	.LC72:
+ 1381 0aa0 4C523131 		.ascii	"LR11XX_GNSS_DOPPLER_SOLVER_NO_ERROR\000"
+ 1381      58585F47 
+ 1381      4E53535F 
+ 1381      444F5050 
+ 1381      4C45525F 
+ 1382              		.align	2
+ 1383              	.LC73:
+ 1384 0ac4 4C523131 		.ascii	"LR11XX_GNSS_DOPPLER_SOLVER_ERROR_RESIDUE_HIGH\000"
+ 1384      58585F47 
+ 1384      4E53535F 
+ 1384      444F5050 
+ 1384      4C45525F 
+ 1385 0af2 0000     		.align	2
+ 1386              	.LC74:
+ 1387 0af4 4C523131 		.ascii	"LR11XX_GNSS_DOPPLER_SOLVER_ERROR_NOT_CONVERGED\000"
+ 1387      58585F47 
+ 1387      4E53535F 
+ 1387      444F5050 
+ 1387      4C45525F 
+ 1388 0b23 00       		.align	2
+ 1389              	.LC75:
+ 1390 0b24 4C523131 		.ascii	"LR11XX_GNSS_DOPPLER_SOLVER_ERROR_NOT_ENOUGH_SV\000"
+ 1390      58585F47 
+ 1390      4E53535F 
+ 1390      444F5050 
+ 1390      4C45525F 
+ 1391 0b53 00       		.align	2
+ 1392              	.LC76:
+ 1393 0b54 4C523131 		.ascii	"LR11XX_GNSS_DOPPLER_SOLVER_ERROR_ILL_MATRIX\000"
+ 1393      58585F47 
+ 1393      4E53535F 
+ 1393      444F5050 
+ 1393      4C45525F 
+ 1394              		.align	2
+ 1395              	.LC77:
+ 1396 0b80 4C523131 		.ascii	"LR11XX_GNSS_DOPPLER_SOLVER_ERROR_TIME_ERROR\000"
+ 1396      58585F47 
+ 1396      4E53535F 
+ 1396      444F5050 
+ 1396      4C45525F 
+ 1397              		.align	2
+ 1398              	.LC78:
+ 1399 0bac 4C523131 		.ascii	"LR11XX_GNSS_DOPPLER_SOLVER_ERROR_PARTIAL_ALMANAC_TO"
+ 1399      58585F47 
+ 1399      4E53535F 
+ 1399      444F5050 
+ 1399      4C45525F 
+ 1400 0bdf 4F5F4F4C 		.ascii	"O_OLD\000"
+ 1400      4400
+ 1401 0be5 000000   		.align	2
+ 1402              	.LC79:
+ 1403 0be8 4C523131 		.ascii	"LR11XX_GNSS_DOPPLER_SOLVER_ERROR_NOT_CONSISTENT_WIT"
+ 1403      58585F47 
+ 1403      4E53535F 
+ 1403      444F5050 
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 40
+
+
+ 1403      4C45525F 
+ 1404 0c1b 485F4849 		.ascii	"H_HISTORY\000"
+ 1404      53544F52 
+ 1404      5900
+ 1405 0c25 000000   		.align	2
+ 1406              	.LC80:
+ 1407 0c28 4C523131 		.ascii	"LR11XX_GNSS_DOPPLER_SOLVER_ERROR_ALL_ALMANAC_TOO_OL"
+ 1407      58585F47 
+ 1407      4E53535F 
+ 1407      444F5050 
+ 1407      4C45525F 
+ 1408 0c5b 4400     		.ascii	"D\000"
+ 1409              		.section	.text.lr11xx_gnss_doppler_solver_error_code_to_str,"ax",%progbits
+ 1410              		.align	1
+ 1411              		.global	lr11xx_gnss_doppler_solver_error_code_to_str
+ 1412              		.syntax unified
+ 1413              		.thumb
+ 1414              		.thumb_func
+ 1416              	lr11xx_gnss_doppler_solver_error_code_to_str:
+ 1417              	.LFB12:
+ 524:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 525:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_doppler_solver_error_code_to_str( const lr11xx_gnss_doppler_solver_error_co
+ 526:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 1418              		.loc 1 526 1
+ 1419              		.cfi_startproc
+ 1420              		@ args = 0, pretend = 0, frame = 8
+ 1421              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1422              		@ link register save eliminated.
+ 1423 0000 80B4     		push	{r7}
+ 1424              	.LCFI72:
+ 1425              		.cfi_def_cfa_offset 4
+ 1426              		.cfi_offset 7, -4
+ 1427 0002 83B0     		sub	sp, sp, #12
+ 1428              	.LCFI73:
+ 1429              		.cfi_def_cfa_offset 16
+ 1430 0004 00AF     		add	r7, sp, #0
+ 1431              	.LCFI74:
+ 1432              		.cfi_def_cfa_register 7
+ 1433 0006 0346     		mov	r3, r0
+ 1434 0008 FB71     		strb	r3, [r7, #7]
+ 527:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 1435              		.loc 1 527 5
+ 1436 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1437 000c 082B     		cmp	r3, #8
+ 1438 000e 27D8     		bhi	.L139
+ 1439 0010 01A2     		adr	r2, .L141
+ 1440 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 1441 0016 00BF     		.p2align 2
+ 1442              	.L141:
+ 1443 0018 3D000000 		.word	.L149+1
+ 1444 001c 41000000 		.word	.L148+1
+ 1445 0020 45000000 		.word	.L147+1
+ 1446 0024 49000000 		.word	.L146+1
+ 1447 0028 4D000000 		.word	.L145+1
+ 1448 002c 51000000 		.word	.L144+1
+ 1449 0030 55000000 		.word	.L143+1
+ 1450 0034 59000000 		.word	.L142+1
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 41
+
+
+ 1451 0038 5D000000 		.word	.L140+1
+ 1452              		.p2align 1
+ 1453              	.L149:
+ 528:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 529:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DOPPLER_SOLVER_NO_ERROR:
+ 530:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 531:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DOPPLER_SOLVER_NO_ERROR";
+ 1454              		.loc 1 531 16
+ 1455 003c 0C4B     		ldr	r3, .L151
+ 1456 003e 10E0     		b	.L150
+ 1457              	.L148:
+ 532:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 533:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 534:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DOPPLER_SOLVER_ERROR_RESIDUE_HIGH:
+ 535:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 536:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DOPPLER_SOLVER_ERROR_RESIDUE_HIGH";
+ 1458              		.loc 1 536 16
+ 1459 0040 0C4B     		ldr	r3, .L151+4
+ 1460 0042 0EE0     		b	.L150
+ 1461              	.L147:
+ 537:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 538:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 539:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DOPPLER_SOLVER_ERROR_NOT_CONVERGED:
+ 540:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 541:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DOPPLER_SOLVER_ERROR_NOT_CONVERGED";
+ 1462              		.loc 1 541 16
+ 1463 0044 0C4B     		ldr	r3, .L151+8
+ 1464 0046 0CE0     		b	.L150
+ 1465              	.L146:
+ 542:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 543:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 544:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DOPPLER_SOLVER_ERROR_NOT_ENOUGH_SV:
+ 545:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 546:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DOPPLER_SOLVER_ERROR_NOT_ENOUGH_SV";
+ 1466              		.loc 1 546 16
+ 1467 0048 0C4B     		ldr	r3, .L151+12
+ 1468 004a 0AE0     		b	.L150
+ 1469              	.L145:
+ 547:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 548:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 549:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DOPPLER_SOLVER_ERROR_ILL_MATRIX:
+ 550:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 551:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DOPPLER_SOLVER_ERROR_ILL_MATRIX";
+ 1470              		.loc 1 551 16
+ 1471 004c 0C4B     		ldr	r3, .L151+16
+ 1472 004e 08E0     		b	.L150
+ 1473              	.L144:
+ 552:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 553:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 554:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DOPPLER_SOLVER_ERROR_TIME_ERROR:
+ 555:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 556:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DOPPLER_SOLVER_ERROR_TIME_ERROR";
+ 1474              		.loc 1 556 16
+ 1475 0050 0C4B     		ldr	r3, .L151+20
+ 1476 0052 06E0     		b	.L150
+ 1477              	.L143:
+ 557:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 42
+
+
+ 558:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 559:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DOPPLER_SOLVER_ERROR_PARTIAL_ALMANAC_TOO_OLD:
+ 560:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 561:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DOPPLER_SOLVER_ERROR_PARTIAL_ALMANAC_TOO_OLD";
+ 1478              		.loc 1 561 16
+ 1479 0054 0C4B     		ldr	r3, .L151+24
+ 1480 0056 04E0     		b	.L150
+ 1481              	.L142:
+ 562:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 563:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 564:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DOPPLER_SOLVER_ERROR_NOT_CONSISTENT_WITH_HISTORY:
+ 565:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 566:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DOPPLER_SOLVER_ERROR_NOT_CONSISTENT_WITH_HISTORY";
+ 1482              		.loc 1 566 16
+ 1483 0058 0C4B     		ldr	r3, .L151+28
+ 1484 005a 02E0     		b	.L150
+ 1485              	.L140:
+ 567:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 568:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 569:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_DOPPLER_SOLVER_ERROR_ALL_ALMANAC_TOO_OLD:
+ 570:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 571:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_DOPPLER_SOLVER_ERROR_ALL_ALMANAC_TOO_OLD";
+ 1486              		.loc 1 571 16
+ 1487 005c 0C4B     		ldr	r3, .L151+32
+ 1488 005e 00E0     		b	.L150
+ 1489              	.L139:
+ 572:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 573:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 574:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 575:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 576:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 1490              		.loc 1 576 16
+ 1491 0060 0C4B     		ldr	r3, .L151+36
+ 1492              	.L150:
+ 577:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 578:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 579:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 1493              		.loc 1 579 1
+ 1494 0062 1846     		mov	r0, r3
+ 1495 0064 0C37     		adds	r7, r7, #12
+ 1496              	.LCFI75:
+ 1497              		.cfi_def_cfa_offset 4
+ 1498 0066 BD46     		mov	sp, r7
+ 1499              	.LCFI76:
+ 1500              		.cfi_def_cfa_register 13
+ 1501              		@ sp needed
+ 1502 0068 5DF8047B 		ldr	r7, [sp], #4
+ 1503              	.LCFI77:
+ 1504              		.cfi_restore 7
+ 1505              		.cfi_def_cfa_offset 0
+ 1506 006c 7047     		bx	lr
+ 1507              	.L152:
+ 1508 006e 00BF     		.align	2
+ 1509              	.L151:
+ 1510 0070 A00A0000 		.word	.LC72
+ 1511 0074 C40A0000 		.word	.LC73
+ 1512 0078 F40A0000 		.word	.LC74
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 43
+
+
+ 1513 007c 240B0000 		.word	.LC75
+ 1514 0080 540B0000 		.word	.LC76
+ 1515 0084 800B0000 		.word	.LC77
+ 1516 0088 AC0B0000 		.word	.LC78
+ 1517 008c E80B0000 		.word	.LC79
+ 1518 0090 280C0000 		.word	.LC80
+ 1519 0094 30000000 		.word	.LC2
+ 1520              		.cfi_endproc
+ 1521              	.LFE12:
+ 1523              		.section	.rodata
+ 1524 0c5d 000000   		.align	2
+ 1525              	.LC81:
+ 1526 0c60 4C523131 		.ascii	"LR11XX_GNSS_INTERNAL_ACCURACY_TOO_LOW\000"
+ 1526      58585F47 
+ 1526      4E53535F 
+ 1526      494E5445 
+ 1526      524E414C 
+ 1527 0c86 0000     		.align	2
+ 1528              	.LC82:
+ 1529 0c88 4C523131 		.ascii	"LR11XX_GNSS_NO_TIME_SET\000"
+ 1529      58585F47 
+ 1529      4E53535F 
+ 1529      4E4F5F54 
+ 1529      494D455F 
+ 1530              		.align	2
+ 1531              	.LC83:
+ 1532 0ca0 4C523131 		.ascii	"LR11XX_GNSS_IMPOSSIBLE_TO_FIND_NEXT_TIME\000"
+ 1532      58585F47 
+ 1532      4E53535F 
+ 1532      494D504F 
+ 1532      53534942 
+ 1533 0cc9 000000   		.align	2
+ 1534              	.LC84:
+ 1535 0ccc 4C523131 		.ascii	"LR11XX_GNSS_NO_PAGE_ID_KNOWN\000"
+ 1535      58585F47 
+ 1535      4E53535F 
+ 1535      4E4F5F50 
+ 1535      4147455F 
+ 1536 0ce9 000000   		.align	2
+ 1537              	.LC85:
+ 1538 0cec 4C523131 		.ascii	"LR11XX_GNSS_NO_SAT_TO_UPDATE\000"
+ 1538      58585F47 
+ 1538      4E53535F 
+ 1538      4E4F5F53 
+ 1538      41545F54 
+ 1539 0d09 000000   		.align	2
+ 1540              	.LC86:
+ 1541 0d0c 4C523131 		.ascii	"LR11XX_GNSS_AT_LEAST_ONE_SAT_MUST_BE_UPDATED\000"
+ 1541      58585F47 
+ 1541      4E53535F 
+ 1541      41545F4C 
+ 1541      45415354 
+ 1542              		.section	.text.lr11xx_gnss_almanac_status_to_str,"ax",%progbits
+ 1543              		.align	1
+ 1544              		.global	lr11xx_gnss_almanac_status_to_str
+ 1545              		.syntax unified
+ 1546              		.thumb
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 44
+
+
+ 1547              		.thumb_func
+ 1549              	lr11xx_gnss_almanac_status_to_str:
+ 1550              	.LFB13:
+ 580:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 581:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_almanac_status_to_str( const lr11xx_gnss_almanac_status_t value )
+ 582:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 1551              		.loc 1 582 1
+ 1552              		.cfi_startproc
+ 1553              		@ args = 0, pretend = 0, frame = 8
+ 1554              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1555              		@ link register save eliminated.
+ 1556 0000 80B4     		push	{r7}
+ 1557              	.LCFI78:
+ 1558              		.cfi_def_cfa_offset 4
+ 1559              		.cfi_offset 7, -4
+ 1560 0002 83B0     		sub	sp, sp, #12
+ 1561              	.LCFI79:
+ 1562              		.cfi_def_cfa_offset 16
+ 1563 0004 00AF     		add	r7, sp, #0
+ 1564              	.LCFI80:
+ 1565              		.cfi_def_cfa_register 7
+ 1566 0006 0346     		mov	r3, r0
+ 1567 0008 FB71     		strb	r3, [r7, #7]
+ 583:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 1568              		.loc 1 583 5
+ 1569 000a 97F90730 		ldrsb	r3, [r7, #7]
+ 1570 000e 0433     		adds	r3, r3, #4
+ 1571 0010 052B     		cmp	r3, #5
+ 1572 0012 1BD8     		bhi	.L154
+ 1573 0014 01A2     		adr	r2, .L156
+ 1574 0016 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 1575 001a 00BF     		.p2align 2
+ 1576              	.L156:
+ 1577 001c 35000000 		.word	.L161+1
+ 1578 0020 39000000 		.word	.L160+1
+ 1579 0024 3D000000 		.word	.L159+1
+ 1580 0028 41000000 		.word	.L158+1
+ 1581 002c 45000000 		.word	.L157+1
+ 1582 0030 49000000 		.word	.L155+1
+ 1583              		.p2align 1
+ 1584              	.L161:
+ 584:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 585:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_INTERNAL_ACCURACY_TOO_LOW:
+ 586:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 587:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_INTERNAL_ACCURACY_TOO_LOW";
+ 1585              		.loc 1 587 16
+ 1586 0034 094B     		ldr	r3, .L163
+ 1587 0036 0AE0     		b	.L162
+ 1588              	.L160:
+ 588:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 589:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 590:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_TIME_SET:
+ 591:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 592:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_TIME_SET";
+ 1589              		.loc 1 592 16
+ 1590 0038 094B     		ldr	r3, .L163+4
+ 1591 003a 08E0     		b	.L162
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 45
+
+
+ 1592              	.L159:
+ 593:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 594:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 595:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_IMPOSSIBLE_TO_FIND_NEXT_TIME:
+ 596:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 597:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_IMPOSSIBLE_TO_FIND_NEXT_TIME";
+ 1593              		.loc 1 597 16
+ 1594 003c 094B     		ldr	r3, .L163+8
+ 1595 003e 06E0     		b	.L162
+ 1596              	.L158:
+ 598:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 599:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 600:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_PAGE_ID_KNOWN:
+ 601:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 602:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_PAGE_ID_KNOWN";
+ 1597              		.loc 1 602 16
+ 1598 0040 094B     		ldr	r3, .L163+12
+ 1599 0042 04E0     		b	.L162
+ 1600              	.L157:
+ 603:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 604:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 605:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_NO_SAT_TO_UPDATE:
+ 606:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 607:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_NO_SAT_TO_UPDATE";
+ 1601              		.loc 1 607 16
+ 1602 0044 094B     		ldr	r3, .L163+16
+ 1603 0046 02E0     		b	.L162
+ 1604              	.L155:
+ 608:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 609:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 610:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_AT_LEAST_ONE_SAT_MUST_BE_UPDATED:
+ 611:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 612:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_AT_LEAST_ONE_SAT_MUST_BE_UPDATED";
+ 1605              		.loc 1 612 16
+ 1606 0048 094B     		ldr	r3, .L163+20
+ 1607 004a 00E0     		b	.L162
+ 1608              	.L154:
+ 613:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 614:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 615:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 616:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 617:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 1609              		.loc 1 617 16
+ 1610 004c 094B     		ldr	r3, .L163+24
+ 1611              	.L162:
+ 618:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 619:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 620:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 1612              		.loc 1 620 1
+ 1613 004e 1846     		mov	r0, r3
+ 1614 0050 0C37     		adds	r7, r7, #12
+ 1615              	.LCFI81:
+ 1616              		.cfi_def_cfa_offset 4
+ 1617 0052 BD46     		mov	sp, r7
+ 1618              	.LCFI82:
+ 1619              		.cfi_def_cfa_register 13
+ 1620              		@ sp needed
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 46
+
+
+ 1621 0054 5DF8047B 		ldr	r7, [sp], #4
+ 1622              	.LCFI83:
+ 1623              		.cfi_restore 7
+ 1624              		.cfi_def_cfa_offset 0
+ 1625 0058 7047     		bx	lr
+ 1626              	.L164:
+ 1627 005a 00BF     		.align	2
+ 1628              	.L163:
+ 1629 005c 600C0000 		.word	.LC81
+ 1630 0060 880C0000 		.word	.LC82
+ 1631 0064 A00C0000 		.word	.LC83
+ 1632 0068 CC0C0000 		.word	.LC84
+ 1633 006c EC0C0000 		.word	.LC85
+ 1634 0070 0C0D0000 		.word	.LC86
+ 1635 0074 30000000 		.word	.LC2
+ 1636              		.cfi_endproc
+ 1637              	.LFE13:
+ 1639              		.section	.rodata
+ 1640 0d39 000000   		.align	2
+ 1641              	.LC87:
+ 1642 0d3c 4C523131 		.ascii	"LR11XX_GNSS_MEO_SAT\000"
+ 1642      58585F47 
+ 1642      4E53535F 
+ 1642      4D454F5F 
+ 1642      53415400 
+ 1643              		.align	2
+ 1644              	.LC88:
+ 1645 0d50 4C523131 		.ascii	"LR11XX_GNSS_IGSO_SAT\000"
+ 1645      58585F47 
+ 1645      4E53535F 
+ 1645      4947534F 
+ 1645      5F534154 
+ 1646              		.section	.text.lr11xx_gnss_sv_type_to_str,"ax",%progbits
+ 1647              		.align	1
+ 1648              		.global	lr11xx_gnss_sv_type_to_str
+ 1649              		.syntax unified
+ 1650              		.thumb
+ 1651              		.thumb_func
+ 1653              	lr11xx_gnss_sv_type_to_str:
+ 1654              	.LFB14:
+ 621:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 622:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_sv_type_to_str( const lr11xx_gnss_sv_type_t value )
+ 623:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 1655              		.loc 1 623 1
+ 1656              		.cfi_startproc
+ 1657              		@ args = 0, pretend = 0, frame = 8
+ 1658              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1659              		@ link register save eliminated.
+ 1660 0000 80B4     		push	{r7}
+ 1661              	.LCFI84:
+ 1662              		.cfi_def_cfa_offset 4
+ 1663              		.cfi_offset 7, -4
+ 1664 0002 83B0     		sub	sp, sp, #12
+ 1665              	.LCFI85:
+ 1666              		.cfi_def_cfa_offset 16
+ 1667 0004 00AF     		add	r7, sp, #0
+ 1668              	.LCFI86:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 47
+
+
+ 1669              		.cfi_def_cfa_register 7
+ 1670 0006 0346     		mov	r3, r0
+ 1671 0008 FB71     		strb	r3, [r7, #7]
+ 624:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 1672              		.loc 1 624 5
+ 1673 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1674 000c 002B     		cmp	r3, #0
+ 1675 000e 02D0     		beq	.L166
+ 1676 0010 012B     		cmp	r3, #1
+ 1677 0012 02D0     		beq	.L167
+ 1678 0014 03E0     		b	.L170
+ 1679              	.L166:
+ 625:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 626:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_MEO_SAT:
+ 627:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 628:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_MEO_SAT";
+ 1680              		.loc 1 628 16
+ 1681 0016 054B     		ldr	r3, .L171
+ 1682 0018 02E0     		b	.L169
+ 1683              	.L167:
+ 629:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 630:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 631:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_IGSO_SAT:
+ 632:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 633:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_IGSO_SAT";
+ 1684              		.loc 1 633 16
+ 1685 001a 054B     		ldr	r3, .L171+4
+ 1686 001c 00E0     		b	.L169
+ 1687              	.L170:
+ 634:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 635:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 636:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 637:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 638:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 1688              		.loc 1 638 16
+ 1689 001e 054B     		ldr	r3, .L171+8
+ 1690              	.L169:
+ 639:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 640:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 641:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 1691              		.loc 1 641 1
+ 1692 0020 1846     		mov	r0, r3
+ 1693 0022 0C37     		adds	r7, r7, #12
+ 1694              	.LCFI87:
+ 1695              		.cfi_def_cfa_offset 4
+ 1696 0024 BD46     		mov	sp, r7
+ 1697              	.LCFI88:
+ 1698              		.cfi_def_cfa_register 13
+ 1699              		@ sp needed
+ 1700 0026 5DF8047B 		ldr	r7, [sp], #4
+ 1701              	.LCFI89:
+ 1702              		.cfi_restore 7
+ 1703              		.cfi_def_cfa_offset 0
+ 1704 002a 7047     		bx	lr
+ 1705              	.L172:
+ 1706              		.align	2
+ 1707              	.L171:
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 48
+
+
+ 1708 002c 3C0D0000 		.word	.LC87
+ 1709 0030 500D0000 		.word	.LC88
+ 1710 0034 30000000 		.word	.LC2
+ 1711              		.cfi_endproc
+ 1712              	.LFE14:
+ 1714              		.section	.rodata
+ 1715 0d65 000000   		.align	2
+ 1716              	.LC89:
+ 1717 0d68 4C523131 		.ascii	"LR11XX_GNSS_LAST_SCAN_MODE_ASSISTED\000"
+ 1717      58585F47 
+ 1717      4E53535F 
+ 1717      4C415354 
+ 1717      5F534341 
+ 1718              		.align	2
+ 1719              	.LC90:
+ 1720 0d8c 4C523131 		.ascii	"LR11XX_GNSS_LAST_SCAN_MODE_AUTONOMOUS_NO_TIME_NO_AP"
+ 1720      58585F47 
+ 1720      4E53535F 
+ 1720      4C415354 
+ 1720      5F534341 
+ 1721 0dbf 00       		.ascii	"\000"
+ 1722              		.align	2
+ 1723              	.LC91:
+ 1724 0dc0 4C523131 		.ascii	"LR11XX_GNSS_LAST_SCAN_MODE_AUTONOMOUS_NO_AP\000"
+ 1724      58585F47 
+ 1724      4E53535F 
+ 1724      4C415354 
+ 1724      5F534341 
+ 1725              		.align	2
+ 1726              	.LC92:
+ 1727 0dec 4C523131 		.ascii	"LR11XX_GNSS_LAST_SCAN_FETCH_TIME_OR_DOPPLER_SOLVER\000"
+ 1727      58585F47 
+ 1727      4E53535F 
+ 1727      4C415354 
+ 1727      5F534341 
+ 1728 0e1f 00       		.align	2
+ 1729              	.LC93:
+ 1730 0e20 4C523131 		.ascii	"LR11XX_GNSS_LAST_SCAN_ALMANAC_UPDATE\000"
+ 1730      58585F47 
+ 1730      4E53535F 
+ 1730      4C415354 
+ 1730      5F534341 
+ 1731 0e45 000000   		.align	2
+ 1732              	.LC94:
+ 1733 0e48 4C523131 		.ascii	"LR11XX_GNSS_LAST_SCAN_KEEP_SYNC\000"
+ 1733      58585F47 
+ 1733      4E53535F 
+ 1733      4C415354 
+ 1733      5F534341 
+ 1734              		.align	2
+ 1735              	.LC95:
+ 1736 0e68 4C523131 		.ascii	"LR11XX_GNSS_LAST_SCAN_ALMANAC_UPDATE_1_CONSTELLATIO"
+ 1736      58585F47 
+ 1736      4E53535F 
+ 1736      4C415354 
+ 1736      5F534341 
+ 1737 0e9b 4E00     		.ascii	"N\000"
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 49
+
+
+ 1738 0e9d 000000   		.align	2
+ 1739              	.LC96:
+ 1740 0ea0 4C523131 		.ascii	"LR11XX_GNSS_LAST_SCAN_ALMANAC_UPDATE_2_CONSTELLATIO"
+ 1740      58585F47 
+ 1740      4E53535F 
+ 1740      4C415354 
+ 1740      5F534341 
+ 1741 0ed3 4E5300   		.ascii	"NS\000"
+ 1742              		.section	.text.lr11xx_gnss_scan_mode_launched_to_str,"ax",%progbits
+ 1743              		.align	1
+ 1744              		.global	lr11xx_gnss_scan_mode_launched_to_str
+ 1745              		.syntax unified
+ 1746              		.thumb
+ 1747              		.thumb_func
+ 1749              	lr11xx_gnss_scan_mode_launched_to_str:
+ 1750              	.LFB15:
+ 642:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 643:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** const char* lr11xx_gnss_scan_mode_launched_to_str( const lr11xx_gnss_scan_mode_launched_t value )
+ 644:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** {
+ 1751              		.loc 1 644 1
+ 1752              		.cfi_startproc
+ 1753              		@ args = 0, pretend = 0, frame = 8
+ 1754              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1755              		@ link register save eliminated.
+ 1756 0000 80B4     		push	{r7}
+ 1757              	.LCFI90:
+ 1758              		.cfi_def_cfa_offset 4
+ 1759              		.cfi_offset 7, -4
+ 1760 0002 83B0     		sub	sp, sp, #12
+ 1761              	.LCFI91:
+ 1762              		.cfi_def_cfa_offset 16
+ 1763 0004 00AF     		add	r7, sp, #0
+ 1764              	.LCFI92:
+ 1765              		.cfi_def_cfa_register 7
+ 1766 0006 0346     		mov	r3, r0
+ 1767 0008 FB71     		strb	r3, [r7, #7]
+ 645:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     switch( value )
+ 1768              		.loc 1 645 5
+ 1769 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1770 000c 033B     		subs	r3, r3, #3
+ 1771 000e 072B     		cmp	r3, #7
+ 1772 0010 22D8     		bhi	.L174
+ 1773 0012 01A2     		adr	r2, .L176
+ 1774 0014 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 1775              		.p2align 2
+ 1776              	.L176:
+ 1777 0018 39000000 		.word	.L183+1
+ 1778 001c 3D000000 		.word	.L182+1
+ 1779 0020 41000000 		.word	.L181+1
+ 1780 0024 45000000 		.word	.L180+1
+ 1781 0028 49000000 		.word	.L179+1
+ 1782 002c 4D000000 		.word	.L178+1
+ 1783 0030 51000000 		.word	.L177+1
+ 1784 0034 55000000 		.word	.L175+1
+ 1785              		.p2align 1
+ 1786              	.L183:
+ 646:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 50
+
+
+ 647:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_LAST_SCAN_MODE_ASSISTED:
+ 648:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 649:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_LAST_SCAN_MODE_ASSISTED";
+ 1787              		.loc 1 649 16
+ 1788 0038 0B4B     		ldr	r3, .L185
+ 1789 003a 0EE0     		b	.L184
+ 1790              	.L182:
+ 650:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 651:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 652:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_LAST_SCAN_MODE_AUTONOMOUS_NO_TIME_NO_AP:
+ 653:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 654:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_LAST_SCAN_MODE_AUTONOMOUS_NO_TIME_NO_AP";
+ 1791              		.loc 1 654 16
+ 1792 003c 0B4B     		ldr	r3, .L185+4
+ 1793 003e 0CE0     		b	.L184
+ 1794              	.L181:
+ 655:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 656:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 657:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_LAST_SCAN_MODE_AUTONOMOUS_NO_AP:
+ 658:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 659:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_LAST_SCAN_MODE_AUTONOMOUS_NO_AP";
+ 1795              		.loc 1 659 16
+ 1796 0040 0B4B     		ldr	r3, .L185+8
+ 1797 0042 0AE0     		b	.L184
+ 1798              	.L180:
+ 660:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 661:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 662:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_LAST_SCAN_FETCH_TIME_OR_DOPPLER_SOLVER:
+ 663:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 664:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_LAST_SCAN_FETCH_TIME_OR_DOPPLER_SOLVER";
+ 1799              		.loc 1 664 16
+ 1800 0044 0B4B     		ldr	r3, .L185+12
+ 1801 0046 08E0     		b	.L184
+ 1802              	.L179:
+ 665:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 666:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 667:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_LAST_SCAN_ALMANAC_UPDATE:
+ 668:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 669:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_LAST_SCAN_ALMANAC_UPDATE";
+ 1803              		.loc 1 669 16
+ 1804 0048 0B4B     		ldr	r3, .L185+16
+ 1805 004a 06E0     		b	.L184
+ 1806              	.L178:
+ 670:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 671:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 672:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_LAST_SCAN_KEEP_SYNC:
+ 673:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 674:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_LAST_SCAN_KEEP_SYNC";
+ 1807              		.loc 1 674 16
+ 1808 004c 0B4B     		ldr	r3, .L185+20
+ 1809 004e 04E0     		b	.L184
+ 1810              	.L177:
+ 675:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 676:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 677:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_LAST_SCAN_ALMANAC_UPDATE_1_CONSTELLATION:
+ 678:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 679:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_LAST_SCAN_ALMANAC_UPDATE_1_CONSTELLATION";
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 51
+
+
+ 1811              		.loc 1 679 16
+ 1812 0050 0B4B     		ldr	r3, .L185+24
+ 1813 0052 02E0     		b	.L184
+ 1814              	.L175:
+ 680:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 681:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 682:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     case LR11XX_GNSS_LAST_SCAN_ALMANAC_UPDATE_2_CONSTELLATIONS:
+ 683:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 684:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "LR11XX_GNSS_LAST_SCAN_ALMANAC_UPDATE_2_CONSTELLATIONS";
+ 1815              		.loc 1 684 16
+ 1816 0054 0B4B     		ldr	r3, .L185+28
+ 1817 0056 00E0     		b	.L184
+ 1818              	.L174:
+ 685:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 686:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** 
+ 687:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     default:
+ 688:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     {
+ 689:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****         return ( const char* ) "Unknown";
+ 1819              		.loc 1 689 16
+ 1820 0058 0B4B     		ldr	r3, .L185+32
+ 1821              	.L184:
+ 690:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 691:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c ****     }
+ 692:../../../../lr11xx/common/printers/lr11xx_gnss_types_str.c **** }
+ 1822              		.loc 1 692 1
+ 1823 005a 1846     		mov	r0, r3
+ 1824 005c 0C37     		adds	r7, r7, #12
+ 1825              	.LCFI93:
+ 1826              		.cfi_def_cfa_offset 4
+ 1827 005e BD46     		mov	sp, r7
+ 1828              	.LCFI94:
+ 1829              		.cfi_def_cfa_register 13
+ 1830              		@ sp needed
+ 1831 0060 5DF8047B 		ldr	r7, [sp], #4
+ 1832              	.LCFI95:
+ 1833              		.cfi_restore 7
+ 1834              		.cfi_def_cfa_offset 0
+ 1835 0064 7047     		bx	lr
+ 1836              	.L186:
+ 1837 0066 00BF     		.align	2
+ 1838              	.L185:
+ 1839 0068 680D0000 		.word	.LC89
+ 1840 006c 8C0D0000 		.word	.LC90
+ 1841 0070 C00D0000 		.word	.LC91
+ 1842 0074 EC0D0000 		.word	.LC92
+ 1843 0078 200E0000 		.word	.LC93
+ 1844 007c 480E0000 		.word	.LC94
+ 1845 0080 680E0000 		.word	.LC95
+ 1846 0084 A00E0000 		.word	.LC96
+ 1847 0088 30000000 		.word	.LC2
+ 1848              		.cfi_endproc
+ 1849              	.LFE15:
+ 1851              		.text
+ 1852              	.Letext0:
+ 1853              		.file 2 "../../../../lr11xx/lr11xx_driver/src/lr11xx_gnss_types.h"
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 52
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lr11xx_gnss_types_str.c
+C:\msys64\tmp\cckRlgWa.s:21     .rodata:00000000 $d
+C:\msys64\tmp\cckRlgWa.s:31     .text.lr11xx_gnss_constellation_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:37     .text.lr11xx_gnss_constellation_to_str:00000000 lr11xx_gnss_constellation_to_str
+C:\msys64\tmp\cckRlgWa.s:92     .text.lr11xx_gnss_constellation_to_str:0000002c $d
+C:\msys64\tmp\cckRlgWa.s:109    .text.lr11xx_gnss_search_mode_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:115    .text.lr11xx_gnss_search_mode_to_str:00000000 lr11xx_gnss_search_mode_to_str
+C:\msys64\tmp\cckRlgWa.s:178    .text.lr11xx_gnss_search_mode_to_str:00000038 $d
+C:\msys64\tmp\cckRlgWa.s:196    .text.lr11xx_gnss_destination_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:202    .text.lr11xx_gnss_destination_to_str:00000000 lr11xx_gnss_destination_to_str
+C:\msys64\tmp\cckRlgWa.s:265    .text.lr11xx_gnss_destination_to_str:00000038 $d
+C:\msys64\tmp\cckRlgWa.s:321    .text.lr11xx_gnss_message_host_status_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:327    .text.lr11xx_gnss_message_host_status_to_str:00000000 lr11xx_gnss_message_host_status_to_str
+C:\msys64\tmp\cckRlgWa.s:354    .text.lr11xx_gnss_message_host_status_to_str:00000018 $d
+C:\msys64\tmp\cckRlgWa.s:371    .text.lr11xx_gnss_message_host_status_to_str:0000005c $t
+C:\msys64\tmp\cckRlgWa.s:453    .text.lr11xx_gnss_message_host_status_to_str:000000a8 $d
+C:\msys64\tmp\cckRlgWa.s:477    .text.lr11xx_gnss_message_dmc_opcode_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:483    .text.lr11xx_gnss_message_dmc_opcode_to_str:00000000 lr11xx_gnss_message_dmc_opcode_to_str
+C:\msys64\tmp\cckRlgWa.s:530    .text.lr11xx_gnss_message_dmc_opcode_to_str:00000024 $d
+C:\msys64\tmp\cckRlgWa.s:544    .text.lr11xx_gnss_scan_mode_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:550    .text.lr11xx_gnss_scan_mode_to_str:00000000 lr11xx_gnss_scan_mode_to_str
+C:\msys64\tmp\cckRlgWa.s:605    .text.lr11xx_gnss_scan_mode_to_str:0000002c $d
+C:\msys64\tmp\cckRlgWa.s:628    .text.lr11xx_gnss_error_code_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:634    .text.lr11xx_gnss_error_code_to_str:00000000 lr11xx_gnss_error_code_to_str
+C:\msys64\tmp\cckRlgWa.s:661    .text.lr11xx_gnss_error_code_to_str:00000018 $d
+C:\msys64\tmp\cckRlgWa.s:666    .text.lr11xx_gnss_error_code_to_str:0000002c $t
+C:\msys64\tmp\cckRlgWa.s:708    .text.lr11xx_gnss_error_code_to_str:00000050 $d
+C:\msys64\tmp\cckRlgWa.s:731    .text.lr11xx_gnss_freq_search_space_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:737    .text.lr11xx_gnss_freq_search_space_to_str:00000000 lr11xx_gnss_freq_search_space_to_str
+C:\msys64\tmp\cckRlgWa.s:764    .text.lr11xx_gnss_freq_search_space_to_str:00000018 $d
+C:\msys64\tmp\cckRlgWa.s:768    .text.lr11xx_gnss_freq_search_space_to_str:00000028 $t
+C:\msys64\tmp\cckRlgWa.s:806    .text.lr11xx_gnss_freq_search_space_to_str:00000048 $d
+C:\msys64\tmp\cckRlgWa.s:825    .text.lr11xx_gnss_fetch_time_option_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:831    .text.lr11xx_gnss_fetch_time_option_to_str:00000000 lr11xx_gnss_fetch_time_option_to_str
+C:\msys64\tmp\cckRlgWa.s:894    .text.lr11xx_gnss_fetch_time_option_to_str:00000038 $d
+C:\msys64\tmp\cckRlgWa.s:912    .text.lr11xx_gnss_read_time_status_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:918    .text.lr11xx_gnss_read_time_status_to_str:00000000 lr11xx_gnss_read_time_status_to_str
+C:\msys64\tmp\cckRlgWa.s:981    .text.lr11xx_gnss_read_time_status_to_str:00000038 $d
+C:\msys64\tmp\cckRlgWa.s:996    .text.lr11xx_gnss_week_number_rollover_status_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:1002   .text.lr11xx_gnss_week_number_rollover_status_to_str:00000000 lr11xx_gnss_week_number_rollover_status_to_str
+C:\msys64\tmp\cckRlgWa.s:1057   .text.lr11xx_gnss_week_number_rollover_status_to_str:0000002c $d
+C:\msys64\tmp\cckRlgWa.s:1149   .text.lr11xx_gnss_demod_status_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:1155   .text.lr11xx_gnss_demod_status_to_str:00000000 lr11xx_gnss_demod_status_to_str
+C:\msys64\tmp\cckRlgWa.s:1183   .text.lr11xx_gnss_demod_status_to_str:0000001c $d
+C:\msys64\tmp\cckRlgWa.s:1212   .text.lr11xx_gnss_demod_status_to_str:00000090 $t
+C:\msys64\tmp\cckRlgWa.s:1346   .text.lr11xx_gnss_demod_status_to_str:00000110 $d
+C:\msys64\tmp\cckRlgWa.s:1410   .text.lr11xx_gnss_doppler_solver_error_code_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:1416   .text.lr11xx_gnss_doppler_solver_error_code_to_str:00000000 lr11xx_gnss_doppler_solver_error_code_to_str
+C:\msys64\tmp\cckRlgWa.s:1443   .text.lr11xx_gnss_doppler_solver_error_code_to_str:00000018 $d
+C:\msys64\tmp\cckRlgWa.s:1452   .text.lr11xx_gnss_doppler_solver_error_code_to_str:0000003c $t
+C:\msys64\tmp\cckRlgWa.s:1510   .text.lr11xx_gnss_doppler_solver_error_code_to_str:00000070 $d
+C:\msys64\tmp\cckRlgWa.s:1543   .text.lr11xx_gnss_almanac_status_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:1549   .text.lr11xx_gnss_almanac_status_to_str:00000000 lr11xx_gnss_almanac_status_to_str
+C:\msys64\tmp\cckRlgWa.s:1577   .text.lr11xx_gnss_almanac_status_to_str:0000001c $d
+C:\msys64\tmp\cckRlgWa.s:1583   .text.lr11xx_gnss_almanac_status_to_str:00000034 $t
+C:\msys64\tmp\cckRlgWa.s:1629   .text.lr11xx_gnss_almanac_status_to_str:0000005c $d
+ARM GAS  C:\msys64\tmp\cckRlgWa.s 			page 53
+
+
+C:\msys64\tmp\cckRlgWa.s:1647   .text.lr11xx_gnss_sv_type_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:1653   .text.lr11xx_gnss_sv_type_to_str:00000000 lr11xx_gnss_sv_type_to_str
+C:\msys64\tmp\cckRlgWa.s:1708   .text.lr11xx_gnss_sv_type_to_str:0000002c $d
+C:\msys64\tmp\cckRlgWa.s:1743   .text.lr11xx_gnss_scan_mode_launched_to_str:00000000 $t
+C:\msys64\tmp\cckRlgWa.s:1749   .text.lr11xx_gnss_scan_mode_launched_to_str:00000000 lr11xx_gnss_scan_mode_launched_to_str
+C:\msys64\tmp\cckRlgWa.s:1777   .text.lr11xx_gnss_scan_mode_launched_to_str:00000018 $d
+C:\msys64\tmp\cckRlgWa.s:1785   .text.lr11xx_gnss_scan_mode_launched_to_str:00000038 $t
+C:\msys64\tmp\cckRlgWa.s:1839   .text.lr11xx_gnss_scan_mode_launched_to_str:00000068 $d
+
+NO UNDEFINED SYMBOLS

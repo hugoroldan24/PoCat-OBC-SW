@@ -1,0 +1,166 @@
+ARM GAS  C:\msys64\tmp\ccY3iWqW.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lr11xx_driver_version.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c"
+  20              		.section	.rodata
+  21              		.align	2
+  22              	.LC0:
+  23 0000 76322E34 		.ascii	"v2.4.1\000"
+  23      2E3100
+  24              		.section	.text.lr11xx_driver_version_get_version_string,"ax",%progbits
+  25              		.align	1
+  26              		.global	lr11xx_driver_version_get_version_string
+  27              		.syntax unified
+  28              		.thumb
+  29              		.thumb_func
+  31              	lr11xx_driver_version_get_version_string:
+  32              	.LFB0:
+   1:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** /*!
+   2:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * @file      lr11xx_driver_version.c
+   3:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *
+   4:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * @brief     Placeholder to keep the version of LR11XX driver.
+   5:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *
+   6:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * The Clear BSD License
+   7:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * Copyright Semtech Corporation 2021. All rights reserved.
+   8:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *
+   9:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * below) provided that the following conditions are met:
+  12:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *       derived from this software without specific prior written permission.
+  20:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  *
+  21:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+ARM GAS  C:\msys64\tmp\ccY3iWqW.s 			page 2
+
+
+  26:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  31:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  */
+  34:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  35:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** /*
+  36:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * -----------------------------------------------------------------------------
+  37:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  */
+  39:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  40:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** #include "lr11xx_driver_version.h"
+  41:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  42:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** /*
+  43:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * -----------------------------------------------------------------------------
+  44:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  45:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  */
+  46:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  47:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** #define STR_HELPER( x ) #x
+  48:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** #define STR( x ) STR_HELPER( x )
+  49:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  50:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** #define LR11XX_DRIVER_VERSION_FULL \
+  51:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****     "v" STR( LR11XX_DRIVER_VERSION_MAJOR ) "." STR( LR11XX_DRIVER_VERSION_MINOR ) "." STR( LR11XX_D
+  52:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  53:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** /*
+  54:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * -----------------------------------------------------------------------------
+  55:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  56:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  */
+  57:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  58:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** /*
+  59:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * -----------------------------------------------------------------------------
+  60:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  61:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  */
+  62:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  63:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** /*
+  64:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * -----------------------------------------------------------------------------
+  65:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+  66:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  */
+  67:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  68:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** /*
+  69:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * -----------------------------------------------------------------------------
+  70:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+  71:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  */
+  72:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  73:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** /*
+  74:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * -----------------------------------------------------------------------------
+  75:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+  76:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****  */
+  77:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** 
+  78:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** const char* lr11xx_driver_version_get_version_string( void )
+  79:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** {
+  33              		.loc 1 79 1
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\msys64\tmp\ccY3iWqW.s 			page 3
+
+
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37              		@ link register save eliminated.
+  38 0000 80B4     		push	{r7}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 4
+  41              		.cfi_offset 7, -4
+  42 0002 00AF     		add	r7, sp, #0
+  43              	.LCFI1:
+  44              		.cfi_def_cfa_register 7
+  80:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c ****     return ( const char* ) LR11XX_DRIVER_VERSION_FULL;
+  45              		.loc 1 80 12
+  46 0004 024B     		ldr	r3, .L3
+  81:../../../../lr11xx/lr11xx_driver/src/lr11xx_driver_version.c **** }
+  47              		.loc 1 81 1
+  48 0006 1846     		mov	r0, r3
+  49 0008 BD46     		mov	sp, r7
+  50              	.LCFI2:
+  51              		.cfi_def_cfa_register 13
+  52              		@ sp needed
+  53 000a 5DF8047B 		ldr	r7, [sp], #4
+  54              	.LCFI3:
+  55              		.cfi_restore 7
+  56              		.cfi_def_cfa_offset 0
+  57 000e 7047     		bx	lr
+  58              	.L4:
+  59              		.align	2
+  60              	.L3:
+  61 0010 00000000 		.word	.LC0
+  62              		.cfi_endproc
+  63              	.LFE0:
+  65              		.text
+  66              	.Letext0:
+ARM GAS  C:\msys64\tmp\ccY3iWqW.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lr11xx_driver_version.c
+C:\msys64\tmp\ccY3iWqW.s:21     .rodata:00000000 $d
+C:\msys64\tmp\ccY3iWqW.s:25     .text.lr11xx_driver_version_get_version_string:00000000 $t
+C:\msys64\tmp\ccY3iWqW.s:31     .text.lr11xx_driver_version_get_version_string:00000000 lr11xx_driver_version_get_version_string
+C:\msys64\tmp\ccY3iWqW.s:61     .text.lr11xx_driver_version_get_version_string:00000010 $d
+
+NO UNDEFINED SYMBOLS

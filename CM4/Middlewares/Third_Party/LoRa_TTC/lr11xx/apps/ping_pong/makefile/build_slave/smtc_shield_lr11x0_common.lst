@@ -1,0 +1,728 @@
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"smtc_shield_lr11x0_common.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c"
+  20              		.section	.rodata.rttof_delay_indicator_table_below_600mhz,"a"
+  21              		.align	2
+  24              	rttof_delay_indicator_table_below_600mhz:
+  25 0000 A34A0000 		.word	19107
+  26 0004 B24A0000 		.word	19122
+  27 0008 A94A0000 		.word	19113
+  28 000c AA4A0000 		.word	19114
+  29 0010 A94A0000 		.word	19113
+  30 0014 AA4A0000 		.word	19114
+  31 0018 5C4A0000 		.word	19036
+  32 001c 504A0000 		.word	19024
+  33 0020 294F0000 		.word	20265
+  34 0024 374F0000 		.word	20279
+  35 0028 364F0000 		.word	20278
+  36 002c 314F0000 		.word	20273
+  37 0030 2E4F0000 		.word	20270
+  38 0034 304F0000 		.word	20272
+  39 0038 0C4F0000 		.word	20236
+  40 003c 084F0000 		.word	20232
+  41 0040 C64E0000 		.word	20166
+  42 0044 194F0000 		.word	20249
+  43 0048 404F0000 		.word	20288
+  44 004c 554F0000 		.word	20309
+  45 0050 5E4F0000 		.word	20318
+  46 0054 584F0000 		.word	20312
+  47 0058 474F0000 		.word	20295
+  48 005c 4A4F0000 		.word	20298
+  49              		.section	.rodata.rttof_delay_indicator_table_from_600mhz_to_2ghz,"a"
+  50              		.align	2
+  53              	rttof_delay_indicator_table_from_600mhz_to_2ghz:
+  54 0000 AB4A0000 		.word	19115
+  55 0004 A94A0000 		.word	19113
+  56 0008 B14A0000 		.word	19121
+  57 000c B74A0000 		.word	19127
+  58 0010 C54A0000 		.word	19141
+  59 0014 EA4A0000 		.word	19178
+  60 0018 5C4A0000 		.word	19036
+  61 001c 504A0000 		.word	19024
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 2
+
+
+  62 0020 294F0000 		.word	20265
+  63 0024 2A4F0000 		.word	20266
+  64 0028 374F0000 		.word	20279
+  65 002c 444F0000 		.word	20292
+  66 0030 0C4F0000 		.word	20236
+  67 0034 514F0000 		.word	20305
+  68 0038 0C4F0000 		.word	20236
+  69 003c 084F0000 		.word	20232
+  70 0040 BA4E0000 		.word	20154
+  71 0044 2C4F0000 		.word	20268
+  72 0048 4A4F0000 		.word	20298
+  73 004c 5F4F0000 		.word	20319
+  74 0050 634F0000 		.word	20323
+  75 0054 5A4F0000 		.word	20314
+  76 0058 474F0000 		.word	20295
+  77 005c 4A4F0000 		.word	20298
+  78              		.section	.rodata.rttof_delay_indicator_table_above_2ghz,"a"
+  79              		.align	2
+  82              	rttof_delay_indicator_table_above_2ghz:
+  83 0000 AE4A0000 		.word	19118
+  84 0004 B34A0000 		.word	19123
+  85 0008 B04A0000 		.word	19120
+  86 000c B44A0000 		.word	19124
+  87 0010 B14A0000 		.word	19121
+  88 0014 AF4A0000 		.word	19119
+  89 0018 5C4A0000 		.word	19036
+  90 001c 504A0000 		.word	19024
+  91 0020 FD4E0000 		.word	20221
+  92 0024 064F0000 		.word	20230
+  93 0028 024F0000 		.word	20226
+  94 002c 074F0000 		.word	20231
+  95 0030 0C4F0000 		.word	20236
+  96 0034 FF4E0000 		.word	20223
+  97 0038 0C4F0000 		.word	20236
+  98 003c 084F0000 		.word	20232
+  99 0040 AF4E0000 		.word	20143
+ 100 0044 064F0000 		.word	20230
+ 101 0048 1C4F0000 		.word	20252
+ 102 004c 3C4F0000 		.word	20284
+ 103 0050 514F0000 		.word	20305
+ 104 0054 404F0000 		.word	20288
+ 105 0058 474F0000 		.word	20295
+ 106 005c 4A4F0000 		.word	20298
+ 107              		.global	smtc_shield_lr11x0_common_xosc_cfg
+ 108              		.section	.rodata.smtc_shield_lr11x0_common_xosc_cfg,"a"
+ 109              		.align	2
+ 112              	smtc_shield_lr11x0_common_xosc_cfg:
+ 113 0000 01       		.byte	1
+ 114 0001 06       		.byte	6
+ 115 0002 0000     		.space	2
+ 116 0004 2C010000 		.word	300
+ 117              		.section	.text.smtc_shield_lr11x0_common_get_xosc_cfg,"ax",%progbits
+ 118              		.align	1
+ 119              		.global	smtc_shield_lr11x0_common_get_xosc_cfg
+ 120              		.syntax unified
+ 121              		.thumb
+ 122              		.thumb_func
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 3
+
+
+ 124              	smtc_shield_lr11x0_common_get_xosc_cfg:
+ 125              	.LFB1:
+   1:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*!
+   2:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * @file      smtc_shield_lr11x0_common.c
+   3:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *
+   4:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * @brief     Implementation common to LR11x0 shield
+   5:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *
+   6:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * The Clear BSD License
+   7:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   8:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *
+   9:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * below) provided that the following conditions are met:
+  12:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *       derived from this software without specific prior written permission.
+  20:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  *
+  21:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  26:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  31:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+  34:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  35:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*
+  36:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * -----------------------------------------------------------------------------
+  37:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+  39:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  40:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** #include <stddef.h>
+  41:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** #include <stdbool.h>
+  42:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** #include <stdint.h>
+  43:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** #include "smtc_shield_lr11xx_types.h"
+  44:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** #include "smtc_shield_lr11x0_common.h"
+  45:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  46:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*
+  47:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * -----------------------------------------------------------------------------
+  48:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  49:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+  50:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  51:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*!
+  52:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * @brief Recommanded for frequency from 430MHz to 510MHz
+  53:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+  54:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** static const uint32_t rttof_delay_indicator_table_below_600mhz[3][8] = {
+  55:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     /* SF5,  SF6,   SF7,   SF8,   SF9,   SF10,  SF11,  SF12 */
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 4
+
+
+  56:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     { 19107, 19122, 19113, 19114, 19113, 19114, 19036, 19024 },  // BW125
+  57:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     { 20265, 20279, 20278, 20273, 20270, 20272, 20236, 20232 },  // BW250
+  58:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     { 20166, 20249, 20288, 20309, 20318, 20312, 20295, 20298 },  // BW500
+  59:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** };
+  60:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  61:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*!
+  62:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * @brief Recommanded for frequency from 860MHz to 928MHz
+  63:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+  64:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** static const uint32_t rttof_delay_indicator_table_from_600mhz_to_2ghz[3][8] = {
+  65:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     /* SF5,  SF6,   SF7,   SF8,   SF9,   SF10,  SF11,  SF12 */
+  66:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     { 19115, 19113, 19121, 19127, 19141, 19178, 19036, 19024 },  // BW125
+  67:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     { 20265, 20266, 20279, 20292, 20236, 20305, 20236, 20232 },  // BW250
+  68:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     { 20154, 20268, 20298, 20319, 20323, 20314, 20295, 20298 },  // BW500
+  69:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** };
+  70:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  71:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*!
+  72:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * @brief Recommanded for 2.4G frequency
+  73:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+  74:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** static const uint32_t rttof_delay_indicator_table_above_2ghz[3][8] = {
+  75:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     /* SF5,  SF6,   SF7,   SF8,   SF9,   SF10,  SF11,  SF12 */
+  76:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     { 19118, 19123, 19120, 19124, 19121, 19119, 19036, 19024 },  // BW125
+  77:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     { 20221, 20230, 20226, 20231, 20236, 20223, 20236, 20232 },  // BW250
+  78:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     { 20143, 20230, 20252, 20284, 20305, 20288, 20295, 20298 },  // BW500
+  79:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** };
+  80:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  81:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*
+  82:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * -----------------------------------------------------------------------------
+  83:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  84:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+  85:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  86:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** const smtc_shield_lr11xx_xosc_cfg_t smtc_shield_lr11x0_common_xosc_cfg = {
+  87:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     .has_tcxo             = true,
+  88:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     .supply               = LR11XX_SYSTEM_TCXO_CTRL_3_0V,
+  89:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     .startup_time_in_tick = 300,
+  90:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** };
+  91:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  92:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*
+  93:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * -----------------------------------------------------------------------------
+  94:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  95:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+  96:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+  97:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*
+  98:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * -----------------------------------------------------------------------------
+  99:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+ 100:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+ 101:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 102:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*
+ 103:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * -----------------------------------------------------------------------------
+ 104:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+ 105:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+ 106:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 107:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*
+ 108:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * -----------------------------------------------------------------------------
+ 109:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * --- PUBLIC VARIABLES --------------------------------------------------------
+ 110:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+ 111:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 112:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** /*
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 5
+
+
+ 113:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * -----------------------------------------------------------------------------
+ 114:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+ 115:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****  */
+ 116:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 117:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** const smtc_shield_lr11xx_xosc_cfg_t* smtc_shield_lr11x0_common_get_xosc_cfg( void )
+ 118:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** {
+ 126              		.loc 1 118 1
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 1, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+ 131 0000 80B4     		push	{r7}
+ 132              	.LCFI0:
+ 133              		.cfi_def_cfa_offset 4
+ 134              		.cfi_offset 7, -4
+ 135 0002 00AF     		add	r7, sp, #0
+ 136              	.LCFI1:
+ 137              		.cfi_def_cfa_register 7
+ 119:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     return &smtc_shield_lr11x0_common_xosc_cfg;
+ 138              		.loc 1 119 12
+ 139 0004 024B     		ldr	r3, .L3
+ 120:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** }
+ 140              		.loc 1 120 1
+ 141 0006 1846     		mov	r0, r3
+ 142 0008 BD46     		mov	sp, r7
+ 143              	.LCFI2:
+ 144              		.cfi_def_cfa_register 13
+ 145              		@ sp needed
+ 146 000a 5DF8047B 		ldr	r7, [sp], #4
+ 147              	.LCFI3:
+ 148              		.cfi_restore 7
+ 149              		.cfi_def_cfa_offset 0
+ 150 000e 7047     		bx	lr
+ 151              	.L4:
+ 152              		.align	2
+ 153              	.L3:
+ 154 0010 00000000 		.word	smtc_shield_lr11x0_common_xosc_cfg
+ 155              		.cfi_endproc
+ 156              	.LFE1:
+ 158              		.section	.text.smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator,"ax",%progbits
+ 159              		.align	1
+ 160              		.global	smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator
+ 161              		.syntax unified
+ 162              		.thumb
+ 163              		.thumb_func
+ 165              	smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator:
+ 166              	.LFB2:
+ 121:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 122:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** bool smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator( uint32_t               rf_f
+ 123:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****                                                                         lr11xx_radio_lora_bw_t bw,
+ 124:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****                                                                         lr11xx_radio_lora_sf_t sf,
+ 125:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****                                                                         uint32_t*              dela
+ 126:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** {
+ 167              		.loc 1 126 1
+ 168              		.cfi_startproc
+ 169              		@ args = 0, pretend = 0, frame = 24
+ 170              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 6
+
+
+ 171              		@ link register save eliminated.
+ 172 0000 80B4     		push	{r7}
+ 173              	.LCFI4:
+ 174              		.cfi_def_cfa_offset 4
+ 175              		.cfi_offset 7, -4
+ 176 0002 87B0     		sub	sp, sp, #28
+ 177              	.LCFI5:
+ 178              		.cfi_def_cfa_offset 32
+ 179 0004 00AF     		add	r7, sp, #0
+ 180              	.LCFI6:
+ 181              		.cfi_def_cfa_register 7
+ 182 0006 F860     		str	r0, [r7, #12]
+ 183 0008 7B60     		str	r3, [r7, #4]
+ 184 000a 0B46     		mov	r3, r1
+ 185 000c FB72     		strb	r3, [r7, #11]
+ 186 000e 1346     		mov	r3, r2
+ 187 0010 BB72     		strb	r3, [r7, #10]
+ 127:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     uint8_t row_index;
+ 128:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     uint8_t column_index;
+ 129:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 130:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     *delay_indicator = 0u;
+ 188              		.loc 1 130 22
+ 189 0012 7B68     		ldr	r3, [r7, #4]
+ 190 0014 0022     		movs	r2, #0
+ 191 0016 1A60     		str	r2, [r3]
+ 131:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 132:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     switch( bw )
+ 192              		.loc 1 132 5
+ 193 0018 FB7A     		ldrb	r3, [r7, #11]	@ zero_extendqisi2
+ 194 001a 062B     		cmp	r3, #6
+ 195 001c 0CD0     		beq	.L6
+ 196 001e 062B     		cmp	r3, #6
+ 197 0020 0DDC     		bgt	.L7
+ 198 0022 042B     		cmp	r3, #4
+ 199 0024 02D0     		beq	.L8
+ 200 0026 052B     		cmp	r3, #5
+ 201 0028 03D0     		beq	.L9
+ 202 002a 08E0     		b	.L7
+ 203              	.L8:
+ 133:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     {
+ 134:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_BW_125:
+ 135:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         row_index = 0;
+ 204              		.loc 1 135 19
+ 205 002c 0023     		movs	r3, #0
+ 206 002e FB75     		strb	r3, [r7, #23]
+ 136:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 207              		.loc 1 136 9
+ 208 0030 07E0     		b	.L10
+ 209              	.L9:
+ 137:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_BW_250:
+ 138:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         row_index = 1;
+ 210              		.loc 1 138 19
+ 211 0032 0123     		movs	r3, #1
+ 212 0034 FB75     		strb	r3, [r7, #23]
+ 139:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 213              		.loc 1 139 9
+ 214 0036 04E0     		b	.L10
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 7
+
+
+ 215              	.L6:
+ 140:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_BW_500:
+ 141:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         row_index = 2;
+ 216              		.loc 1 141 19
+ 217 0038 0223     		movs	r3, #2
+ 218 003a FB75     		strb	r3, [r7, #23]
+ 142:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 219              		.loc 1 142 9
+ 220 003c 01E0     		b	.L10
+ 221              	.L7:
+ 143:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     default:
+ 144:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         return false;
+ 222              		.loc 1 144 16
+ 223 003e 0023     		movs	r3, #0
+ 224 0040 5AE0     		b	.L11
+ 225              	.L10:
+ 145:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     }
+ 146:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 147:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     switch( sf )
+ 226              		.loc 1 147 5
+ 227 0042 BB7A     		ldrb	r3, [r7, #10]	@ zero_extendqisi2
+ 228 0044 053B     		subs	r3, r3, #5
+ 229 0046 072B     		cmp	r3, #7
+ 230 0048 2AD8     		bhi	.L12
+ 231 004a 01A2     		adr	r2, .L14
+ 232 004c 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 233              		.p2align 2
+ 234              	.L14:
+ 235 0050 71000000 		.word	.L21+1
+ 236 0054 77000000 		.word	.L20+1
+ 237 0058 7D000000 		.word	.L19+1
+ 238 005c 83000000 		.word	.L18+1
+ 239 0060 89000000 		.word	.L17+1
+ 240 0064 8F000000 		.word	.L16+1
+ 241 0068 95000000 		.word	.L15+1
+ 242 006c 9B000000 		.word	.L13+1
+ 243              		.p2align 1
+ 244              	.L21:
+ 148:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     {
+ 149:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_SF5:
+ 150:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         column_index = 0;
+ 245              		.loc 1 150 22
+ 246 0070 0023     		movs	r3, #0
+ 247 0072 BB75     		strb	r3, [r7, #22]
+ 151:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 248              		.loc 1 151 9
+ 249 0074 16E0     		b	.L22
+ 250              	.L20:
+ 152:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_SF6:
+ 153:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         column_index = 1;
+ 251              		.loc 1 153 22
+ 252 0076 0123     		movs	r3, #1
+ 253 0078 BB75     		strb	r3, [r7, #22]
+ 154:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 254              		.loc 1 154 9
+ 255 007a 13E0     		b	.L22
+ 256              	.L19:
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 8
+
+
+ 155:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_SF7:
+ 156:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         column_index = 2;
+ 257              		.loc 1 156 22
+ 258 007c 0223     		movs	r3, #2
+ 259 007e BB75     		strb	r3, [r7, #22]
+ 157:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 260              		.loc 1 157 9
+ 261 0080 10E0     		b	.L22
+ 262              	.L18:
+ 158:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_SF8:
+ 159:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         column_index = 3;
+ 263              		.loc 1 159 22
+ 264 0082 0323     		movs	r3, #3
+ 265 0084 BB75     		strb	r3, [r7, #22]
+ 160:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 266              		.loc 1 160 9
+ 267 0086 0DE0     		b	.L22
+ 268              	.L17:
+ 161:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_SF9:
+ 162:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         column_index = 4;
+ 269              		.loc 1 162 22
+ 270 0088 0423     		movs	r3, #4
+ 271 008a BB75     		strb	r3, [r7, #22]
+ 163:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 272              		.loc 1 163 9
+ 273 008c 0AE0     		b	.L22
+ 274              	.L16:
+ 164:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_SF10:
+ 165:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         column_index = 5;
+ 275              		.loc 1 165 22
+ 276 008e 0523     		movs	r3, #5
+ 277 0090 BB75     		strb	r3, [r7, #22]
+ 166:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 278              		.loc 1 166 9
+ 279 0092 07E0     		b	.L22
+ 280              	.L15:
+ 167:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_SF11:
+ 168:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         column_index = 6;
+ 281              		.loc 1 168 22
+ 282 0094 0623     		movs	r3, #6
+ 283 0096 BB75     		strb	r3, [r7, #22]
+ 169:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 284              		.loc 1 169 9
+ 285 0098 04E0     		b	.L22
+ 286              	.L13:
+ 170:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     case LR11XX_RADIO_LORA_SF12:
+ 171:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         column_index = 7;
+ 287              		.loc 1 171 22
+ 288 009a 0723     		movs	r3, #7
+ 289 009c BB75     		strb	r3, [r7, #22]
+ 172:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         break;
+ 290              		.loc 1 172 9
+ 291 009e 01E0     		b	.L22
+ 292              	.L12:
+ 173:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     default:
+ 174:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         return false;
+ 293              		.loc 1 174 16
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 9
+
+
+ 294 00a0 0023     		movs	r3, #0
+ 295 00a2 29E0     		b	.L11
+ 296              	.L22:
+ 175:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     }
+ 176:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 177:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     if( rf_freq_in_hz < 600000000 )
+ 297              		.loc 1 177 7
+ 298 00a4 FB68     		ldr	r3, [r7, #12]
+ 299 00a6 174A     		ldr	r2, .L26
+ 300 00a8 9342     		cmp	r3, r2
+ 301 00aa 09D8     		bhi	.L23
+ 178:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     {
+ 179:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         *delay_indicator = rttof_delay_indicator_table_below_600mhz[row_index][column_index];
+ 302              		.loc 1 179 79
+ 303 00ac FA7D     		ldrb	r2, [r7, #23]	@ zero_extendqisi2
+ 304 00ae BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
+ 305 00b0 1549     		ldr	r1, .L26+4
+ 306 00b2 D200     		lsls	r2, r2, #3
+ 307 00b4 1344     		add	r3, r3, r2
+ 308 00b6 51F82320 		ldr	r2, [r1, r3, lsl #2]
+ 309              		.loc 1 179 26
+ 310 00ba 7B68     		ldr	r3, [r7, #4]
+ 311 00bc 1A60     		str	r2, [r3]
+ 312 00be 1AE0     		b	.L24
+ 313              	.L23:
+ 180:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     }
+ 181:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     else if( ( 600000000 <= rf_freq_in_hz ) && ( rf_freq_in_hz < 2000000000 ) )
+ 314              		.loc 1 181 12
+ 315 00c0 FB68     		ldr	r3, [r7, #12]
+ 316 00c2 104A     		ldr	r2, .L26
+ 317 00c4 9342     		cmp	r3, r2
+ 318 00c6 0DD9     		bls	.L25
+ 319              		.loc 1 181 45 discriminator 1
+ 320 00c8 FB68     		ldr	r3, [r7, #12]
+ 321 00ca 104A     		ldr	r2, .L26+8
+ 322 00cc 9342     		cmp	r3, r2
+ 323 00ce 09D8     		bhi	.L25
+ 182:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     {
+ 183:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         *delay_indicator = rttof_delay_indicator_table_from_600mhz_to_2ghz[row_index][column_index]
+ 324              		.loc 1 183 86
+ 325 00d0 FA7D     		ldrb	r2, [r7, #23]	@ zero_extendqisi2
+ 326 00d2 BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
+ 327 00d4 0E49     		ldr	r1, .L26+12
+ 328 00d6 D200     		lsls	r2, r2, #3
+ 329 00d8 1344     		add	r3, r3, r2
+ 330 00da 51F82320 		ldr	r2, [r1, r3, lsl #2]
+ 331              		.loc 1 183 26
+ 332 00de 7B68     		ldr	r3, [r7, #4]
+ 333 00e0 1A60     		str	r2, [r3]
+ 334 00e2 08E0     		b	.L24
+ 335              	.L25:
+ 184:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     }
+ 185:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     else
+ 186:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     {
+ 187:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****         *delay_indicator = rttof_delay_indicator_table_above_2ghz[row_index][column_index];
+ 336              		.loc 1 187 77
+ 337 00e4 FA7D     		ldrb	r2, [r7, #23]	@ zero_extendqisi2
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 10
+
+
+ 338 00e6 BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
+ 339 00e8 0A49     		ldr	r1, .L26+16
+ 340 00ea D200     		lsls	r2, r2, #3
+ 341 00ec 1344     		add	r3, r3, r2
+ 342 00ee 51F82320 		ldr	r2, [r1, r3, lsl #2]
+ 343              		.loc 1 187 26
+ 344 00f2 7B68     		ldr	r3, [r7, #4]
+ 345 00f4 1A60     		str	r2, [r3]
+ 346              	.L24:
+ 188:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     }
+ 189:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 190:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     return true;
+ 347              		.loc 1 190 12
+ 348 00f6 0123     		movs	r3, #1
+ 349              	.L11:
+ 191:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** }
+ 350              		.loc 1 191 1
+ 351 00f8 1846     		mov	r0, r3
+ 352 00fa 1C37     		adds	r7, r7, #28
+ 353              	.LCFI7:
+ 354              		.cfi_def_cfa_offset 4
+ 355 00fc BD46     		mov	sp, r7
+ 356              	.LCFI8:
+ 357              		.cfi_def_cfa_register 13
+ 358              		@ sp needed
+ 359 00fe 5DF8047B 		ldr	r7, [sp], #4
+ 360              	.LCFI9:
+ 361              		.cfi_restore 7
+ 362              		.cfi_def_cfa_offset 0
+ 363 0102 7047     		bx	lr
+ 364              	.L27:
+ 365              		.align	2
+ 366              	.L26:
+ 367 0104 FF45C323 		.word	599999999
+ 368 0108 00000000 		.word	rttof_delay_indicator_table_below_600mhz
+ 369 010c FF933577 		.word	1999999999
+ 370 0110 00000000 		.word	rttof_delay_indicator_table_from_600mhz_to_2ghz
+ 371 0114 00000000 		.word	rttof_delay_indicator_table_above_2ghz
+ 372              		.cfi_endproc
+ 373              	.LFE2:
+ 375              		.section	.text.smtc_shield_lr11x0_common_gnss_consumption_instantaneous_value,"ax",%progbits
+ 376              		.align	1
+ 377              		.global	smtc_shield_lr11x0_common_gnss_consumption_instantaneous_value
+ 378              		.syntax unified
+ 379              		.thumb
+ 380              		.thumb_func
+ 382              	smtc_shield_lr11x0_common_gnss_consumption_instantaneous_value:
+ 383              	.LFB3:
+ 192:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** 
+ 193:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** void smtc_shield_lr11x0_common_gnss_consumption_instantaneous_value(
+ 194:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     lr11xx_gnss_instantaneous_power_consumption_ua_t* instantaneous_power_consumption_ua )
+ 195:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** {
+ 384              		.loc 1 195 1
+ 385              		.cfi_startproc
+ 386              		@ args = 0, pretend = 0, frame = 8
+ 387              		@ frame_needed = 1, uses_anonymous_args = 0
+ 388              		@ link register save eliminated.
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 11
+
+
+ 389 0000 80B4     		push	{r7}
+ 390              	.LCFI10:
+ 391              		.cfi_def_cfa_offset 4
+ 392              		.cfi_offset 7, -4
+ 393 0002 83B0     		sub	sp, sp, #12
+ 394              	.LCFI11:
+ 395              		.cfi_def_cfa_offset 16
+ 396 0004 00AF     		add	r7, sp, #0
+ 397              	.LCFI12:
+ 398              		.cfi_def_cfa_register 7
+ 399 0006 7860     		str	r0, [r7, #4]
+ 196:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     /* These value are for EVK board in DC DC mode with Xtal 32KHz and a TCXO 32MHz*/
+ 197:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->board_voltage_mv            = 3300;
+ 400              		.loc 1 197 69
+ 401 0008 7B68     		ldr	r3, [r7, #4]
+ 402 000a 40F6E442 		movw	r2, #3300
+ 403 000e 1A80     		strh	r2, [r3]	@ movhi
+ 198:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->init_ua                     = 3150;
+ 404              		.loc 1 198 69
+ 405 0010 7B68     		ldr	r3, [r7, #4]
+ 406 0012 40F64E42 		movw	r2, #3150
+ 407 0016 5A80     		strh	r2, [r3, #2]	@ movhi
+ 199:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->phase1_gps_capture_ua       = 11900;
+ 408              		.loc 1 199 69
+ 409 0018 7B68     		ldr	r3, [r7, #4]
+ 410 001a 42F67C62 		movw	r2, #11900
+ 411 001e 9A80     		strh	r2, [r3, #4]	@ movhi
+ 200:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->phase1_gps_process_ua       = 3340;
+ 412              		.loc 1 200 69
+ 413 0020 7B68     		ldr	r3, [r7, #4]
+ 414 0022 40F60C52 		movw	r2, #3340
+ 415 0026 DA80     		strh	r2, [r3, #6]	@ movhi
+ 201:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->multiscan_gps_capture_ua    = 10700;
+ 416              		.loc 1 201 69
+ 417 0028 7B68     		ldr	r3, [r7, #4]
+ 418 002a 42F6CC12 		movw	r2, #10700
+ 419 002e 1A81     		strh	r2, [r3, #8]	@ movhi
+ 202:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->multiscan_gps_process_ua    = 4180;
+ 420              		.loc 1 202 69
+ 421 0030 7B68     		ldr	r3, [r7, #4]
+ 422 0032 41F25402 		movw	r2, #4180
+ 423 0036 5A81     		strh	r2, [r3, #10]	@ movhi
+ 203:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->phase1_beidou_capture_ua    = 13500;
+ 424              		.loc 1 203 69
+ 425 0038 7B68     		ldr	r3, [r7, #4]
+ 426 003a 43F2BC42 		movw	r2, #13500
+ 427 003e 9A81     		strh	r2, [r3, #12]	@ movhi
+ 204:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->phase1_beidou_process_ua    = 3190;
+ 428              		.loc 1 204 69
+ 429 0040 7B68     		ldr	r3, [r7, #4]
+ 430 0042 40F67642 		movw	r2, #3190
+ 431 0046 DA81     		strh	r2, [r3, #14]	@ movhi
+ 205:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->multiscan_beidou_capture_ua = 12600;
+ 432              		.loc 1 205 69
+ 433 0048 7B68     		ldr	r3, [r7, #4]
+ 434 004a 43F23812 		movw	r2, #12600
+ 435 004e 1A82     		strh	r2, [r3, #16]	@ movhi
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 12
+
+
+ 206:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->multiscan_beidou_process_ua = 3430;
+ 436              		.loc 1 206 69
+ 437 0050 7B68     		ldr	r3, [r7, #4]
+ 438 0052 40F66652 		movw	r2, #3430
+ 439 0056 5A82     		strh	r2, [r3, #18]	@ movhi
+ 207:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->sleep_32k_ua                = 1210;
+ 440              		.loc 1 207 69
+ 441 0058 7B68     		ldr	r3, [r7, #4]
+ 442 005a 40F2BA42 		movw	r2, #1210
+ 443 005e 9A82     		strh	r2, [r3, #20]	@ movhi
+ 208:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c ****     instantaneous_power_consumption_ua->demod_sleep_32m_ua          = 2530;
+ 444              		.loc 1 208 69
+ 445 0060 7B68     		ldr	r3, [r7, #4]
+ 446 0062 40F6E212 		movw	r2, #2530
+ 447 0066 DA82     		strh	r2, [r3, #22]	@ movhi
+ 209:../../../../libs/smtc-shields/lr11xx/src/smtc_shield_lr11x0_common.c **** }
+ 448              		.loc 1 209 1
+ 449 0068 00BF     		nop
+ 450 006a 0C37     		adds	r7, r7, #12
+ 451              	.LCFI13:
+ 452              		.cfi_def_cfa_offset 4
+ 453 006c BD46     		mov	sp, r7
+ 454              	.LCFI14:
+ 455              		.cfi_def_cfa_register 13
+ 456              		@ sp needed
+ 457 006e 5DF8047B 		ldr	r7, [sp], #4
+ 458              	.LCFI15:
+ 459              		.cfi_restore 7
+ 460              		.cfi_def_cfa_offset 0
+ 461 0072 7047     		bx	lr
+ 462              		.cfi_endproc
+ 463              	.LFE3:
+ 465              		.text
+ 466              	.Letext0:
+ 467              		.file 2 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/machin
+ 468              		.file 3 "C:/Users/labot/Downloads/TTC/TTC/arm-gnu-toolchain-14.2.rel1/arm-none-eabi/include/sys/_s
+ 469              		.file 4 "../../../../lr11xx/lr11xx_driver/src/lr11xx_system_types.h"
+ 470              		.file 5 "../../../../lr11xx/lr11xx_driver/src/lr11xx_radio_types.h"
+ 471              		.file 6 "../../../../lr11xx/lr11xx_driver/src/lr11xx_gnss_types.h"
+ 472              		.file 7 "../../../../libs/smtc-shields/lr11xx/inc/smtc_shield_lr11xx_types.h"
+ARM GAS  C:\msys64\tmp\ccSKFjMm.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 smtc_shield_lr11x0_common.c
+C:\msys64\tmp\ccSKFjMm.s:21     .rodata.rttof_delay_indicator_table_below_600mhz:00000000 $d
+C:\msys64\tmp\ccSKFjMm.s:24     .rodata.rttof_delay_indicator_table_below_600mhz:00000000 rttof_delay_indicator_table_below_600mhz
+C:\msys64\tmp\ccSKFjMm.s:50     .rodata.rttof_delay_indicator_table_from_600mhz_to_2ghz:00000000 $d
+C:\msys64\tmp\ccSKFjMm.s:53     .rodata.rttof_delay_indicator_table_from_600mhz_to_2ghz:00000000 rttof_delay_indicator_table_from_600mhz_to_2ghz
+C:\msys64\tmp\ccSKFjMm.s:79     .rodata.rttof_delay_indicator_table_above_2ghz:00000000 $d
+C:\msys64\tmp\ccSKFjMm.s:82     .rodata.rttof_delay_indicator_table_above_2ghz:00000000 rttof_delay_indicator_table_above_2ghz
+C:\msys64\tmp\ccSKFjMm.s:112    .rodata.smtc_shield_lr11x0_common_xosc_cfg:00000000 smtc_shield_lr11x0_common_xosc_cfg
+C:\msys64\tmp\ccSKFjMm.s:109    .rodata.smtc_shield_lr11x0_common_xosc_cfg:00000000 $d
+C:\msys64\tmp\ccSKFjMm.s:118    .text.smtc_shield_lr11x0_common_get_xosc_cfg:00000000 $t
+C:\msys64\tmp\ccSKFjMm.s:124    .text.smtc_shield_lr11x0_common_get_xosc_cfg:00000000 smtc_shield_lr11x0_common_get_xosc_cfg
+C:\msys64\tmp\ccSKFjMm.s:154    .text.smtc_shield_lr11x0_common_get_xosc_cfg:00000010 $d
+C:\msys64\tmp\ccSKFjMm.s:159    .text.smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator:00000000 $t
+C:\msys64\tmp\ccSKFjMm.s:165    .text.smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator:00000000 smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator
+C:\msys64\tmp\ccSKFjMm.s:235    .text.smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator:00000050 $d
+C:\msys64\tmp\ccSKFjMm.s:243    .text.smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator:00000070 $t
+C:\msys64\tmp\ccSKFjMm.s:367    .text.smtc_shield_lr11x0_common_rttof_recommended_rx_tx_delay_indicator:00000104 $d
+C:\msys64\tmp\ccSKFjMm.s:376    .text.smtc_shield_lr11x0_common_gnss_consumption_instantaneous_value:00000000 $t
+C:\msys64\tmp\ccSKFjMm.s:382    .text.smtc_shield_lr11x0_common_gnss_consumption_instantaneous_value:00000000 smtc_shield_lr11x0_common_gnss_consumption_instantaneous_value
+
+NO UNDEFINED SYMBOLS

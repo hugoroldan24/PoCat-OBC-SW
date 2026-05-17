@@ -1,0 +1,203 @@
+ARM GAS  C:\msys64\tmp\ccOE6jyS.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"common_version.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "../../../common/src/common_version.c"
+  20              		.section	.rodata
+  21              		.align	2
+  22              	.LC0:
+  23 0000 76322E33 		.ascii	"v2.3.0\000"
+  23      2E3000
+  24              		.section	.data.apps_modem_common_sdk_version,"aw"
+  25              		.align	2
+  28              	apps_modem_common_sdk_version:
+  29 0000 00000000 		.word	.LC0
+  30              		.section	.rodata
+  31 0007 00       		.align	2
+  32              	.LC1:
+  33 0008 1B5B303B 		.ascii	"\033[0;32m\000"
+  33      33326D00 
+  34              		.align	2
+  35              	.LC2:
+  36 0010 494E464F 		.ascii	"INFO: \000"
+  36      3A2000
+  37 0017 00       		.align	2
+  38              	.LC3:
+  39 0018 53444B20 		.ascii	"SDK version: %s\012\000"
+  39      76657273 
+  39      696F6E3A 
+  39      2025730A 
+  39      00
+  40 0029 000000   		.align	2
+  41              	.LC4:
+  42 002c 1B5B306D 		.ascii	"\033[0m\000"
+  42      00
+  43              		.section	.text.common_version_print,"ax",%progbits
+  44              		.align	1
+  45              		.global	common_version_print
+  46              		.syntax unified
+  47              		.thumb
+  48              		.thumb_func
+  50              	common_version_print:
+  51              	.LFB0:
+   1:../../../common/src/common_version.c **** /*!
+ARM GAS  C:\msys64\tmp\ccOE6jyS.s 			page 2
+
+
+   2:../../../common/src/common_version.c ****  * @file      common_version.c
+   3:../../../common/src/common_version.c ****  *
+   4:../../../common/src/common_version.c ****  * @brief     SDK version related helper functions
+   5:../../../common/src/common_version.c ****  *
+   6:../../../common/src/common_version.c ****  * The Clear BSD License
+   7:../../../common/src/common_version.c ****  * Copyright Semtech Corporation 2023. All rights reserved.
+   8:../../../common/src/common_version.c ****  *
+   9:../../../common/src/common_version.c ****  * Redistribution and use in source and binary forms, with or without
+  10:../../../common/src/common_version.c ****  * modification, are permitted (subject to the limitations in the disclaimer
+  11:../../../common/src/common_version.c ****  * below) provided that the following conditions are met:
+  12:../../../common/src/common_version.c ****  *     * Redistributions of source code must retain the above copyright
+  13:../../../common/src/common_version.c ****  *       notice, this list of conditions and the following disclaimer.
+  14:../../../common/src/common_version.c ****  *     * Redistributions in binary form must reproduce the above copyright
+  15:../../../common/src/common_version.c ****  *       notice, this list of conditions and the following disclaimer in the
+  16:../../../common/src/common_version.c ****  *       documentation and/or other materials provided with the distribution.
+  17:../../../common/src/common_version.c ****  *     * Neither the name of the Semtech corporation nor the
+  18:../../../common/src/common_version.c ****  *       names of its contributors may be used to endorse or promote products
+  19:../../../common/src/common_version.c ****  *       derived from this software without specific prior written permission.
+  20:../../../common/src/common_version.c ****  *
+  21:../../../common/src/common_version.c ****  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+  22:../../../common/src/common_version.c ****  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:../../../common/src/common_version.c ****  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+  24:../../../common/src/common_version.c ****  * NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+  25:../../../common/src/common_version.c ****  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE
+  26:../../../common/src/common_version.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  27:../../../common/src/common_version.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  28:../../../common/src/common_version.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  29:../../../common/src/common_version.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  30:../../../common/src/common_version.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  31:../../../common/src/common_version.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:../../../common/src/common_version.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:../../../common/src/common_version.c ****  */
+  34:../../../common/src/common_version.c **** 
+  35:../../../common/src/common_version.c **** /*
+  36:../../../common/src/common_version.c ****  * -----------------------------------------------------------------------------
+  37:../../../common/src/common_version.c ****  * --- DEPENDENCIES ------------------------------------------------------------
+  38:../../../common/src/common_version.c ****  */
+  39:../../../common/src/common_version.c **** 
+  40:../../../common/src/common_version.c **** #include "common_version.h"
+  41:../../../common/src/common_version.c **** #include "smtc_hal_dbg_trace.h"
+  42:../../../common/src/common_version.c **** 
+  43:../../../common/src/common_version.c **** /*
+  44:../../../common/src/common_version.c ****  * -----------------------------------------------------------------------------
+  45:../../../common/src/common_version.c ****  * --- PRIVATE MACROS-----------------------------------------------------------
+  46:../../../common/src/common_version.c ****  */
+  47:../../../common/src/common_version.c **** 
+  48:../../../common/src/common_version.c **** /*
+  49:../../../common/src/common_version.c ****  * -----------------------------------------------------------------------------
+  50:../../../common/src/common_version.c ****  * --- PRIVATE CONSTANTS -------------------------------------------------------
+  51:../../../common/src/common_version.c ****  */
+  52:../../../common/src/common_version.c **** 
+  53:../../../common/src/common_version.c **** static const char* apps_modem_common_sdk_version = COMMON_SDK_VERSION;
+  54:../../../common/src/common_version.c **** 
+  55:../../../common/src/common_version.c **** /*
+  56:../../../common/src/common_version.c ****  * -----------------------------------------------------------------------------
+  57:../../../common/src/common_version.c ****  * --- PRIVATE TYPES -----------------------------------------------------------
+  58:../../../common/src/common_version.c ****  */
+ARM GAS  C:\msys64\tmp\ccOE6jyS.s 			page 3
+
+
+  59:../../../common/src/common_version.c **** 
+  60:../../../common/src/common_version.c **** /*
+  61:../../../common/src/common_version.c ****  * -----------------------------------------------------------------------------
+  62:../../../common/src/common_version.c ****  * --- PRIVATE VARIABLES -------------------------------------------------------
+  63:../../../common/src/common_version.c ****  */
+  64:../../../common/src/common_version.c **** 
+  65:../../../common/src/common_version.c **** /*
+  66:../../../common/src/common_version.c ****  * -----------------------------------------------------------------------------
+  67:../../../common/src/common_version.c ****  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
+  68:../../../common/src/common_version.c ****  */
+  69:../../../common/src/common_version.c **** 
+  70:../../../common/src/common_version.c **** /*
+  71:../../../common/src/common_version.c ****  * -----------------------------------------------------------------------------
+  72:../../../common/src/common_version.c ****  * --- PUBLIC FUNCTIONS DEFINITION ---------------------------------------------
+  73:../../../common/src/common_version.c ****  */
+  74:../../../common/src/common_version.c **** 
+  75:../../../common/src/common_version.c **** void common_version_print( void )
+  76:../../../common/src/common_version.c **** {
+  52              		.loc 1 76 1
+  53              		.cfi_startproc
+  54              		@ args = 0, pretend = 0, frame = 0
+  55              		@ frame_needed = 1, uses_anonymous_args = 0
+  56 0000 80B5     		push	{r7, lr}
+  57              	.LCFI0:
+  58              		.cfi_def_cfa_offset 8
+  59              		.cfi_offset 7, -8
+  60              		.cfi_offset 14, -4
+  61 0002 00AF     		add	r7, sp, #0
+  62              	.LCFI1:
+  63              		.cfi_def_cfa_register 7
+  77:../../../common/src/common_version.c ****     HAL_DBG_TRACE_INFO( "SDK version: %s\n", apps_modem_common_sdk_version );
+  64              		.loc 1 77 5
+  65 0004 0848     		ldr	r0, .L2
+  66 0006 FFF7FEFF 		bl	hal_mcu_trace_print
+  67              		.loc 1 77 5 is_stmt 0 discriminator 1
+  68 000a 0848     		ldr	r0, .L2+4
+  69 000c FFF7FEFF 		bl	hal_mcu_trace_print
+  70              		.loc 1 77 5 discriminator 2
+  71 0010 074B     		ldr	r3, .L2+8
+  72 0012 1B68     		ldr	r3, [r3]
+  73 0014 1946     		mov	r1, r3
+  74 0016 0748     		ldr	r0, .L2+12
+  75 0018 FFF7FEFF 		bl	hal_mcu_trace_print
+  76              		.loc 1 77 5 discriminator 3
+  77 001c 0648     		ldr	r0, .L2+16
+  78 001e FFF7FEFF 		bl	hal_mcu_trace_print
+  78:../../../common/src/common_version.c **** }
+  79              		.loc 1 78 1 is_stmt 1
+  80 0022 00BF     		nop
+  81 0024 80BD     		pop	{r7, pc}
+  82              	.L3:
+  83 0026 00BF     		.align	2
+  84              	.L2:
+  85 0028 08000000 		.word	.LC1
+  86 002c 10000000 		.word	.LC2
+  87 0030 00000000 		.word	apps_modem_common_sdk_version
+  88 0034 18000000 		.word	.LC3
+ARM GAS  C:\msys64\tmp\ccOE6jyS.s 			page 4
+
+
+  89 0038 2C000000 		.word	.LC4
+  90              		.cfi_endproc
+  91              	.LFE0:
+  93              		.text
+  94              	.Letext0:
+  95              		.file 2 "../../../common/inc/smtc_hal_dbg_trace.h"
+ARM GAS  C:\msys64\tmp\ccOE6jyS.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 common_version.c
+C:\msys64\tmp\ccOE6jyS.s:21     .rodata:00000000 $d
+C:\msys64\tmp\ccOE6jyS.s:25     .data.apps_modem_common_sdk_version:00000000 $d
+C:\msys64\tmp\ccOE6jyS.s:28     .data.apps_modem_common_sdk_version:00000000 apps_modem_common_sdk_version
+C:\msys64\tmp\ccOE6jyS.s:44     .text.common_version_print:00000000 $t
+C:\msys64\tmp\ccOE6jyS.s:50     .text.common_version_print:00000000 common_version_print
+C:\msys64\tmp\ccOE6jyS.s:85     .text.common_version_print:00000028 $d
+
+UNDEFINED SYMBOLS
+hal_mcu_trace_print
